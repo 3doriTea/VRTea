@@ -1,11 +1,11 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
-  <diagram name="ページ1" id="t6xkujhYv01HNUTutHJW">
+  <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Jn5u5wNkfJ0SZ1GRIk3F-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="Text" vertex="1">
-          <mxGeometry height="1080" width="1920" as="geometry" />
+        <mxCell id="Jn5u5wNkfJ0SZ1GRIk3F-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;fontSize=64;" value="About" vertex="1">
+          <mxGeometry height="90" width="1920" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
