@@ -1,11 +1,117 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
-  <diagram name="ページ1" id="t6xkujhYv01HNUTutHJW">
-    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="4">
+  <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
+    <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Jn5u5wNkfJ0SZ1GRIk3F-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="Text" vertex="1">
-          <mxGeometry height="1080" width="1920" as="geometry" />
+        <mxCell id="Jn5u5wNkfJ0SZ1GRIk3F-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;fontSize=64;" value="About：ここで仕様設計していく" vertex="1">
+          <mxGeometry height="90" width="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;" value="サーバー&lt;div&gt;C#&lt;/div&gt;" vertex="1">
+          <mxGeometry height="210" width="210" x="80" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;" value="クライアント&lt;div&gt;C++ DxLib 3D&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="280" x="530" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;" value="ブラウザ&lt;div&gt;HTML/&lt;/div&gt;&lt;div&gt;JavaScript/&lt;/div&gt;&lt;div&gt;CSS&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="630" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;fontSize=64;" value="&lt;font style=&quot;font-size: 32px;&quot;&gt;VRChatもどきを作る&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="640" x="30" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-8" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=top;overflow=hidden;fontSize=26;" value="&lt;ul&gt;&lt;li&gt;プレイヤー情報の共有&lt;/li&gt;&lt;ul&gt;&lt;li&gt;3D空間で座標/回転共有&lt;/li&gt;&lt;li&gt;名前の共有&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;アバター情報の共有&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="200" width="420" x="630" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-9" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=top;overflow=hidden;fontSize=26;" value="&lt;ul&gt;&lt;li&gt;通信の共通部分&lt;/li&gt;&lt;ul&gt;&lt;li&gt;ゲームデータのやりとり Json or バイナリ&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;ゲームの通信はTCP/UDP どこまで何を使う&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="220" width="630" x="1050" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-11" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;必要な機能&lt;/h1&gt;&lt;p&gt;必要な機能をとにかく列挙するスペース&lt;/p&gt;" vertex="1">
+          <mxGeometry height="1070" width="1920" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-15" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="分類" vertex="1">
+          <mxGeometry height="570" width="1320" x="120" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-16" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="UI(クライアント側)" vertex="1">
+          <mxGeometry height="260" width="1320" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-19" parent="vcEWjPsZrPV3Mg3HuliV-16" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;" value="チャット入力欄" vertex="1">
+          <mxGeometry height="60" width="120" x="140" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-20" parent="vcEWjPsZrPV3Mg3HuliV-16" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;" value="レチクル (画面中心のあれ)" vertex="1">
+          <mxGeometry height="70" width="200" x="320" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-17" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="Lane 2" vertex="1">
+          <mxGeometry height="170" width="1320" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-18" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="Lane 3" vertex="1">
+          <mxGeometry height="120" width="1320" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;" value="チャット入力欄" vertex="1">
+          <mxGeometry height="60" width="120" x="420" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="データベース&lt;div&gt;MySQL&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="30" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-4" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=35;startSize=10.98;endWidth=35;endSize=10.98;width=34;" target="b2A8eLxMkV6A6mz0qbX0-1" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="150" y="660" as="sourcePoint" />
+            <mxPoint x="250" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-14" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="MySqlConnection" vertex="1">
+          <mxGeometry relative="1" x="0.1575" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="HTML/&lt;div&gt;JavaScript/&lt;/div&gt;&lt;div&gt;CSS&lt;/div&gt;&lt;div&gt;ファイル&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="320" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-6" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=40;startSize=14.72;endWidth=53;endSize=12.975;width=38;" target="b2A8eLxMkV6A6mz0qbX0-5" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="428.90999999999997" y="670.31" as="sourcePoint" />
+            <mxPoint x="389.90999999999997" y="474.31" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-12" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="File.ReadAllText()" vertex="1">
+          <mxGeometry relative="1" x="0.0423" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-7" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=53;endSize=15.05;width=32;" target="vcEWjPsZrPV3Mg3HuliV-4" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="490.38" y="670.31" as="sourcePoint" />
+            <mxPoint x="587.38" y="530.31" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-10" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="UDP/TCP" vertex="1">
+          <mxGeometry relative="1" x="-0.0836" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-8" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=53;endSize=15.05;width=32;" target="vcEWjPsZrPV3Mg3HuliV-5" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="380.31" y="609.6" as="sourcePoint" />
+            <mxPoint x="526.31" y="684.6" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-9" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="TCP - HTTP" vertex="1">
+          <mxGeometry relative="1" x="0.0463" y="3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="&lt;div&gt;*.png/*.fbx&lt;br&gt;ファイル&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="920" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-16" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-4" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=53;endSize=15.05;width=32;" target="b2A8eLxMkV6A6mz0qbX0-15" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="839.62" y="796.08" as="sourcePoint" />
+            <mxPoint x="1097.62" y="900.08" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-17" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="UDP/TCP" vertex="1">
+          <mxGeometry relative="1" x="-0.0836" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
@@ -87,6 +193,28 @@
         <mxCell id="m7dreOPpXmCefqGXsiUq-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;GitHubの使い方&lt;/h1&gt;" vertex="1">
           <mxGeometry height="40" width="200" x="800" y="40" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="HbUAfDfSGYP-4ycvsCd9" name="要件定義">
+    <mxGraphModel dx="1226" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q4c5JSQTBk53ikuu7VWq-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;" value="" vertex="1">
+          <mxGeometry height="60" width="170" x="190" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="q4c5JSQTBk53ikuu7VWq-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;align=center;" value="&lt;h3 data-path-to-node=&quot;8&quot;&gt;覚え方のコツ&lt;/h3&gt;&lt;ul data-path-to-node=&quot;9&quot;&gt;&lt;li&gt;&lt;p data-path-to-node=&quot;9,0,0&quot; style=&quot;text-align: left;&quot;&gt;&lt;b data-path-to-node=&quot;9,0,0&quot; data-index-in-node=&quot;0&quot;&gt;機能要件：&lt;/b&gt; ユーザーが「あ、このボタンがある」「この機能が便利」と直接感じるもの。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p data-path-to-node=&quot;9,1,0&quot; style=&quot;text-align: left;&quot;&gt;&lt;b data-path-to-node=&quot;9,1,0&quot; data-index-in-node=&quot;0&quot;&gt;非機能要件：&lt;/b&gt; 当たり前すぎて意識されないが、**「遅い」「重い」「落ちる」**といったトラブルが起きたときに初めて重要性が痛感されるもの。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;by Gemini AI&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="600" x="40" y="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="8UTWq14QKF68mMzmvXWU" name="プレゼン内容">
+    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>

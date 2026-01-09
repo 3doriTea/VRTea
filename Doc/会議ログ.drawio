@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
+  <diagram name="概要" id="aznWL_Z3en04P55AGaew">
+    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Xu7HuEfYhxXbdJXwpeb1-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;fontSize=64;" value="About：会議のログはここに" vertex="1">
+          <mxGeometry height="90" width="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="Xu7HuEfYhxXbdJXwpeb1-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=128;" value="会議の内容すべてここに残す(これ大事)" vertex="1">
+          <mxGeometry height="420" width="1310" x="305" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="K-KHF2_UNzNjPcfJgl8D-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=128;" value="会議に結論を持っていかない" vertex="1">
+          <mxGeometry height="270" width="1750" x="120" y="750" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Ppznyvsdzz_Vopm2tfU0" name="25/01/09予定">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="z1AO4nrj5G6-JIzBp5EX-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面遷移図" vertex="1">
+          <mxGeometry height="80" width="500" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Q0XAuG4cb0_QVYuQWuZi-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="VRChatの概要" vertex="1">
+          <mxGeometry height="80" width="500" x="140" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="Q0XAuG4cb0_QVYuQWuZi-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="目的意識：「」" vertex="1">
+          <mxGeometry height="80" width="500" x="130" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="9goB-7L0CuKpzpwJ5_Qw-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面解像度：" vertex="1">
+          <mxGeometry height="80" width="500" x="120" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="9goB-7L0CuKpzpwJ5_Qw-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面解像度：" vertex="1">
+          <mxGeometry height="80" width="500" x="240" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="Js6shhUZcK2juY3r9TEY-2" edge="1" parent="1" source="Js6shhUZcK2juY3r9TEY-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Q0XAuG4cb0_QVYuQWuZi-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Js6shhUZcK2juY3r9TEY-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontSize=16;fontFamily=Cascadia Code;" value="候補：&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;「先生を驚かせる」/「校内伝説」&lt;/span&gt;&lt;div&gt;先生「今まで作った学生は～うーん、VRChatを作ってたねー」&lt;/div&gt;&lt;div&gt;学生（ざわざわ）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;候補：「VRChatを作る」&lt;/div&gt;" vertex="1">
+          <mxGeometry height="300" width="500" x="830" y="440" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
