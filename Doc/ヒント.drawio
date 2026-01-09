@@ -97,11 +97,17 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="vZicBRMXHch0rLbiWPhN-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="先に「&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;HTTPって？」のページを見てください！&lt;/span&gt;" vertex="1">
-          <mxGeometry height="40" width="300" x="120" y="80" as="geometry" />
+        <mxCell id="vZicBRMXHch0rLbiWPhN-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="先に「&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;HTTPって？」と「Jsonって？」のページを見てください！&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="400" x="120" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="I15pg9xXQb-Vvn4n3eV9-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="HTTPの例では、index.htmlという名前の、HTMLファイル(中身はテキスト)を返していたけど、jsonっていう形式のファイルで、C++でやった構造体を文字列とし" vertex="1">
-          <mxGeometry height="40" width="300" x="270" y="220" as="geometry" />
+        <mxCell id="I15pg9xXQb-Vvn4n3eV9-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="HTTPの例では、index.htmlという名前の、HTMLファイル(中身はテキスト)を返していた！&lt;div&gt;でもJsonっていう形式のテキストファイルで、C++でやった構造体を文字列として表現できた！&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;なら、アカウントの登録情報、サインイン情報とかも文字列として、&lt;/div&gt;&lt;div&gt;それをHTTPで送信できるのでは！？&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="540" x="240" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s3MENxSNlRsTAhkW-0Ce-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="結論　できる" vertex="1">
+          <mxGeometry height="90" width="540" x="230" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="s3MENxSNlRsTAhkW-0Ce-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="結論　できる" vertex="1">
+          <mxGeometry height="90" width="540" x="200" y="400" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
