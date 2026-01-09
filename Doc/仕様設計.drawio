@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
-    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="2605" dy="1405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -24,6 +24,9 @@
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-9" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=top;overflow=hidden;fontSize=26;" value="&lt;ul&gt;&lt;li&gt;通信の共通部分&lt;/li&gt;&lt;ul&gt;&lt;li&gt;ゲームデータのやりとり Json or バイナリ&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;" vertex="1">
           <mxGeometry height="220" width="630" x="1050" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-11" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;必要な機能&lt;/h1&gt;&lt;p&gt;必要な機能をとにかく列挙するスペース&lt;/p&gt;" vertex="1">
+          <mxGeometry height="1070" width="1920" y="1080" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
