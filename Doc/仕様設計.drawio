@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="4">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
-    <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -100,7 +100,18 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="b2A8eLxMkV6A6mz0qbX0-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="&lt;div&gt;*.png/*.fbx&lt;br&gt;ファイル&lt;/div&gt;" vertex="1">
-          <mxGeometry height="240" width="240" x="910" y="620" as="geometry" />
+          <mxGeometry height="240" width="240" x="920" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-16" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-4" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=53;endSize=15.05;width=32;" target="b2A8eLxMkV6A6mz0qbX0-15" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="839.62" y="796.08" as="sourcePoint" />
+            <mxPoint x="1097.62" y="900.08" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-17" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="UDP/TCP" vertex="1">
+          <mxGeometry relative="1" x="-0.0836" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
