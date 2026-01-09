@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
-    <mxGraphModel dx="2605" dy="1405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="906" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -27,6 +27,18 @@
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-11" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;必要な機能&lt;/h1&gt;&lt;p&gt;必要な機能をとにかく列挙するスペース&lt;/p&gt;" vertex="1">
           <mxGeometry height="1070" width="1920" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-15" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="分類" vertex="1">
+          <mxGeometry height="430" width="1320" x="80" y="1190" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-16" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="UI" vertex="1">
+          <mxGeometry height="120" width="1320" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-17" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="Lane 2" vertex="1">
+          <mxGeometry height="170" width="1320" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-18" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="Lane 3" vertex="1">
+          <mxGeometry height="120" width="1320" y="310" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
