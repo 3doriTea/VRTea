@@ -44,10 +44,13 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Pr85QwWsB-o2hgPguBkz" name="HTTPって？">
-    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="RBv0RpqDThrJZLuFquK4-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TCPで通信する&lt;div&gt;頭からただの文字列を送受信していくだけの通信方式&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="320" x="120" y="90" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
