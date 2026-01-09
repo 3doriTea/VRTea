@@ -60,6 +60,9 @@
         <mxCell id="RBv0RpqDThrJZLuFquK4-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="こう見ると、HTTPは本当に文字列を送っているだけとわかるはず！！&lt;div&gt;ブラウザはこれを受け取って文字列をUIとして描画しているだけ&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="420" x="80" y="170" as="geometry" />
         </mxCell>
+        <mxCell id="RBv0RpqDThrJZLuFquK4-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="つまり、誰でも簡単にHTTP通信してサイトを表示できるってこと！" vertex="1">
+          <mxGeometry height="60" width="420" x="80" y="240" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
