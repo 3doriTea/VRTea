@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="4">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
-    <mxGraphModel dx="1303" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1489" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,19 +8,19 @@
           <mxGeometry height="90" width="1920" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;" value="サーバー&lt;div&gt;C#&lt;/div&gt;" vertex="1">
-          <mxGeometry height="400" width="400" x="80" y="670" as="geometry" />
+          <mxGeometry height="210" width="210" x="80" y="620" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;" value="クライアント&lt;div&gt;C++ DxLib 3D&lt;/div&gt;" vertex="1">
-          <mxGeometry height="400" width="400" x="1040" y="680" as="geometry" />
+          <mxGeometry height="280" width="280" x="530" y="780" as="geometry" />
         </mxCell>
-        <mxCell id="vcEWjPsZrPV3Mg3HuliV-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;" value="ブラウザ&lt;div&gt;HTML/JavaScript/CSS&lt;/div&gt;" vertex="1">
-          <mxGeometry height="400" width="400" x="540" y="680" as="geometry" />
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;" value="ブラウザ&lt;div&gt;HTML/&lt;/div&gt;&lt;div&gt;JavaScript/&lt;/div&gt;&lt;div&gt;CSS&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="650" y="350" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;fontSize=64;" value="&lt;font style=&quot;font-size: 32px;&quot;&gt;VRChatもどきを作る&lt;/font&gt;" vertex="1">
-          <mxGeometry height="80" width="640" y="120" as="geometry" />
+          <mxGeometry height="80" width="640" x="30" y="80" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-8" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=top;overflow=hidden;fontSize=26;" value="&lt;ul&gt;&lt;li&gt;プレイヤー情報の共有&lt;/li&gt;&lt;ul&gt;&lt;li&gt;3D空間で座標/回転共有&lt;/li&gt;&lt;li&gt;名前の共有&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;アバター情報の共有&lt;/li&gt;&lt;/ul&gt;" vertex="1">
-          <mxGeometry height="200" width="420" x="260" y="280" as="geometry" />
+          <mxGeometry height="200" width="420" x="630" y="100" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-9" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=top;overflow=hidden;fontSize=26;" value="&lt;ul&gt;&lt;li&gt;通信の共通部分&lt;/li&gt;&lt;ul&gt;&lt;li&gt;ゲームデータのやりとり Json or バイナリ&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;" vertex="1">
           <mxGeometry height="220" width="630" x="1050" y="300" as="geometry" />
@@ -48,6 +48,30 @@
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;" value="チャット入力欄" vertex="1">
           <mxGeometry height="60" width="120" x="420" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="データベース&lt;div&gt;MySQL&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="30" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-4" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=35;startSize=10.98;endWidth=35;endSize=10.98;width=34;" target="b2A8eLxMkV6A6mz0qbX0-1" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="150" y="660" as="sourcePoint" />
+            <mxPoint x="250" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="HTML/&lt;div&gt;JavaScript/&lt;/div&gt;&lt;div&gt;CSS&lt;/div&gt;&lt;div&gt;ファイル&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="320" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-6" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=40;startSize=14.72;endWidth=53;endSize=12.975;width=38;" target="b2A8eLxMkV6A6mz0qbX0-5" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="428.90999999999997" y="670.31" as="sourcePoint" />
+            <mxPoint x="389.90999999999997" y="474.31" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-7" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=85;endSize=12.975;width=32;" target="vcEWjPsZrPV3Mg3HuliV-4" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="490.38" y="670.31" as="sourcePoint" />
+            <mxPoint x="587.38" y="530.31" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
