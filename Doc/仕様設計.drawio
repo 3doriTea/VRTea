@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="4">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
-    <mxGraphModel dx="1489" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -58,6 +58,11 @@
             <mxPoint x="250" y="560" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-14" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="MySqlConnection" vertex="1">
+          <mxGeometry relative="1" x="0.1575" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="b2A8eLxMkV6A6mz0qbX0-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;fontFamily=Cascadia Code;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="HTML/&lt;div&gt;JavaScript/&lt;/div&gt;&lt;div&gt;CSS&lt;/div&gt;&lt;div&gt;ファイル&lt;/div&gt;" vertex="1">
           <mxGeometry height="240" width="240" x="320" y="300" as="geometry" />
         </mxCell>
@@ -67,10 +72,31 @@
             <mxPoint x="389.90999999999997" y="474.31" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="b2A8eLxMkV6A6mz0qbX0-7" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=85;endSize=12.975;width=32;" target="vcEWjPsZrPV3Mg3HuliV-4" value="">
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-12" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="File.ReadAllText()" vertex="1">
+          <mxGeometry relative="1" x="0.0423" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-7" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=53;endSize=15.05;width=32;" target="vcEWjPsZrPV3Mg3HuliV-4" value="">
           <mxGeometry height="100" relative="1" width="100" as="geometry">
             <mxPoint x="490.38" y="670.31" as="sourcePoint" />
             <mxPoint x="587.38" y="530.31" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-10" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="UDP/TCP" vertex="1">
+          <mxGeometry relative="1" x="-0.0836" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-8" edge="1" parent="1" source="vcEWjPsZrPV3Mg3HuliV-1" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startWidth=53;startSize=15.05;endWidth=53;endSize=15.05;width=32;" target="vcEWjPsZrPV3Mg3HuliV-5" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="380.31" y="609.6" as="sourcePoint" />
+            <mxPoint x="526.31" y="684.6" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b2A8eLxMkV6A6mz0qbX0-9" connectable="0" parent="b2A8eLxMkV6A6mz0qbX0-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="TCP - HTTP" vertex="1">
+          <mxGeometry relative="1" x="0.0463" y="3" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
