@@ -17,12 +17,18 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Ppznyvsdzz_Vopm2tfU0" name="25/01/09予定">
-    <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="2316" dy="1249" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="z1AO4nrj5G6-JIzBp5EX-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Text" vertex="1">
-          <mxGeometry height="40" width="210" x="40" y="40" as="geometry" />
+        <mxCell id="z1AO4nrj5G6-JIzBp5EX-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面遷移図" vertex="1">
+          <mxGeometry height="80" width="500" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Q0XAuG4cb0_QVYuQWuZi-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="VRChatの概要" vertex="1">
+          <mxGeometry height="80" width="500" x="740" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Q0XAuG4cb0_QVYuQWuZi-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="VRChatの概要" vertex="1">
+          <mxGeometry height="80" width="500" x="130" y="410" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
