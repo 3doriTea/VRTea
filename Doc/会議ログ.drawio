@@ -17,7 +17,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Ppznyvsdzz_Vopm2tfU0" name="25/01/09予定">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -27,10 +27,10 @@
         <mxCell id="Q0XAuG4cb0_QVYuQWuZi-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="VRChatの概要" vertex="1">
           <mxGeometry height="80" width="500" x="140" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="Q0XAuG4cb0_QVYuQWuZi-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="目的意識：「」" vertex="1">
-          <mxGeometry height="80" width="500" x="130" y="410" as="geometry" />
+        <mxCell id="Q0XAuG4cb0_QVYuQWuZi-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="目的意識：「他のチームに負けない技術力を！」" vertex="1">
+          <mxGeometry height="80" width="1370" x="100" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="9goB-7L0CuKpzpwJ5_Qw-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面解像度：" vertex="1">
+        <mxCell id="9goB-7L0CuKpzpwJ5_Qw-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面解像度：1280:720" vertex="1">
           <mxGeometry height="80" width="500" x="120" y="570" as="geometry" />
         </mxCell>
         <mxCell id="9goB-7L0CuKpzpwJ5_Qw-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面解像度：" vertex="1">
@@ -40,7 +40,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Js6shhUZcK2juY3r9TEY-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontSize=16;fontFamily=Cascadia Code;" value="候補：&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;「先生を驚かせる」/「校内伝説」&lt;/span&gt;&lt;div&gt;先生「今まで作った学生は～うーん、VRChatを作ってたねー」&lt;/div&gt;&lt;div&gt;学生（ざわざわ）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;候補：「VRChatを作る」&lt;/div&gt;" vertex="1">
-          <mxGeometry height="300" width="500" x="830" y="440" as="geometry" />
+          <mxGeometry height="300" width="500" x="740" y="500" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
