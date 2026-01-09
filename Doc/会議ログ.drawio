@@ -36,6 +36,12 @@
         <mxCell id="9goB-7L0CuKpzpwJ5_Qw-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面解像度：" vertex="1">
           <mxGeometry height="80" width="500" x="240" y="750" as="geometry" />
         </mxCell>
+        <mxCell id="Js6shhUZcK2juY3r9TEY-2" edge="1" parent="1" source="Js6shhUZcK2juY3r9TEY-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Q0XAuG4cb0_QVYuQWuZi-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Js6shhUZcK2juY3r9TEY-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontSize=16;fontFamily=Cascadia Code;" value="候補：&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;「先生を驚かせる」/「校内伝説」&lt;/span&gt;&lt;div&gt;先生「今まで作った学生は～うーん、VRChatを作ってたねー」&lt;/div&gt;&lt;div&gt;学生（ざわざわ）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;候補：「VRChatを作る」&lt;/div&gt;" vertex="1">
+          <mxGeometry height="300" width="500" x="830" y="440" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
