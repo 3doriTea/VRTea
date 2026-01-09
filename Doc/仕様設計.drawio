@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="3">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
-    <mxGraphModel dx="906" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1303" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -25,20 +25,29 @@
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-9" parent="1" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=top;overflow=hidden;fontSize=26;" value="&lt;ul&gt;&lt;li&gt;通信の共通部分&lt;/li&gt;&lt;ul&gt;&lt;li&gt;ゲームデータのやりとり Json or バイナリ&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;" vertex="1">
           <mxGeometry height="220" width="630" x="1050" y="300" as="geometry" />
         </mxCell>
-        <mxCell id="vcEWjPsZrPV3Mg3HuliV-11" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;必要な機能&lt;/h1&gt;&lt;p&gt;必要な機能をとにかく列挙するスペース&lt;/p&gt;" vertex="1">
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-11" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;必要な機能&lt;/h1&gt;&lt;p&gt;必要な機能をとにかく列挙するスペース&lt;/p&gt;" vertex="1">
           <mxGeometry height="1070" width="1920" y="1080" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-15" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="分類" vertex="1">
-          <mxGeometry height="430" width="1320" x="80" y="1190" as="geometry" />
+          <mxGeometry height="570" width="1320" x="120" y="1470" as="geometry" />
         </mxCell>
-        <mxCell id="vcEWjPsZrPV3Mg3HuliV-16" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="UI" vertex="1">
-          <mxGeometry height="120" width="1320" y="20" as="geometry" />
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-16" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="UI(クライアント側)" vertex="1">
+          <mxGeometry height="260" width="1320" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-19" parent="vcEWjPsZrPV3Mg3HuliV-16" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;" value="チャット入力欄" vertex="1">
+          <mxGeometry height="60" width="120" x="140" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-20" parent="vcEWjPsZrPV3Mg3HuliV-16" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;" value="レチクル (画面中心のあれ)" vertex="1">
+          <mxGeometry height="70" width="200" x="320" y="50" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-17" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="Lane 2" vertex="1">
-          <mxGeometry height="170" width="1320" y="140" as="geometry" />
+          <mxGeometry height="170" width="1320" y="280" as="geometry" />
         </mxCell>
         <mxCell id="vcEWjPsZrPV3Mg3HuliV-18" parent="vcEWjPsZrPV3Mg3HuliV-15" style="swimlane;startSize=20;horizontal=0;html=1;swimlaneFillColor=#AEEA94;" value="Lane 3" vertex="1">
-          <mxGeometry height="120" width="1320" y="310" as="geometry" />
+          <mxGeometry height="120" width="1320" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="vcEWjPsZrPV3Mg3HuliV-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;" value="チャット入力欄" vertex="1">
+          <mxGeometry height="60" width="120" x="420" y="1250" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -120,6 +129,14 @@
         <mxCell id="m7dreOPpXmCefqGXsiUq-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;GitHubの使い方&lt;/h1&gt;" vertex="1">
           <mxGeometry height="40" width="200" x="800" y="40" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="HbUAfDfSGYP-4ycvsCd9" name="ページ3">
+    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
