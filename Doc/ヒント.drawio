@@ -51,6 +51,9 @@
         <mxCell id="RBv0RpqDThrJZLuFquK4-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="TCPで通信する&lt;div&gt;頭からただの文字列を送受信していくだけの通信方式&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="320" x="120" y="90" as="geometry" />
         </mxCell>
+        <mxCell id="RBv0RpqDThrJZLuFquK4-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;rounded=0;fontColor=#333333;fontFamily=Cascadia Code;" value="サーバーのメインページへアクセスする例&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;GET / HTTP/1.1&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="320" x="580" y="140" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
