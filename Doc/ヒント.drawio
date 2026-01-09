@@ -124,7 +124,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="QLTNcWJs9zJNo2-Ttz4U" name="HTMLって？">
-    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1603" dy="865" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -136,6 +136,9 @@
         </mxCell>
         <mxCell id="ewuupsZ0ZTz3996tDwoN-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&lt;font face=&quot;Cascadia Code&quot;&gt;始まりと終わりがあるとき、入れ子構造を作りたいとき&lt;/font&gt;&lt;/div&gt;&lt;font face=&quot;Cascadia Code&quot;&gt;&amp;lt;タグ名&amp;gt;&amp;lt;/タグ名&amp;gt;&lt;/font&gt;&lt;div&gt;&lt;font face=&quot;Cascadia Code&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Cascadia Code&quot;&gt;1つだけおきたいとき&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;font face=&quot;Cascadia Code&quot;&gt;&amp;lt;タグ名/&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Cascadia Code&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Cascadia Code&quot;&gt;例&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;lt;p&amp;gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;lt;h1&amp;gt;こんにちはー&amp;lt;/h1&amp;gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;lt;br/&amp;gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; あなたの名前は？&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;lt;/p&amp;gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;こう書くと&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;h1 style=&quot;text-align: left;&quot;&gt;こんにちはー&lt;/h1&gt;&lt;div style=&quot;text-align: left;&quot;&gt;あなたの名前は？&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;と表示されるはず。 brは改行タグ pは段落タグ、h1はヘッダー大きさ1タグ&lt;/div&gt;&lt;div style=&quot;&quot;&gt;段落タグの中にヘッダータグが入っている入れ子構造&lt;/div&gt;&lt;div style=&quot;&quot;&gt;brは単品で使える、ほかにもボタンとか、入力欄とか、いろいろある&lt;/div&gt;" vertex="1">
           <mxGeometry height="450" width="470" x="80" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ewuupsZ0ZTz3996tDwoN-4" parent="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" value="※HTMLはVisual Studioではなく、&lt;div&gt;Visual Studio Code (VSCode)で書くのをおすすめします。&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="690" x="530" y="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
