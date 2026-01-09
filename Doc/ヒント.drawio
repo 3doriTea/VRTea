@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="4">
   <diagram name="【質問場所】" id="FW7Fpw1p_7uOpJIxge0A">
     <mxGraphModel dx="2977" dy="1606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -62,6 +62,31 @@
         </mxCell>
         <mxCell id="RBv0RpqDThrJZLuFquK4-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="つまり、誰でも簡単にHTTP通信してサイトを表示できるってこと！" vertex="1">
           <mxGeometry height="60" width="420" x="80" y="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="M20bRaeX9DU7_XQVFYFj" name="Jsonって？">
+    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JiQiqSgaOlXti8mwgZLc-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="要するに、メンバ変数だけの構造体を文字列で表現する方式のこと" vertex="1">
+          <mxGeometry height="190" width="470" x="80" y="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="TMebdkAmULCpiZoH2ZTW" name="WebAPIって？">
+    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vZicBRMXHch0rLbiWPhN-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="先に「&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;HTTPって？」のページを見てください！&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="300" x="120" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="I15pg9xXQb-Vvn4n3eV9-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="HTTPの例では、index.htmlという名前の、HTMLファイル(中身はテキスト)を返していたけど、jsonっていう形式のファイルで、C++でやった構造体を文字列とし" vertex="1">
+          <mxGeometry height="40" width="300" x="270" y="220" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
