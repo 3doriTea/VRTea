@@ -1,15 +1,45 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0">
   <diagram name="ページ1" id="FW7Fpw1p_7uOpJIxge0A">
-    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="2977" dy="1606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="7lZDCPqnqcHiTiCuuIKz-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;fontSize=64;" value="About:困ったことはここに！" vertex="1">
           <mxGeometry height="80" width="1920" as="geometry" />
         </mxCell>
-        <mxCell id="7lZDCPqnqcHiTiCuuIKz-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
-          <mxGeometry height="250" width="440" x="560" y="240" as="geometry" />
+        <mxCell id="7lZDCPqnqcHiTiCuuIKz-5" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="250" width="440" x="40" y="120" as="geometry" />
         </mxCell>
+        <mxCell id="7lZDCPqnqcHiTiCuuIKz-3" parent="7lZDCPqnqcHiTiCuuIKz-5" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;h1&gt;「困ったことタイトル」&lt;/h1&gt;&lt;div&gt;内容&lt;/div&gt;" vertex="1">
+          <mxGeometry height="250" width="440" as="geometry" />
+        </mxCell>
+        <UserObject label="%date{ddd mmm dd yyyy HH:MM:ss}%" placeholders="1" id="7lZDCPqnqcHiTiCuuIKz-4">
+          <mxCell parent="7lZDCPqnqcHiTiCuuIKz-5" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1">
+            <mxGeometry height="20" width="160" x="280" y="230" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="7lZDCPqnqcHiTiCuuIKz-9" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="440" x="520" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="7lZDCPqnqcHiTiCuuIKz-7" parent="7lZDCPqnqcHiTiCuuIKz-9" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;p&gt;回答内容&lt;/p&gt;" vertex="1">
+          <mxGeometry height="100" width="440" as="geometry" />
+        </mxCell>
+        <UserObject label="%date{ddd mmm dd yyyy HH:MM:ss}%" placeholders="1" id="7lZDCPqnqcHiTiCuuIKz-8">
+          <mxCell parent="7lZDCPqnqcHiTiCuuIKz-9" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1">
+            <mxGeometry height="20" width="160" x="280" y="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="7lZDCPqnqcHiTiCuuIKz-10" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="250" width="440" x="560" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="7lZDCPqnqcHiTiCuuIKz-11" parent="7lZDCPqnqcHiTiCuuIKz-10" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;h1&gt;「全員が同じ画面を想像できるか不安」&lt;/h1&gt;&lt;div&gt;　画面遷移図を書く予定だけど、その画面遷移図を見て全員が同じ画面&lt;/div&gt;&lt;div&gt;同じ機能を想像できるか不安です。&lt;/div&gt;" vertex="1">
+          <mxGeometry height="250" width="440" as="geometry" />
+        </mxCell>
+        <UserObject label="%date{ddd mmm dd yyyy HH:MM:ss}%" placeholders="1" id="7lZDCPqnqcHiTiCuuIKz-12">
+          <mxCell parent="7lZDCPqnqcHiTiCuuIKz-10" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1">
+            <mxGeometry height="20" width="160" x="280" y="230" as="geometry" />
+          </mxCell>
+        </UserObject>
       </root>
     </mxGraphModel>
   </diagram>
