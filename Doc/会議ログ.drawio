@@ -25,7 +25,7 @@
           <mxGeometry height="80" width="500" x="40" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Q0XAuG4cb0_QVYuQWuZi-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="VRChatの概要" vertex="1">
-          <mxGeometry height="80" width="500" x="740" y="140" as="geometry" />
+          <mxGeometry height="80" width="500" x="140" y="220" as="geometry" />
         </mxCell>
         <mxCell id="Q0XAuG4cb0_QVYuQWuZi-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="目的意識：「」" vertex="1">
           <mxGeometry height="80" width="500" x="130" y="410" as="geometry" />
@@ -34,7 +34,7 @@
           <mxGeometry height="80" width="500" x="120" y="570" as="geometry" />
         </mxCell>
         <mxCell id="9goB-7L0CuKpzpwJ5_Qw-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="画面解像度：" vertex="1">
-          <mxGeometry height="80" width="500" x="490" y="730" as="geometry" />
+          <mxGeometry height="80" width="500" x="240" y="750" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
