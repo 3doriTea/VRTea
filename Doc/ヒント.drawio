@@ -75,10 +75,19 @@
           <mxGeometry height="190" width="400" x="80" y="40" as="geometry" />
         </mxCell>
         <mxCell id="JiQiqSgaOlXti8mwgZLc-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;update&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;pos&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;x&quot;: 30,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;y&quot;: 24.0,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;z&quot;: -39.23&lt;/div&gt;&lt;div&gt;&amp;nbsp; },&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;isDead&quot;: false&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="150" width="210" x="630" y="180" as="geometry" />
+          <mxGeometry height="150" width="210" x="650" y="175" as="geometry" />
         </mxCell>
-        <mxCell id="JiQiqSgaOlXti8mwgZLc-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="&lt;div&gt;struct Position&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&amp;nbsp; int x;&lt;/div&gt;&lt;div&gt;&amp;nbsp; float y;&lt;/div&gt;&lt;div&gt;&amp;nbsp; float z;&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;struct&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&amp;nbsp; std::string head = &quot;update&quot;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; Position&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;pos = { 30, 24.0f, -39.23f };&lt;/span&gt;&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;" vertex="1">
-          <mxGeometry height="260" width="320" x="240" y="190" as="geometry" />
+        <mxCell id="JiQiqSgaOlXti8mwgZLc-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="&lt;div&gt;struct Position&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&amp;nbsp; int x;&lt;/div&gt;&lt;div&gt;&amp;nbsp; float y;&lt;/div&gt;&lt;div&gt;&amp;nbsp; float z;&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;struct Message&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&amp;nbsp; std::string head = &quot;update&quot;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; Position&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;pos = { 30, 24.0f, -39.23f };&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; bool isDead = false;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;" vertex="1">
+          <mxGeometry height="260" width="320" x="210" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JiQiqSgaOlXti8mwgZLc-5" edge="1" parent="1" source="JiQiqSgaOlXti8mwgZLc-3" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;" target="JiQiqSgaOlXti8mwgZLc-2" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="480" y="450" as="sourcePoint" />
+            <mxPoint x="580" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JiQiqSgaOlXti8mwgZLc-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="構造体さえわかれば、Jsonに変換も、Jsonから変換も&lt;div&gt;どっちもできる！&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="380" x="400" y="325" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
