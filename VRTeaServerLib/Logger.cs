@@ -15,7 +15,7 @@ namespace VRTeaServerLib
 		/// <summary>
 		/// ログ単体
 		/// </summary>
-		public struct Log
+		public struct LogContent
 		{
 			public string Content { get; set; }
 			public DateTime Timestamp { get; set; }
@@ -25,13 +25,15 @@ namespace VRTeaServerLib
 		public float SaveIntervalSec { get; set; }  // 自動セーブする時間間隔(秒)
 		public int SaveLimitCount { get; set; }     // 自動セーブするログの数
 		private readonly DirectoryInfo _logDir;
-		private readonly List<Log> _logList = [];
+		private readonly List<LogContent> _logList = [];
 
 		public Logger(DirectoryInfo logDir, float saveIntervalSec, int saveLimitCount)
 		{
 			_logDir = logDir;
 			SaveIntervalSec = saveIntervalSec;
 			SaveLimitCount = saveLimitCount;
+
+			Log.SetLogger(this);
 		}
 
 		/// <summary>
@@ -84,7 +86,7 @@ namespace VRTeaServerLib
 
 		public void WriteLine(string content)
 		{
-			var log = new Log
+			var log = new LogContent
 			{
 				Prefix = '>',
 				Content = content,
@@ -113,7 +115,7 @@ namespace VRTeaServerLib
 
 			lock (_logList)
 			{
-				Log log = new Log
+				var log = new LogContent
 				{
 					Prefix = '>',
 					Content = _logList.Last().Content + content,
@@ -126,7 +128,7 @@ namespace VRTeaServerLib
 
 		public void Error(string content)
 		{
-			Log log = new Log
+			var log = new LogContent
 			{
 				Prefix = 'E',
 				Content = content,
