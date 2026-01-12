@@ -85,6 +85,7 @@ namespace VRTeaServerLib.Service
 				while (true)
 				{
 					var result = await client.ReceiveAsync();
+					result.
 				}
 			});
 

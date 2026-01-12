@@ -79,7 +79,9 @@ namespace VRTeaServerLib
 			}
 		}
 
+		public Action<IPEndPoint, int> OnDisconnected
 		private readonly ConcurrentDictionary<int, Session> _sessions = [];
+		private readonly ConcurrentDictionary<IPEndPoint, int> _toSessionId = [];
 		private int sessionIdCounter = 0;
 
 		public SessionManager()
@@ -93,8 +95,25 @@ namespace VRTeaServerLib
 		/// <returns></returns>
 		public int BeginSession(TcpClient tcpClient, CancellationTokenSource cts, Session.Mode sessionMode)
 		{
+			//int sessionId = Interlocked.CompareExchange(ref sessionIdCounter, 0, 0);
 			int sessionId = Interlocked.Increment(ref sessionIdCounter);
 			var session = new Session(tcpClient, sessionId, cts, sessionMode);
+
+			if (tcpClient.Client.RemoteEndPoint is not IPEndPoint ipEndPoint)
+			{
+				Log.Error($"{tcpClient.Client.RemoteEndPoint} is not IPEndPoint");
+				return 0;
+			}
+
+			_toSessionId.AddOrUpdate(
+				ipEndPoint,
+				sessionId,
+				(ipEndPoint, oldSessionId) =>
+				{
+					EndSession(oldSessionId);
+					Log.WriteLine($"The previous session was closed due to a new connection. old-sessionId:{oldSessionId}");
+					return sessionId;
+				});
 
 			_sessions.AddOrUpdate(
 				sessionId,
