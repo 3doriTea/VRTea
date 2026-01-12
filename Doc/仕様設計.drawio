@@ -219,7 +219,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_D7P5_rIS-k3I3y6uN0X" name="C#サーバ">
-    <mxGraphModel dx="1783" dy="1014" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1019" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -385,8 +385,11 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="eyZX67jZKbIpTGvJykr4-15" parent="1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;size=10.000000000000227;" value="TcpClient.Accept&lt;div&gt;はここで処理&lt;/div&gt;" vertex="1">
-          <mxGeometry height="48" width="140" x="320" y="540" as="geometry" />
+        <mxCell id="eyZX67jZKbIpTGvJykr4-15" parent="1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;size=10.000000000000227;" value="&lt;div&gt;ゲームポート&lt;/div&gt;TcpClient.Accept&lt;div&gt;はここで処理&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48" width="140" x="560" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="eyZX67jZKbIpTGvJykr4-21" parent="1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;size=10.000000000000227;" value="&lt;div&gt;Webページポート&lt;/div&gt;TcpClient.Accept&lt;div&gt;はここで処理&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48" width="140" x="575" y="352" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
