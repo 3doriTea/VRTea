@@ -219,7 +219,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_D7P5_rIS-k3I3y6uN0X" name="C#サーバ">
-    <mxGraphModel dx="1783" dy="1014" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1501" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -361,6 +361,31 @@
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="960" y="190" as="sourcePoint" />
             <mxPoint x="1010" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eyZX67jZKbIpTGvJykr4-15" parent="1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;size=10.000000000000227;" value="TcpClient.Accept&lt;div&gt;はここで処理&lt;/div&gt;" vertex="1">
+          <mxGeometry height="74" width="140" x="570" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="eyZX67jZKbIpTGvJykr4-16" edge="1" parent="1" source="_QPxuOXDxNQx_iRaewh4-5" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=default;" target="_QPxuOXDxNQx_iRaewh4-22" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="870" y="280" as="sourcePoint" />
+            <mxPoint x="600" y="397" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eyZX67jZKbIpTGvJykr4-17" connectable="0" parent="eyZX67jZKbIpTGvJykr4-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="処理移譲" vertex="1">
+          <mxGeometry relative="1" x="-0.0972" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eyZX67jZKbIpTGvJykr4-18" edge="1" parent="1" source="_QPxuOXDxNQx_iRaewh4-5" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=default;" target="_QPxuOXDxNQx_iRaewh4-23" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="630" y="400" as="sourcePoint" />
+            <mxPoint x="638" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eyZX67jZKbIpTGvJykr4-19" connectable="0" parent="eyZX67jZKbIpTGvJykr4-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="処理移譲" vertex="1">
+          <mxGeometry relative="1" x="-0.0972" y="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
