@@ -386,10 +386,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="eyZX67jZKbIpTGvJykr4-15" parent="1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;size=10.000000000000227;" value="&lt;div&gt;ゲームポート&lt;/div&gt;TcpClient.Accept&lt;div&gt;はここで処理&lt;/div&gt;" vertex="1">
-          <mxGeometry height="48" width="140" x="560" y="540" as="geometry" />
+          <mxGeometry height="48" width="140" x="350" y="560" as="geometry" />
         </mxCell>
         <mxCell id="eyZX67jZKbIpTGvJykr4-21" parent="1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;size=10.000000000000227;" value="&lt;div&gt;Webページポート&lt;/div&gt;TcpClient.Accept&lt;div&gt;はここで処理&lt;/div&gt;" vertex="1">
-          <mxGeometry height="48" width="140" x="575" y="352" as="geometry" />
+          <mxGeometry height="48" width="140" x="330" y="580" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
