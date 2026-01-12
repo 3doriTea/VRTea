@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="5">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -215,6 +215,44 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="_D7P5_rIS-k3I3y6uN0X" name="C#サーバ">
+    <mxGraphModel dx="815" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="IService" vertex="1">
+          <mxGeometry height="160" width="1280" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="GameLogic" vertex="1">
+          <mxGeometry height="160" width="120" x="280" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="SessionContext" vertex="1">
+          <mxGeometry height="80" width="520" x="280" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Network" vertex="1">
+          <mxGeometry height="160" width="120" x="440" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="ILogger" vertex="1">
+          <mxGeometry height="160" width="200" x="40" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Logger" vertex="1">
+          <mxGeometry height="360" width="120" x="120" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-7" edge="1" parent="1" source="_QPxuOXDxNQx_iRaewh4-3" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=default;" target="_QPxuOXDxNQx_iRaewh4-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="342.11" y="530" as="sourcePoint" />
+            <mxPoint x="400.0047368421052" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_QPxuOXDxNQx_iRaewh4-8" edge="1" parent="1" source="_QPxuOXDxNQx_iRaewh4-5" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=default;" target="_QPxuOXDxNQx_iRaewh4-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="360" y="576.15" as="sourcePoint" />
+            <mxPoint x="560" y="429.9961538461539" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
