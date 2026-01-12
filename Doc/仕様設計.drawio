@@ -219,7 +219,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_D7P5_rIS-k3I3y6uN0X" name="C#サーバ">
-    <mxGraphModel dx="1019" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -390,6 +390,9 @@
         </mxCell>
         <mxCell id="eyZX67jZKbIpTGvJykr4-21" parent="1" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;size=10.000000000000227;" value="&lt;div&gt;Webページポート&lt;/div&gt;TcpClient.Accept&lt;div&gt;はここで処理&lt;/div&gt;" vertex="1">
           <mxGeometry height="48" width="140" x="330" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="eyZX67jZKbIpTGvJykr4-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;rounded=0;" value="【Tcp / Udp の注意点】&lt;div&gt;Tcp は stream形式のため中途半端な状態で受信する可能性あり&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;例：&lt;/div&gt;&lt;div&gt;送り手 100byte送信 - - - &amp;gt; 受取り手 50byte 受信 50byte 受信&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;一方 Udpはデータグラム、パケット形式のため、中途半端な状態はない&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;例：&lt;/div&gt;&lt;div&gt;送り手 100byte送信 - - &amp;gt; 受取り手 100byte 受信 OR 受信しない&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="520" x="320" y="720" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
