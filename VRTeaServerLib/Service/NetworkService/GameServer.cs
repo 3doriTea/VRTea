@@ -28,6 +28,12 @@ namespace VRTeaServerLib.Service.NetworkService
 			_config = config;
 		}
 
+		/// <summary>
+		/// ゲームクライアントとのセッション処理
+		/// </summary>
+		/// <param name="id">セッションId</param>
+		/// <param name="cts">キャンセルするやつ</param>
+		/// <returns>非同期タスク</returns>
 		public async Task SessionClientAsync(int id, CancellationTokenSource cts)
 		{
 			var session = _sessionManager.GetSession(id);
@@ -74,9 +80,9 @@ namespace VRTeaServerLib.Service.NetworkService
 			{
 				return;
 			}
-			catch (IOException ex)
+			catch (Exception ex)
 			{
-				
+				Log.Error($"{ex}");
 			}
 		}
 	}

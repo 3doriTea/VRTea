@@ -11,6 +11,9 @@ namespace VRTeaServerLib
 	/// </summary>
 	public static class Log
 	{
+		/// <summary>
+		/// ロガーのナルオブジェクト
+		/// </summary>
 		private class NullLogger : ILogger
 		{
 			public void Error(string content)
@@ -31,6 +34,10 @@ namespace VRTeaServerLib
 
 		private static ILogger _instance = new NullLogger();
 
+		/// <summary>
+		/// ロガーをセットする ※登録済みのロガーはGC行き
+		/// </summary>
+		/// <param name="logger">セットするロガー</param>
 		internal static void SetLogger(ILogger logger)
 		{
 			_instance = logger;
