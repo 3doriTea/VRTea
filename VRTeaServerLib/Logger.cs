@@ -10,7 +10,7 @@ namespace VRTeaServerLib
 	/// <para>ログ使うやつ</para>
 	/// <para>自動セーブを行う(主記憶から補助記憶へ書き出す)</para>
 	/// </summary>
-	public class Logger : IService
+	public class Logger : IService, ILogger
 	{
 		/// <summary>
 		/// ログ単体
