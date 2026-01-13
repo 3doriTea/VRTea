@@ -16,8 +16,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="Ppznyvsdzz_Vopm2tfU0" name="25/01/09予定">
-    <mxGraphModel dx="2593" dy="1475" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+  <diagram id="Ppznyvsdzz_Vopm2tfU0" name="25/01/09">
+    <mxGraphModel dx="613" dy="331" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -47,6 +47,18 @@
         </mxCell>
         <mxCell id="XvSHWEyh_Z6foMfJWT69-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="プレイシーンのみ！" vertex="1">
           <mxGeometry height="60" width="120" x="600" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ymp0pl5UDJPry-ep-xr8-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="270" width="480" x="840" as="geometry" />
+        </mxCell>
+        <mxCell id="ymp0pl5UDJPry-ep-xr8-2" parent="1" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=90;" value="" vertex="1">
+          <mxGeometry height="90" width="480" x="840" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ymp0pl5UDJPry-ep-xr8-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;" value="&lt;div&gt;【Chat Popup】&lt;/div&gt;&lt;div&gt;AI : ほげほげ&lt;/div&gt;&lt;div&gt;プレイヤー1 : ふがふら&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="130" x="850" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="ymp0pl5UDJPry-ep-xr8-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="1070" y="110" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
