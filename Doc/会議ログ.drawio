@@ -64,7 +64,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="aX4EbRPlrwUvvX9XO6rB" name="25/01/13">
-    <mxGraphModel dx="2133" dy="1985" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1706" dy="1588" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -83,8 +83,8 @@
         <mxCell id="bCODQS8iXw77JLghqcqP-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;h2&gt;「クライアント側の機能(クラス)」&lt;/h2&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;class Player&lt;/li&gt;&lt;ul&gt;&lt;li&gt;移動、座標&lt;/li&gt;&lt;li&gt;プレイヤーの色変更&lt;/li&gt;&lt;li&gt;名前変更&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;class Player Camera&lt;/li&gt;&lt;ul&gt;&lt;li&gt;カメラ視点移動&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;class OtherPlayers&lt;/li&gt;&lt;ul&gt;&lt;li&gt;ほかプレイヤーのカプセル描画&lt;/li&gt;&lt;li&gt;吹き出し表示&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;class Chat&lt;/li&gt;&lt;ul&gt;&lt;li&gt;入力欄表示&lt;/li&gt;&lt;li&gt;会話ログの表示&lt;/li&gt;&lt;li&gt;テキスト入力&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;ってのを60fpsサイクルでやる&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ログアウトはウィンドウを閉じたら勝手になる&lt;/div&gt;" vertex="1">
           <mxGeometry height="320" width="320" x="470" y="510" as="geometry" />
         </mxCell>
-        <mxCell id="bCODQS8iXw77JLghqcqP-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="次回：サーバとクライアント間の通信流れ図(フロー)&lt;div&gt;と作業分担&lt;/div&gt;" vertex="1">
-          <mxGeometry height="330" width="940" x="810" y="270" as="geometry" />
+        <mxCell id="bCODQS8iXw77JLghqcqP-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="次回：サーバとクライアント間の通信流れ図(フロー)&lt;div&gt;と作業分担&lt;/div&gt;&lt;div&gt;とJsonとバイト配列 どっちなんだい！&lt;/div&gt;" vertex="1">
+          <mxGeometry height="400" width="940" x="810" y="270" as="geometry" />
         </mxCell>
         <mxCell id="bCODQS8iXw77JLghqcqP-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="ぶっちゃけC#なんて点数にならないって！だから僕がやる&lt;div&gt;by まつだ&lt;/div&gt;" vertex="1">
           <mxGeometry height="260" width="890" x="835" y="780" as="geometry" />
