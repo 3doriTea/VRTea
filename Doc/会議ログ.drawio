@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.1" pages="3">
   <diagram name="概要" id="aznWL_Z3en04P55AGaew">
     <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -59,6 +59,35 @@
         </mxCell>
         <mxCell id="ymp0pl5UDJPry-ep-xr8-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
           <mxGeometry height="20" width="20" x="1070" y="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="aX4EbRPlrwUvvX9XO6rB" name="25/01/13">
+    <mxGraphModel dx="2133" dy="1985" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bCODQS8iXw77JLghqcqP-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="ゲーム名: Virtual Space Chat 略して VSC" vertex="1">
+          <mxGeometry height="210" width="1530" x="30" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="bCODQS8iXw77JLghqcqP-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="AIのことは「おAI手」と呼ぶ" vertex="1">
+          <mxGeometry height="90" width="890" x="60" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="bCODQS8iXw77JLghqcqP-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="&lt;ul&gt;&lt;li&gt;サーバーC#&lt;/li&gt;&lt;li&gt;クライアント C++ DxLib&lt;/li&gt;&lt;li&gt;データベース MySQL&lt;/li&gt;&lt;li&gt;Webページ HTML JavaScript CSS&lt;/li&gt;&lt;/ul&gt;優先度&lt;div&gt;クライアント 最優先&lt;/div&gt;&lt;div&gt;サーバー　優先&lt;/div&gt;&lt;div&gt;DB&lt;/div&gt;&lt;div&gt;HTML&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="310" x="350" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="bCODQS8iXw77JLghqcqP-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;h2&gt;「サーバ側の機能(関数)」&lt;/h2&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;ゲーム&lt;/li&gt;&lt;li&gt;参加処理&lt;/li&gt;&lt;li&gt;切断処理&lt;/li&gt;&lt;li&gt;チャット処理&lt;/li&gt;&lt;li&gt;各プレイヤーの更新処理&lt;/li&gt;&lt;li&gt;プレイヤーの設定更新処理&lt;/li&gt;&lt;/ul&gt;ってのをサーバーのMaxスピードでやる&lt;/div&gt;" vertex="1">
+          <mxGeometry height="210" width="270" x="110" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="bCODQS8iXw77JLghqcqP-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;h2&gt;「クライアント側の機能(クラス)」&lt;/h2&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;class Player&lt;/li&gt;&lt;ul&gt;&lt;li&gt;移動、座標&lt;/li&gt;&lt;li&gt;プレイヤーの色変更&lt;/li&gt;&lt;li&gt;名前変更&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;class Player Camera&lt;/li&gt;&lt;ul&gt;&lt;li&gt;カメラ視点移動&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;class OtherPlayers&lt;/li&gt;&lt;ul&gt;&lt;li&gt;ほかプレイヤーのカプセル描画&lt;/li&gt;&lt;li&gt;吹き出し表示&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;class Chat&lt;/li&gt;&lt;ul&gt;&lt;li&gt;入力欄表示&lt;/li&gt;&lt;li&gt;会話ログの表示&lt;/li&gt;&lt;li&gt;テキスト入力&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;ってのを60fpsサイクルでやる&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ログアウトはウィンドウを閉じたら勝手になる&lt;/div&gt;" vertex="1">
+          <mxGeometry height="320" width="320" x="470" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="bCODQS8iXw77JLghqcqP-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="次回：サーバとクライアント間の通信流れ図(フロー)&lt;div&gt;と作業分担&lt;/div&gt;" vertex="1">
+          <mxGeometry height="330" width="940" x="810" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="bCODQS8iXw77JLghqcqP-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontSize=64;fontFamily=Cascadia Code;" value="ぶっちゃけC#なんて点数にならないって！だから僕がやる&lt;div&gt;by まつだ&lt;/div&gt;" vertex="1">
+          <mxGeometry height="260" width="890" x="835" y="780" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
