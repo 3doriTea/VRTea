@@ -628,7 +628,7 @@
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-4" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Mock(pUpdate: IOnUpdated*, pEvent: IOnEvent*): constructor" vertex="1">
           <mxGeometry height="26" width="440" y="138" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-35" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Update(): void&amp;nbsp; // これを呼び忘れないでください" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-35" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Update(deltaTime: float): void&amp;nbsp; // これを呼び忘れないでください" vertex="1">
           <mxGeometry height="26" width="440" y="164" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-53" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Scenario(): ISimulationScenarioSetter&amp;amp;&amp;nbsp; // これでシナリオ操作" vertex="1">
