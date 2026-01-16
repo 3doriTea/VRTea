@@ -600,12 +600,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5oYmLrdGIlqvYCGrc6mF" name="クライアント側の開発支援クラス">
-    <mxGraphModel dx="983" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1188" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Mock" vertex="1">
-          <mxGeometry height="164" width="360" y="120" as="geometry" />
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Mock&amp;nbsp; // これをインスタンスして更新処理だけ忘れないで" vertex="1">
+          <mxGeometry height="190" width="360" y="120" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-2" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- pUpdate: IOnUpdated*" vertex="1">
           <mxGeometry height="26" width="360" y="26" as="geometry" />
@@ -622,8 +622,11 @@
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-4" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Mock(pUpdate: IOnUpdated*, pEvent: IOnEvent*): constructor" vertex="1">
           <mxGeometry height="26" width="360" y="112" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-35" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Update(): void" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-35" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Update(): void&amp;nbsp; // これを呼び忘れないでください" vertex="1">
           <mxGeometry height="26" width="360" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-53" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Scenario(): SimulationScenario&amp;amp;&amp;nbsp; // これでシナリオ操作" vertex="1">
+          <mxGeometry height="26" width="360" y="164" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IOnUpdated&amp;lt;UpdatePlayerT&amp;gt;" vertex="1">
           <mxGeometry height="60" width="400" x="400" y="120" as="geometry" />
@@ -635,7 +638,7 @@
           <mxGeometry height="26" width="400" y="34" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-10" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IOnEvent" vertex="1">
-          <mxGeometry height="60" width="400" x="400" y="200" as="geometry" />
+          <mxGeometry height="60" width="400" x="840" y="120" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-11" parent="4Zb7hH4Fm-jYk7iYNtYn-10" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="400" y="26" as="geometry" />
@@ -650,7 +653,7 @@
           <mxGeometry height="60" width="120" x="600" y="30" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-15" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="SimulationScenario&amp;lt;UpdatePlayerT&amp;gt; // シミュレーションシナリオ" vertex="1">
-          <mxGeometry height="268" width="640" x="400" y="400" as="geometry" />
+          <mxGeometry height="294" width="640" x="400" y="400" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-16" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- events: vector&amp;lt;function&amp;lt;void()&amp;gt;&amp;gt;" vertex="1">
           <mxGeometry height="26" width="640" y="26" as="geometry" />
@@ -661,29 +664,35 @@
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-17" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="640" y="78" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-18" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ JoinWorld(playerId: int):&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;SimulationScenario&amp;amp;&lt;/span&gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-52" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Clear():&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;SimulationScenario&amp;amp;&lt;/span&gt;" vertex="1">
           <mxGeometry height="26" width="640" y="86" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-19" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ Sleep(timeSec: float): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-18" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ JoinWorld(playerId: int):&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;SimulationScenario&amp;amp;&lt;/span&gt;" vertex="1">
           <mxGeometry height="26" width="640" y="112" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-20" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ LeaveWorld(playerId: int):&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;SimulationScenario&amp;amp;&lt;/span&gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-19" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ Sleep(timeSec: float): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="26" width="640" y="138" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-21" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ SendChat(content: string,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-20" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ LeaveWorld(playerId: int):&amp;nbsp;&lt;span style=&quot;text-align: center;&quot;&gt;SimulationScenario&amp;amp;&lt;/span&gt;" vertex="1">
           <mxGeometry height="26" width="640" y="164" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-24" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ UpdatePlayer&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(callback: (current: UpdatePlayerT) -&amp;gt; UpdatePlayerT,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-21" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ SendChat(content: string,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="26" width="640" y="190" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-22" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ Change&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Player&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Color(color: int,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-24" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ UpdatePlayer&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(callback: (current: UpdatePlayerT) -&amp;gt; UpdatePlayerT,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="26" width="640" y="216" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-23" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ Change&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Player&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Name(name: string,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-22" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ Change&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Player&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Color(color: int,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="26" width="640" y="242" as="geometry" />
         </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-23" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ Change&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Player&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Name(name: string,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: left;&quot;&gt;playerId&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: int): SimulationScenario&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="26" width="640" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-45" edge="1" parent="1" source="4Zb7hH4Fm-jYk7iYNtYn-25" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4Zb7hH4Fm-jYk7iYNtYn-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-25" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MockWorld&amp;lt;UpdatePlayerT&amp;gt;" vertex="1">
-          <mxGeometry height="86" width="360" y="560" as="geometry" />
+          <mxGeometry height="86" width="360" x="1120" y="600" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-26" parent="4Zb7hH4Fm-jYk7iYNtYn-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- players: map&amp;lt;int, UpdatePlayerT&amp;gt;" vertex="1">
           <mxGeometry height="26" width="360" y="26" as="geometry" />
@@ -695,7 +704,7 @@
           <mxGeometry height="26" width="360" y="60" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-29" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IMockWorld" vertex="1">
-          <mxGeometry height="164" width="360" y="320" as="geometry" />
+          <mxGeometry height="164" width="360" x="1120" y="360" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-31" parent="4Zb7hH4Fm-jYk7iYNtYn-29" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="360" y="26" as="geometry" />
@@ -716,13 +725,31 @@
           <mxGeometry height="26" width="360" y="138" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-37" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IOnError" vertex="1">
-          <mxGeometry height="60" width="400" x="400" y="280" as="geometry" />
+          <mxGeometry height="60" width="400" x="1280" y="120" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-38" parent="4Zb7hH4Fm-jYk7iYNtYn-37" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="400" y="26" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-39" parent="4Zb7hH4Fm-jYk7iYNtYn-37" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Invoke(errorName: string, errorMessage: string) : void { virtual = 0 }" vertex="1">
           <mxGeometry height="26" width="400" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-47" edge="1" parent="1" source="4Zb7hH4Fm-jYk7iYNtYn-46" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4Zb7hH4Fm-jYk7iYNtYn-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="クライアント担当者様へ&lt;div&gt;継承してお使いください&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="500" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-49" edge="1" parent="1" source="4Zb7hH4Fm-jYk7iYNtYn-48" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4Zb7hH4Fm-jYk7iYNtYn-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="クライアント担当者様へ&lt;div&gt;継承してお使いください&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="940" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-51" edge="1" parent="1" source="4Zb7hH4Fm-jYk7iYNtYn-50" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4Zb7hH4Fm-jYk7iYNtYn-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="クライアント担当者様へ&lt;div&gt;継承してお使いください&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="1380" y="240" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
