@@ -683,7 +683,7 @@
           <mxGeometry height="26" width="640" y="242" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-25" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MockWorld&amp;lt;UpdatePlayerT&amp;gt;" vertex="1">
-          <mxGeometry height="86" width="360" y="320" as="geometry" />
+          <mxGeometry height="86" width="360" y="560" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-26" parent="4Zb7hH4Fm-jYk7iYNtYn-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- players: map&amp;lt;int, UpdatePlayerT&amp;gt;" vertex="1">
           <mxGeometry height="26" width="360" y="26" as="geometry" />
@@ -695,7 +695,7 @@
           <mxGeometry height="26" width="360" y="60" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-29" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IMockWorld" vertex="1">
-          <mxGeometry height="86" width="360" y="440" as="geometry" />
+          <mxGeometry height="164" width="360" y="320" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-31" parent="4Zb7hH4Fm-jYk7iYNtYn-29" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="360" y="26" as="geometry" />
@@ -705,6 +705,15 @@
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-36" parent="4Zb7hH4Fm-jYk7iYNtYn-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ RemovePlayer(id: int): void" vertex="1">
           <mxGeometry height="26" width="360" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-42" parent="4Zb7hH4Fm-jYk7iYNtYn-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ UpdatePlayer(newPlayer: UpdatePlayerT, id: int): void" vertex="1">
+          <mxGeometry height="26" width="360" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-43" parent="4Zb7hH4Fm-jYk7iYNtYn-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ GetPlayer(): UpdatePlayerT" vertex="1">
+          <mxGeometry height="26" width="360" y="112" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-41" parent="4Zb7hH4Fm-jYk7iYNtYn-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ SendChat(content: string, sendPlayerId: int): void" vertex="1">
+          <mxGeometry height="26" width="360" y="138" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-37" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IOnError" vertex="1">
           <mxGeometry height="60" width="400" x="400" y="280" as="geometry" />
