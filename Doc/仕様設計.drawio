@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.2" pages="6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.2" pages="7">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -399,6 +399,56 @@
         </mxCell>
         <mxCell id="eyZX67jZKbIpTGvJykr4-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;rounded=0;" value="【Tcp / Udp の注意点】&lt;div&gt;Tcp は stream形式のため中途半端な状態で受信する可能性あり&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;例：&lt;/div&gt;&lt;div&gt;送り手 100byte送信 - - - &amp;gt; 受取り手 50byte 受信 50byte 受信&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;一方 Udpはデータグラム、パケット形式のため、中途半端な状態はない&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;例：&lt;/div&gt;&lt;div&gt;送り手 100byte送信 - - &amp;gt; 受取り手 100byte 受信 OR 受信しない&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="520" x="320" y="720" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="SArtig0PYw3qRs9xpTxp" name="ページ7">
+    <mxGraphModel dx="983" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="TCPポート:3333" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="UDPポート:3333" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-3" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="the Internet" vertex="1">
+          <mxGeometry height="120" width="160" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="WebService" vertex="1">
+          <mxGeometry height="40" width="120" x="440" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2ZJMLax_IrWF23l97tEU-5" edge="1" parent="1" source="sx15Tq6oJenp-PeX1K9D-5" style="edgeStyle=none;shape=link;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="sx15Tq6oJenp-PeX1K9D-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ZJMLax_IrWF23l97tEU-6" edge="1" parent="1" source="sx15Tq6oJenp-PeX1K9D-5" style="edgeStyle=none;shape=link;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="sx15Tq6oJenp-PeX1K9D-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="GameService" vertex="1">
+          <mxGeometry height="40" width="120" x="440" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2ZJMLax_IrWF23l97tEU-7" edge="1" parent="1" source="sx15Tq6oJenp-PeX1K9D-8" style="edgeStyle=none;shape=link;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="sx15Tq6oJenp-PeX1K9D-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="TCPポート:80" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="IService" vertex="1">
+          <mxGeometry height="40" width="120" x="440" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="sx15Tq6oJenp-PeX1K9D-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="GameService" vertex="1">
+          <mxGeometry height="40" width="120" x="800" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="YDWgig1QZ3GCZ4nZEPUi-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="ISessionContext" vertex="1">
+          <mxGeometry height="40" width="120" x="600" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="2ZJMLax_IrWF23l97tEU-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="SessionContext" vertex="1">
+          <mxGeometry height="40" width="120" x="600" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="2ZJMLax_IrWF23l97tEU-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="WebService" vertex="1">
+          <mxGeometry height="40" width="120" x="440" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
