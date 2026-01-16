@@ -667,7 +667,7 @@
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-15" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="SimulationScenario&amp;lt;UpdatePlayerT&amp;gt; // シミュレーションシナリオ" vertex="1">
           <mxGeometry height="346" width="640" x="1240" y="720" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-16" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- events: vector&amp;lt;function&amp;lt;void()&amp;gt;&amp;gt;" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-16" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- events: queue&amp;lt;function&amp;lt;void(IMockWorld*)&amp;gt;&amp;gt;" vertex="1">
           <mxGeometry height="26" width="640" y="26" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-33" parent="4Zb7hH4Fm-jYk7iYNtYn-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- pWorld: IMockWorld*" vertex="1">
