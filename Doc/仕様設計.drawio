@@ -398,7 +398,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="j93KLeXIINLd2w1smq4X" name="将来的問題：トンネリング">
-    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1188" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -449,7 +449,7 @@
           <mxGeometry height="90" width="440" x="700" y="280" as="geometry" />
         </mxCell>
         <mxCell id="ht5nyJIdXNbvHHt6z3IN-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="サーバーTCP" vertex="1">
-          <mxGeometry height="60" width="120" x="790" y="420" as="geometry" />
+          <mxGeometry height="60" width="120" x="780" y="560" as="geometry" />
         </mxCell>
         <mxCell id="ht5nyJIdXNbvHHt6z3IN-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="クライアントTCP" vertex="1">
           <mxGeometry height="60" width="120" x="760" y="150" as="geometry" />
@@ -458,38 +458,87 @@
           <mxGeometry height="60" width="120" x="990" y="150" as="geometry" />
         </mxCell>
         <mxCell id="ht5nyJIdXNbvHHt6z3IN-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="サーバーTCP" vertex="1">
-          <mxGeometry height="60" width="120" x="940" y="420" as="geometry" />
+          <mxGeometry height="60" width="120" x="940" y="570" as="geometry" />
         </mxCell>
-        <mxCell id="ht5nyJIdXNbvHHt6z3IN-20" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-18" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="ht5nyJIdXNbvHHt6z3IN-19" value="">
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-20" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-18" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="ht5nyJIdXNbvHHt6z3IN-26" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="1110" y="280" as="sourcePoint" />
             <mxPoint x="1160" y="230" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ht5nyJIdXNbvHHt6z3IN-21" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="判別できる" vertex="1">
-          <mxGeometry relative="1" x="-0.4099" y="2" as="geometry">
-            <mxPoint as="offset" />
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-34" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="サーバーの特定はできる" vertex="1">
+          <mxGeometry relative="1" x="-0.6616" as="geometry">
+            <mxPoint x="-25" y="8" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ht5nyJIdXNbvHHt6z3IN-22" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-16" style="endArrow=none;html=1;rounded=0;" target="ht5nyJIdXNbvHHt6z3IN-17" value="">
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-22" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-26" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" target="ht5nyJIdXNbvHHt6z3IN-17" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="640" y="460" as="sourcePoint" />
             <mxPoint x="690" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ht5nyJIdXNbvHHt6z3IN-23" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="直接つなげられる" vertex="1">
-          <mxGeometry relative="1" x="0.3286" y="1" as="geometry">
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-29" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="間接的に接続できる" vertex="1">
+          <mxGeometry relative="1" x="0.3793" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ht5nyJIdXNbvHHt6z3IN-24" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-19" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" target="ht5nyJIdXNbvHHt6z3IN-18" value="">
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-24" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-26" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.916;exitY=-0.006;exitDx=0;exitDy=0;exitPerimeter=0;" target="ht5nyJIdXNbvHHt6z3IN-18" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="1069" y="220" as="sourcePoint" />
             <mxPoint x="1031" y="430" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-33" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="サーバーの特定できる" vertex="1">
+          <mxGeometry relative="1" x="0.2981" y="1" as="geometry">
+            <mxPoint x="24" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="ht5nyJIdXNbvHHt6z3IN-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=22;" value="UDPはトンネリングサービス利用でクライアントの判別できない問題" vertex="1">
           <mxGeometry height="40" width="760" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="トンネリングサービス / リバースプロキシ・トンネル" vertex="1">
+          <mxGeometry height="60" width="310" x="760" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-27" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-16" style="endArrow=none;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="ht5nyJIdXNbvHHt6z3IN-26" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="725.61" y="525" as="sourcePoint" />
+            <mxPoint x="840" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-30" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="間接的に接続できる" vertex="1">
+          <mxGeometry relative="1" x="-0.1768" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-31" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-26" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="ht5nyJIdXNbvHHt6z3IN-19" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1037.5" y="345" as="sourcePoint" />
+            <mxPoint x="1010.5" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-36" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="通常判別できない" vertex="1">
+          <mxGeometry relative="1" x="-0.4484" y="-2" as="geometry">
+            <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-32" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-19" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" target="ht5nyJIdXNbvHHt6z3IN-26" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1104" y="510" as="sourcePoint" />
+            <mxPoint x="1140" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-35" connectable="0" parent="ht5nyJIdXNbvHHt6z3IN-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="通常判別できない" vertex="1">
+          <mxGeometry relative="1" x="-0.0423" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-38" edge="1" parent="1" source="ht5nyJIdXNbvHHt6z3IN-37" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ht5nyJIdXNbvHHt6z3IN-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="しかし、トンネリングサービスがポートとクライアントのテーブルを作ってくれ、&lt;div&gt;一定期間内のそのポートへの送信なら、クライアントを判断して送ってくれるらしい。&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="470" x="1140" y="460" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
