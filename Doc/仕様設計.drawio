@@ -637,7 +637,7 @@
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-13" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;クライアント側開発支援ツール&lt;/h1&gt;&lt;p&gt;クライアント側の通信処理に関して「サーバ側できてないと進められないよ！」&lt;/p&gt;&lt;p&gt;という自体が想定されます。そのため、先にモッククラスを作っておきます。&lt;/p&gt;" vertex="1">
           <mxGeometry height="120" width="430" x="40" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UpdatePlayerT" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UpdatePlayerT&lt;div&gt;はほかプレイヤーの情報型&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="600" y="30" as="geometry" />
         </mxCell>
       </root>
