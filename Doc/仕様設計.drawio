@@ -403,8 +403,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="SArtig0PYw3qRs9xpTxp" name="ページ7">
-    <mxGraphModel dx="983" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+  <diagram id="SArtig0PYw3qRs9xpTxp" name="サーバ側仕様整理場所">
+    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
