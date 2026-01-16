@@ -600,10 +600,13 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5oYmLrdGIlqvYCGrc6mF" name="クライアント側の開発支援クラス">
-    <mxGraphModel dx="1783" dy="1014" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1501" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-82" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="360" width="1920" as="geometry" />
+        </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Mock&amp;lt;UpdatePlayerT&amp;gt;&amp;nbsp; // これをインスタンスして更新処理だけ忘れないで" vertex="1">
           <mxGeometry height="216" width="440" x="40" y="120" as="geometry" />
         </mxCell>
