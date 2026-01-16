@@ -211,10 +211,16 @@
     </mxGraphModel>
   </diagram>
   <diagram id="8UTWq14QKF68mMzmvXWU" name="プレゼン内容">
-    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="9gpdCPELljUToO_OnEgA-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="ボッチはさみしいですよね&lt;div&gt;そんなあなたに&lt;/div&gt;&lt;div&gt;おAI手がいます。&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="150" x="260" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="9gpdCPELljUToO_OnEgA-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="「「おAI手」」です" vertex="1">
+          <mxGeometry height="80" width="150" x="440" y="310" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
@@ -398,7 +404,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="j93KLeXIINLd2w1smq4X" name="将来的問題：トンネリング">
-    <mxGraphModel dx="1188" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
