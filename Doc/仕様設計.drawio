@@ -607,7 +607,7 @@
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MockNetwork" vertex="1">
           <mxGeometry height="86" width="160" x="200" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-2" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ field: type" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-2" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- pUpdate: IOnUpdated*" vertex="1">
           <mxGeometry height="26" width="160" y="26" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-3" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
@@ -616,7 +616,7 @@
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-4" parent="4Zb7hH4Fm-jYk7iYNtYn-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ method(type): type" vertex="1">
           <mxGeometry height="26" width="160" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IOnUpdated" vertex="1">
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IOnUpdated&amp;lt;UpdatePlayerT&amp;gt;" vertex="1">
           <mxGeometry height="60" width="400" x="400" y="120" as="geometry" />
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-7" parent="4Zb7hH4Fm-jYk7iYNtYn-5" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
@@ -636,6 +636,9 @@
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-13" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;クライアント側開発支援ツール&lt;/h1&gt;&lt;p&gt;クライアント側の通信処理に関して「サーバ側できてないと進められないよ！」&lt;/p&gt;&lt;p&gt;という自体が想定されます。そのため、先にモッククラスを作っておきます。&lt;/p&gt;" vertex="1">
           <mxGeometry height="120" width="430" x="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UpdatePlayerT" vertex="1">
+          <mxGeometry height="60" width="120" x="600" y="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
