@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="8">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="9">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -852,6 +852,17 @@
         </mxCell>
         <mxCell id="4Zb7hH4Fm-jYk7iYNtYn-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UpdatePlayerT&lt;div&gt;はほかプレイヤーの情報型&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="780" y="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="UktRsKYCIQEl0HUwdWFr" name="大雑把な通信内容">
+    <mxGraphModel dx="868" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="サーバーくん" vertex="1">
+          <mxGeometry height="40" width="120" x="880" y="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
