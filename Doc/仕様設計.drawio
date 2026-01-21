@@ -871,7 +871,7 @@
           <mxGeometry height="40" width="120" x="1120" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-4" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
-          <mxGeometry height="560" width="10" x="695" y="80" as="geometry" />
+          <mxGeometry height="700" width="10" x="695" y="80" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-5" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
           <mxGeometry height="960" width="10" x="935" y="80" as="geometry" />
@@ -1003,6 +1003,15 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="945" y="570" as="sourcePoint" />
             <mxPoint x="1170" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-34" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" value="5秒経ってもBから&lt;div&gt;毎フレーム更新メッセージが来ない！&lt;/div&gt;&lt;div&gt;死んだな！&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="230" x="825" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-35" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bが切断したよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="935" y="690" as="sourcePoint" />
+            <mxPoint x="710" y="690" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
