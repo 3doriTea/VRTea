@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.2" pages="8">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="8">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -404,10 +404,16 @@
     </mxGraphModel>
   </diagram>
   <diagram id="SArtig0PYw3qRs9xpTxp" name="サーバ側仕様整理場所">
-    <mxGraphModel dx="1426" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="868" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="Gy7eFFIuCt5A_FeRXCA5-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" value="サービスクラス" vertex="1">
+          <mxGeometry height="250" width="140" x="430" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gy7eFFIuCt5A_FeRXCA5-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" value="受付ポート" vertex="1">
+          <mxGeometry height="250" width="140" x="270" y="40" as="geometry" />
+        </mxCell>
         <mxCell id="sx15Tq6oJenp-PeX1K9D-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="TCPポート:3333" vertex="1">
           <mxGeometry height="40" width="120" x="280" y="160" as="geometry" />
         </mxCell>
@@ -446,9 +452,6 @@
         </mxCell>
         <mxCell id="2ZJMLax_IrWF23l97tEU-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="SessionContext" vertex="1">
           <mxGeometry height="40" width="120" x="600" y="200" as="geometry" />
-        </mxCell>
-        <mxCell id="2ZJMLax_IrWF23l97tEU-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="WebService" vertex="1">
-          <mxGeometry height="40" width="120" x="440" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
