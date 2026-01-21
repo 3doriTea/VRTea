@@ -857,7 +857,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="UktRsKYCIQEl0HUwdWFr" name="大雑把な通信内容">
-    <mxGraphModel dx="1226" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="868" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -871,13 +871,13 @@
           <mxGeometry height="40" width="120" x="1120" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-4" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
-          <mxGeometry height="520" width="10" x="695" y="80" as="geometry" />
+          <mxGeometry height="560" width="10" x="695" y="80" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-5" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
           <mxGeometry height="960" width="10" x="935" y="80" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-6" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
-          <mxGeometry height="160" width="10" x="1175" y="320" as="geometry" />
+          <mxGeometry height="270" width="10" x="1175" y="320" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-7" edge="1" parent="1" source="Wu8nKg9zCP4DTXjE1I8y-4" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="参加リクエスト">
           <mxGeometry relative="1" width="80" as="geometry">
@@ -967,6 +967,43 @@
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="毎フレーム繰り返す&lt;div&gt;ため省略&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="110" x="1210" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-28" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bがチャットしたよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="935" y="499.99999999999994" as="sourcePoint" />
+            <mxPoint x="710" y="499.99999999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-29" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="チャット送信">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1175" y="480" as="sourcePoint" />
+            <mxPoint x="950" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-30" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bがチャット送信したよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="945" y="500" as="sourcePoint" />
+            <mxPoint x="1170" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-31" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Aがチャットしたよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="935" y="569.47" as="sourcePoint" />
+            <mxPoint x="710" y="569.47" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-32" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="チャット送信">
+          <mxGeometry relative="1" width="80" x="0.0005" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="705" y="549.7" as="sourcePoint" />
+            <mxPoint x="930" y="549.7" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-33" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bがチャット送信したよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="945" y="570" as="sourcePoint" />
+            <mxPoint x="1170" y="570" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
