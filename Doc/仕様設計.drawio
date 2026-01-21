@@ -864,6 +864,12 @@
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="サーバーくん" vertex="1">
           <mxGeometry height="40" width="120" x="880" y="40" as="geometry" />
         </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="クライアント&lt;div&gt;Aくん&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="640" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="クライアント&lt;div&gt;Bくん&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="1120" y="40" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
