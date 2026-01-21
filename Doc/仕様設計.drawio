@@ -871,7 +871,7 @@
           <mxGeometry height="40" width="120" x="1120" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-4" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
-          <mxGeometry height="260" width="10" x="695" y="80" as="geometry" />
+          <mxGeometry height="520" width="10" x="695" y="80" as="geometry" />
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-5" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
           <mxGeometry height="960" width="10" x="935" y="80" as="geometry" />
@@ -919,8 +919,8 @@
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bが参加したよ">
           <mxGeometry relative="1" x="0.0006" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="935" y="380" as="sourcePoint" />
-            <mxPoint x="710" y="380" as="targetPoint" />
+            <mxPoint x="935" y="350" as="sourcePoint" />
+            <mxPoint x="710" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-16" edge="1" parent="1" source="Wu8nKg9zCP4DTXjE1I8y-6" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Wu8nKg9zCP4DTXjE1I8y-3" value="">
@@ -940,6 +940,12 @@
             <mxPoint x="1145" y="390" as="sourcePoint" />
             <mxPoint x="1170" y="350" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-20" parent="1" style="shape=requiredInterface;html=1;verticalLabelPosition=bottom;sketch=0;flipH=1;" value="" vertex="1">
+          <mxGeometry height="50" width="57.5" x="671.25" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;" value="毎フレーム繰り返す" vertex="1">
+          <mxGeometry height="30" width="110" x="561.25" y="180" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
