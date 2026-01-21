@@ -857,7 +857,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="UktRsKYCIQEl0HUwdWFr" name="大雑把な通信内容">
-    <mxGraphModel dx="868" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="595" dy="321" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -869,6 +869,77 @@
         </mxCell>
         <mxCell id="Wu8nKg9zCP4DTXjE1I8y-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="クライアント&lt;div&gt;Bくん&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="120" x="1120" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-4" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
+          <mxGeometry height="260" width="10" x="695" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-5" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
+          <mxGeometry height="960" width="10" x="935" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-6" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
+          <mxGeometry height="160" width="10" x="1175" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-7" edge="1" parent="1" source="Wu8nKg9zCP4DTXjE1I8y-4" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="参加リクエスト">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="705" y="120" as="sourcePoint" />
+            <mxPoint x="930" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="あなたの名前は?、Idは?だよ！">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="935" y="140" as="sourcePoint" />
+            <mxPoint x="710" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-9" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="毎フレーム更新">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="705" y="190" as="sourcePoint" />
+            <mxPoint x="930" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-10" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="他プレイヤーの情報だよ！">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="935" y="210" as="sourcePoint" />
+            <mxPoint x="710" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-11" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="チャット送信">
+          <mxGeometry relative="1" width="80" x="0.0005" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="705" y="260" as="sourcePoint" />
+            <mxPoint x="930" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Aがチャットしたよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="935" y="279.77" as="sourcePoint" />
+            <mxPoint x="710" y="279.77" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bが参加したよ">
+          <mxGeometry relative="1" x="0.0006" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="935" y="380" as="sourcePoint" />
+            <mxPoint x="710" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-16" edge="1" parent="1" source="Wu8nKg9zCP4DTXjE1I8y-6" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Wu8nKg9zCP4DTXjE1I8y-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1180" y="270" as="sourcePoint" />
+            <mxPoint x="1220" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-17" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="参加リクエスト">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="1175" y="330" as="sourcePoint" />
+            <mxPoint x="950" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Wu8nKg9zCP4DTXjE1I8y-19" edge="1" parent="1" source="Wu8nKg9zCP4DTXjE1I8y-5" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="あなたの名前は?、Idは?だよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1145" y="390" as="sourcePoint" />
+            <mxPoint x="1170" y="350" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
