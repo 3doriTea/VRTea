@@ -1027,7 +1027,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_KVVmYagxzPMmdTJE0yi" name="大雑把なクライアント処理">
-    <mxGraphModel dx="679" dy="386" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="570" dy="324" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1051,8 +1051,26 @@
         <mxCell id="cls6uKZPBB1ymGSC-Jm6-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="描画処理" vertex="1">
           <mxGeometry height="40" width="120" x="360" y="200" as="geometry" />
         </mxCell>
-        <mxCell id="cls6uKZPBB1ymGSC-Jm6-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="struct GameObject&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&amp;nbsp; void Update();&lt;/div&gt;&lt;div&gt;&amp;nbsp; void Draw();&lt;br&gt;};&lt;/div&gt;" vertex="1">
+        <mxCell id="cls6uKZPBB1ymGSC-Jm6-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="class GameObject&lt;div&gt;{&lt;/div&gt;&lt;div&gt;public:&lt;/div&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;GameObject() {}&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; virtual ~&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;GameObject() {}&lt;/span&gt;&lt;/div&gt;&lt;div&gt;protected:&lt;/div&gt;&lt;div&gt;&amp;nbsp; virtual void Update() {}&lt;/div&gt;&lt;div&gt;&amp;nbsp; virtual void Draw() {}&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;" vertex="1">
           <mxGeometry height="200" width="200" x="520" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cls6uKZPBB1ymGSC-Jm6-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="10" width="10" x="524" y="191" as="geometry" />
+        </mxCell>
+        <mxCell id="cls6uKZPBB1ymGSC-Jm6-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="10" width="10" x="524" y="176" as="geometry" />
+        </mxCell>
+        <mxCell id="cls6uKZPBB1ymGSC-Jm6-8" edge="1" parent="1" source="cls6uKZPBB1ymGSC-Jm6-1" style="endArrow=classic;html=1;rounded=0;" target="cls6uKZPBB1ymGSC-Jm6-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="480" y="190" as="sourcePoint" />
+            <mxPoint x="510" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cls6uKZPBB1ymGSC-Jm6-9" edge="1" parent="1" source="cls6uKZPBB1ymGSC-Jm6-2" style="endArrow=classic;html=1;rounded=0;" target="cls6uKZPBB1ymGSC-Jm6-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="468.68" y="171.76" as="sourcePoint" />
+            <mxPoint x="519.68" y="190.76" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
