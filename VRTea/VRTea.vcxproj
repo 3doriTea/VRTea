@@ -151,11 +151,13 @@
     <ClCompile Include="GameObjectWorld.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectWorld.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerCamera.h" />
     <ClInclude Include="PlayerData.h" />
     <ClInclude Include="PlayerState.h" />
   </ItemGroup>
