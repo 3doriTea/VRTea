@@ -199,7 +199,7 @@
           <mxGeometry height="230" width="440" x="120" y="600" as="geometry" />
         </mxCell>
         <mxCell id="Avnx795oBZAn33EgPnYn-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="&lt;h2&gt;デメリット1 : &amp;lt;誰か考えてください&amp;gt;&lt;/h2&gt;&lt;div&gt;___&lt;/div&gt;" vertex="1">
-          <mxGeometry height="230" width="440" x="640" y="360" as="geometry" />
+          <mxGeometry height="230" width="440" x="560" y="360" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
