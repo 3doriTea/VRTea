@@ -35,6 +35,9 @@
     <ClCompile Include="Chat.cpp">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClCompile>
+    <ClCompile Include="NetQueue.cpp">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClCompile>
     <ClCompile Include="..\ImGui\imgui.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
@@ -77,9 +80,15 @@
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
     <ClInclude Include="Chat.h">
-      <Filter>Cppのファイルたち\ゲーム側</Filter>
+      <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="NetQueue.h">
+      <Filter>Cppのファイルたち</Filter>
     </ClInclude>
     <ClInclude Include="Serializable.h">
+      <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="IncludingJson.h">
       <Filter>Cppのファイルたち\ベース側</Filter>
     </ClInclude>
     <ClInclude Include="..\ImGui\imconfig.h">
