@@ -20,19 +20,25 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Cppのファイルたち\ベース側</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjectUpdater.cpp">
+    <ClCompile Include="GameObjectWorld.cpp">
       <Filter>Cppのファイルたち\ベース側</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Cppのファイルたち\ベース側</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
       <Filter>Cppのファイルたち\ベース側</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectUpdater.h">
+    <ClInclude Include="GameObjectWorld.h">
       <Filter>Cppのファイルたち\ベース側</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

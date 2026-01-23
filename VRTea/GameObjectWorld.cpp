@@ -1,15 +1,15 @@
-#include "GameObjectUpdater.h"
+#include "GameObjectWorld.h"
 #include "GameObject.h"
 
-GameObjectUpdater::GameObjectUpdater()
+GameObjectWorld::GameObjectWorld()
 {
 }
 
-GameObjectUpdater::~GameObjectUpdater()
+GameObjectWorld::~GameObjectWorld()
 {
 }
 
-void GameObjectUpdater::Update()
+void GameObjectWorld::Update()
 {
 	for (auto& [idx, pGameObject] : GameObject::gameObjectCollection_)
 	{
@@ -17,7 +17,7 @@ void GameObjectUpdater::Update()
 	}
 }
 
-void GameObjectUpdater::Draw()
+void GameObjectWorld::Draw()
 {
 	for (auto& [idx, pGameObject] : GameObject::gameObjectCollection_)
 	{
