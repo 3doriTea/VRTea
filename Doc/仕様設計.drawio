@@ -1163,11 +1163,20 @@
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-27" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-24">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-54" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-55" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="起動処理" vertex="1">
           <mxGeometry height="40" width="120" x="240" y="240" as="geometry" />
         </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-61" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCP受付た" vertex="1">
-          <mxGeometry height="40" width="120" x="880" y="320" as="geometry" />
+          <mxGeometry height="40" width="120" x="1000" y="400" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-36" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-33">
           <mxGeometry relative="1" as="geometry" />
@@ -1179,7 +1188,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="コンソールで&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;エンターが入力された&lt;/span&gt;" vertex="1">
-          <mxGeometry height="40" width="120" x="240" y="320" as="geometry" />
+          <mxGeometry height="40" width="120" x="240" y="360" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-53" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-25" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-52">
           <mxGeometry relative="1" as="geometry" />
@@ -1187,17 +1196,23 @@
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="終了処理" vertex="1">
           <mxGeometry height="40" width="120" x="240" y="560" as="geometry" />
         </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-56" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-29" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバ起動" vertex="1">
           <mxGeometry height="40" width="120" x="400" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-57" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-30" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-58">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ボットサーバ起動" vertex="1">
           <mxGeometry height="40" width="120" x="80" y="400" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバ終了" vertex="1">
-          <mxGeometry height="40" width="120" x="400" y="520" as="geometry" />
+          <mxGeometry height="40" width="120" x="400" y="560" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ボットサーバ終了" vertex="1">
-          <mxGeometry height="40" width="120" x="80" y="520" as="geometry" />
+          <mxGeometry height="40" width="120" x="80" y="560" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-48" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-33" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-22">
           <mxGeometry relative="1" as="geometry">
@@ -1263,13 +1278,13 @@
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-42" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-39" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-35">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="V6P8f9hkjkaNAzhTBxM2-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCPセッション開始" vertex="1">
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="TCPセッション開始" vertex="1">
           <mxGeometry height="40" width="120" x="800" y="400" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-51" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-40" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-22">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="V6P8f9hkjkaNAzhTBxM2-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UDP受付開始" vertex="1">
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="UDP受付開始" vertex="1">
           <mxGeometry height="40" width="120" x="600" y="400" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UDP受付終了" vertex="1">
@@ -1277,6 +1292,44 @@
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="キャンセル発動" vertex="1">
           <mxGeometry height="40" width="120" x="240" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-59" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-58" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&amp;lt;担当者に任せる&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="80" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-63" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-60" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1060" y="540" />
+              <mxPoint x="1140" y="540" />
+              <mxPoint x="1140" y="420" />
+            </Array>
+            <mxPoint x="1160" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-65" connectable="0" parent="V6P8f9hkjkaNAzhTBxM2-63" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="キャンセルするまで繰り返す" vertex="1">
+          <mxGeometry relative="1" x="-0.904" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-66" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-60" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-62">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="500" />
+              <mxPoint x="980" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;TCPセッション開始&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="1000" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCP受付処理終了" vertex="1">
+          <mxGeometry height="40" width="120" x="1000" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCP受付処理開始" vertex="1">
+          <mxGeometry height="40" width="120" x="1000" y="320" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
