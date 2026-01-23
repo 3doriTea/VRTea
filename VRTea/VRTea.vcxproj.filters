@@ -62,6 +62,9 @@
     <ClCompile Include="..\ImGui\imgui_widgets.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerCamera.cpp">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -124,5 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <ClInclude Include="PlayerCamera.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -161,6 +161,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NetQueue.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ImGui\imconfig.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="IncludingJson.h" />
     <ClInclude Include="NetQueue.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerCamera.h" />
     <ClInclude Include="PlayerData.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Serializable.h" />
