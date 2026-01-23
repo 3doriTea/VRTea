@@ -40,5 +40,11 @@
     <ClInclude Include="Player.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
