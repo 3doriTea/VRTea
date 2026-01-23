@@ -1391,10 +1391,16 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="pKyy6H57xjVcWM7TYN3z-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;Head&quot;: &quot;&amp;lt;通信ヘッダ名&amp;gt;&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;Content&quot;: &amp;lt;通信内容&amp;gt;&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="360" x="40" y="40" as="geometry" />
+          <mxGeometry height="80" width="200" x="40" y="40" as="geometry" />
         </mxCell>
         <mxCell id="pKyy6H57xjVcWM7TYN3z-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="&lt;ul&gt;&lt;li&gt;Join&lt;/li&gt;&lt;li&gt;Account&lt;/li&gt;&lt;li&gt;Update&lt;/li&gt;&lt;li&gt;Updated&lt;/li&gt;&lt;li&gt;Event&lt;/li&gt;&lt;/ul&gt;" vertex="1">
-          <mxGeometry height="190" width="400" x="420" y="60" as="geometry" />
+          <mxGeometry height="200" width="160" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pKyy6H57xjVcWM7TYN3z-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;Head&quot;: &quot;Join&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;Content&quot;: null&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pKyy6H57xjVcWM7TYN3z-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;Head&quot;: &quot;Account&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;Content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;name&quot;: &amp;lt;与えられた名前&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;color&quot;: &amp;lt;与えられた色&amp;gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; }&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="40" y="280" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
