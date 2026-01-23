@@ -8,6 +8,7 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	SetOutApplicationLogValidFlag(FALSE);
 	SetGraphMode(1280, 720, 32);
 	ChangeWindowMode(TRUE);
 	SetWindowSizeExtendRate(1.0);
