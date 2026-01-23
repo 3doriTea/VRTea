@@ -1027,7 +1027,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_KVVmYagxzPMmdTJE0yi" name="大雑把なクライアント処理">
-    <mxGraphModel dx="1097" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1303" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1107,6 +1107,9 @@
         </mxCell>
         <mxCell id="w_OThGfdsJ1YpbhFZNs3-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="&lt;div&gt;// 受信するチャットデータ&lt;/div&gt;&lt;div&gt;struct ChatRecvData : Serializable&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&amp;nbsp; std::string content;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; // 受信時しか使わないからjsonへの変換はいらない&lt;/div&gt;&lt;div&gt;&amp;nbsp; //&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;bool TryToJson(json&amp;amp; _writeTo) override;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;bool TryFromJson(const json&amp;amp; _readTo) override;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;" vertex="1">
           <mxGeometry height="160" width="400" x="1200" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="iH9PD66AiweYzOltT-nl-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="&lt;div&gt;// イベントデータ&lt;/div&gt;&lt;div&gt;struct EventData : Serializable&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&amp;nbsp; std::string type;&amp;nbsp; // イベントの種類&lt;/div&gt;&lt;div&gt;&amp;nbsp; json content;&amp;nbsp; // イベント内容&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; // イベントは受信時しか使わないからjsonへの変換はいらない&lt;/div&gt;&lt;div&gt;&amp;nbsp; //&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;bool TryToJson(json&amp;amp; _writeTo) override;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;bool TryFromJson(const json&amp;amp; _readTo) override;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="400" x="1640" y="720" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
