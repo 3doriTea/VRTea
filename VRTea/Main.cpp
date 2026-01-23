@@ -17,7 +17,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	GameObjectWorld world = {};
 
+#pragma region ゲームオブジェクトはここでインスタンス作ってください
+
 	GameObject::Instantiate<Player>();
+
+#pragma 
 
 	while (CheckHitKeyAll() == 0)
 	{
