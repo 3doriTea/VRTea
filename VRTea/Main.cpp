@@ -10,7 +10,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	SetGraphMode(1280, 720, 32);
 	ChangeWindowMode(TRUE);
-
+	SetWindowSizeExtendRate(1.0);
 	if (DxLib_Init() == -1)
 	{
 		return -1;
@@ -65,6 +65,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ImGui::Render();
 		ImGui_ImplDXlib_RenderDrawData();
 
+		RefreshDxLibDirect3DSetting();
 		//if (ImGui::GetIO().ConfigFlags )
 		{
 			ImGui::UpdatePlatformWindows();
