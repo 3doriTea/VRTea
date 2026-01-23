@@ -29,6 +29,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClCompile>
+    <ClCompile Include="NetQueue.cpp">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -44,6 +47,9 @@
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
     <ClInclude Include="PlayerState.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="NetQueue.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
   </ItemGroup>
