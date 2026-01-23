@@ -1,36 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
+    <Filter Include="Cppのファイルたち">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd;cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Cppのファイルたち\ベース側">
+      <UniqueIdentifier>{d86247fc-87e1-4a52-8257-5c83e9881ff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cppのファイルたち\ゲーム側">
+      <UniqueIdentifier>{73a74dfb-640d-4cf5-8f37-bbb80179f66b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>Cppのファイルたち\ベース側</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectUpdater.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>Cppのファイルたち\ベース側</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Cppのファイルたち\ベース側</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>Cppのファイルたち\ベース側</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectUpdater.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>Cppのファイルたち\ベース側</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
