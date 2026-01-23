@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="11">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="12">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -1027,7 +1027,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_KVVmYagxzPMmdTJE0yi" name="大雑把なクライアント処理">
-    <mxGraphModel dx="1303" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1127,6 +1127,98 @@
         <mxCell id="1" parent="0" />
         <mxCell id="DnPrPc4OPXxDIlELDrSL-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
           <mxGeometry height="60" width="120" x="350" y="260" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="_y0uqKO0vgDR6QZ32DX9" name="大雑把なサーバー処理">
+    <mxGraphModel dx="906" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-10" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IService" vertex="1">
+          <mxGeometry height="60" width="320" x="520" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-12" parent="V6P8f9hkjkaNAzhTBxM2-10" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-13" parent="V6P8f9hkjkaNAzhTBxM2-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Start(cts : CancellationTokenSource) : Task" vertex="1">
+          <mxGeometry height="26" width="320" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-14" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IService" vertex="1">
+          <mxGeometry height="60" width="320" x="780" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-15" parent="V6P8f9hkjkaNAzhTBxM2-14" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-16" parent="V6P8f9hkjkaNAzhTBxM2-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Start(cts : CancellationTokenSource) : Task" vertex="1">
+          <mxGeometry height="26" width="320" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="サーバーを建てる&lt;div&gt;IPアドレスを聞く&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="240" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバーの&lt;div&gt;ポート番号を聞く&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="240" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-27" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="起動処理" vertex="1">
+          <mxGeometry height="40" width="120" x="240" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCP受付た" vertex="1">
+          <mxGeometry height="40" width="120" x="880" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-36" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UDP受信した" vertex="1">
+          <mxGeometry height="40" width="120" x="600" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-28" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-24" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="コンソールで&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;エンターが入力された&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="240" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="終了処理" vertex="1">
+          <mxGeometry height="40" width="120" x="240" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバ起動" vertex="1">
+          <mxGeometry height="40" width="120" x="400" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ボットサーバ起動" vertex="1">
+          <mxGeometry height="40" width="120" x="80" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバ終了" vertex="1">
+          <mxGeometry height="40" width="120" x="400" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ボットサーバ終了" vertex="1">
+          <mxGeometry height="40" width="120" x="80" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバの&lt;div&gt;キューに追加&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="600" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバの&lt;div&gt;キューに追加&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="800" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-37" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-35" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCP受信した" vertex="1">
+          <mxGeometry height="40" width="120" x="800" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCPセッション終了" vertex="1">
+          <mxGeometry height="40" width="120" x="800" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCPセッション開始" vertex="1">
+          <mxGeometry height="40" width="120" x="800" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UDP受付開始" vertex="1">
+          <mxGeometry height="40" width="120" x="600" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="UDP受付終了" vertex="1">
+          <mxGeometry height="40" width="120" x="600" y="640" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
