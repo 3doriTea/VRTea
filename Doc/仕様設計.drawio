@@ -1132,7 +1132,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_y0uqKO0vgDR6QZ32DX9" name="大雑把なサーバー処理">
-    <mxGraphModel dx="906" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="632" dy="341" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1199,6 +1199,29 @@
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバの&lt;div&gt;キューに追加&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="120" x="600" y="560" as="geometry" />
         </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-43" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-34" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-35">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="620" />
+              <mxPoint x="940" y="620" />
+              <mxPoint x="940" y="500" />
+            </Array>
+            <mxPoint x="1019.9999999999998" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-47" connectable="0" parent="V6P8f9hkjkaNAzhTBxM2-43" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="キャンセルするまで繰り返す" vertex="1">
+          <mxGeometry relative="1" x="-0.8992" y="-1" as="geometry">
+            <mxPoint x="1" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-44" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-34" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="580" />
+              <mxPoint x="780" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ゲームサーバの&lt;div&gt;キューに追加&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="120" x="800" y="560" as="geometry" />
         </mxCell>
@@ -1210,6 +1233,9 @@
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCPセッション終了" vertex="1">
           <mxGeometry height="40" width="120" x="800" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="V6P8f9hkjkaNAzhTBxM2-42" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-39" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-35">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="TCPセッション開始" vertex="1">
           <mxGeometry height="40" width="120" x="800" y="400" as="geometry" />
