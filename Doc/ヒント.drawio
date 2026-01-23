@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="7">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="8">
   <diagram name="【質問場所】" id="FW7Fpw1p_7uOpJIxge0A">
     <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -200,6 +200,17 @@
         </mxCell>
         <mxCell id="Avnx795oBZAn33EgPnYn-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="&lt;h2&gt;デメリット1 : &amp;lt;誰か考えてください&amp;gt;&lt;/h2&gt;&lt;div&gt;___&lt;/div&gt;" vertex="1">
           <mxGeometry height="230" width="440" x="560" y="360" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="uWlwi3M_TSe3tHUzT3DI" name="ちゃんと書けるか不安…">
+    <mxGraphModel dx="2605" dy="1405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9m22KmUu2Bpap4u_tYLV-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="&lt;font style=&quot;font-size: 128px;&quot;&gt;なぜコードが書けないのか&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 128px;&quot;&gt;↓&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 128px; color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 51);&quot;&gt;設計が足りないからだ！！！&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="700" width="1870" x="25" y="190" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
