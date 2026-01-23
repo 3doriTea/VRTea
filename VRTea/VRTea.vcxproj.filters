@@ -52,5 +52,20 @@
     <ClInclude Include="PlayerState.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
+    <ClInclude Include="Chat.h">
+      <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="NetQueue.h">
+      <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializable.h">
+      <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="IncludingJson.h">
+      <Filter>Cppのファイルたち\ベース側</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

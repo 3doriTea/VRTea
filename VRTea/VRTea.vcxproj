@@ -158,6 +158,7 @@
     <ClInclude Include="Chat.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectWorld.h" />
+    <ClInclude Include="IncludingJson.h" />
     <ClInclude Include="NetQueue.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerData.h" />
