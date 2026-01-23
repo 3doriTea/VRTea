@@ -29,6 +29,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClCompile>
+    <ClCompile Include="Chat.cpp">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -46,5 +49,14 @@
     <ClInclude Include="PlayerState.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
+    <ClInclude Include="Chat.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializable.h">
+      <Filter>Cppのファイルたち\ベース側</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
