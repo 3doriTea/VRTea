@@ -16,8 +16,10 @@ void Chat::DrawChatLog()
 
 void Chat::DrawInputField()
 {
+
 }
 
 void Chat::InputText()
 {
+	
 }
