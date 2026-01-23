@@ -1393,8 +1393,8 @@
         <mxCell id="pKyy6H57xjVcWM7TYN3z-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;Head&quot;: &quot;&amp;lt;通信ヘッダ名&amp;gt;&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;Content&quot;: &amp;lt;通信内容&amp;gt;&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="360" x="40" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="pKyy6H57xjVcWM7TYN3z-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="Text" vertex="1">
-          <mxGeometry height="190" width="100" x="420" y="60" as="geometry" />
+        <mxCell id="pKyy6H57xjVcWM7TYN3z-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="&lt;ul&gt;&lt;li&gt;Join&lt;/li&gt;&lt;li&gt;Account&lt;/li&gt;&lt;li&gt;Update&lt;/li&gt;&lt;li&gt;Updated&lt;/li&gt;&lt;li&gt;Event&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="190" width="400" x="420" y="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
