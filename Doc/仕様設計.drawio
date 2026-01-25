@@ -1132,7 +1132,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_y0uqKO0vgDR6QZ32DX9" name="大雑把なサーバー処理">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1170,6 +1170,9 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-73" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Sb7RZ7Tgr6utPS563xgV-2" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-40">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="起動処理" vertex="1">
@@ -1340,6 +1343,9 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="Sb7RZ7Tgr6utPS563xgV-3" edge="1" parent="1" source="V6P8f9hkjkaNAzhTBxM2-60" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="V6P8f9hkjkaNAzhTBxM2-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;TCPセッション開始&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="120" x="1000" y="480" as="geometry" />
         </mxCell>
@@ -1386,7 +1392,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="DGZWDmdYQponEwzlDdjf" name="通信Json">
-    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
