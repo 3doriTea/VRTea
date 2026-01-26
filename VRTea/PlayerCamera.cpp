@@ -2,7 +2,7 @@
 
 void PlayerCamera::Update()
 {
-	SetCameraPositionAndTargetAndUpVec(VGet(0.0f,0.0f,-10.0f), VGet(0.0f, 0.0f, 0.0f),);
+	//SetCameraPositionAndTargetAndUpVec();
 }
 
 void PlayerCamera::Draw()
