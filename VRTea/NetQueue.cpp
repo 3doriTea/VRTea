@@ -21,7 +21,7 @@ NetQueue::NetQueue()
         WSACleanup();
         return;
     }
-    set_nonblocking(sock);
+    //set_nonblocking(sock);  // TOOD: ノンブロッキングのところ
 }
 
 NetQueue::~NetQueue()

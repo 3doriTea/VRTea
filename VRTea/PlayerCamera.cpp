@@ -2,7 +2,7 @@
 
 void PlayerCamera::Update()
 {
-	SetCameraPositionAndTargetAndUpVec();
+	//SetCameraPositionAndTargetAndUpVec();
 }
 
 void PlayerCamera::Draw()
