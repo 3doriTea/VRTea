@@ -4,6 +4,8 @@
 
 struct PlayerCamera : GameObject
 {
+	PlayerCamera();
+	~PlayerCamera();
 	void Update() override;
 	void Draw() override;
 

@@ -4,6 +4,7 @@
 #include "GameObjectWorld.h"
 
 #include "Player.h"
+#include "PlayerCamera.h"
 
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -42,6 +43,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 #pragma region ゲームオブジェクトはここでインスタンス作ってください
 
 	GameObject::Instantiate<Player>();
+	GameObject::Instantiate<PlayerCamera>();
 
 #pragma 
 
