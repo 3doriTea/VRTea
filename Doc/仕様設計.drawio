@@ -1132,7 +1132,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_y0uqKO0vgDR6QZ32DX9" name="大雑把なサーバー処理">
-    <mxGraphModel dx="815" dy="444" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1595,6 +1595,27 @@
             <mxPoint x="870" y="130" as="sourcePoint" />
             <mxPoint x="900" y="210" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-35" edge="1" parent="1" source="NlP1Fi7OLFM8grPrdism-32" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V6P8f9hkjkaNAzhTBxM2-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-32" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="LoggerService : IService, ILogger" vertex="1">
+          <mxGeometry height="138" width="320" x="1320" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-33" parent="NlP1Fi7OLFM8grPrdism-32" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-34" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Start(cts : CancellationTokenSource) : Task" vertex="1">
+          <mxGeometry height="26" width="320" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-36" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ WriteLine(content : string);" vertex="1">
+          <mxGeometry height="26" width="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-37" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Write(content : string);" vertex="1">
+          <mxGeometry height="26" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-38" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Error(content : string);" vertex="1">
+          <mxGeometry height="26" width="320" y="112" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
