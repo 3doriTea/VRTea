@@ -1761,6 +1761,9 @@
         <mxCell id="NlP1Fi7OLFM8grPrdism-96" parent="NlP1Fi7OLFM8grPrdism-93" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Ask() : void { override }" vertex="1">
           <mxGeometry height="26" width="280" y="60" as="geometry" />
         </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-99" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="UDPとTCPをどう区別つけるか問題" vertex="1">
+          <mxGeometry height="36" width="230" x="2430" y="454" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
