@@ -1764,6 +1764,9 @@
         <mxCell id="NlP1Fi7OLFM8grPrdism-99" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="UDPとTCPをどう区別つけるか問題" vertex="1">
           <mxGeometry height="36" width="230" x="2430" y="454" as="geometry" />
         </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-101" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="GameTcpSessionとUDPService同じレベルにすべき！分けなくていい&lt;div&gt;TODO　名前変更、UDPSessionみたいな&lt;/div&gt;" vertex="1">
+          <mxGeometry height="36" width="230" x="2380" y="604" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
