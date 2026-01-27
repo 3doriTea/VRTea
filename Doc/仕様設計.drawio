@@ -1626,13 +1626,13 @@
         <mxCell id="NlP1Fi7OLFM8grPrdism-34" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Start(cts : CancellationTokenSource) : Task" vertex="1">
           <mxGeometry height="26" width="440" y="164" as="geometry" />
         </mxCell>
-        <mxCell id="NlP1Fi7OLFM8grPrdism-36" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ WriteLine(content : string);" vertex="1">
+        <mxCell id="NlP1Fi7OLFM8grPrdism-36" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ WriteLine(content : string) : void" vertex="1">
           <mxGeometry height="26" width="440" y="190" as="geometry" />
         </mxCell>
-        <mxCell id="NlP1Fi7OLFM8grPrdism-37" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Write(content : string);" vertex="1">
+        <mxCell id="NlP1Fi7OLFM8grPrdism-37" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Write(content : string) : void" vertex="1">
           <mxGeometry height="26" width="440" y="216" as="geometry" />
         </mxCell>
-        <mxCell id="NlP1Fi7OLFM8grPrdism-38" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Error(content : string);" vertex="1">
+        <mxCell id="NlP1Fi7OLFM8grPrdism-38" parent="NlP1Fi7OLFM8grPrdism-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Error(content : string) : void" vertex="1">
           <mxGeometry height="26" width="440" y="242" as="geometry" />
         </mxCell>
         <mxCell id="NlP1Fi7OLFM8grPrdism-39" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="ILogger" vertex="1">
@@ -1649,6 +1649,42 @@
         </mxCell>
         <mxCell id="NlP1Fi7OLFM8grPrdism-44" parent="NlP1Fi7OLFM8grPrdism-39" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Error(content : string);" vertex="1">
           <mxGeometry height="26" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-57" edge="1" parent="1" source="NlP1Fi7OLFM8grPrdism-52" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="NlP1Fi7OLFM8grPrdism-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-52" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="NullLogger : ILogger" vertex="1">
+          <mxGeometry height="112" width="320" x="1040" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-53" parent="NlP1Fi7OLFM8grPrdism-52" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-54" parent="NlP1Fi7OLFM8grPrdism-52" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ WriteLine(content : string) : void" vertex="1">
+          <mxGeometry height="26" width="320" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-55" parent="NlP1Fi7OLFM8grPrdism-52" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Write(content : string) : void" vertex="1">
+          <mxGeometry height="26" width="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-56" parent="NlP1Fi7OLFM8grPrdism-52" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Error(content : string) : void" vertex="1">
+          <mxGeometry height="26" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-58" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="static Log" vertex="1">
+          <mxGeometry height="138" width="320" x="1840" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-59" parent="NlP1Fi7OLFM8grPrdism-58" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-60" parent="NlP1Fi7OLFM8grPrdism-58" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="! static SetLogger(logger : ILogger) : void" vertex="1">
+          <mxGeometry height="26" width="320" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-61" parent="NlP1Fi7OLFM8grPrdism-58" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ static WriteLine(content : string) : void" vertex="1">
+          <mxGeometry height="26" width="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-63" parent="NlP1Fi7OLFM8grPrdism-58" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ static&amp;nbsp;Write(content : string) : void" vertex="1">
+          <mxGeometry height="26" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="NlP1Fi7OLFM8grPrdism-62" parent="NlP1Fi7OLFM8grPrdism-58" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ static Error(content : string) : void" vertex="1">
+          <mxGeometry height="26" width="320" y="112" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
