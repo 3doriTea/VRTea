@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using VRTeaServer.Logging;
+using VRTeaServer.Service;
+using VRTeaServer.Utility;
+
+namespace VRTeaServer
+{
+	/// <summary>
+	/// ログサービス
+	/// </summary>
+	internal class LoggerService : IService, ILogger
+	{
+		public float SaveIntervalSec { get; set; } = 60.0f;
+		public int SaveLimitCount { get; set; } = 1000;
+		private readonly DirectoryInfo _logDir;
+		private readonly List<LogContent> _logList = [];
+
+		public LoggerService(DirectoryInfo logDir)
+		{
+			_logDir = logDir;
+		}
+
+		/// <summary>
+		/// 定期的なログ処理を開始
+		/// </summary>
+		/// <param name="cts"></param>
+		/// <returns></returns>
+		public async Task Start(CancellationTokenSource cts)
+		{
+			try
+			{
+				while (true)
+				{
+					await Task.Delay(TimeUtil.ToMilliSec(SaveIntervalSec), cts.Token);
+					await WriteOutLogs();
+				}
+			}
+			catch (TaskCanceledException)
+			{
+				return;
+			}
+		}
+
+		/// <summary>
+		/// 主記憶内のログを補助記憶に書き出す
+		/// </summary>
+		/// <returns></returns>
+		public async Task WriteOutLogs()
+		{
+			string? logsText;
+			int count = 0;
+			lock (_logList)
+			{
+				logsText = string.Join("\n", _logList);
+				count = _logList.Count;
+				_logList.Clear();
+			}
+
+			try
+			{
+				string fileName = $"{DateTime.Now:yyyy-MM-dd_HH-mm-ss}_{count:00000}.log";
+				string filePath = Path.Combine(_logDir.FullName, fileName);
+				await File.WriteAllTextAsync(filePath, logsText);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+		}
+
+		/// <summary>
+		/// エラーログを出力
+		/// </summary>
+		/// <param name="content">ログの内容</param>
+		public void Error(string content)
+		{
+		}
+
+		/// <summary>
+		/// 改行無しでログを出力
+		/// </summary>
+		/// <param name="content">ログの内容</param>
+		public void Write(string content)
+		{
+		}
+
+		/// <summary>
+		/// 改行付きでログを出力
+		/// </summary>
+		/// <param name="content">ログの内容</param>
+		public void WriteLine(string content)
+		{
+		}
+	}
+}
