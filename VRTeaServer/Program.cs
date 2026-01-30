@@ -32,6 +32,8 @@ namespace VRTeaServer
 			var servicePlayer = new ServicePlayer(
 			[
 				new TerminateService(cts),
+				new BotService(),
+				new 
 			]);
 
 			servicePlayer.Play(cts);
