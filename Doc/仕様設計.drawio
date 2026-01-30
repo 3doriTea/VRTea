@@ -1815,13 +1815,13 @@
         <mxCell id="6KAw7Xg4ouwcw6kgDG0j-15" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="AskPlayer" vertex="1">
           <mxGeometry height="86" width="280" x="2600" y="337" as="geometry" />
         </mxCell>
-        <mxCell id="6KAw7Xg4ouwcw6kgDG0j-16" parent="6KAw7Xg4ouwcw6kgDG0j-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Ready : bool" vertex="1">
+        <mxCell id="6KAw7Xg4ouwcw6kgDG0j-16" parent="6KAw7Xg4ouwcw6kgDG0j-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- asks : List&amp;lt;AskBase&amp;gt;" vertex="1">
           <mxGeometry height="26" width="280" y="26" as="geometry" />
         </mxCell>
         <mxCell id="6KAw7Xg4ouwcw6kgDG0j-17" parent="6KAw7Xg4ouwcw6kgDG0j-15" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="280" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="6KAw7Xg4ouwcw6kgDG0j-18" parent="6KAw7Xg4ouwcw6kgDG0j-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Ask() : void { override }" vertex="1">
+        <mxCell id="6KAw7Xg4ouwcw6kgDG0j-18" parent="6KAw7Xg4ouwcw6kgDG0j-15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Play() : void" vertex="1">
           <mxGeometry height="26" width="280" y="60" as="geometry" />
         </mxCell>
       </root>
