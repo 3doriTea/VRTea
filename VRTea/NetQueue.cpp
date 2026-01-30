@@ -28,6 +28,7 @@ NetQueue::NetQueue()
         WSACleanup();
         return;
     }
+    //set_nonblocking(sock);  // TOOD: ノンブロッキングのところ
     std::cout << "Success : socket" << std::endl;
 
     // ノンブロッキング処理
