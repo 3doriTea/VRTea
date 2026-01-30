@@ -5,6 +5,7 @@ namespace VRTeaServer
 {
 	internal class Program
 	{
+		const string LogDirectory = "./";
 		static void Main(string[] args)
 		{
 			var askIPAddress = new AskIPAddress();
@@ -28,12 +29,18 @@ namespace VRTeaServer
 			Console.Write($"\"{askIPAddress.IPAddress}:{askPortNumber.PortNumber}\"...");
 			Console.WriteLine($"Ok!");
 
+			var sessionManager = new SessionManager();
+
 			var cts = new CancellationTokenSource();
 			var servicePlayer = new ServicePlayer(
 			[
+				new LoggerService(new DirectoryInfo(LogDirectory)),
 				new TerminateService(cts),
 				new BotService(),
-				new GameTcpService(),
+				new GameTcpService(
+					sessionManager,
+					askIPAddress.IPAddress,
+					askPortNumber.PortNumber),
 			]);
 
 			servicePlayer.Play(cts);

@@ -22,6 +22,7 @@ namespace VRTeaServer
 		public LoggerService(DirectoryInfo logDir)
 		{
 			_logDir = logDir;
+			Log.SetLogger(this);
 		}
 
 		/// <summary>
@@ -73,11 +74,40 @@ namespace VRTeaServer
 		}
 
 		/// <summary>
+		/// 主記憶に溜めるログ数上限を確認、必要に応じて補助記憶に書き出す
+		/// </summary>
+		/// <returns></returns>
+		private async Task CheckLimit()
+		{
+			bool needWriteOut = false;
+			lock (_logList)
+			{
+				needWriteOut = _logList.Count >= SaveLimitCount;
+			}
+			if (needWriteOut)
+			{
+				await WriteOutLogs();
+			}
+		}
+
+		/// <summary>
 		/// エラーログを出力
 		/// </summary>
 		/// <param name="content">ログの内容</param>
 		public void Error(string content)
 		{
+			var log = new LogContent
+			{
+				Prefix = 'E',
+				Content = content,
+				Timestamp = DateTime.Now
+			};
+			lock (_logList)
+			{
+				_logList.Add(log);
+			}
+			Console.WriteLine(log);
+			_ = CheckLimit();
 		}
 
 		/// <summary>
@@ -86,6 +116,28 @@ namespace VRTeaServer
 		/// <param name="content">ログの内容</param>
 		public void Write(string content)
 		{
+			bool needNewLine = false;
+			lock (_logList)
+			{
+				needNewLine = _logList.Count == 0 || _logList.Last().Content[^content.Length..] != content;
+			}
+			if (needNewLine)
+			{
+				WriteLine(content);
+				return;
+			}
+
+			lock (_logList)
+			{
+				var log = new LogContent
+				{
+					Prefix = '>',
+					Content = _logList.Last().Content + content,
+					Timestamp = DateTime.Now
+				};
+				_logList[^1] = log;
+			}
+			Console.Write(content);
 		}
 
 		/// <summary>
@@ -94,6 +146,18 @@ namespace VRTeaServer
 		/// <param name="content">ログの内容</param>
 		public void WriteLine(string content)
 		{
+			var log = new LogContent
+			{
+				Prefix = '>',
+				Content = content,
+				Timestamp = DateTime.Now
+			};
+			lock (_logList)
+			{
+				_logList.Add(log);
+			}
+			Console.WriteLine(log);
+			_ = CheckLimit();
 		}
 	}
 }

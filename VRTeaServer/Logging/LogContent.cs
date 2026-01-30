@@ -23,5 +23,14 @@ namespace VRTeaServer.Logging
 		/// 接頭辞
 		/// </summary>
 		public char Prefix { get; set; }
+
+		/// <summary>
+		/// 文字列に変換するやつ
+		/// </summary>
+		/// <returns>文字列</returns>
+		public override string ToString()
+		{
+			return $"{Prefix}:{Content}";
+		}
 	}
 }

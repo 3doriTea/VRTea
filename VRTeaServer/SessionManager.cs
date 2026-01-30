@@ -11,15 +11,26 @@ using VRTeaServer.Logging;
 
 namespace VRTeaServer
 {
+	/// <summary>
+	/// <para>セッションを管理するやつ</para>
+	/// <para>ゲーム側と通信側の橋渡し役</para>
+	/// </summary>
 	internal class SessionManager
 	{
-		public Action<IPEndPoint, int> OnDisconnected { get; }
-		private readonly ConcurrentDictionary<int, Session> _sessions;
-		private readonly ConcurrentDictionary<IPEndPoint, int> _ipepToSessionId;
-		private int _sessionIdCounter;
+		public Action<IPEndPoint, int> OnDisconnected { get; } = delegate { };
+		private readonly ConcurrentDictionary<int, Session> _sessions = [];
+		private readonly ConcurrentDictionary<IPEndPoint, int> _ipepToSessionId = [];
+		private int _sessionIdCounter = 0;
 
 		public SessionManager() { }
 
+		/// <summary>
+		/// セッションを開始する
+		/// </summary>
+		/// <param name="client"></param>
+		/// <param name="cts"></param>
+		/// <param name="sessionMode"></param>
+		/// <returns></returns>
 		public int BeginSession(TcpClient client, CancellationTokenSource cts, SessionMode sessionMode)
 		{
 			int sessionId = Interlocked.Increment(ref _sessionIdCounter);
@@ -52,9 +63,28 @@ namespace VRTeaServer
 			return sessionId;
 		}
 
+		/// <summary>
+		/// セッションを終わらせる
+		/// </summary>
+		/// <param name="sessionId">セッションId</param>
 		public void EndSession(int sessionId)
 		{
+			_sessions.Remove(sessionId, out var session);
 
+			if (session is null)
+			{
+				Log.Error("remove session is null");
+				return;
+			}
+
+
+			if (session.Client.Client.RemoteEndPoint is not IPEndPoint ipep)
+			{
+				Log.Error("not found IPEndPoint");
+				return;
+			}
+
+			_ipepToSessionId.Remove(ipep, out _);
 		}
 	}
 }
