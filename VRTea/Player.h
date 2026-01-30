@@ -1,5 +1,6 @@
 #pragma once
 #include "PlayerData.h"
+#include "PlayerState.h"
 #include "GameObject.h"
 
 struct Player : GameObject
@@ -21,4 +22,5 @@ struct Player : GameObject
 	};
 	void DrawImGui();
 	PlayerData pData;
+	PlayerState playerState;
 };
