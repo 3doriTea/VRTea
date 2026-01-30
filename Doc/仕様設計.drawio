@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4" pages="13">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.6" pages="13">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -1766,6 +1766,9 @@
         </mxCell>
         <mxCell id="NlP1Fi7OLFM8grPrdism-101" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="GameTcpSessionとUDPService同じレベルにすべき！分けなくていい&lt;div&gt;TODO　名前変更、UDPSessionみたいな&lt;/div&gt;" vertex="1">
           <mxGeometry height="36" width="230" x="2380" y="604" as="geometry" />
+        </mxCell>
+        <mxCell id="6KAw7Xg4ouwcw6kgDG0j-3" edge="1" parent="1" source="3xyUxU9JNcvqEPNvVT_3-1" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="NlP1Fi7OLFM8grPrdism-77">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="3xyUxU9JNcvqEPNvVT_3-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="AskPlayer" vertex="1">
           <mxGeometry height="86" width="280" x="2600" y="40" as="geometry" />
