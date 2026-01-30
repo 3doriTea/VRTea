@@ -19,6 +19,6 @@ struct Player : GameObject
 	{
 		pData.color = _color;
 	};
-
+	void DrawImGui();
 	PlayerData pData;
 };

@@ -19,3 +19,7 @@ void Player::Draw()
 Player::~Player()
 {
 }
+
+void Player::DrawImGui()
+{
+}
