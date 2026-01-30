@@ -69,16 +69,55 @@ std::string NetQueue::Read(std::string& out)
     return Q;
 }
 
+// 更新
 void NetQueue::Update()
 {
-    std::string sendData;
+    if (!connected || sock == INVALID_SOCKET) return;
 
-    int ret = send(sock, 
-        sendData.c_str(),
-        (sendData.size()),  // 送る文字列のサイズ
-        0);                   
+    // 送信中バッファが空なら、送信キューから次のデータを取る
+    if (sendingBuffer.empty() && !sendQueue.empty())
+    {
+        sendingBuffer = std::move(sendQueue.front());
+        sendQueue.pop();
+    }
+
+    // 受信処理
+    char temp[4096];
+    std::string sendData;
+    
+    for (;;) // 条件が満たされない限り、処理が無限に繰り返される
+    {
+        // データを送信
+        int ret = send(sock,
+            sendData.c_str(),
+            (sendData.size()),  // 送る文字列のサイズ
+            0);
+        if (ret > 0)
+        {
+
+        }
+        else if (ret == 0)
+        {
+            // 相手が切断
+            connected = false;
+            break;
+        }
+        else
+        {
+            int err = WSAGetLastError();
+            if (err == WSAECONNRESET)
+            {
+                // 今は受信データ無し
+                break;
+            }
+            // その他のエラー
+            connected = false;
+            break;
+        }
+    }
 }
 
+// 描画(もしかして必要ない？)
 void NetQueue::Draw()
 {
 
