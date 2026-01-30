@@ -58,7 +58,9 @@ namespace VRTeaServer
 		public readonly string GetString() => Encoding.UTF8.GetString(Buffer);
 	}
 
-
+	/// <summary>
+	/// セッション
+	/// </summary>
 	internal class Session : IDisposable
 	{
 		public int Id { get; }
@@ -66,10 +68,10 @@ namespace VRTeaServer
 		public SessionMode Mode { get; }
 
 		public Channel<SendData> SendQueue { get; } = Channel.CreateUnbounded<SendData>();
-		public ConcurrentQueue<ReceiveData> ReceiveQueue { get; }
+		public ConcurrentQueue<ReceiveData> ReceiveQueue { get; } = [];
 
-		public bool ToDestroyFlag { get; }
-		public DateTime Timestamp { get; }
+		public bool ToDestroyFlag { get; } = false;
+		public DateTime Timestamp { get; } = DateTime.UtcNow;
 
 		private CancellationTokenSource _cts;
 
@@ -85,7 +87,8 @@ namespace VRTeaServer
 
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			Client.Close();
+			Client.Dispose();
 		}
 	}
 }
