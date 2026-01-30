@@ -1,4 +1,5 @@
 ﻿using VRTeaServer.CLI;
+using VRTeaServer.Service;
 
 namespace VRTeaServer
 {
@@ -26,6 +27,17 @@ namespace VRTeaServer
 			Console.Write($"Booting...");
 			Console.Write($"\"{askIPAddress.IPAddress}:{askPortNumber.PortNumber}\"...");
 			Console.WriteLine($"Ok!");
+
+			var cts = new CancellationTokenSource();
+			var servicePlayer = new ServicePlayer(
+			[
+				new TerminateService(cts),
+			]);
+
+			servicePlayer.Play(cts);
+
+			Console.Write("Closing server...");
+			Console.WriteLine("Ok!");
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace VRTeaServer.CLI
 	/// </summary>
 	internal class AskPlayer
 	{
-		private List<AskBase> _asks;
+		private readonly List<AskBase> _asks;
 
 		public AskPlayer(List<AskBase> asks)
 		{
