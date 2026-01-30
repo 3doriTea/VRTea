@@ -65,6 +65,12 @@
     <ClCompile Include="PlayerCamera.cpp">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClCompile>
+    <ClCompile Include="NetQueueStub.cpp">
+      <Filter>Cppのファイルたち</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>Cppのファイルたち</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -123,6 +129,12 @@
     </ClInclude>
     <ClInclude Include="..\ImGui\imstb_truetype.h">
       <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="NetQueueStub.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Cppのファイルたち\ベース側</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

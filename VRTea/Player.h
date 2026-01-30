@@ -1,6 +1,7 @@
 #pragma once
 #include <IncludingWin.h>
 #include "PlayerData.h"
+#include "PlayerState.h"
 #include "GameObject.h"
 
 struct Player : GameObject
@@ -20,6 +21,7 @@ struct Player : GameObject
 	{
 		pData.color = _color;
 	};
-
+	void DrawImGui();
 	PlayerData pData;
+	PlayerState playerState;
 };

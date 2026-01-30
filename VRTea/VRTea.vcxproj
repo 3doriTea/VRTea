@@ -158,8 +158,10 @@
     <ClCompile Include="Chat.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectWorld.cpp" />
+    <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NetQueue.cpp" />
+    <ClCompile Include="NetQueueStub.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerCamera.cpp" />
   </ItemGroup>
@@ -177,8 +179,10 @@
     <ClInclude Include="Chat.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectWorld.h" />
+    <ClInclude Include="GameTime.h" />
     <ClInclude Include="IncludingJson.h" />
     <ClInclude Include="NetQueue.h" />
+    <ClInclude Include="NetQueueStub.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerCamera.h" />
     <ClInclude Include="PlayerData.h" />

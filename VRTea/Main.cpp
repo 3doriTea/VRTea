@@ -1,11 +1,13 @@
 #include <DxLib.h>
-#include "../ImGui/imgui_impl_dxlib.hpp"
 #include "GameObject.h"
 #include "GameObjectWorld.h"
 
 #include "Player.h"
 #include "PlayerCamera.h"
-
+#include "NetQueueStub.h"
+#include "Chat.h"
+#include "GameTime.h"
+#include "../ImGui/imgui_impl_dxlib.hpp"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -44,19 +46,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	GameObject::Instantiate<Player>();
 	GameObject::Instantiate<PlayerCamera>();
+	GameObject::Instantiate<Chat>();
+	GameObject::Instantiate<NetQueueStub>();
 
 #pragma 
+
+	GameTime::Initialize();
 
 	while (true)
 	{
 		ImGui_ImplDXlib_NewFrame();
 		ImGui::NewFrame();
 
+		GameTime::Refresh();
+
 		world.Update();
 		world.Draw();
-		ImGui::Begin("Hoge");
-		ImGui::Text("ssh");
-		ImGui::End();
 		if (ProcessMessage() == -1)
 		{
 			break;
