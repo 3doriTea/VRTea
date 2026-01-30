@@ -24,6 +24,45 @@ namespace VRTeaServer
 
 		public SessionManager() { }
 
+		public async Task SendEnqueue(int sessionId, SendData data, CancellationTokenSource cts)
+		{
+			await _sessions[sessionId].SendQueue.Writer.WriteAsync(data, cts.Token);
+		}
+
+		/// <summary>
+		/// クライアントへの送信キューからDequeue
+		/// </summary>
+		/// <param name="sessionId"></param>
+		/// <param name="cts"></param>
+		/// <returns></returns>
+		public async Task<SendData> SendDequeue(int sessionId, CancellationTokenSource cts)
+		{
+			return await _sessions[sessionId].SendQueue.Reader.ReadAsync(cts.Token);
+		}
+
+		/// <summary>
+		/// クライアントからの受信キューにEnqueue
+		/// </summary>
+		/// <param name="sessionId"></param>
+		/// <param name="data"></param>
+		/// <param name="cts"></param>
+		/// <returns></returns>
+		public async Task ReceiveEnqueue(int sessionId, ReceiveData data, CancellationTokenSource cts)
+		{
+			await _sessions[sessionId].ReceiveQueue.Writer.WriteAsync(data, cts.Token);
+		}
+
+		/// <summary>
+		/// クライアントからの受信キューからDequeue
+		/// </summary>
+		/// <param name="sessionId"></param>
+		/// <param name="cts"></param>
+		/// <returns></returns>
+		public async Task<ReceiveData> ReceiveDequeue(int sessionId, CancellationTokenSource cts)
+		{
+			return await _sessions[sessionId].ReceiveQueue.Reader.ReadAsync(cts.Token);
+		}
+
 		/// <summary>
 		/// セッションを開始する
 		/// </summary>

@@ -8,6 +8,7 @@ namespace VRTeaServer.Service
 {
 	/// <summary>
 	/// ボットのサービス
+	/// TODO: ボットタスクの人が実装してください
 	/// </summary>
 	internal class BotService : IService
 	{

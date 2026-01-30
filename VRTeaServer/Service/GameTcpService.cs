@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -17,6 +18,8 @@ namespace VRTeaServer.Service
 		private readonly SessionManager _sessionManager;
 		private IPAddress _serverIPAddress;  // サーバーのIPアドレス
 		private ushort _gamePort;            // ゲームサービスを公開するポート番号
+		const int BufferSize = 1024;
+
 
 		public GameTcpService(SessionManager sessionManager, IPAddress serverIPAddress, ushort gamePort)
 		{
@@ -38,9 +41,7 @@ namespace VRTeaServer.Service
 				{
 					TcpClient client = await listener.AcceptTcpClientAsync(cts.Token);
 					// クライアント受け付けたら即セッション開始
-					_sessionManager.BeginSession(client, cts, SessionMode.Game);
-
-					Log.WriteLine($"クライアント受け付けた{client.Client.RemoteEndPoint}");
+					_ = StartSession(client, cts);
 				}
 				catch (OperationCanceledException)
 				{
@@ -52,5 +53,54 @@ namespace VRTeaServer.Service
 			listener.Stop();
 			listener.Dispose();
 		});
+
+		private async Task StartSession(TcpClient client, CancellationTokenSource cts)
+		{
+			int sessionId = _sessionManager.BeginSession(client, cts, SessionMode.Game);
+			Log.WriteLine($"クライアント受け付けた{client.Client.RemoteEndPoint}");
+
+			try
+			{
+				NetworkStream stream = client.GetStream();
+				byte[] buffer = new byte[BufferSize];
+
+				try
+				{
+					await Task.WhenAll(
+						Task.Run(async () =>
+						{
+							int bytesRead = 0;
+							while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
+							{
+								_sessionManager.
+								session.RecvQueue.Enqueue(Encoding.UTF8.GetString(buffer, 0, bytesRead));
+							}
+						}, cts.Token),
+						Task.Run(async () =>
+						{
+							byte[]? sendBuffer = null;
+							while (true)
+							{
+								while (session.SendQueue.TryDequeue(out sendBuffer))
+								{
+									await stream.WriteAsync(sendBuffer, cts.Token);
+								}
+								await Task.Delay(10, cts.Token);
+							}
+						}, cts.Token));
+
+					OnDisconnected.Invoke(id);
+				}
+				catch (OperationCanceledException ex)
+				{
+					_ = ex;
+					return;
+				}
+				catch (IOException ex)
+				{
+					Console.WriteLine($"{ex}");
+				}
+			}
+		}
 	}
 }

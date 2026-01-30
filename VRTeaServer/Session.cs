@@ -68,7 +68,7 @@ namespace VRTeaServer
 		public SessionMode Mode { get; }
 
 		public Channel<SendData> SendQueue { get; } = Channel.CreateUnbounded<SendData>();
-		public ConcurrentQueue<ReceiveData> ReceiveQueue { get; } = [];
+		public Channel<ReceiveData> ReceiveQueue { get; } = Channel.CreateUnbounded<ReceiveData>();
 
 		public bool ToDestroyFlag { get; } = false;
 		public DateTime Timestamp { get; } = DateTime.UtcNow;
