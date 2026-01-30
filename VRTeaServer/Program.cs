@@ -33,7 +33,7 @@ namespace VRTeaServer
 			[
 				new TerminateService(cts),
 				new BotService(),
-				new 
+				new GameTcpService(),
 			]);
 
 			servicePlayer.Play(cts);

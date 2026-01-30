@@ -34,7 +34,7 @@ namespace VRTeaServer
 		/// </summary>
 		/// <param name="str">文字列</param>
 		/// <param name="sendData">送信データの out参照</param>
-		static void FromString(string str, out SendData sendData)
+		public static void FromString(string str, out SendData sendData)
 		{
 			sendData = new SendData(Encoding.UTF8.GetBytes(str));
 		}
@@ -55,7 +55,7 @@ namespace VRTeaServer
 		/// 文字列を取得
 		/// </summary>
 		/// <returns>文字列</returns>
-		readonly string GetString() => Encoding.UTF8.GetString(Buffer);
+		public readonly string GetString() => Encoding.UTF8.GetString(Buffer);
 	}
 
 
