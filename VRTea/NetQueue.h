@@ -3,6 +3,7 @@
 #include "DxLib.h"
 #include "GameObject.h"
 #include <queue>
+#include <iostream>
 #include <WinSock2.h>
 #include <ws2tcpip.h>
 #include <vector>
@@ -13,17 +14,34 @@
 
 struct NetQueue : GameObject
 {
-NetQueue();
-~NetQueue();
+NetQueue();				// コンストラクタ
+~NetQueue();			// デストラクタ
+void Update() override; // 更新
+void Draw();			// 描画
 
-void Update() override;
-void Drow();
+// 送信したいデータをキューに積む（実送信はUpdate内）
+void Send(const std::string& content);
 
-void Send(std::string content);
-std::string Read();
+// 受信済みデータを取り出す（空ならfalse）
+std::string Read(std::string& out);
 
-std::queue<std::string> sendQueue;
-std::queue<std::string> readQueue;
+// ノンブロッキング化
+void SetNonBlocking(SOCKET S);
 
-SOCKET sock;  // ソケット作成
+// 接続処理
+bool Connect(const char* ip, uint16_t port);
+
+std::queue<std::string> sendQueue; // 送信待ち
+std::queue<std::string> readQueue; // 受信済み
+
+// ソケット作成
+SOCKET sock = INVALID_SOCKET;
+
+// TCP:受信したデータを一度貯める
+std::string recvBuffer;
+
+// 送信に備えて、送信中の未送信バッファを保持する
+std::string sendingBuffer;
+
+bool connected = false;	// 接続用
 };
