@@ -1,11 +1,67 @@
 #include "NetQueue.h"
+#include <winsock2.h>  
 
-void NetQueue::Send(std::string content)
+// ノンブロッキング設定(そのまま次の処理に行く用)
+void NetQueue::SetNonBlocking(SOCKET S)
 {
-    sendQueue.push(content);
+    u_long mode = 1; 
+    ioctlsocket(S, FIONBIO, &mode);
 }
 
-std::string NetQueue::Read()
+// コンストラクタ(ここは前回のネットワークの物を引用)
+NetQueue::NetQueue()
+{
+    // WinSock2.2 初期化
+    WSADATA wsaData;
+    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+    {
+        std::cout << "Error : WSAStartup" << std::endl;
+        return;
+    }
+    std::cout << "Success : WSAStartup" << std::endl;
+
+    //リスンソケットの作成(前回の応用)
+    sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock == INVALID_SOCKET)
+    {
+        std::cout << "Error : socket" << std::endl;
+        WSACleanup();
+        return;
+    }
+    //set_nonblocking(sock);  // TOOD: ノンブロッキングのところ
+    std::cout << "Success : socket" << std::endl;
+
+    // ノンブロッキング処理
+    SetNonBlocking(sock);
+
+}
+
+// デストラクタ
+NetQueue::~NetQueue()
+{
+    // ソケットを閉じてWSACleanup
+    if (sock != INVALID_SOCKET)
+    {
+        closesocket(sock);
+        sock = INVALID_SOCKET;
+    }
+    WSACleanup();
+}
+
+// 送信キューに積む
+void NetQueue::Send(const std::string& content)
+{
+    // TCPのメッセージ境界を作るために、改行
+    sendQueue.push(content + "\n");
+}
+
+bool NetQueue::Connect(const char* ip, uint16_t port)
+{
+    return false;
+}
+
+// 受信キューから1件取り出す処理
+std::string NetQueue::Read(std::string& out)
 {
     std::string Q = readQueue.front();
     readQueue.pop();
@@ -13,33 +69,56 @@ std::string NetQueue::Read()
     return Q;
 }
 
-NetQueue::NetQueue()
-{
-    SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock == INVALID_SOCKET)
-    {
-        WSACleanup();
-        return;
-    }
-    //set_nonblocking(sock);  // TOOD: ノンブロッキングのところ
-}
-
-NetQueue::~NetQueue()
-{
-
-}
-
+// 更新
 void NetQueue::Update()
 {
-    std::string sendData;
+    if (!connected || sock == INVALID_SOCKET) return;
 
-    int ret = send(sock, 
-        sendData.c_str(),
-        (sendData.size()),  // 送る文字列のサイズ
-        0);                   
+    // 送信中バッファが空なら、送信キューから次のデータを取る
+    if (sendingBuffer.empty() && !sendQueue.empty())
+    {
+        sendingBuffer = std::move(sendQueue.front());
+        sendQueue.pop();
+    }
+
+    // 受信処理
+    char temp[4096];
+    std::string sendData;
+    
+    for (;;) // 条件が満たされない限り、処理が無限に繰り返される
+    {
+        // データを送信
+        int ret = send(sock,
+            sendData.c_str(),
+            (sendData.size()),  // 送る文字列のサイズ
+            0);
+        if (ret > 0)
+        {
+
+        }
+        else if (ret == 0)
+        {
+            // 相手が切断
+            connected = false;
+            break;
+        }
+        else
+        {
+            int err = WSAGetLastError();
+            if (err == WSAECONNRESET)
+            {
+                // 今は受信データ無し
+                break;
+            }
+            // その他のエラー
+            connected = false;
+            break;
+        }
+    }
 }
 
-void NetQueue::Drow()
+// 描画(もしかして必要ない？)
+void NetQueue::Draw()
 {
 
 }

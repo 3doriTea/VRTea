@@ -1,6 +1,6 @@
 #include "Player.h"
+#include "IncludingJson.h"
 #include <cassert>
-
 
 Player::Player()
 {
@@ -17,5 +17,9 @@ void Player::Draw()
 }
 
 Player::~Player()
+{
+}
+
+void Player::DrawImGui()
 {
 }
