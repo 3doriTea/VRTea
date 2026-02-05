@@ -8,7 +8,7 @@ struct PlayerCamera : GameObject
 	~PlayerCamera();
 	void Update() override;
 	void Draw() override;
-
+	
 	void SetPosition(VECTOR pos);
 	float angleX, angleY;
 };
