@@ -13,23 +13,33 @@ PlayerCamera::~PlayerCamera()
 
 void PlayerCamera::Update()
 {
-	//SetCameraPositionAndTargetAndUpVec(VGet(0.0f,0.0f,-10.0f),VGet(0.0f, 0.0f,0.0f),VGet(0.0f,1.0f,0.0f));
 	int mouseX = 0, mouseY = 0;
-	int prevX = 0, prevY = 0;
+	int width = 1280, height = 720;
+	float mouseSpeedX = 0.001f, mouseSpeedY = 0.001f;
+	bool isKey = false;
+	bool isSetPoint = true;
 	GetMousePoint(&mouseX, &mouseY);
-	//angleX = mouseX - prevX;
-	//angleY = mouseY - prevY;
-	//prevX = mouseX;
-	//prevY = mouseY;
-	//VECTOR target;
+	int px = mouseX - width / 2.0f;
+	int py = mouseY - height / 2.0f;
+	//SetMousePoint(width / 2.0f, height / 2.0f);
 
+	angleX += px * mouseSpeedX;
+	angleY -= py * mouseSpeedY;
+	if (angleX > 3.5f)
+		angleX = 3.5f;
+	if (angleX < -3.5f)
+		angleX = -3.5f;
+	if (angleY > 1.0f)
+		angleY = 1.0f;
+	if (angleY < -1.0f)
+		angleY = -1.0f;
+	VECTOR camPos = VGet(0.0f, 0.0f, -100.0f);
+	VECTOR target = VGet(0.0f, 0.0f, 0.0f);
+	target.x = camPos.x + cos(angleY) * sin(angleX);
+	target.y = camPos.y + sin(angleY);
+	target.z = camPos.z + cos(angleY) * cos(angleX);
 
-
-
-	SetCameraPositionAndTarget_UpVecY(VGet(0.0f, 0.0f, -100.0f), VGet(0.0f, 0.0f, 0.0f));
-
-	prevX = mouseX;
-	prevY = mouseY;
+	SetCameraPositionAndTarget_UpVecY(VGet(0.0f, 0.0f, -100.0f), target);
 }
 
 void PlayerCamera::Draw()

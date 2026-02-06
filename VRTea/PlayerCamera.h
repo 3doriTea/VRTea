@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-#include <DxLib.h>
+#include "IncludingWin.h"
 
 struct PlayerCamera : GameObject
 {

@@ -180,7 +180,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectWorld.h" />
     <ClInclude Include="GameTime.h" />
-    <ClInclude Include="IncludingCommon.h" />
+    <ClInclude Include="IncludingWin.h" />
     <ClInclude Include="IncludingJson.h" />
     <ClInclude Include="NetQueue.h" />
     <ClInclude Include="NetQueueStub.h" />
