@@ -11,4 +11,5 @@ struct PlayerCamera : GameObject
 	
 	void SetPosition(VECTOR pos);
 	float angleX, angleY;
+	VECTOR camPos;
 };
