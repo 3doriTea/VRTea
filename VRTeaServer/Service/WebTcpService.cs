@@ -5,8 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using VRTeaServer.Logging;
+
 
 namespace VRTeaServer.Service
 {
@@ -67,6 +69,7 @@ namespace VRTeaServer.Service
 				int bytesRead = 0;
 				while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
 				{
+					string str = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 					break;  // TODO: Webの担当の方実装してください。
 				}
 			}
