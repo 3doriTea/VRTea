@@ -18,7 +18,8 @@ namespace VRTeaServer.Service
 		private readonly SessionManager _sessionManager;
 		private IPAddress _serverIPAddress;  // サーバーのIPアドレス
 		private ushort _gamePort;            // ゲームサービスを公開するポート番号
-		const int BufferSize = 1024;
+		const int BufferSize = 1024;         // 溜めておくバッファのサイズ
+		//public int 
 		//private int 
 
 
@@ -82,11 +83,13 @@ namespace VRTeaServer.Service
 							{
 								SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
 								await stream.WriteAsync(sendData.Buffer, cts.Token);
-								await Task.Delay(10, cts.Token);
 							}
 						}, cts.Token));
 
-					_sessionManager.OnDisconnected.Invoke(client.Client.RemoteEndPoint as IPEndPoint, sessionId);
+					if (client.Client.RemoteEndPoint is IPEndPoint ipEP)
+					{
+						_sessionManager.OnDisconnected.Invoke(ipEP, sessionId);
+					}
 				}
 				catch (OperationCanceledException ex)
 				{
