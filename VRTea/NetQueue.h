@@ -12,6 +12,11 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
+enum TCP_OR_UDP
+{
+	TCP, UDP
+};
+
 struct NetQueue : GameObject
 {
 NetQueue();				// コンストラクタ
@@ -20,10 +25,13 @@ void Update() override; // 更新
 void Draw();			// 描画
 
 // 送信したいデータをキューに積む（実送信はUpdate内）
-void Send(const std::string& content);
+void Send(const std::string& content, TCP_OR_UDP);
 
 // 受信済みデータを取り出す（空ならfalse）
 std::string Read(std::string& out);
+
+// キューの中から発見
+json Find(std::string TagName);
 
 // ノンブロッキング化
 void SetNonBlocking(SOCKET S);

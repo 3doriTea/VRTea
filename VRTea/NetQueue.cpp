@@ -49,7 +49,7 @@ NetQueue::~NetQueue()
 }
 
 // 送信キューに積む
-void NetQueue::Send(const std::string& content)
+void NetQueue::Send(const std::string& content, TCP_OR_UDP)
 {
     // TCPのメッセージ境界を作るために、改行
     sendQueue.push(content + "\n");
@@ -67,6 +67,11 @@ std::string NetQueue::Read(std::string& out)
     readQueue.pop();
 
     return Q;
+}
+
+json NetQueue::Find(std::string TagName)
+{
+    return json();
 }
 
 // 更新
@@ -94,7 +99,16 @@ void NetQueue::Update()
             0);
         if (ret > 0)
         {
+            for (;;)
+            {
+                size_t pos = recvBuffer.find('\n');
+                if (pos == std::string::npos) break;
 
+                std::string msg = recvBuffer.substr(0, pos);
+                recvBuffer.erase(0, pos + 1);
+
+                readQueue.push(std::move(msg));
+            }
         }
         else if (ret == 0)
         {
