@@ -136,6 +136,9 @@
     <ClInclude Include="GameTime.h">
       <Filter>Cppのファイルたち\ベース側</Filter>
     </ClInclude>
+    <ClInclude Include="IncludingWin.h">
+      <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
