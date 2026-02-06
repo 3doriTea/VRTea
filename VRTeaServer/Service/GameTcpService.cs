@@ -19,6 +19,7 @@ namespace VRTeaServer.Service
 		private IPAddress _serverIPAddress;  // サーバーのIPアドレス
 		private ushort _gamePort;            // ゲームサービスを公開するポート番号
 		const int BufferSize = 1024;
+		//private int 
 
 
 		public GameTcpService(SessionManager sessionManager, IPAddress serverIPAddress, ushort gamePort)
@@ -72,19 +73,15 @@ namespace VRTeaServer.Service
 							int bytesRead = 0;
 							while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
 							{
-								_sessionManager.
-								session.RecvQueue.Enqueue(Encoding.UTF8.GetString(buffer, 0, bytesRead));
+								await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
 							}
 						}, cts.Token),
 						Task.Run(async () =>
 						{
-							byte[]? sendBuffer = null;
 							while (true)
 							{
-								while (session.SendQueue.TryDequeue(out sendBuffer))
-								{
-									await stream.WriteAsync(sendBuffer, cts.Token);
-								}
+								SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
+								await stream.WriteAsync(sendData.Buffer, cts.Token);
 								await Task.Delay(10, cts.Token);
 							}
 						}, cts.Token));
