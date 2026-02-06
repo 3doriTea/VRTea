@@ -86,7 +86,7 @@ namespace VRTeaServer.Service
 							}
 						}, cts.Token));
 
-					OnDisconnected.Invoke(id);
+					_sessionManager.OnDisconnected.Invoke(client.Client.RemoteEndPoint as IPEndPoint, sessionId);
 				}
 				catch (OperationCanceledException ex)
 				{
