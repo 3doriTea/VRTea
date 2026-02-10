@@ -19,9 +19,6 @@ namespace VRTeaServer.Service
 		private IPAddress _serverIPAddress;  // サーバーのIPアドレス
 		private ushort _gamePort;            // ゲームサービスを公開するポート番号
 		const int BufferSize = 1024;         // 溜めておくバッファのサイズ
-		//public int 
-		//private int 
-
 
 		public GameTcpService(SessionManager sessionManager, IPAddress serverIPAddress, ushort gamePort)
 		{
@@ -56,6 +53,12 @@ namespace VRTeaServer.Service
 			listener.Dispose();
 		});
 
+		/// <summary>
+		/// クライアントとセッション開始
+		/// </summary>
+		/// <param name="client"></param>
+		/// <param name="cts"></param>
+		/// <returns></returns>
 		private async Task StartSession(TcpClient client, CancellationTokenSource cts)
 		{
 			int sessionId = _sessionManager.BeginSession(client, cts, SessionMode.Game);
@@ -100,6 +103,10 @@ namespace VRTeaServer.Service
 				{
 					Console.WriteLine($"{ex}");
 				}
+			}
+			catch (Exception ex)
+			{
+				Log.Error($"{ex}");
 			}
 		}
 	}
