@@ -5,7 +5,6 @@ PlayerCamera::PlayerCamera()
 	SetUseLighting(FALSE);
 	SetUseZBuffer3D(TRUE);
 	SetWriteZBuffer3D(TRUE);
-	SetCameraNearFar(10.0f, 1000.0f);
 	angleX = 0.0f;
 	angleY = 0.0f;
 	camPos = VGet(0.0f, 10.0f, -100.0f);
