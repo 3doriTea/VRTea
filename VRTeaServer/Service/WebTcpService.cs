@@ -77,8 +77,7 @@ namespace VRTeaServer.Service
                 string request = requestBuilder.ToString();
                 Log.WriteLine("クライアントからリクエスト受信\r\n" + request);
 
-				// TODO: SesseionManagerからセッション数を取得
-				int sessionCount = 1;/*_sessionManager._sessionIdCounter*/
+				int sessionCount = _sessionManager.Sessions.Count;
 				string body = $"{{\"count\":{sessionCount}}}";
 				string response = 
                     "HTTP/1.1 200 OK\r\n" +
