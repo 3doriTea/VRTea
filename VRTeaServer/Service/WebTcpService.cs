@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection.PortableExecutable;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
 using VRTeaServer.Logging;
@@ -61,17 +63,36 @@ namespace VRTeaServer.Service
 			int sessionId = _sessionManager.BeginSession(client, cts, SessionMode.Game);
 			Log.WriteLine($"クライアント受け付けた{client.Client.RemoteEndPoint}");
 
-			NetworkStream stream = client.GetStream();
-			byte[] buffer = new byte[BufferSize];
-
+			using NetworkStream stream = client.GetStream();
+			using StreamReader reader	= new StreamReader(stream,Encoding.UTF8);
 			try
 			{
-				int bytesRead = 0;
-				while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
-				{
-					string str = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-					break;  // TODO: Webの担当の方実装してください。
-				}
+				string? line ="";
+				
+                StringBuilder requestBuilder = new();
+                while (!string.IsNullOrEmpty(line = await reader.ReadLineAsync()))
+                {
+                    requestBuilder.AppendLine(line);
+                }
+                string request = requestBuilder.ToString();
+                Log.WriteLine("クライアントからリクエスト受信\r\n" + request);
+
+				// TODO: SesseionManagerからセッション数を取得
+				int sessionCount = 1;/*_sessionManager._sessionIdCounter*/
+				string body = $"{{\"count\":{sessionCount}}}";
+				string response = 
+                    "HTTP/1.1 200 OK\r\n" +
+                    "Content-Type: application/json; charset=UTF-8\r\n" +
+                    "Access-Control-Allow-Origin: *\r\n" +
+                    $"Content-Length: {Encoding.UTF8.GetByteCount(body)}\r\n" +
+                    "Connection: close\r\n" +
+                    "\r\n" + 
+                    body;
+                
+				byte[] data = Encoding.UTF8.GetBytes(response);
+				await stream.WriteAsync(data, 0, data.Length);
+
+				Log.WriteLine("クライアントへレスポンス送信\r\n" + response);				
 			}
 			catch (OperationCanceledException)
 			{
