@@ -26,6 +26,8 @@ namespace VRTeaServer
 			
 			// NOTE: 旧来のコレクション互換性のためのやつ
 			IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+			public int Count { get => _sessions.Count; }
 		}
 
 		public SessionsEnum Sessions { get; private set; }
