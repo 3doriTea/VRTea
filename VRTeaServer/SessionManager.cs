@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,26 @@ namespace VRTeaServer
 	/// </summary>
 	internal class SessionManager
 	{
-		public Action<IPEndPoint, int> OnDisconnected { get; } = delegate { };
+		public class SessionsEnum(ConcurrentDictionary<int, Session> sessions) : IEnumerable<int>
+		{
+			private ConcurrentDictionary<int, Session> _sessions = sessions;
+
+			public IEnumerator<int> GetEnumerator() => _sessions.Keys.GetEnumerator();
+			
+			// NOTE: 旧来のコレクション互換性のためのやつ
+			IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+		}
+
+		public SessionsEnum Sessions { get; private set; }
+		public Action<IPEndPoint, int> OnDisconnected { get; set; } = delegate { };
 		private readonly ConcurrentDictionary<int, Session> _sessions = [];
 		private readonly ConcurrentDictionary<IPEndPoint, int> _ipepToSessionId = [];
 		private int _sessionIdCounter = 0;
 
-		public SessionManager() { }
+		public SessionManager()
+		{
+			Sessions = new SessionsEnum(_sessions);
+		}
 
 		public async Task SendEnqueue(int sessionId, SendData data, CancellationTokenSource cts)
 		{
@@ -61,6 +76,17 @@ namespace VRTeaServer
 		public async Task<ReceiveData> ReceiveDequeue(int sessionId, CancellationTokenSource cts)
 		{
 			return await _sessions[sessionId].ReceiveQueue.Reader.ReadAsync(cts.Token);
+		}
+
+		/// <summary>
+		/// クライアントからの受信キューから試しにDequeueする
+		/// </summary>
+		/// <param name="sessionId"></param>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		public bool TryDequeue(int sessionId, out ReceiveData data)
+		{
+			return _sessions[sessionId].ReceiveQueue.Reader.TryPeek(out data);
 		}
 
 		/// <summary>

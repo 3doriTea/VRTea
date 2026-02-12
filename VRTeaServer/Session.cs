@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -36,7 +37,14 @@ namespace VRTeaServer
 		/// <param name="sendData">送信データの out参照</param>
 		public static void FromString(string str, out SendData sendData)
 		{
-			sendData = new SendData(Encoding.UTF8.GetBytes(str));
+			int size = Encoding.UTF8.GetByteCount(str);
+
+			byte[] buffer = new byte[sizeof(int) + size];
+
+			MemoryMarshal.Write(buffer.AsSpan(0), in size);
+			Encoding.UTF8.GetBytes(str).AsSpan().CopyTo(buffer.AsSpan(sizeof(int)));
+
+			sendData = new SendData(buffer);
 		}
 	}
 
@@ -55,7 +63,10 @@ namespace VRTeaServer
 		/// 文字列を取得
 		/// </summary>
 		/// <returns>文字列</returns>
-		public readonly string GetString() => Encoding.UTF8.GetString(Buffer);
+		public readonly string GetString()
+		{
+			return Encoding.UTF8.GetString(Buffer.AsSpan(sizeof(int)));
+		}
 	}
 
 	/// <summary>
