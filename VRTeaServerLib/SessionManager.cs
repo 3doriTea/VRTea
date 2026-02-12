@@ -79,7 +79,7 @@ namespace VRTeaServerLib
 			}
 		}
 
-		public Action<IPEndPoint, int> OnDisconnected
+		public Action<IPEndPoint, int> OnDisconnected = (IPEndPoint ipEndPoint, int sessionId) => { };
 		private readonly ConcurrentDictionary<int, Session> _sessions = [];
 		private readonly ConcurrentDictionary<IPEndPoint, int> _toSessionId = [];
 		private int sessionIdCounter = 0;
