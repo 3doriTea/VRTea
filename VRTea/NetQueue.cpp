@@ -9,7 +9,8 @@ void NetQueue::SetNonBlocking(SOCKET S)
 }
 
 // コンストラクタ(ここは前回のネットワークの物を引用)
-NetQueue::NetQueue()
+NetQueue::NetQueue() 
+    : sockUDP(INVALID_SOCKET), sockTCP(INVALID_SOCKET) // 初期化の警告が出るので修正
 {
     // WinSock2.2 初期化
     WSADATA wsaData;
@@ -63,14 +64,29 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
 // 受信キューから1件取り出す処理
 std::string NetQueue::Read(std::string& out)
 {
-    std::string Q = readQueue.front();
+    if (readQueue.empty())
+    {
+        out.clear();
+        return std::string();
+    }
+    std::string Q = std::move(readQueue.front()); // データを移動してもらう
     readQueue.pop();
+    out = Q;
 
     return Q;
 }
 
+// TagNameで検索し、見つかったら bodyを返す
 json NetQueue::Find(std::string TagName)
 {
+    for (const auto& r : RecvList)
+    {
+        if (r.head == TagName)
+        {
+            return r.body; // TagNameが合ったらbodyを返す
+        }
+    }
+    // 見つからない場合は空の json を返す
     return json();
 }
 
@@ -87,7 +103,7 @@ void NetQueue::Update()
     }
 
     // 受信処理
-    char temp[4096];
+    char temp[4096]{};
     std::string sendData;
     
     for (;;) // 条件が満たされない限り、処理が無限に繰り返される
@@ -95,7 +111,7 @@ void NetQueue::Update()
         // データを送信
         int ret = send(sock,
             sendData.c_str(),
-            (sendData.size()),  // 送る文字列のサイズ
+            static_cast<int>(sendData.size()),  // 送る文字列のサイズ(警告をなくすためintに変換)
             0);
         if (ret > 0)
         {

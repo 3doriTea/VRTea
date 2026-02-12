@@ -17,6 +17,13 @@ enum TCP_OR_UDP
 	TCP, UDP
 };
 
+// RecvList用
+struct Recv
+{
+	std::string head;
+	json		body;
+};
+
 struct NetQueue : GameObject
 {
 NetQueue();				// コンストラクタ
@@ -63,11 +70,4 @@ std::queue<std::string> sendQueueTCP;
 std::list<Recv>			RecvList;
 
 bool connected = false;	// 接続用
-};
-
-// RecvList用
-struct Recv
-{
-	std::string head;
-	json		body;
 };
