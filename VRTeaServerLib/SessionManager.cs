@@ -12,6 +12,9 @@ namespace VRTeaServerLib
 {
 	public sealed class SessionManager
 	{
+		/// <summary>
+		/// 受信データ
+		/// </summary>
 		public readonly struct ReceiveData
 		{
 			public readonly byte[] buffer;
@@ -27,6 +30,9 @@ namespace VRTeaServerLib
 			}
 		}
 
+		/// <summary>
+		/// 送信データ
+		/// </summary>
 		public readonly struct SendData
 		{
 			public readonly byte[] buffer;
@@ -79,7 +85,7 @@ namespace VRTeaServerLib
 			}
 		}
 
-		public Action<IPEndPoint, int> OnDisconnected = (IPEndPoint ipEndPoint, int sessionId) => { };
+		public Action<IPEndPoint, int> OnDisconnected = delegate { };
 		private readonly ConcurrentDictionary<int, Session> _sessions = [];
 		private readonly ConcurrentDictionary<IPEndPoint, int> _toSessionId = [];
 		private int sessionIdCounter = 0;
