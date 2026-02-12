@@ -60,7 +60,7 @@ void PlayerCamera::Update()
 	if (angleY < -1.0f)
 		angleY = -1.0f;
 
-	VECTOR target = VGet(0.0f, 0.0f, 0.0f);
+	target = VGet(0.0f, 0.0f, 0.0f);
 	target.x = camPos.x + cos(angleY) * sin(angleX);
 	target.y = camPos.y + sin(angleY);
 	target.z = camPos.z + cos(angleY) * cos(angleX);
@@ -70,10 +70,10 @@ void PlayerCamera::Update()
 
 void PlayerCamera::Draw()
 {
-	DrawCapsule3D(VGet(0.0f,0.0f,0.0f),VGet(0.0f,10.0f,0.0f),2.0f,20.0f,GetColor(255,0,0),GetColor(255,255,255),TRUE);
-	DrawCapsule3D(VGet(0.0f, 0.0f, -300.0f), VGet(0.0f, 10.0f, -300.0f), 2.0f, 20.0f, GetColor(255, 0, 0), GetColor(255, 255, 255), TRUE);
-	DrawLine3D(VGet(-100.0f, 0.0f, 0.0f), VGet(100.0f, 0.0f, 0.0f), GetColor(255, 255, 255));
-	DrawLine3D(VGet(-100.0f, 100.0f, 0.0f), VGet(100.0f, -100.0f, 0.0f), GetColor(255, 255, 255));
+	//DrawCapsule3D(VGet(0.0f,0.0f,0.0f),VGet(0.0f,10.0f,0.0f),2.0f,20.0f,GetColor(255,0,0),GetColor(255,255,255),TRUE);
+	//DrawCapsule3D(VGet(0.0f, 0.0f, -300.0f), VGet(0.0f, 10.0f, -300.0f), 2.0f, 20.0f, GetColor(255, 0, 0), GetColor(255, 255, 255), TRUE);
+	//DrawLine3D(VGet(-100.0f, 0.0f, 0.0f), VGet(100.0f, 0.0f, 0.0f), GetColor(255, 255, 255));
+	//DrawLine3D(VGet(-100.0f, 100.0f, 0.0f), VGet(100.0f, -100.0f, 0.0f), GetColor(255, 255, 255));
 	//DrawCircle(100, 100, 10.0f, GetColor(0, 255, 0), TRUE);
 
 	//DrawCapsule3D(VGet(0.0f, 0.0f, 0.0f), VGet(0.0f, 10.0f, 0.0f), 40.0f, 8, GetColor(0, 255, 0), GetColor(255, 255, 255), TRUE);
@@ -82,4 +82,9 @@ void PlayerCamera::Draw()
 void PlayerCamera::SetPosition(VECTOR pos)
 {
 	camPos = pos;
+}
+
+void PlayerCamera::GetAngle(VECTOR angle)
+{
+	angle = target;
 }

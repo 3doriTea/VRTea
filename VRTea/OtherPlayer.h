@@ -8,6 +8,4 @@ struct OtherPlayer : GameObject
 	~OtherPlayer();
 	void Update() override;
 	void Draw() override;
-
-	void SetPosition(VECTOR pos);
 };

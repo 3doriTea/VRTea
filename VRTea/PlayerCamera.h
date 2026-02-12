@@ -10,6 +10,8 @@ struct PlayerCamera : GameObject
 	void Draw() override;
 	
 	void SetPosition(VECTOR pos);
+	void GetAngle(VECTOR angle);
 	float angleX, angleY;
 	VECTOR camPos;
+	VECTOR target;
 };
