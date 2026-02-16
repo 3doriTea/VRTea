@@ -115,15 +115,24 @@ void NetQueue::Update()
             0);
         if (ret > 0)
         {
+            // 受信分を末尾に追加
+            recvBuffer.append(temp, ret);
+
             for (;;)
             {
-                size_t pos = recvBuffer.find('\n');
-                if (pos == std::string::npos) break;
+                // 4バイトの長さヘッダがあるか
+                if (recvBuffer.size() < 4) break;
 
-                std::string msg = recvBuffer.substr(0, pos);
-                recvBuffer.erase(0, pos + 1);
-
-                readQueue.push(std::move(msg));
+                uint32_t len_net = 0;
+                std::memcpy(&len_net, recvBuffer.data(), 4);
+                const uint32_t len_host = ntohl(len_net);
+             
+                // 本体が揃っているか？
+                if (recvBuffer.size() < 4u + static_cast<size_t>(len_host)) break;
+                
+                // フレームを取り出す
+                std::string payload = recvBuffer.substr(4, len_host);
+                recvBuffer.erase(0, 4u + static_cast<size_t>(len_host));
             }
         }
         else if (ret == 0)
