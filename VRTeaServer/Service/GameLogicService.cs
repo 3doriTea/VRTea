@@ -31,11 +31,22 @@ namespace VRTeaServer.Service
 		private class PlayerData
 		{
 			public uint Color { get; set; } = 0xffffffff;
-			public string Name { get; set; } = "";
+			public string Name { get; set; } = string.Empty;
+		}
+		
+		/// <summary>
+		/// プレイヤーとかが送信したテキストチャット
+		/// </summary>
+		private class TextChat
+		{
+			public string Content { get; set; } = string.Empty;
+			public uint Id { get; set; } = uint.MinValue;
 		}
 
 		private readonly ConcurrentDictionary<int, PlayerStatus> playersStatus = [];
 		private readonly ConcurrentDictionary<int, PlayerData> playersData = [];
+		private readonly ConcurrentBag<TextChat> textChats = [];
+		private uint _textChatIdCounter = 0;
 
 		public GameLogicService(SessionManager sessionManager)
 		{
