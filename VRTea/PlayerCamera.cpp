@@ -8,6 +8,7 @@ PlayerCamera::PlayerCamera()
 	angleX = 0.0f;
 	angleY = 0.0f;
 	camPos = VGet(0.0f, 10.0f, -100.0f);
+	target = VGet(0.0f, 0.0f, 0.0f);
 }
 
 PlayerCamera::~PlayerCamera()
@@ -42,28 +43,51 @@ void PlayerCamera::Update()
 		camPos.y -= 3.0f;
 	}
 #endif
+	static bool isKey = false;
+	static bool isSetMousePoint = false;
 	int mouseX = 0, mouseY = 0;
 	int width = 1280, height = 720;
 	float mouseSpeedX = 0.001f, mouseSpeedY = 0.001f;
-	bool isKey = false;
-	bool isSetPoint = true;
 	GetMousePoint(&mouseX, &mouseY);
-	int px = mouseX - width / 2.0f;
-	int py = mouseY - height / 2.0f;
-	//SetMousePoint(width / 2.0f, height / 2.0f);
 
-	angleX += px * mouseSpeedX;
-	angleY -= py * mouseSpeedY;
+	if (CheckHitKey(KEY_INPUT_ESCAPE))
+	{
+		if (!(isKey))
+		{
+			if (isSetMousePoint)
+			{
+				isSetMousePoint = false;
+			}
+			else
+			{
+				isSetMousePoint = true;
+			}
+		}
+		isKey = true;
+	}
+	else
+	{
+		isKey = false;
+	}
 
-	if (angleY > 1.0f)
-		angleY = 1.0f;
-	if (angleY < -1.0f)
-		angleY = -1.0f;
+	if (isSetMousePoint)
+	{
+		int px = mouseX - width / 2.0f;
+		int py = mouseY - height / 2.0f;
+		angleX += px * mouseSpeedX;
+		angleY -= py * mouseSpeedY;
+		SetMousePoint(width / 2.0f, height / 2.0f);
 
-	target = VGet(0.0f, 0.0f, 0.0f);
-	target.x = camPos.x + cos(angleY) * sin(angleX);
-	target.y = camPos.y + sin(angleY);
-	target.z = camPos.z + cos(angleY) * cos(angleX);
+		if (angleY > 1.0f)
+			angleY = 1.0f;
+		if (angleY < -1.0f)
+			angleY = -1.0f;
+
+		target = VGet(0.0f, 0.0f, 0.0f);
+		target.x = camPos.x + cos(angleY) * sin(angleX);
+		target.y = camPos.y + sin(angleY);
+		target.z = camPos.z + cos(angleY) * cos(angleX);
+	}
 
 	SetCameraPositionAndTarget_UpVecY(camPos, target);
 }
