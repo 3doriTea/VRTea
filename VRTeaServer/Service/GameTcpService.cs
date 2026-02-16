@@ -89,10 +89,8 @@ namespace VRTeaServer.Service
 							}
 						}, cts.Token));
 
-					if (client.Client.RemoteEndPoint is IPEndPoint ipEP)
-					{
-						_sessionManager.OnDisconnected.Invoke(ipEP, sessionId);
-					}
+					// クライアントの受付終わったから切断する
+					_sessionManager.Disconnect(sessionId);
 				}
 				catch (OperationCanceledException ex)
 				{

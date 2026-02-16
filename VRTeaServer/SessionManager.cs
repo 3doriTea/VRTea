@@ -40,10 +40,66 @@ namespace VRTeaServer
 		{
 			Sessions = new SessionsEnum(_sessions);
 		}
+		
+		/// <summary>
+		/// 堂々と切断する
+		/// </summary>
+		/// <param name="sessionId">セッションId</param>
+		public void Disconnect(int sessionId)
+		{
+			_sessions.TryGetValue(sessionId, out var session);
 
+			if (session is null)
+			{
+				return;  // そもそも今セッションがないよ！
+			}
+
+			if (session.Client.Client.RemoteEndPoint is IPEndPoint ipEP)
+			{
+				//　セッションもIPEPも見つけたため切断イベント発動できる
+				OnDisconnected.Invoke(ipEP, sessionId);
+
+				// IPEPとセッションの紐づけも削除
+				_ipepToSessionId.Remove(ipEP, out _);
+			}
+			// セッションも削除 ここでTcp通信切断が呼ばれるはず
+			_sessions.Remove(sessionId, out _);
+		}
+
+		/// <summary>
+		/// 送信キューにエンキューする
+		/// </summary>
+		/// <param name="sessionId"></param>
+		/// <param name="data"></param>
+		/// <param name="cts"></param>
+		/// <returns></returns>
 		public async Task SendEnqueue(int sessionId, SendData data, CancellationTokenSource cts)
 		{
 			await _sessions[sessionId].SendQueue.Writer.WriteAsync(data, cts.Token);
+		}
+
+		/// <summary>
+		/// 試しにセッションを取得する
+		/// </summary>
+		/// <param name="sessionId">セッションId</param>
+		/// <param name="cts"></param>
+		/// <param name="session"></param>
+		/// <returns>取得に成功した true / false</returns>
+		public bool TryGet(int sessionId, CancellationTokenSource cts, out Session? session)
+		{
+			return _sessions.TryGetValue(sessionId, out session);
+		}
+
+		/// <summary>
+		/// 試しにセッション情報を更新する
+		/// </summary>
+		/// <param name="sessionId">セッションId</param>
+		/// <param name="session">置換するセッション</param>
+		/// <param name="compSession">一致を確認するセッションデータ</param>
+		/// <returns>更新に成功した true / false</returns>
+		public bool Update(int sessionId, Session session, Session compSession)
+		{
+			return _sessions.TryUpdate(sessionId, session, compSession);
 		}
 
 		/// <summary>

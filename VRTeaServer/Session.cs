@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Channels;
-using System.Threading.Tasks;
 
 namespace VRTeaServer
 {
@@ -81,8 +76,8 @@ namespace VRTeaServer
 		public Channel<SendData> SendQueue { get; } = Channel.CreateUnbounded<SendData>();
 		public Channel<ReceiveData> ReceiveQueue { get; } = Channel.CreateUnbounded<ReceiveData>();
 
-		public bool ToDestroyFlag { get; } = false;
-		public DateTime Timestamp { get; } = DateTime.UtcNow;
+		public bool ToDestroyFlag { get; set; } = false;
+		public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
 		private CancellationTokenSource _cts;
 
