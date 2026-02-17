@@ -9,6 +9,7 @@
 #include <vector>
 #include <unordered_map>
 #include <cstring>
+#include <list>
 
 #pragma comment(lib, "ws2_32.lib")
 
