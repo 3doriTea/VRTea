@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.7" pages="14">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.4.0" pages="14">
   <diagram name="全体の概要" id="t6xkujhYv01HNUTutHJW">
     <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
@@ -456,11 +456,26 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="wAFysnNjS3RPLTCt7rzx" name="ページ14">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+  <diagram id="wAFysnNjS3RPLTCt7rzx" name="サイズとデータ">
+    <mxGraphModel dx="868" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="4Yhlxy5v2tolUCl6guD3-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="4byte サイズ" vertex="1">
+          <mxGeometry height="40" width="160" x="360" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="4Yhlxy5v2tolUCl6guD3-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="本体" vertex="1">
+          <mxGeometry height="40" width="560" x="520" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="4Yhlxy5v2tolUCl6guD3-4" parent="1" style="shape=crossbar;whiteSpace=wrap;html=1;rounded=1;" value="" vertex="1">
+          <mxGeometry height="20" width="720" x="360" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="4Yhlxy5v2tolUCl6guD3-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="サイズは本体とサイズヘッダ込のサイズ" vertex="1">
+          <mxGeometry height="20" width="220" x="610" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="4Yhlxy5v2tolUCl6guD3-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="最初は必ず4byte" vertex="1">
+          <mxGeometry height="20" width="220" x="610" y="360" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
