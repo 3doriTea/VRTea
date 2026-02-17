@@ -45,8 +45,6 @@ namespace VRTeaServer.Service
 
 		private readonly ConcurrentDictionary<int, PlayerStatus> playersStatus = [];
 		private readonly ConcurrentDictionary<int, PlayerData> playersData = [];
-		private readonly ConcurrentBag<TextChat> textChats = [];
-		private uint _textChatIdCounter = 0;
 
 		public GameLogicService(SessionManager sessionManager)
 		{
@@ -96,9 +94,49 @@ namespace VRTeaServer.Service
 				switch (head)
 				{
 					case "Update":
+						var updateContent = json["content"];
+						if (updateContent is null)
+						{
+							Log.WriteLine($"SID:{sessionId}に contentが含まれていない");
+							break;
+						}
+
+						Update(sessionId, updateContent);
+
 						break;
 					case "Event":
-						//var eventContent = json.GetValue()
+						var eventContent = json["content"];
+						if (eventContent is null)
+						{
+							Log.WriteLine($"SID:{sessionId}に contentが含まれていない");
+							break;
+						}
+						var eventContentHead = eventContent["head"];
+						if (eventContentHead is null)
+						{
+							Log.WriteLine($"SID:{sessionId}に content.headが含まれていない");
+							break;
+						}
+
+						string? eventContentHeadStr = eventContentHead.Value<string>();
+						if (eventContentHeadStr is null)
+						{
+							Log.WriteLine($"SID:{sessionId}の content.headを stringに変換できない");
+							break;
+						}
+
+						switch (eventContentHeadStr)
+						{
+							case "Chat":
+								EventChat(sessionId, eventContent);
+								break;
+							case "プレイヤー名変更 TODO: ここは担当者に確認を取る":
+								EventChangeData(sessionId, eventContent);
+								break;
+							default:
+								Log.WriteLine($"SID:{sessionId}から未実装のイベント:{eventContentHeadStr}を受信した");
+								break;
+						}
 						break;
 					case "Join":
 						Join(sessionId);
@@ -108,9 +146,69 @@ namespace VRTeaServer.Service
 						break;
 				}
 
-				void EventChat(int sessionId)
+				void Update(int sessionId, JToken updateJson)
 				{
+					//playersStatus.AddOrUpdate()
+					//updateJson["position"]["x"];
+				}
+
+				void EventChangeName(int sessionId, JToken changeContentJson)
+				{
+					var changedName = changeContentJson.Value<string>();
+
+					if (changedName is null)
+					{
+						// チャットコンテンツがないよ！
+						return;
+					}
+
+
+				}
+
+				void EventChat(int sessionId, JToken chatContentJson)
+				{
+					// クライアントから送信されたチャットコンテンツ
+					var chatContent = json.Value<string>();
+
+					Log.WriteLine($"[SID:{sessionId}]{chatContent ?? "{{null}}"}");
+
+					if (chatContent is null)
+					{
+						// チャットコンテンツがないよ！
+						return;
+					}
+
 					
+					// 送信者名
+					var senderName = string.Empty;
+
+					// プレイヤーデータが取得できなかったらSIDだけでチャットする
+					playersData.TryGetValue(sessionId, out var pData);
+					if (pData is null)
+					{
+						senderName = $"[SID:{sessionId}]";
+					}
+					else
+					{
+						senderName = $"[{pData.Name}]";
+					}
+
+					// 送るチャットデータ構築
+					var sendJson = JObject.FromObject(new
+					{
+						head = "Event",
+						content = new
+						{
+							head = "Chat",
+							content = $"[SID:{sessionId}]{chatContent}",
+						}
+					});
+
+					// チャットを送信者を含め全員に送信して回る
+					foreach (var sendId in _sessionManager.Sessions)
+					{
+						_ = SendTo(sendId, $"{sendJson}");
+					}
 				}
 
 				void Join(int sessionId)
