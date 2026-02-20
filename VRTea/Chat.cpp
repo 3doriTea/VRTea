@@ -1,7 +1,7 @@
+#include "Chat.h"
 #include <nlohmann/json.hpp>
 #include <format>
 #include "../ImGui/imgui.h"
-#include "Chat.h"
 #include "NetQueue.h"
 #include "NetQueueStub.h"
 Chat::Chat()

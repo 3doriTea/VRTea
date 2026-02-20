@@ -1,5 +1,4 @@
 #pragma once
-#include "DxLib.h"
 #include "GameObject.h"
 #include <queue>
 #include <vector>

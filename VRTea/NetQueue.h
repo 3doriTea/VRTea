@@ -1,11 +1,7 @@
 #pragma once
-#define WIN32_LEAN_AND_MEAN
-#include "DxLib.h"
 #include "GameObject.h"
 #include <queue>
 #include <iostream>
-#include <WinSock2.h>
-#include <ws2tcpip.h>
 #include <vector>
 #include <unordered_map>
 #include <cstring>
@@ -32,6 +28,7 @@ NetQueue();				// コンストラクタ
 void Update() override; // 更新
 void Draw();			// 描画
 
+
 // 送信したいデータをキューに積む（実送信はUpdate内）
 void Send(const std::string& content, TCP_OR_UDP tcp_or_udp);
 
@@ -51,7 +48,6 @@ bool Connect(const char* ip, uint16_t port);
 //std::queue<std::string> readQueue; // 受信済み
 
 // ソケット作成
-SOCKET sock = INVALID_SOCKET;
 
 // UDP作成
 SOCKET sockUDP;
