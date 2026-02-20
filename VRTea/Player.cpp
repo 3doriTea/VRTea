@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "PlayerCamera.h"
 #include "IncludingJson.h"
+#include "NetQueue.h"
 #include <cassert>
 
 Player::Player()
@@ -33,8 +34,8 @@ void Player::Update()
 	{
 		playerState.position.x += SPEED;
 	}
-
-
+	
+	
 }
 
 void Player::Draw()
