@@ -14,14 +14,8 @@ struct Player : GameObject
 
 	~Player();
 
-	void ChangeName(const std::string _name)
-	{
-		pData.name = _name;
-	};
-	void ChangeColor(const DxLib::COLOR_U8 _color)
-	{
-		pData.color = _color;
-	};
+	void ChangeName(const std::string _name) { pData.name = _name; };
+	void ChangeColor(const DxLib::COLOR_U8 _color) { pData.color = _color; };
 	void DrawImGui()
 	{
 		char* newName;
@@ -31,7 +25,7 @@ struct Player : GameObject
 
 		std::string name(newName);
 		ChangeName(name);
-	}
+	};
 	PlayerData pData;
 	PlayerState playerState;
 };
