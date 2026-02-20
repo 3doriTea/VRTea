@@ -2,6 +2,9 @@
 
 namespace VRTeaServer.CLI
 {
+	/// <summary>
+	/// CLIの質問ベースクラス
+	/// </summary>
 	internal abstract class AskBase
 	{
 		/// <summary>

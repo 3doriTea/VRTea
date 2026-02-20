@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace VRTeaServer.CLI
 {
+	/// <summary>
+	/// IPアドレスを質問する
+	/// </summary>
 	internal class AskIPAddress : AskBase
 	{
 		public IPAddress IPAddress { get; private set; } = IPAddress.Any;

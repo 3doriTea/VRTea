@@ -9,14 +9,18 @@ namespace VRTeaServer
 		static void Main(string[] args)
 		{
 			var askIPAddress = new AskIPAddress();
-			var askPortNumber = new AskPortNumber();
+			var askGamePortNumber = new AskPortNumber();
+			var askWebPortNumber = new AskPortNumber();
 			var askReady = new AskReady();
 
 			var askPlayer = new AskPlayer(
 			[
 				new AskLine(),
 				askIPAddress,
-				askPortNumber,
+				new AskDescription("Game"),
+				askGamePortNumber,
+				new AskDescription("Web"),
+				askWebPortNumber,
 				askReady,
 			]);
 
@@ -26,7 +30,7 @@ namespace VRTeaServer
 			}
 
 			Console.Write($"Booting...");
-			Console.Write($"\"{askIPAddress.IPAddress}:{askPortNumber.PortNumber}\"...");
+			Console.Write($"\"{askIPAddress.IPAddress}:{askGamePortNumber.PortNumber}\"...");
 			Console.WriteLine($"Ok!");
 
 			var sessionManager = new SessionManager();
@@ -40,12 +44,15 @@ namespace VRTeaServer
 				new GameTcpService(
 					sessionManager,
 					askIPAddress.IPAddress,
-					askPortNumber.PortNumber),
+					askGamePortNumber.PortNumber),
 				new GameUdpService(
 					sessionManager,
 					askIPAddress.IPAddress,
-					askPortNumber.PortNumber),
-				new WebTcpService(sessionManager, askIPAddress.IPAddress),
+					askGamePortNumber.PortNumber),
+				new WebTcpService(
+					sessionManager,
+					askIPAddress.IPAddress,
+					askWebPortNumber.PortNumber),
 				new Reaper(sessionManager),
 			]);
 

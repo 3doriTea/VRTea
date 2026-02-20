@@ -11,9 +11,10 @@ namespace VRTeaServer.CLI
 	/// </summary>
 	internal class AskLine : AskBase
 	{
+		const int LineCount = 30;
 		public override void Ask()
 		{
-			Console.WriteLine(new string('-', 30));
+			Console.WriteLine(new string('-', LineCount));
 		}
 	}
 }
