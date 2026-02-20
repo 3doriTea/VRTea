@@ -321,7 +321,7 @@ namespace VRTeaServer.Service
 							RequestProc(id, data);
 						}
 					}
-					await Task.Delay(1 /* TODO: マジックナンバー消す */);
+					await Task.Delay(1 /* TODO: マジックナンバー消す */, cts.Token);
 				}
 			}
 			catch (OperationCanceledException)

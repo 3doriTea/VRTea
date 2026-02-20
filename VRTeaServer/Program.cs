@@ -54,6 +54,7 @@ namespace VRTeaServer
 					askIPAddress.IPAddress,
 					askWebPortNumber.PortNumber),
 				new Reaper(sessionManager),
+				new GameLogicService(sessionManager),
 			]);
 
 			servicePlayer.Play(cts);
