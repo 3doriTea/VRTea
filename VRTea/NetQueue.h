@@ -9,12 +9,20 @@
 #include <vector>
 #include <unordered_map>
 #include <cstring>
+#include <list>
 
 #pragma comment(lib, "ws2_32.lib")
 
 enum TCP_OR_UDP
 {
 	TCP, UDP
+};
+
+// RecvList用
+struct Recv
+{
+	std::string head;
+	json		body;
 };
 
 struct NetQueue : GameObject
@@ -45,11 +53,22 @@ std::queue<std::string> readQueue; // 受信済み
 // ソケット作成
 SOCKET sock = INVALID_SOCKET;
 
+// UDP作成
+SOCKET sockUDP;
+
+// TCP作成
+SOCKET sockTCP;
+
 // TCP:受信したデータを一度貯める
 std::string recvBuffer;
 
 // 送信に備えて、送信中の未送信バッファを保持する
 std::string sendingBuffer;
+
+std::queue<std::string> sendQueueUDP;
+std::queue<std::string> sendQueueTCP;
+
+std::list<Recv>			RecvList;
 
 bool connected = false;	// 接続用
 };

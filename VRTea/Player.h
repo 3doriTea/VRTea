@@ -28,4 +28,5 @@ struct Player : GameObject
 	};
 	PlayerData pData;
 	PlayerState playerState;
+	const int SPEED = 4.0;
 };
