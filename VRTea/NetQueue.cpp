@@ -33,7 +33,7 @@ bool ConnectImpl(const SOCKADDR_IN& sockAddrIn, SOCKET sock)
         }
         else
         {
-            assert(false);
+            return false;
         }
     }
     return true;
@@ -59,7 +59,7 @@ NetQueue::NetQueue()
     }
     std::cout << "Success : WSAStartup" << std::endl;
 
-    sockUDP = socket(AF_INET, SOCK_STREAM, IPPROTO_UDP);
+    sockUDP = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     assert(sockUDP != INVALID_SOCKET && "Error : socketUDP");
 
     sockTCP = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -69,7 +69,9 @@ NetQueue::NetQueue()
     int result = ioctlsocket(sockTCP, FIONBIO, &arg);
     assert(result != SOCKET_ERROR);
     
-    //Connect();
+    const char* ip = "192.168.42.5";
+    uint16_t port = 3000;
+    Connect(ip,port);
 }
 
 // デストラクタ
@@ -96,9 +98,12 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
     serverSocketAddress.sin_port = htons(port);
     inet_pton(AF_INET, ip, &serverSocketAddress.sin_addr.s_addr);
 
-    ConnectImpl(serverSocketAddress, sockUDP);
-    ConnectImpl(serverSocketAddress, sockTCP);
-    return true;
+    bool connectUDPResult = ConnectImpl(serverSocketAddress, sockUDP);
+    assert(connectUDPResult);
+    bool connectTCPResult = ConnectImpl(serverSocketAddress, sockTCP);
+    assert(connectTCPResult);
+    
+    return connectUDPResult && connectTCPResult;
 }
 
 // 受信キューから1件取り出す処理
