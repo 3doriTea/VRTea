@@ -1,5 +1,5 @@
-#include <DxLib.h>
 #include "GameObject.h"
+#include <DxLib.h>
 #include "GameObjectWorld.h"
 
 #include "Player.h"
@@ -20,8 +20,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		return -1;
 	}
-
-
 	SetHookWinProc([](HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)-> LRESULT /*CALLBACK*/
 		{
 			// DxLibとImGuiのウィンドウプロシージャを両立させる

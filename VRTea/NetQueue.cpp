@@ -98,6 +98,7 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
 
     ConnectImpl(serverSocketAddress, sockUDP);
     ConnectImpl(serverSocketAddress, sockTCP);
+    return true;
 }
 
 // 受信キューから1件取り出す処理

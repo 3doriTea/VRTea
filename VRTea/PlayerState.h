@@ -1,5 +1,5 @@
 #pragma once
-#include <DxLib.h>
+#include "IncludingWin.h"
 #include "IncludingJson.h"
 
 struct PlayerState

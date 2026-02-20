@@ -1,6 +1,4 @@
 #pragma once
-#define WIN32_LEAN_AND_MEAN
-#include "DxLib.h"
 #include "GameObject.h"
 #include <queue>
 #include <iostream>

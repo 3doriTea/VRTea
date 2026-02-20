@@ -49,11 +49,11 @@ void Player::ChangeNameImGui()
 {
 	char* newName;
 	ImGui::Begin("変更したいユーザー名を入力してください。");
-	ImGui::InputText("new Name : ", newName, 20);
+	//ImGui::InputText("new Name : ", newName, 20);
 	ImGui::End();
 
-	std::string name(newName);
-	ChangeName(name);
+	//std::string name(newName);
+	//ChangeName(name);
 }
 
 void Player::ChangeColorImGui()
@@ -62,7 +62,7 @@ void Player::ChangeColorImGui()
 	ImGui::Begin("色変更");
 	ImGui::End();
 
-	ChangeColor(color);
+	//ChangeColor(color);
 }
 
 void Player::SetMyCamera()
