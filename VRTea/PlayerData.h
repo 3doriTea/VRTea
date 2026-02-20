@@ -25,10 +25,6 @@ namespace ns {
 	static void to_json(json& j, const PlayerData& p) {
 		j = json{ {"name", p.name}, { "color", DxLib::GetColor(p.color.r, p.color.g, p.color.b) } };
 	}
-	
-	static void to_json(json& j, const std::string& text) {
-		j = json{  "chatText", text };
-	}
 
 	static void from_json(const json& j, PlayerData& p_) {
 		GetPlayerData p = {};

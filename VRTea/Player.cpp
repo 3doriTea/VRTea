@@ -60,6 +60,17 @@ void Player::ChangeNameImGui()
 	ImGui::End();
 
 	std::string name(newName);
+	json nameJson =
+	{
+	  { "head", "Event" },
+	  { "content",
+		{
+		  "head", "Name",
+		  "content", name
+		}
+	  }
+	};
+	PushPData(nameJson);
 	ChangeName(name);
 }
 
@@ -73,6 +84,18 @@ void Player::ChangeColorImGui()
 		color.r = myColor[Color::R];
 		color.g = myColor[Color::G];
 		color.b = myColor[Color::B];
+
+		json colorJson =
+		{
+		  { "head", "Event" },
+		  { "content",
+			{
+			  "head", "Color",
+			  "content", GetColor(color.r,color.g,color.b)
+			}
+		  }
+		};
+		PushPData(colorJson);
 		ChangeColor(color);
 	}
 }
@@ -85,9 +108,17 @@ void Player::TextChatImGui()
 	ImGui::End();
 
 	std::string chat(inputChat);
-	json text;
-	ns::to_json(text, chat);
-	PushPData(text);
+	json chatJson =
+	{
+	  { "head", "Event" },
+	  { "content",
+		{
+		  "head", "Chat",
+		  "content", chat
+		}
+	  }
+	};
+	PushPData(chatJson);
 }
 
 void Player::SetMyCamera()
