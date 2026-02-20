@@ -41,13 +41,17 @@ namespace VRTeaServer
 					sessionManager,
 					askIPAddress.IPAddress,
 					askPortNumber.PortNumber),
-
+				new GameUdpService(
+					sessionManager,
+					askIPAddress.IPAddress,
+					askPortNumber.PortNumber),
+				new WebTcpService(sessionManager, askIPAddress.IPAddress),
+				new Reaper(sessionManager),
 			]);
 
 			servicePlayer.Play(cts);
 
-			Console.Write("Closing server...");
-			Console.WriteLine("Ok!");
+			Console.WriteLine("---Closing server...Ok!---");
 		}
 	}
 }

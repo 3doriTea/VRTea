@@ -53,9 +53,9 @@ namespace VRTeaServer.Service
 					break;  // キャンセル発動されたらサービス止める
 				}
 			}
-			Log.WriteLine($"サーバー停止した");
 			listener.Stop();
 			listener.Dispose();
+			Log.WriteLine($"Webサーバー停止した");
 		});
 
 		private async Task StartSession(TcpClient client, CancellationTokenSource cts)

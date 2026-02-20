@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System.Net;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Channels;
@@ -40,6 +41,28 @@ namespace VRTeaServer
 			Encoding.UTF8.GetBytes(str).AsSpan().CopyTo(buffer.AsSpan(sizeof(int)));
 
 			sendData = new SendData(buffer);
+		}
+
+		/// <summary>
+		/// 送り先のIPEndPointを付け加える
+		/// </summary>
+		/// <param name="toIPEndPoint"></param>
+		/// <returns></returns>
+		public SendDataWithIPEP WithIPEP(IPEndPoint toIPEndPoint)
+		{
+			return new SendDataWithIPEP(Buffer, toIPEndPoint);
+		}
+	}
+
+	readonly struct SendDataWithIPEP
+	{
+		public readonly byte[] Buffer { get; }
+		public IPEndPoint To { get; }  // 送る先のIPEP
+
+		public SendDataWithIPEP(byte[] buffer, IPEndPoint to)
+		{
+			Buffer = buffer;
+			To = to;
 		}
 	}
 

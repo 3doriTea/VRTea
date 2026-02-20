@@ -33,7 +33,7 @@ namespace VRTeaServer.Service
 
 			listener.Start();
 
-			Log.WriteLine($"サーバー起動した");
+			Log.WriteLine($"TCPサーバー起動した");
 			while (true)
 			{
 				try
@@ -44,11 +44,11 @@ namespace VRTeaServer.Service
 				}
 				catch (OperationCanceledException)
 				{
-					Log.WriteLine($"サーバーキャンセルを受信した");
+					Log.WriteLine($"TCPサーバーキャンセルを受信した");
 					break;  // キャンセル発動されたらサービス止める
 				}
 			}
-			Log.WriteLine($"サーバー停止した");
+			Log.WriteLine($"TCPサーバー停止した");
 			listener.Stop();
 			listener.Dispose();
 		});

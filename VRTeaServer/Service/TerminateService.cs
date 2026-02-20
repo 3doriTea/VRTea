@@ -31,6 +31,7 @@ namespace VRTeaServer.Service
 
 			_ = Console.ReadLine();  // ここでエンター送られるまで待つ
 
+			Console.WriteLine("---Closing server...---");
 			cts.Cancel();
 		});
 	}

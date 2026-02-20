@@ -26,6 +26,8 @@ namespace VRTeaServer.Service
 		{
 			try
 			{
+				Log.WriteLine($"Reaper起動した");
+
 				while (true)
 				{
 					// 切断予定のセッションId
@@ -70,12 +72,15 @@ namespace VRTeaServer.Service
 			}
 			catch (OperationCanceledException)
 			{
+				Log.WriteLine($"Reaperキャンセル受信した");
 				return;  // キャンセル発動なら普通に終了
 			}
 			catch (Exception ex)
 			{
 				Log.Error($"Reaperで例外発生:\n{ex}");
 			}
+
+			Log.WriteLine($"Reaper停止した");
 		}
 	}
 }

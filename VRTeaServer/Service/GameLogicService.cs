@@ -151,6 +151,7 @@ namespace VRTeaServer.Service
 
 				void Update(int sessionId, JToken updateJson)
 				{
+					// プレイヤーの状態を更新する
 					playersStatus.TryGetValue(sessionId, out var status);
 					if (status is null)
 					{
@@ -158,18 +159,34 @@ namespace VRTeaServer.Service
 						return;
 					}
 
+					JToken? position = updateJson["position"];
+					if (position is null)
+					{
+						Log.WriteLine($"[SID:{sessionId}] Updateに応答中, positionが含まれていない");
+						return;
+					}
+
+					var playerState = new PlayerStatus
+					{
+						PositionX = (float)(position["x"] ?? 0.0f),
+						PositionY = (float)(position["y"] ?? 0.0f),
+						PositionZ = (float)(position["z"] ?? 0.0f),
+					};
+
 					bool updated = playersStatus.TryUpdate(
 						sessionId,
-						new PlayerStatus
-						{
-						},
+						playerState,
 						status);
 
 					// 更新失敗
 					if (updated == false)
 					{
 						Log.WriteLine($"[SID:{sessionId}] statusの更新に失敗");
+						return;
 					}
+
+					// 他プレイヤーの情報を返す
+
 				}
 
 				void EventChangeName(int sessionId, JToken changeContentJson)
@@ -293,6 +310,8 @@ namespace VRTeaServer.Service
 
 			try
 			{
+				Log.WriteLine($"GameLogic起動した");
+
 				while (true)
 				{
 					foreach (var id in _sessionManager.Sessions)
@@ -307,8 +326,10 @@ namespace VRTeaServer.Service
 			}
 			catch (OperationCanceledException)
 			{
-				return;
+				Log.WriteLine($"GameLogicキャンセルを受信した");
 			}
+
+			Log.WriteLine($"GameLogic停止した");
 		});
 	}
 }
