@@ -2,8 +2,6 @@
 #include "GameObject.h"
 #include <queue>
 #include <iostream>
-#include <WinSock2.h>
-#include <ws2tcpip.h>
 #include <vector>
 #include <unordered_map>
 #include <cstring>
