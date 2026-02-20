@@ -46,6 +46,12 @@ Player::~Player()
 {
 }
 
+void Player::PushPData(const json data)
+{
+	NetQueue* queue = FindGameObject<NetQueue>();
+	queue->Send(data.dump(), TCP);
+}
+
 void Player::ChangeNameImGui()
 {
 	char* newName;
@@ -59,11 +65,29 @@ void Player::ChangeNameImGui()
 
 void Player::ChangeColorImGui()
 {
-	DxLib::COLOR_U8 color;
-	ImGui::Begin("色変更");
+	float myColor[3] = {0,0,0};
+
+	if (ImGui::ColorPicker3("色変更", myColor, ImGuiColorEditFlags_Uint8))
+	{
+		DxLib::COLOR_U8 color;
+		color.r = myColor[Color::R];
+		color.g = myColor[Color::G];
+		color.b = myColor[Color::B];
+		ChangeColor(color);
+	}
+}
+
+void Player::TextChatImGui()
+{
+	char* inputChat;
+	ImGui::Begin("テキストを入力...");
+	ImGui::InputText("", inputChat, 60);
 	ImGui::End();
 
-	ChangeColor(color);
+	std::string chat(inputChat);
+	json text;
+	ns::to_json(text, chat);
+	PushPData(text);
 }
 
 void Player::SetMyCamera()
