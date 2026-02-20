@@ -52,10 +52,17 @@ NetQueue::~NetQueue()
 }
 
 // 送信キューに積む
-void NetQueue::Send(const std::string& content, TCP_OR_UDP)
+void NetQueue::Send(const std::string& content, TCP_OR_UDP tcp_or_udp)
 {
-    // TCPのメッセージ境界を作るために、改行
-    sendQueue.push(content + "\n");
+    //キューに積む先がTCPかUDPを判別
+    if (tcp_or_udp == TCP)
+    {
+        sendQueueTCP.push(content);
+    }
+    else if (tcp_or_udp == UDP)
+    {
+        sendQueueUDP.push(content);
+    }
 }
 
 bool NetQueue::Connect(const char* ip, uint16_t port)
@@ -142,7 +149,7 @@ void NetQueue::Update()
                 try
                 {
                     json j = json::parse(payload);
-
+                    
                     std::string head;
                     if (j.contains("head") && j["head"].is_string()) {
                         head = j["head"].get<std::string>();

@@ -33,7 +33,7 @@ void Update() override; // 更新
 void Draw();			// 描画
 
 // 送信したいデータをキューに積む（実送信はUpdate内）
-void Send(const std::string& content, TCP_OR_UDP);
+void Send(const std::string& content, TCP_OR_UDP tcp_or_udp);
 
 // 受信済みデータを取り出す（空ならfalse）
 std::string Read(std::string& out);
@@ -47,8 +47,8 @@ void SetNonBlocking(SOCKET S);
 // 接続処理
 bool Connect(const char* ip, uint16_t port);
 
-std::queue<std::string> sendQueue; // 送信待ち
-std::queue<std::string> readQueue; // 受信済み
+//std::queue<std::string> sendQueue; // 送信待ち
+//std::queue<std::string> readQueue; // 受信済み
 
 // ソケット作成
 SOCKET sock = INVALID_SOCKET;
