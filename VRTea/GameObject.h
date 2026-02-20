@@ -1,11 +1,11 @@
 #pragma once
+#include "IncludingWin.h"
 #include <list>
 #include <typeindex>
 #include <map>
 #include <string>
 #include <string_view>
 #include "IncludingJson.h"
-
 
 /// <summary>
 /// <para>ゲームオブジェクト</para>

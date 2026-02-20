@@ -1,11 +1,11 @@
-#include <DxLib.h>
 #include "GameObject.h"
+#include <DxLib.h>
 #include "GameObjectWorld.h"
 
 #include "Player.h"
 #include "PlayerCamera.h"
 #include "OtherPlayer.h"
-#include "NetQueueStub.h"
+#include "NetQueue.h"
 #include "Chat.h"
 #include "GameTime.h"
 #include "../ImGui/imgui_impl_dxlib.hpp"
@@ -20,8 +20,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		return -1;
 	}
-
-
 	SetHookWinProc([](HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)-> LRESULT /*CALLBACK*/
 		{
 			// DxLibとImGuiのウィンドウプロシージャを両立させる
@@ -49,7 +47,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	GameObject::Instantiate<PlayerCamera>();
 	GameObject::Instantiate<OtherPlayer>();
 	GameObject::Instantiate<Chat>();
-	GameObject::Instantiate<NetQueueStub>();
+	GameObject::Instantiate<NetQueue>();
 
 #pragma 
 
