@@ -1,5 +1,4 @@
 #pragma once
-#include "IncludingWin.h"
 #include "../ImGui/imgui.h"
 #include "PlayerData.h"
 #include "PlayerState.h"
@@ -13,7 +12,9 @@ struct Player : GameObject
 	void Draw() override;
 
 	~Player();
-
+	void ChangeNameImGui();
+	void ChangeColorImGui();
+	void SetMyCamera();
 	void ChangeName(const std::string _name) { pData.name = _name; };
 	void ChangeColor(const DxLib::COLOR_U8 _color) { pData.color = _color; };
 	void DrawImGui()

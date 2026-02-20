@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-#include "IncludingWin.h"
 
 struct OtherPlayer : GameObject
 {

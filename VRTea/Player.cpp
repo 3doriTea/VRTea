@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "PlayerCamera.h"
 #include "IncludingJson.h"
+#include "NetQueue.h"
 #include <cassert>
 
 Player::Player()
@@ -11,7 +12,6 @@ void Player::Update()
 {
 	Player* pPlayer = FindGameObject<Player>();
 	assert(pPlayer == this);
-
 	/* これ、移動に角度必要じゃね？ */
 	//前移動
 	if (CheckHitKey(KEY_INPUT_W))
@@ -34,8 +34,8 @@ void Player::Update()
 	{
 		playerState.position.x += SPEED;
 	}
-
-
+	
+	
 }
 
 void Player::Draw()
@@ -50,11 +50,11 @@ void Player::ChangeNameImGui()
 {
 	char* newName;
 	ImGui::Begin("変更したいユーザー名を入力してください。");
-	ImGui::InputText("new Name : ", newName, 20);
+	//ImGui::InputText("new Name : ", newName, 20);
 	ImGui::End();
 
-	std::string name(newName);
-	ChangeName(name);
+	//std::string name(newName);
+	//ChangeName(name);
 }
 
 void Player::ChangeColorImGui()
@@ -63,7 +63,7 @@ void Player::ChangeColorImGui()
 	ImGui::Begin("色変更");
 	ImGui::End();
 
-	ChangeColor(color);
+	//ChangeColor(color);
 }
 
 void Player::SetMyCamera()
