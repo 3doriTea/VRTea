@@ -93,7 +93,7 @@ namespace VRTeaServer.Service
 
 				switch (head)
 				{
-					case "Update":
+					case "Update":  // 毎フレームの更新処理
 						var updateContent = json["content"];
 						if (updateContent is null)
 						{
@@ -130,8 +130,11 @@ namespace VRTeaServer.Service
 							case "Chat":
 								EventChat(sessionId, eventContent);
 								break;
-							case "プレイヤー名変更 TODO: ここは担当者に確認を取る":
-								EventChangeData(sessionId, eventContent);
+							case "NewName":
+								EventChangeName(sessionId, eventContent);
+								break;
+							case "NewColor":
+								EventChangeColor(sessionId, eventContent);
 								break;
 							default:
 								Log.WriteLine($"SID:{sessionId}から未実装のイベント:{eventContentHeadStr}を受信した");
@@ -148,21 +151,65 @@ namespace VRTeaServer.Service
 
 				void Update(int sessionId, JToken updateJson)
 				{
-					//playersStatus.AddOrUpdate()
-					//updateJson["position"]["x"];
+					playersStatus.TryGetValue(sessionId, out var status);
+					if (status is null)
+					{
+						Log.Error($"[SID:{sessionId}] Updateに応答中, statusの取得に失敗");
+						return;
+					}
+
+					bool updated = playersStatus.TryUpdate(
+						sessionId,
+						new PlayerStatus
+						{
+						},
+						status);
+
+					// 更新失敗
+					if (updated == false)
+					{
+						Log.WriteLine($"[SID:{sessionId}] statusの更新に失敗");
+					}
 				}
 
 				void EventChangeName(int sessionId, JToken changeContentJson)
 				{
 					var changedName = changeContentJson.Value<string>();
 
+					Log.WriteLine($"[SID:{sessionId}]{changedName ?? "{{null}}"}");
+					
 					if (changedName is null)
 					{
 						// チャットコンテンツがないよ！
 						return;
 					}
 
+					playersData.AddOrUpdate(
+						sessionId,
+						new PlayerData(),
+						(sessionId, currentData) =>
+						{
+							currentData.Name = changedName;
+							return currentData;
+						});
+					// TODO: ここで全員に色変更を送信すべきか、更新処理で毎回色も送っちゃうか
+				}
 
+				void EventChangeColor(int sessionId, JToken changeContentJson)
+				{
+					var changedColor = changeContentJson.Value<uint>();
+
+					Log.WriteLine($"[SID:{sessionId}] changeColor: {changedColor:X8}");
+
+					playersData.AddOrUpdate(
+						sessionId,
+						new PlayerData(),
+						(sessionId, currentData) =>
+						{
+							currentData.Color = changedColor;
+							return currentData;
+						});
+					// TODO: ここで全員に色変更を送信すべきか、更新処理で毎回色も送っちゃうか
 				}
 
 				void EventChat(int sessionId, JToken chatContentJson)
@@ -255,6 +302,7 @@ namespace VRTeaServer.Service
 							RequestProc(id, data);
 						}
 					}
+					await Task.Delay(1 /* TODO: マジックナンバー消す */);
 				}
 			}
 			catch (OperationCanceledException)
