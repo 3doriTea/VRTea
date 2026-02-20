@@ -11,7 +11,6 @@ void Player::Update()
 {
 	Player* pPlayer = FindGameObject<Player>();
 	assert(pPlayer == this);
-
 	/* これ、移動に角度必要じゃね？ */
 	//前移動
 	if (CheckHitKey(KEY_INPUT_W))

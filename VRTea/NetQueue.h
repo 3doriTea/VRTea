@@ -31,6 +31,7 @@ NetQueue();				// コンストラクタ
 void Update() override; // 更新
 void Draw();			// 描画
 
+
 // 送信したいデータをキューに積む（実送信はUpdate内）
 void Send(const std::string& content, TCP_OR_UDP);
 
@@ -50,7 +51,6 @@ std::queue<std::string> sendQueue; // 送信待ち
 std::queue<std::string> readQueue; // 受信済み
 
 // ソケット作成
-SOCKET sock = INVALID_SOCKET;
 
 // UDP作成
 SOCKET sockUDP;

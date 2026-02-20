@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "PlayerCamera.h"
 #include "OtherPlayer.h"
-#include "NetQueueStub.h"
+#include "NetQueue.h"
 #include "Chat.h"
 #include "GameTime.h"
 #include "../ImGui/imgui_impl_dxlib.hpp"
@@ -49,7 +49,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	GameObject::Instantiate<PlayerCamera>();
 	GameObject::Instantiate<OtherPlayer>();
 	GameObject::Instantiate<Chat>();
-	GameObject::Instantiate<NetQueueStub>();
+	GameObject::Instantiate<NetQueue>();
 
 #pragma 
 

@@ -1,5 +1,43 @@
 #include "NetQueue.h"
 #include <winsock2.h>  
+#include <assert.h>
+
+bool ConnectImpl(const SOCKADDR_IN& sockAddrIn, SOCKET sock)
+{
+    int serverAddressLength = sizeof(sockAddrIn);
+    u_long mode = 1;
+    ioctlsocket(sock, FIONBIO, &mode);
+
+    int ret = connect(sock, (SOCKADDR*)&sockAddrIn, sizeof(sockAddrIn));
+    if (ret == SOCKET_ERROR && WSAGetLastError() == WSAEWOULDBLOCK)
+    {
+        fd_set fds;
+        FD_ZERO(&fds);
+        FD_SET(sock, &fds);
+
+        timeval timeout;
+        timeout.tv_sec = 10;
+        timeout.tv_usec = 0;
+
+        int result = select(0, nullptr, &fds, nullptr, &timeout);
+        if (result > 0 && FD_ISSET(sock, &fds))
+        {
+            int err = 0;
+            socklen_t len = sizeof(err);
+            getsockopt(sock, SOL_SOCKET, SO_ERROR, (char*)&err, &len);
+            if (err != 0)
+            {
+                // 失敗
+                return false;
+            }
+        }
+        else
+        {
+            assert(false);
+        }
+    }
+    return true;
+}
 
 // ノンブロッキング設定(そのまま次の処理に行く用)
 void NetQueue::SetNonBlocking(SOCKET S)
@@ -21,31 +59,24 @@ NetQueue::NetQueue()
     }
     std::cout << "Success : WSAStartup" << std::endl;
 
-    //リスンソケットの作成(前回の応用)
-    sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock == INVALID_SOCKET)
-    {
-        std::cout << "Error : socket" << std::endl;
-        WSACleanup();
-        return;
-    }
-    //set_nonblocking(sock);  // TOOD: ノンブロッキングのところ
-    std::cout << "Success : socket" << std::endl;
+    sockUDP = socket(AF_INET, SOCK_STREAM, IPPROTO_UDP);
+    assert(sockUDP != INVALID_SOCKET && "Error : socketUDP");
 
-    // ノンブロッキング処理
-    SetNonBlocking(sock);
+    sockTCP = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    assert(sockTCP != INVALID_SOCKET && "Error : listenSock");
 
+    unsigned long arg = 0x01;
+    int result = ioctlsocket(sockTCP, FIONBIO, &arg);
+    assert(result != SOCKET_ERROR);
+    
+    //Connect();
 }
 
 // デストラクタ
 NetQueue::~NetQueue()
 {
     // ソケットを閉じてWSACleanup
-    if (sock != INVALID_SOCKET)
-    {
-        closesocket(sock);
-        sock = INVALID_SOCKET;
-    }
+    
     WSACleanup();
 }
 
@@ -58,7 +89,15 @@ void NetQueue::Send(const std::string& content, TCP_OR_UDP)
 
 bool NetQueue::Connect(const char* ip, uint16_t port)
 {
-    return false;
+    SOCKADDR_IN serverSocketAddress;
+    // 0でクリア
+    memset(&serverSocketAddress, 0, sizeof(serverSocketAddress));
+    serverSocketAddress.sin_family = AF_INET;
+    serverSocketAddress.sin_port = htons(port);
+    inet_pton(AF_INET, ip, &serverSocketAddress.sin_addr.s_addr);
+
+    ConnectImpl(serverSocketAddress, sockUDP);
+    ConnectImpl(serverSocketAddress, sockTCP);
 }
 
 // 受信キューから1件取り出す処理
@@ -93,7 +132,7 @@ json NetQueue::Find(std::string TagName)
 // 更新
 void NetQueue::Update()
 {
-    if (!connected || sock == INVALID_SOCKET) return;
+    //if (!connected || sock == INVALID_SOCKET) return;
 
     // 送信中バッファが空なら、送信キューから次のデータを取る
     if (sendingBuffer.empty() && !sendQueue.empty())
@@ -109,7 +148,7 @@ void NetQueue::Update()
     for (;;) // 条件が満たされない限り、処理が無限に繰り返される
     {
         // データを送信
-        int ret = send(sock,
+        int ret = send(sockUDP,
             sendData.c_str(),
             static_cast<int>(sendData.size()),  // 送る文字列のサイズ(警告をなくすためintに変換)
             0);
