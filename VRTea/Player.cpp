@@ -34,8 +34,8 @@ void Player::Update()
 	{
 		playerState.position.x += SPEED;
 	}
-	
-	
+
+
 }
 
 void Player::Draw()
@@ -46,24 +46,79 @@ Player::~Player()
 {
 }
 
+void Player::PushPData(const json data)
+{
+	NetQueue* queue = FindGameObject<NetQueue>();
+	queue->Send(data.dump(), TCP);
+}
+
 void Player::ChangeNameImGui()
 {
 	char* newName;
 	ImGui::Begin("変更したいユーザー名を入力してください。");
-	//ImGui::InputText("new Name : ", newName, 20);
+	ImGui::InputText("new Name : ", newName, 20);
 	ImGui::End();
 
-	//std::string name(newName);
-	//ChangeName(name);
+	std::string name(newName);
+	json nameJson =
+	{
+	  { "head", "Event" },
+	  { "content",
+		{
+		  "head", "Name",
+		  "content", name
+		}
+	  }
+	};
+	PushPData(nameJson);
+	ChangeName(name);
 }
 
 void Player::ChangeColorImGui()
 {
-	DxLib::COLOR_U8 color;
-	ImGui::Begin("色変更");
+	float myColor[3] = {0,0,0};
+
+	if (ImGui::ColorPicker3("色変更", myColor, ImGuiColorEditFlags_Uint8))
+	{
+		DxLib::COLOR_U8 color;
+		color.r = myColor[Color::R];
+		color.g = myColor[Color::G];
+		color.b = myColor[Color::B];
+
+		json colorJson =
+		{
+		  { "head", "Event" },
+		  { "content",
+			{
+			  "head", "Color",
+			  "content", GetColor(color.r,color.g,color.b)
+			}
+		  }
+		};
+		PushPData(colorJson);
+		ChangeColor(color);
+	}
+}
+
+void Player::TextChatImGui()
+{
+	char* inputChat;
+	ImGui::Begin("テキストを入力...");
+	ImGui::InputText("", inputChat, 60);
 	ImGui::End();
 
-	//ChangeColor(color);
+	std::string chat(inputChat);
+	json chatJson =
+	{
+	  { "head", "Event" },
+	  { "content",
+		{
+		  "head", "Chat",
+		  "content", chat
+		}
+	  }
+	};
+	PushPData(chatJson);
 }
 
 void Player::SetMyCamera()

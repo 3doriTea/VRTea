@@ -3,6 +3,7 @@
 #include "PlayerData.h"
 #include "PlayerState.h"
 #include "GameObject.h"
+#include "NetQueue.h"
 
 struct Player : GameObject
 {
@@ -12,21 +13,15 @@ struct Player : GameObject
 	void Draw() override;
 
 	~Player();
-	void ChangeNameImGui();
-	void ChangeColorImGui();
-	void SetMyCamera();
+
 	void ChangeName(const std::string _name) { pData.name = _name; };
 	void ChangeColor(const DxLib::COLOR_U8 _color) { pData.color = _color; };
-	void DrawImGui()
-	{
-		char* newName;
-		ImGui::Begin("変更したいユーザー名を入力してください。");
-		ImGui::InputText("new Name : ", newName, 20);
-		ImGui::End();
-
-		std::string name(newName);
-		ChangeName(name);
-	};
+	void PushPData(const json data);
+	void ChangeNameImGui();
+	void ChangeColorImGui();
+	void TextChatImGui();
+	void SetMyCamera();
+	
 	PlayerData pData;
 	PlayerState playerState;
 	const int SPEED = 4.0;
