@@ -54,6 +54,9 @@ namespace VRTeaServer
 		}
 	}
 
+	/// <summary>
+	/// IPEndPointをくっつけた送信データ
+	/// </summary>
 	readonly struct SendDataWithIPEP
 	{
 		public readonly byte[] Buffer { get; }

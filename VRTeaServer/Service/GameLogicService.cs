@@ -185,8 +185,32 @@ namespace VRTeaServer.Service
 						return;
 					}
 
-					// 他プレイヤーの情報を返す
+					JObject sendJson = JObject.FromObject(new
+					{
+						head = "Update",
+						content = new { },
+					});
 
+					// 他プレイヤーの情報を返す
+					foreach(var (pSId, pData) in playersData)
+					{
+						playersStatus.TryGetValue(pSId, out var pStat);
+						if (pStat is null)
+						{
+							continue;
+						}
+
+						sendJson[pData.Name] = JObject.FromObject(new
+						{
+							color = pData.Color,
+							position = new
+							{
+								x = pStat.PositionX,
+								y = pStat.PositionY,
+								z = pStat.PositionZ,
+							},
+						});
+					}
 				}
 
 				void EventChangeName(int sessionId, JToken changeContentJson)
