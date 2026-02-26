@@ -1,7 +1,10 @@
 #include "NetQueue.h"
-#include <winsock2.h>  
+#include <winsock2.h>
+#include <ws2tcpip.h>
 #include <assert.h>
 #include <nlohmann/json.hpp>
+#include <iostream>
+
 using nlohmann::json;
 
 //bool ConnectImpl(const SOCKADDR_IN& sockAddrIn, SOCKET sock)
@@ -75,14 +78,14 @@ static bool ConnectImplTCP(const SOCKADDR_IN& addr, SOCKET s, int timeoutSec = 1
 
     // エラー発生は except-set に乗る。また SO_ERROR で最終確認。
     int soerr = 0;
-    socklen_t len = sizeof(soerr);
+    int len = sizeof(soerr);
     ::getsockopt(s, SOL_SOCKET, SO_ERROR, (char*)&soerr, &len);
 
     if (FD_ISSET(s, &efds) || soerr != 0)
     {
         return false;
     }
-    return FD_ISSET(s, &wfds);
+    return FD_ISSET(s, &wfds) != 0;
 }
 
 static bool ConnectImplUDP(const SOCKADDR_IN& addr, SOCKET s)
@@ -93,10 +96,7 @@ static bool ConnectImplUDP(const SOCKADDR_IN& addr, SOCKET s)
     ioctlsocket(s, FIONBIO, &mode);
 
     int ret = ::connect(s, (const SOCKADDR*)&addr, sizeof(addr));
-    if (ret == 0) return true;
-
-    // UDP で WSAEWOULDBLOCK が返ってくるケースは珍しいが、失敗扱いとする
-    return false;
+    return (ret == 0);
 }
 
 
@@ -120,10 +120,10 @@ NetQueue::NetQueue()
     }
     std::cout << "Success : WSAStartup" << std::endl;
 
-    sockUDP = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    sockUDP = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     assert(sockUDP != INVALID_SOCKET && "Error : socketUDP");
 
-    sockTCP = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    sockTCP = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     assert(sockTCP != INVALID_SOCKET && "Error : listenSock");
 
     unsigned long arg = 0x01;
@@ -139,7 +139,15 @@ NetQueue::NetQueue()
 NetQueue::~NetQueue()
 {
     // ソケットを閉じてWSACleanup
-    
+    if (sockTCP != INVALID_SOCKET) {
+        ::closesocket(sockTCP);
+        sockTCP = INVALID_SOCKET;
+    }
+    if (sockUDP != INVALID_SOCKET) {
+        ::closesocket(sockUDP);
+        sockUDP = INVALID_SOCKET;
+    }
+
     WSACleanup();
 }
 

@@ -1,13 +1,22 @@
 #pragma once
-#include "GameObject.h"
-#include <queue>
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-#include <cstring>
-#include <list>
+#define WIN32_LEAN_AND_MEAN
 
+#include "DxLib.h"
+#include "GameObject.h"
+
+#include <string>
+#include <queue>
+#include <list>
+#include <iostream>
+#include <cstring>
+
+#include <WinSock2.h>
+#include <ws2tcpip.h>
 #pragma comment(lib, "ws2_32.lib")
+
+#include <nlohmann/json.hpp>
+using nlohmann::json;
+
 
 enum TCP_OR_UDP
 {
@@ -30,7 +39,7 @@ void Draw();			// 描画
 
 
 // 送信したいデータをキューに積む（実送信はUpdate内）
-void Send(const std::string& content, TCP_OR_UDP tcp_or_udp);
+void Send(const std::string& content, TCP_OR_UDP which);
 
 // 受信済みデータを取り出す（空ならfalse）
 std::string Read(std::string& out);
@@ -44,16 +53,16 @@ void SetNonBlocking(SOCKET S);
 // 接続処理
 bool Connect(const char* ip, uint16_t port);
 
-//std::queue<std::string> sendQueue; // 送信待ち
-//std::queue<std::string> readQueue; // 受信済み
+std::queue<std::string> sendQueue; // 送信待ち
+std::queue<std::string> readQueue; // 受信済み
 
 // ソケット作成
 
 // UDP作成
-SOCKET sockUDP;
+SOCKET sockUDP = INVALID_SOCKET;
 
 // TCP作成
-SOCKET sockTCP;
+SOCKET sockTCP = INVALID_SOCKET;
 
 // TCP:受信したデータを一度貯める
 std::string recvBuffer;
