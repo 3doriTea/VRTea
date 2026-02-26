@@ -321,7 +321,11 @@ namespace VRTeaServer.Service
 					JObject sendJson = JObject.FromObject(new
 					{
 						head = "Event",
-						content = $"{joinedData.Name}さんが参加しました。",
+						content = new
+						{
+							head = "Chat",
+							content = $"{joinedData.Name}さんが参加しました。",
+						},
 					});
 
 					foreach (var sendId in _sessionManager.Sessions)
