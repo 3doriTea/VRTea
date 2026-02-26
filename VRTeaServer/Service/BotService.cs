@@ -122,32 +122,32 @@ namespace VRTeaServer.Service
 				}
 			}
 
-			async Task BotSendCycle()
-			{
-				while (true)
-				{
-					SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
-					await stream.WriteAsync(sendData.Buffer, cts.Token);
-				}
-			}
+			//async Task BotSendCycle()
+			//{
+			//	while (true)
+			//	{
+			//		SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
+			//		await stream.WriteAsync(sendData.Buffer, cts.Token);
+			//	}
+			//}
 
-			await Task.WhenAll(
-				Task.Run(async () =>  // tcp送信サイクル
-				{
-					int bytesRead = 0;
-					while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
-					{
-						await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
-					}
-				}, cts.Token),
-				Task.Run(async () =>  // tcp受信サイクル
-				{
-					while (true)
-					{
-						SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
-						await stream.WriteAsync(sendData.Buffer, cts.Token);
-					}
-				}, cts.Token));
+			//await Task.WhenAll(
+			//	Task.Run(async () =>  // tcp送信サイクル
+			//	{
+			//		int bytesRead = 0;
+			//		while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
+			//		{
+			//			await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
+			//		}
+			//	}, cts.Token),
+			//	Task.Run(async () =>  // tcp受信サイクル
+			//	{
+			//		while (true)
+			//		{
+			//			SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
+			//			await stream.WriteAsync(sendData.Buffer, cts.Token);
+			//		}
+			//	}, cts.Token));
 		});
 	}
 }
