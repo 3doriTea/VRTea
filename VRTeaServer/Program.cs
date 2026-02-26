@@ -8,6 +8,11 @@ namespace VRTeaServer
 		const string LogDirectory = "./";
 		static void Main(string[] args)
 		{
+			//var input = Console.ReadLine();
+			//Console.WriteLine(input);
+			//File.WriteAllText("./LOOOOOG.txt", input);
+			//return;
+
 			var askIPAddress = new AskIPAddress();
 			var askGamePortNumber = new AskPortNumber();
 			var askWebPortNumber = new AskPortNumber();
