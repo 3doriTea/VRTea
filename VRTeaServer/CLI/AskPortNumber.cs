@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VRTeaServer.CLI
 {
+	/// <summary>
+	/// ポート番号を質問する
+	/// </summary>
 	internal class AskPortNumber : AskBase
 	{
 		public ushort PortNumber { get; private set; }

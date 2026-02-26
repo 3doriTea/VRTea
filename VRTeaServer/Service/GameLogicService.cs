@@ -93,7 +93,7 @@ namespace VRTeaServer.Service
 
 				switch (head)
 				{
-					case "Update":
+					case "Update":  // 毎フレームの更新処理
 						var updateContent = json["content"];
 						if (updateContent is null)
 						{
@@ -130,8 +130,11 @@ namespace VRTeaServer.Service
 							case "Chat":
 								EventChat(sessionId, eventContent);
 								break;
-							case "プレイヤー名変更 TODO: ここは担当者に確認を取る":
-								EventChangeData(sessionId, eventContent);
+							case "NewName":
+								EventChangeName(sessionId, eventContent);
+								break;
+							case "NewColor":
+								EventChangeColor(sessionId, eventContent);
 								break;
 							default:
 								Log.WriteLine($"SID:{sessionId}から未実装のイベント:{eventContentHeadStr}を受信した");
@@ -148,21 +151,106 @@ namespace VRTeaServer.Service
 
 				void Update(int sessionId, JToken updateJson)
 				{
-					//playersStatus.AddOrUpdate()
-					//updateJson["position"]["x"];
+					// プレイヤーの状態を更新する
+					playersStatus.TryGetValue(sessionId, out var status);
+					if (status is null)
+					{
+						Log.Error($"[SID:{sessionId}] Updateに応答中, statusの取得に失敗");
+						return;
+					}
+
+					JToken? position = updateJson["position"];
+					if (position is null)
+					{
+						Log.WriteLine($"[SID:{sessionId}] Updateに応答中, positionが含まれていない");
+						return;
+					}
+
+					var playerState = new PlayerStatus
+					{
+						PositionX = (float)(position["x"] ?? 0.0f),
+						PositionY = (float)(position["y"] ?? 0.0f),
+						PositionZ = (float)(position["z"] ?? 0.0f),
+					};
+
+					bool updated = playersStatus.TryUpdate(
+						sessionId,
+						playerState,
+						status);
+
+					// 更新失敗
+					if (updated == false)
+					{
+						Log.WriteLine($"[SID:{sessionId}] statusの更新に失敗");
+						return;
+					}
+
+					JObject sendJson = JObject.FromObject(new
+					{
+						head = "Update",
+						content = new { },
+					});
+
+					// 他プレイヤーの情報を返す
+					foreach(var (pSId, pData) in playersData)
+					{
+						playersStatus.TryGetValue(pSId, out var pStat);
+						if (pStat is null)
+						{
+							continue;
+						}
+
+						sendJson[pData.Name] = JObject.FromObject(new
+						{
+							color = pData.Color,
+							position = new
+							{
+								x = pStat.PositionX,
+								y = pStat.PositionY,
+								z = pStat.PositionZ,
+							},
+						});
+					}
 				}
 
 				void EventChangeName(int sessionId, JToken changeContentJson)
 				{
 					var changedName = changeContentJson.Value<string>();
 
+					Log.WriteLine($"[SID:{sessionId}]{changedName ?? "{{null}}"}");
+					
 					if (changedName is null)
 					{
 						// チャットコンテンツがないよ！
 						return;
 					}
 
+					playersData.AddOrUpdate(
+						sessionId,
+						new PlayerData(),
+						(sessionId, currentData) =>
+						{
+							currentData.Name = changedName;
+							return currentData;
+						});
+					// TODO: ここで全員に色変更を送信すべきか、更新処理で毎回色も送っちゃうか
+				}
 
+				void EventChangeColor(int sessionId, JToken changeContentJson)
+				{
+					var changedColor = changeContentJson.Value<uint>();
+
+					Log.WriteLine($"[SID:{sessionId}] changeColor: {changedColor:X8}");
+
+					playersData.AddOrUpdate(
+						sessionId,
+						new PlayerData(),
+						(sessionId, currentData) =>
+						{
+							currentData.Color = changedColor;
+							return currentData;
+						});
+					// TODO: ここで全員に色変更を送信すべきか、更新処理で毎回色も送っちゃうか
 				}
 
 				void EventChat(int sessionId, JToken chatContentJson)
@@ -233,7 +321,11 @@ namespace VRTeaServer.Service
 					JObject sendJson = JObject.FromObject(new
 					{
 						head = "Event",
-						content = $"{joinedData.Name}さんが参加しました。",
+						content = new
+						{
+							head = "Chat",
+							content = $"{joinedData.Name}さんが参加しました。",
+						},
 					});
 
 					foreach (var sendId in _sessionManager.Sessions)
@@ -246,6 +338,8 @@ namespace VRTeaServer.Service
 
 			try
 			{
+				Log.WriteLine($"GameLogic起動した");
+
 				while (true)
 				{
 					foreach (var id in _sessionManager.Sessions)
@@ -255,12 +349,15 @@ namespace VRTeaServer.Service
 							RequestProc(id, data);
 						}
 					}
+					await Task.Delay(1 /* TODO: マジックナンバー消す */, cts.Token);
 				}
 			}
 			catch (OperationCanceledException)
 			{
-				return;
+				Log.WriteLine($"GameLogicキャンセルを受信した");
 			}
+
+			Log.WriteLine($"GameLogic停止した");
 		});
 	}
 }

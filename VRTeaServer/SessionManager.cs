@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using VRTeaServer.Logging;
 
@@ -34,6 +35,10 @@ namespace VRTeaServer
 		public Action<IPEndPoint, int> OnDisconnected { get; set; } = delegate { };
 		private readonly ConcurrentDictionary<int, Session> _sessions = [];
 		private readonly ConcurrentDictionary<IPEndPoint, int> _ipepToSessionId = [];
+		/// <summary>
+		/// UDP用の送信キュー
+		/// </summary>
+		private Channel<SendDataWithIPEP> _sendQueueUDP = Channel.CreateUnbounded<SendDataWithIPEP>();
 		private int _sessionIdCounter = 0;
 
 		public SessionManager()
@@ -67,7 +72,7 @@ namespace VRTeaServer
 		}
 
 		/// <summary>
-		/// 送信キューにエンキューする
+		/// TCPの送信キューにエンキューする
 		/// </summary>
 		/// <param name="sessionId"></param>
 		/// <param name="data"></param>
@@ -76,6 +81,27 @@ namespace VRTeaServer
 		public async Task SendEnqueue(int sessionId, SendData data, CancellationTokenSource cts)
 		{
 			await _sessions[sessionId].SendQueue.Writer.WriteAsync(data, cts.Token);
+		}
+
+		/// <summary>
+		/// UDPの送信キューにエンキューする
+		/// </summary>
+		/// <param name="sessionId"></param>
+		/// <param name="data"></param>
+		/// <param name="cts"></param>
+		/// <returns></returns>
+		public async Task SendEnqueueUDP(int sessionId, SendData data, CancellationTokenSource cts)
+		{
+			if (_sessions[sessionId].Client.Client.RemoteEndPoint is IPEndPoint remoteIPEP)
+			{
+				var dataWithIPEP = data.WithIPEP(remoteIPEP);
+				// UDP用にIPEPのペアで渡す
+				await _sendQueueUDP.Writer.WriteAsync(dataWithIPEP, cts.Token);
+			}
+			else
+			{
+				Log.Error("ReceiveEnqueue from IPEP でIPEPと sessionIdの変換に失敗");
+			}
 		}
 
 		/// <summary>
@@ -103,7 +129,7 @@ namespace VRTeaServer
 		}
 
 		/// <summary>
-		/// クライアントへの送信キューからDequeue
+		/// TCP: クライアントへのデータを送信キューからDequeue
 		/// </summary>
 		/// <param name="sessionId"></param>
 		/// <param name="cts"></param>
@@ -114,7 +140,17 @@ namespace VRTeaServer
 		}
 
 		/// <summary>
-		/// クライアントからの受信キューにEnqueue
+		/// UDP: クライアントへのデータを送信キューからD
+		/// </summary>
+		/// <param name="cts"></param>
+		/// <returns></returns>
+		public async Task<SendDataWithIPEP> SendDequeueUDP(CancellationTokenSource cts)
+		{
+			return await _sendQueueUDP.Reader.ReadAsync(cts.Token);
+		}
+
+		/// <summary>
+		/// クライアントからのデータを受信キューにEnqueue
 		/// </summary>
 		/// <param name="sessionId"></param>
 		/// <param name="data"></param>
@@ -123,6 +159,25 @@ namespace VRTeaServer
 		public async Task ReceiveEnqueue(int sessionId, ReceiveData data, CancellationTokenSource cts)
 		{
 			await _sessions[sessionId].ReceiveQueue.Writer.WriteAsync(data, cts.Token);
+		}
+
+		/// <summary>
+		/// クライアントからのデータを受信キューにEnqueue
+		/// </summary>
+		/// <param name="remoteIPEndPoint"></param>
+		/// <param name="data"></param>
+		/// <param name="cts"></param>
+		/// <returns></returns>
+		public async Task ReceiveEnqueue(IPEndPoint remoteIPEndPoint, ReceiveData data, CancellationTokenSource cts)
+		{
+			if (_ipepToSessionId.TryGetValue(remoteIPEndPoint, out var sessionId))
+			{
+				await ReceiveEnqueue(sessionId, data, cts);
+			}
+			else
+			{
+				Log.Error("ReceiveEnqueue from IPEP でIPEPと sessionIdの変換に失敗");
+			}
 		}
 
 		/// <summary>

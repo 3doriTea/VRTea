@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VRTeaServer.CLI
 {
+	/// <summary>
+	/// 準備ができたか質問する
+	/// </summary>
 	internal class AskReady : AskBase
 	{
 		public bool Ready = false;
