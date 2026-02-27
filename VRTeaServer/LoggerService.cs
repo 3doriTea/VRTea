@@ -32,18 +32,21 @@ namespace VRTeaServer
 		/// <returns></returns>
 		public async Task Start(CancellationTokenSource cts)
 		{
-			try
+			Log.WriteLine($"ロガー起動した");
+			while (true)
 			{
-				while (true)
+				try
 				{
-					await Task.Delay(TimeUtil.ToMilliSec(SaveIntervalSec), cts.Token);
-					await WriteOutLogs();
+						await Task.Delay(TimeUtil.ToMilliSec(SaveIntervalSec), cts.Token);
+						await WriteOutLogs();
+				}
+				catch (TaskCanceledException)
+				{
+					Log.WriteLine($"ロガーキャンセルを受信した");
+					break;
 				}
 			}
-			catch (TaskCanceledException)
-			{
-				return;
-			}
+			Log.WriteLine($"ロガー停止した");
 		}
 
 		/// <summary>

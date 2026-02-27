@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using VRTeaServer.Exceptions;
 using VRTeaServer.Logging;
 
 namespace VRTeaServer.Service
@@ -82,11 +83,27 @@ namespace VRTeaServer.Service
 						}, cts.Token),
 						Task.Run(async () =>
 						{
+							//try
+							//{
 							while (true)
 							{
-								SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
-								await stream.WriteAsync(sendData.Buffer, cts.Token);
+								try
+								{
+									SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
+									await stream.WriteAsync(sendData.Buffer, cts.Token);
+								}
+								catch(Exception ex)
+								{
+									Console.WriteLine(ex.ToString());
+									break;
+								}
 							}
+							//}
+							//catch (SessionKeyNotFoundException)
+							//{
+							//	cts.Cancel();
+							//	return;
+							//}
 						}, cts.Token));
 
 					// クライアントの受付終わったから切断する

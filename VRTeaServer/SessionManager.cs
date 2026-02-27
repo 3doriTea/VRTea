@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using VRTeaServer.Exceptions;
 using VRTeaServer.Logging;
 
 namespace VRTeaServer
@@ -136,6 +137,10 @@ namespace VRTeaServer
 		/// <returns></returns>
 		public async Task<SendData> SendDequeue(int sessionId, CancellationTokenSource cts)
 		{
+			//if (!_sessions.ContainsKey(sessionId))
+			//{
+			//	throw new SessionKeyNotFoundException("KeyNotFound");
+			//}
 			return await _sessions[sessionId].SendQueue.Reader.ReadAsync(cts.Token);
 		}
 

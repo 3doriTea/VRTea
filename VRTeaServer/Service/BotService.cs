@@ -1,14 +1,11 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Buffers.Binary;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using VRTeaServer.Logging;
+using static VRTeaServer.Utility.NetWorkUtil;
 
 namespace VRTeaServer.Service
 {
@@ -31,6 +28,8 @@ namespace VRTeaServer.Service
 		{
 			using var udp = new UdpClient();
 			using var tcp = new TcpClient();
+
+			Log.WriteLine($"ボット起動した");
 
 			// MEMO: UdpClient の Connectメソッドは見かけ上の接続で、
 			//     : 送信先をあらかじめ指定しておけるだけ
@@ -113,7 +112,7 @@ namespace VRTeaServer.Service
 							content = new
 							{
 								head = "Chat",
-								content = $"わかるー",
+								content = $"{chatContent} <- わかるー",
 							},
 						});
 
@@ -122,41 +121,81 @@ namespace VRTeaServer.Service
 				}
 			}
 
-			async Task BotSendCycle(NetworkStream stream)
+			async Task BotSendTask(NetworkStream stream)
 			{
-				while (tcpSendQueue.TryDequeue(out var data))
+				while (true)
 				{
-					await stream.WriteAsync(data.Buffer, cts.Token);
+					try
+					{
+						while (tcpSendQueue.TryDequeue(out var data))
+						{
+							await stream.WriteAsync(data.Buffer, cts.Token);
+						}
+					}
+					catch (OperationCanceledException)
+					{
+						break;
+					}
 				}
 			}
 
-			async Task BotReceiveCycle(NetworkStream stream)
+			async Task BotReceiveTask(NetworkStream stream)
 			{
-				stream.
-
-				while (tcpReceiveQueue.TryDequeue(out var data))
+				while (true)
 				{
-					await stream.WriteAsync(data.Buffer, cts.Token);
+					byte[] totalSizeBuffer = new byte[sizeof(int)];
+					if (!await ReadExactlyAsync(stream, totalSizeBuffer, cts))
+					{
+						return;  // 切断されたら終了
+					}
+
+					int totalSize = BinaryPrimitives.ReadInt32BigEndian(totalSizeBuffer);
+					int bodySize = totalSize - sizeof(int);
+
+					if (bodySize <= 0)
+					{
+						return;  // ボディサイズがおかしいなら無視
+					}
+
+					byte[] bodyBuffer = new byte[bodySize];
+					if (!await ReadExactlyAsync(stream, bodyBuffer, cts))
+					{
+						return;  // 切断されたら終了
+					}
+
+					// 2つを合わせたバッファを作成
+					byte[] combined = new byte[totalSize];
+					totalSizeBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(0, totalSizeBuffer.Length));
+					bodyBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(totalSizeBuffer.Length));
+
+					tcpReceiveQueue.Enqueue(new ReceiveData(combined));
 				}
 			}
 
 			await Task.WhenAll(
-				Task.Run(async () =>  // tcp送信サイクル
-				{
-					int bytesRead = 0;
-					while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
-					{
-						await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
-					}
-				}, cts.Token),
-				Task.Run(async () =>  // tcp受信サイクル
-				{
-					while (true)
-					{
-						SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
-						await stream.WriteAsync(sendData.Buffer, cts.Token);
-					}
-				}, cts.Token));
+				BotReceiveTask(tcp.GetStream()),
+				BotSendTask(tcp.GetStream()),
+				Task.Run(BotLife, cts.Token));
+
+
+			Log.WriteLine($"ボット停止した");
+			//await Task.WhenAll(
+			//	Task.Run(async () =>  // tcp送信サイクル
+			//	{
+			//		int bytesRead = 0;
+			//		while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
+			//		{
+			//			await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
+			//		}
+			//	}, cts.Token),
+			//	Task.Run(async () =>  // tcp受信サイクル
+			//	{
+			//		while (true)
+			//		{
+			//			SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
+			//			await stream.WriteAsync(sendData.Buffer, cts.Token);
+			//		}
+			//	}, cts.Token));
 		});
 	}
 }
