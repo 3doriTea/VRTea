@@ -81,6 +81,8 @@ namespace VRTeaServer.Service
 				JObject? json = null;
 				try
 				{
+					Log.WriteLine($"受信した文字列:{data.GetString()}");
+					Log.WriteLine($"受信したBinary:{BitConverter.ToString(data.Buffer)}");
 					json = JObject.Parse(data.GetString());
 				}
 				catch (Exception ex)
