@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VRTeaServer.GameLogic;
 using VRTeaServer.Logging;
+using VRTeaServer.Exceptions;
 
 namespace VRTeaServer.Service
 {

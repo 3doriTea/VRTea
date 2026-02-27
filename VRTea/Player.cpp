@@ -51,6 +51,11 @@ void Player::Update()
 				},
 			},
 		}.dump(), UDP);
+
+
+	PlayerCamera* pPlayerCamera = FindGameObject<PlayerCamera>();
+	assert()
+
 }
 
 void Player::Draw()
