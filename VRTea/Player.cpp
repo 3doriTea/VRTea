@@ -54,7 +54,8 @@ void Player::PushPData(const json data)
 
 void Player::ChangeNameImGui()
 {
-	char* newName = nullptr;
+	//char* newName = nullptr;
+	char newName[20];
 	ImGui::Begin("変更したいユーザー名を入力してください。");
 	ImGui::InputText("new Name : ", newName, 20);
 	ImGui::End();
@@ -102,7 +103,8 @@ void Player::ChangeColorImGui()
 
 void Player::TextChatImGui()
 {
-	char* inputChat = nullptr;
+	//char* inputChat = nullptr;
+	char inputChat[60];
 	ImGui::Begin("テキストを入力...");
 	ImGui::InputText("", inputChat, 60);
 	ImGui::End();
