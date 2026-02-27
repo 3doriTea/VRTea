@@ -184,6 +184,7 @@
     <ClInclude Include="IncludingWin.h" />
     <ClInclude Include="IncludingJson.h" />
     <ClInclude Include="NetQueue.h" />
+    <ClInclude Include="NetQueueMat.h" />
     <ClInclude Include="NetQueueStub.h" />
     <ClInclude Include="OtherPlayer.h" />
     <ClInclude Include="Player.h" />

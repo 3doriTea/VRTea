@@ -120,16 +120,60 @@ NetQueue::NetQueue()
     }
     std::cout << "Success : WSAStartup" << std::endl;
 
-    sockUDP = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-    assert(sockUDP != INVALID_SOCKET && "Error : socketUDP");
-
+    // TCP ソケット作る
     sockTCP = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     assert(sockTCP != INVALID_SOCKET && "Error : listenSock");
-
+    
     unsigned long arg = 0x01;
     int result = ioctlsocket(sockTCP, FIONBIO, &arg);
     assert(result != SOCKET_ERROR);
+
+    int ret{};
+
+    // TCP ソケットをバインドする
+    sockaddr_in localTcpAddr{};
+    localTcpAddr.sin_family = AF_INET;
+    localTcpAddr.sin_port = htons(0);  // 適切なポート番号を探してくれ―――
+    localTcpAddr.sin_addr.s_addr = INADDR_ANY;  // どこからでもアクセスokだよ
+
+    ret = bind(sockTCP, reinterpret_cast<sockaddr*>(&localTcpAddr), sizeof(localTcpAddr));
+    assert(ret != SOCKET_ERROR);
     
+    // TCP ソケットのポート番号を取得する
+    sockaddr_in bindedLocalTcpAddr{};
+    int addrLength = sizeof(bindedLocalTcpAddr);
+    ret = getsockname(sockTCP, reinterpret_cast<sockaddr*>(&bindedLocalTcpAddr), &addrLength);
+    assert(ret == 0);
+
+    // TCPとUDP共有のポート番号
+    USHORT commonPort = ntohs(bindedLocalTcpAddr.sin_port);
+
+    // UDP ソケットつくる
+    sockUDP = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    assert(sockUDP != INVALID_SOCKET && "Error : socketUDP");
+
+    // UDP ソケットをバインドする
+    sockaddr_in localUDPAddr{};
+    localUDPAddr.sin_family = AF_INET;
+    localUDPAddr.sin_port = htons(commonPort);
+    localUDPAddr.sin_addr.s_addr = INADDR_ANY;
+
+    result = bind(sockUDP, reinterpret_cast<sockaddr*>(&localUDPAddr), sizeof(localUDPAddr));
+    assert(result != SOCKET_ERROR);
+
+    {
+        // UDP ソケットのポート番号を取得する
+        sockaddr_in bindedLocalUdpAddr{};
+        int addrLength = sizeof(bindedLocalUdpAddr);
+        ret = getsockname(sockUDP, reinterpret_cast<sockaddr*>(&bindedLocalUdpAddr), &addrLength);
+        assert(ret == 0);
+
+
+        USHORT port = ntohs(bindedLocalUdpAddr.sin_port);
+
+        assert(commonPort == port && "ポート番号が不一致");
+    };
+
     const char* ip = "127.0.0.1";
     //const char* ip = "192.168.42.5";
     //uint16_t port = 3000;

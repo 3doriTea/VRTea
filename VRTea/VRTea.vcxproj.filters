@@ -94,9 +94,6 @@
     <ClInclude Include="Chat.h">
       <Filter>Cppのファイルたち</Filter>
     </ClInclude>
-    <ClInclude Include="NetQueue.h">
-      <Filter>Cppのファイルたち</Filter>
-    </ClInclude>
     <ClInclude Include="Serializable.h">
       <Filter>Cppのファイルたち</Filter>
     </ClInclude>
@@ -143,6 +140,12 @@
       <Filter>Cppのファイルたち</Filter>
     </ClInclude>
     <ClInclude Include="OtherPlayer.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="NetQueueMat.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="NetQueue.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
   </ItemGroup>
