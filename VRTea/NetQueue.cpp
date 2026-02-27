@@ -227,11 +227,13 @@ std::string NetQueue::Read(std::string& out)
 // TagName‚ÅŒŸõ‚µAŒ©‚Â‚©‚Á‚½‚ç body‚ğ•Ô‚·
 json NetQueue::Find(std::string TagName)
 {
-    for (const auto& r : RecvList)
+    for (auto itr = RecvList.begin(); itr != RecvList.end();)
     {
-        if (r.head == TagName)
+        if (itr->head == TagName)
         {
-            return r.body; // TagName‚ª‡‚Á‚½‚çbody‚ğ•Ô‚·
+            json tmp = itr->body;
+            itr = RecvList.erase(itr);
+            return tmp;
         }
     }
     // Œ©‚Â‚©‚ç‚È‚¢ê‡‚Í‹ó‚Ì json ‚ğ•Ô‚·
