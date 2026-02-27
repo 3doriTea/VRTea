@@ -244,6 +244,9 @@ json NetQueue::Find(std::string TagName)
 // 更新
 void NetQueue::Update()
 {
+
+
+#if 0
 	if (!connected || sockTCP == INVALID_SOCKET)
 	{
 		return;
@@ -451,6 +454,7 @@ void NetQueue::Update()
 		//    continue;
 		//}
 	}
+#endif
 }
 
 // 描画(もしかして必要ない？) ← 必要ないです
