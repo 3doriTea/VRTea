@@ -3,8 +3,18 @@
 #include "IncludingJson.h"
 #include "NetQueue.h"
 #include <cassert>
+#include <DirectXMath.h>
 
-Player::Player()
+
+namespace
+{
+	static const float PLAYER_EYE_HEIGHT{ 1.6 };
+}
+
+
+Player::Player() :
+	playerState{},
+	pData{}
 {
 }
 
@@ -12,28 +22,54 @@ void Player::Update()
 {
 	Player* pPlayer = FindGameObject<Player>();
 	assert(pPlayer == this);
-	/* これ、移動に角度必要じゃね？ */
+	PlayerCamera* pPlayerCamera = FindGameObject<PlayerCamera>();
+	assert(pPlayerCamera && "プレイヤーカメラが見つからんかった");
+
+
+	float angleY = pPlayerCamera->GetAngleY();
+	DirectX::XMMATRIX rot = DirectX::XMMatrixRotationY(angleY);
+	
+
+	/* これ、移動に角度必要じゃね？ */  // ← 必要です。
+	DirectX::XMVECTOR localMove = {};
+	enum
+	{
+		X, Y, Z, W
+	};
+
 	//前移動
 	if (CheckHitKey(KEY_INPUT_W))
 	{
-		playerState.position.z += SPEED;
+		localMove.m128_f32[Z] += SPEED;
+		//playerState.position.z += SPEED;
 		//playerState.position.z += playerState.rotate.y * SPEED;	みたいな奴を花井さんの授業でやったはず...。
+		// ↑ 回転行列です。
 	}
 	//後移動
 	if (CheckHitKey(KEY_INPUT_S))
 	{
-		playerState.position.z -= SPEED;
+		localMove.m128_f32[Z] -= SPEED;
+		//playerState.position.z -= SPEED;
 	}
 	//左移動
 	if (CheckHitKey(KEY_INPUT_A))
 	{
-		playerState.position.x -= SPEED;
+		localMove.m128_f32[X] -= SPEED;
+		//playerState.position.x -= SPEED;
 	}
 	//右移動
 	if (CheckHitKey(KEY_INPUT_D))
 	{
-		playerState.position.x += SPEED;
+		localMove.m128_f32[X] += SPEED;
+		//playerState.position.x += SPEED;
 	}
+
+	// ワールド上の移動を取得
+	DirectX::XMVECTOR worldMove = DirectX::XMVector3TransformCoord(localMove, rot);
+	// ワールド上の移動を加算
+	playerState.position.x += worldMove.m128_f32[X];
+	playerState.position.y += worldMove.m128_f32[Y];
+	playerState.position.z += worldMove.m128_f32[Z];
 
 	NetQueue* pNetQueue = FindGameObject<NetQueue>();
 	pNetQueue->Send(json
@@ -52,9 +88,7 @@ void Player::Update()
 			},
 		}.dump(), UDP);
 
-
-	PlayerCamera* pPlayerCamera = FindGameObject<PlayerCamera>();
-	assert()
+	pPlayerCamera->SetPosition(VAdd(playerState.position, VGet(0, PLAYER_EYE_HEIGHT, 0)));
 
 }
 

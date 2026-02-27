@@ -418,8 +418,8 @@ void NetQueue::Update()
 		readQueue.push(payload);
 
 		// JSON 解析（失敗してもこのフレームは既に消費済み！）
-		try
-		{
+	   /* try
+		{*/
 			json j = json::parse(payload);
 
 			std::string head;
@@ -437,19 +437,19 @@ void NetQueue::Update()
 				body = j; // そのまま格納
 
 			RecvList.push_back(Recv{ head, body });
-		}
-		catch (const std::exception& e)
-		{
-			// 解析失敗は一度だけ記録して終了（同じペイロードはもう再解析されない）
-			json err;
-			err["raw"] = payload;
-			err["parse_error"] = e.what();
-			RecvList.push_back(Recv{ "", err });
+		//}
+		//catch (const std::exception& e)
+		//{
+		//    // 解析失敗は一度だけ記録して終了（同じペイロードはもう再解析されない）
+		//    json err;
+		//    err["raw"] = payload;
+		//    err["parse_error"] = e.what();
+		//    RecvList.push_back(Recv{ "", err });
 
-			// ここで continue しても、該当 payload は既にバッファから除去済みなので
-			// 無限に同じデータを再解析することはありません。
-			continue;
-		}
+		//    // ここで continue しても、該当 payload は既にバッファから除去済みなので
+		//    // 無限に同じデータを再解析することはありません。
+		//    continue;
+		//}
 	}
 }
 

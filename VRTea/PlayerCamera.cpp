@@ -108,7 +108,7 @@ void PlayerCamera::SetPosition(VECTOR pos)
 	camPos = pos;
 }
 
-void PlayerCamera::GetAngle(VECTOR angle)
+float PlayerCamera::GetAngleY() const
 {
-	angle = target;
+	return angleX;
 }
