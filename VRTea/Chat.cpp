@@ -5,7 +5,7 @@
 #include "NetQueue.h"
 #include "NetQueueStub.h"
 Chat::Chat()
-	: showLogWindow_{true}
+	: showLogWindow{true}
 {
 }
 void Chat::Update()
@@ -14,13 +14,13 @@ void Chat::Update()
 
 	if (ImGui::IsKeyPressed(ImGuiKey_Tab))
 	{
-		showLogWindow_ = !showLogWindow_;
+		showLogWindow = !showLogWindow;
 	}
 }
 
 void Chat::Draw()
 {
-	if (showLogWindow_)
+	if (showLogWindow)
 	{
 		DrawChatLog();
 	}
@@ -30,8 +30,11 @@ void Chat::DrawChatLog()
 {
 	ImGui::Begin("Log", 0, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
 
-	for (const std::string& text : chatLog_)
+	for (const ChatContent& chatContent : chatLog)
 	{
+		std::string_view sender = chatContent.sender;
+		std::string_view message = chatContent.message;
+		std::string text = std::format("Sender : {}\nMessage : {}", sender, message);
 		ImGui::Text("%s", text.c_str());
 		ImGui::Separator();
 	}
@@ -62,20 +65,37 @@ void Chat::ReadContent()
 	NetQueueStub* netQueue = FindGameObject<NetQueueStub>();
 	if (netQueue == nullptr)
 		return;
-	std::string str = netQueue->Read();
-	while (str != "")
+
+	
+	json chatArrJson = netQueue->Find("Chat");
+	// jsonが配列と決めつけている
+	if (chatArrJson.is_array() == false)
+		return;
+
+	for (auto itr = chatArrJson.begin(); itr != chatArrJson.end(); itr++)
 	{
-		json j = json::parse(str);
-		// Headの存在をチェック
-		if (j.contains("Head") == false)
-			return;
+		json chatJson = *itr;
 
-		std::string head = j.at("Head").get<std::string>();
-		std::string content = j.at("Content").get<std::string>();
+		json content = chatJson.at("content");
+		std::string message = content.at("message");
+		std::string sender = content.at("sender");
+		ChatContent chatContent
+		{
+			.sender = sender,
+			.message = message
+		};
 
-		std::string log = std::format("Event:{} Content:{}", head, content);
-		chatLog_.push_back(log);
-
-		str = netQueue->Read();
+		chatLog.push_back(chatContent);
 	}
+}
+
+std::string Chat::GetSenderMessage(std::string_view sender)
+{
+	// 逆順で検索して、最新のを取得
+	for (auto ritr = chatLog.rbegin(); ritr != chatLog.rend(); ritr++)
+	{
+		if (ritr->sender == sender)
+			return ritr->message;
+	}
+	return "";
 }
