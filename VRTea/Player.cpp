@@ -35,7 +35,22 @@ void Player::Update()
 		playerState.position.x += SPEED;
 	}
 
-
+	NetQueue* pNetQueue = FindGameObject<NetQueue>();
+	pNetQueue->Send(json
+		{
+			{ "head", "Update" },
+			{
+				"content",
+				{
+					"position",
+					{
+						{ "x", playerState.position.x },
+						{ "y", playerState.position.y },
+						{ "z", playerState.position.z },
+					},
+				},
+			},
+		}.dump(), UDP);
 }
 
 void Player::Draw()

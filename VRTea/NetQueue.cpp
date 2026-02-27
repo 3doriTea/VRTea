@@ -130,8 +130,10 @@ NetQueue::NetQueue()
     int result = ioctlsocket(sockTCP, FIONBIO, &arg);
     assert(result != SOCKET_ERROR);
     
-    const char* ip = "192.168.42.5";
-    uint16_t port = 3000;
+    const char* ip = "127.0.0.1";
+    //const char* ip = "192.168.42.5";
+    //uint16_t port = 3000;
+    uint16_t port = 3333;
     connected = Connect(ip,port);
 }
 
