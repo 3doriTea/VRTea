@@ -227,7 +227,7 @@ std::string NetQueue::Read(std::string& out)
 // TagNameで検索し、見つかったら bodyを返す
 json NetQueue::Find(std::string TagName)
 {
-    for (auto itr = RecvList.begin(); itr != RecvList.end();)
+    for (auto itr = RecvList.begin(); itr != RecvList.end(); )
     {
         if (itr->head == TagName)
         {
@@ -305,6 +305,7 @@ void NetQueue::Update()
         {
             // 受信分を末尾に追加
             recvBuffer.append(temp, ret);
+            continue;
 
             //for (;;)
             //{
@@ -361,24 +362,25 @@ void NetQueue::Update()
             //    }
             //}
         }
-        else if (ret == 0)
+
+        if (ret == 0)
         {
             // 相手が切断
             connected = false;
             return;
         }
-        else
+
+        int err = WSAGetLastError();
+
+        if (err == WSAEWOULDBLOCK || err == WSAEINTR || err == WSAETIMEDOUT)
         {
-            int err = WSAGetLastError();
-            if (err == WSAECONNRESET)
-            {
-                // 今は受信データ無し
-                break;
-            }
-            // その他のエラー
-            connected = false;
-            return;
+            // 今は受信データ無し
+            break;
         }
+
+        // その他のエラー
+        connected = false;
+        return;
     }
 
     const size_t MAX_FRAMES_PER_UPDATE  = 1024;
