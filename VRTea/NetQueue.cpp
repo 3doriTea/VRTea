@@ -227,13 +227,17 @@ std::string NetQueue::Read(std::string& out)
 // TagNameで検索し、見つかったら bodyを返す
 json NetQueue::Find(std::string TagName)
 {
-    for (auto itr = RecvList.begin(); itr != RecvList.end();)
+    for (auto itr = RecvList.begin(); itr != RecvList.end(); )
     {
         if (itr->head == TagName)
         {
             json tmp = itr->body;
             itr = RecvList.erase(itr);
             return tmp;
+        }
+        else
+        {
+            ++itr;
         }
     }
     // 見つからない場合は空の json を返す
@@ -274,13 +278,26 @@ void NetQueue::Update()
         }
     }
 
+    // 送信
+    while (sockUDP != INVALID_SOCKET && !sendQueueUDP.empty())
+    {
+        const std::string& pkt = sendQueueUDP.front();
+        int sent = ::send(sockUDP, pkt.data(), static_cast<int>(pkt.size()), 0);
+        if (sent < 0)
+        {
+            int err = WSAGetLastError();
+            if (err == WSAEWOULDBLOCK) break;   // 送れない時、次フレームに回す
+        }
+        sendQueueUDP.pop();
+    }
+
     // 受信処理
     char temp[4096]{};
   
     for (;;) // 条件が満たされない限り、処理が無限に繰り返される
     {
         // データを送信
-        int ret = send(sockTCP,
+        int ret = recv(sockTCP,
             temp,
             static_cast<int>(sizeof(temp)),  // 送る文字列のサイズ(警告をなくすためintに変換)
             0);
@@ -288,6 +305,7 @@ void NetQueue::Update()
         {
             // 受信分を末尾に追加
             recvBuffer.append(temp, ret);
+            continue;
 
             //for (;;)
             //{
@@ -344,24 +362,25 @@ void NetQueue::Update()
             //    }
             //}
         }
-        else if (ret == 0)
+
+        if (ret == 0)
         {
             // 相手が切断
             connected = false;
             return;
         }
-        else
+
+        int err = WSAGetLastError();
+
+        if (err == WSAEWOULDBLOCK || err == WSAEINTR || err == WSAETIMEDOUT)
         {
-            int err = WSAGetLastError();
-            if (err == WSAECONNRESET)
-            {
-                // 今は受信データ無し
-                break;
-            }
-            // その他のエラー
-            connected = false;
-            return;
+            // 今は受信データ無し
+            break;
         }
+
+        // その他のエラー
+        connected = false;
+        return;
     }
 
     const size_t MAX_FRAMES_PER_UPDATE  = 1024;
