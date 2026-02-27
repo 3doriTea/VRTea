@@ -301,7 +301,7 @@ void NetQueue::Update()
         std::string payload = std::move(sendQueue.front());
         sendQueue.pop();
     
-        const uint32_t len_host = static_cast<uint32_t>(payload.size());
+        const uint32_t len_host = static_cast<uint32_t>(payload.size() + 1);
         const uint32_t len_net = htonl(len_host);
         sendingBuffer.assign(reinterpret_cast<const char*>(&len_net), 4);
         sendingBuffer += payload;
@@ -310,7 +310,7 @@ void NetQueue::Update()
     while (!sendingBuffer.empty())
     {
         int sent = ::send(sockTCP, sendingBuffer.data(),
-            static_cast<int>(sendingBuffer.size()), 0);
+            static_cast<int>(sendingBuffer.size() + 1), 0);
         if (sent > 0)
         {
             sendingBuffer.erase(0, static_cast<size_t>(sent));
@@ -328,7 +328,7 @@ void NetQueue::Update()
     while (sockUDP != INVALID_SOCKET && !sendQueueUDP.empty())
     {
         const std::string& pkt = sendQueueUDP.front();
-        int sent = ::send(sockUDP, pkt.data(), static_cast<int>(pkt.size()), 0);
+        int sent = ::send(sockUDP, pkt.data(), static_cast<int>(pkt.size() + 1), 0);
         if (sent < 0)
         {
             int err = WSAGetLastError();
