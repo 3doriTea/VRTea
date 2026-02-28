@@ -321,7 +321,7 @@ void NetQueue::Update()
 				break;
 			case AT_BODY:
 				pWriteAt = bodyBuffer.data();
-				unreadSize = bodyBuffer.size();
+				unreadSize = bodyBuffer.size() - 1;
 				break;
 			default:
 				assert(false && "未実装の読み取りモード");
@@ -362,7 +362,7 @@ void NetQueue::Update()
 				{
 					// 全部読めたのがheadなら サイズ確定とbodyバッファの準備をする
 					u_long totalSize = ntohl(totalSizeNL);
-					bodyBuffer.resize(totalSize - HEAD_SIZE);
+					bodyBuffer.resize(totalSize - HEAD_SIZE, 0x00);
 					// 念の為0埋め
 					std::fill(bodyBuffer.begin(), bodyBuffer.end(), 0x00);
 
