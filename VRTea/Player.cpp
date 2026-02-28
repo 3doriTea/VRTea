@@ -16,6 +16,16 @@ Player::Player() :
 	playerState{},
 	pData{}
 {
+	NetQueue* pNetQueue = FindGameObject<NetQueue>();
+	assert(pNetQueue && "NetQueue‚ªŒ©‚Â‚©‚ç‚È‚¢");
+
+	if (pNetQueue)
+	{
+		pNetQueue->Send(json
+			{
+				{ "head", "Join" },
+			}.dump(), TCP);
+	}
 }
 
 void Player::Update()
@@ -72,24 +82,27 @@ void Player::Update()
 	playerState.position.z += worldMove.m128_f32[Z];
 
 	NetQueue* pNetQueue = FindGameObject<NetQueue>();
-	pNetQueue->Send(json
-		{
-			{ "head", "Update" },
+	assert(pNetQueue && "NetQueue‚ªŒ©‚Â‚©‚ç‚È‚¢");
+	if (pNetQueue)
+	{
+		pNetQueue->Send(json
 			{
-				"content",
+				{ "head", "Update" },
 				{
-					"position",
+					"content",
 					{
-						{ "x", playerState.position.x },
-						{ "y", playerState.position.y },
-						{ "z", playerState.position.z },
+						"position",
+						{
+							{ "x", playerState.position.x },
+							{ "y", playerState.position.y },
+							{ "z", playerState.position.z },
+						},
 					},
 				},
-			},
-		}.dump(), UDP);
+			}.dump(), UDP);
 
-	pPlayerCamera->SetPosition(VAdd(playerState.position, VGet(0, PLAYER_EYE_HEIGHT, 0)));
-
+		pPlayerCamera->SetPosition(VAdd(playerState.position, VGet(0, PLAYER_EYE_HEIGHT, 0)));
+	}
 }
 
 void Player::Draw()

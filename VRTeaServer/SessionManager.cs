@@ -163,6 +163,7 @@ namespace VRTeaServer
 		/// <returns></returns>
 		public async Task ReceiveEnqueue(int sessionId, ReceiveData data, CancellationTokenSource cts)
 		{
+			_sessions[sessionId].Timestamp = DateTime.Now;
 			await _sessions[sessionId].ReceiveQueue.Writer.WriteAsync(data, cts.Token);
 		}
 
@@ -177,6 +178,7 @@ namespace VRTeaServer
 		{
 			if (_ipepToSessionId.TryGetValue(remoteIPEndPoint, out var sessionId))
 			{
+				_sessions[sessionId].Timestamp = DateTime.Now;
 				await ReceiveEnqueue(sessionId, data, cts);
 			}
 			else

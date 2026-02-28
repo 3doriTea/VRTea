@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers.Binary;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VRTeaServer.Exceptions;
 using VRTeaServer.Logging;
+using static VRTeaServer.Utility.NetWorkUtil;
 
 namespace VRTeaServer.Service
 {
@@ -75,6 +77,36 @@ namespace VRTeaServer.Service
 					await Task.WhenAll(
 						Task.Run(async () =>
 						{
+							while (true)
+							{
+								byte[] totalSizeBuffer = new byte[sizeof(int)];
+								if (!await ReadExactlyAsync(stream, totalSizeBuffer, cts))
+								{
+									break;  // 切断されたら終了
+								}
+
+								int totalSize = BinaryPrimitives.ReadInt32BigEndian(totalSizeBuffer);
+								int bodySize = totalSize - sizeof(int);
+
+								if (bodySize <= 0)
+								{
+									continue;  // ボディサイズがおかしいなら無視
+								}
+
+								byte[] bodyBuffer = new byte[bodySize];
+								if (!await ReadExactlyAsync(stream, bodyBuffer, cts))
+								{
+									break;  // 切断されたら終了
+								}
+
+								// 2つを合わせたバッファを作成
+								byte[] combined = new byte[totalSize];
+								totalSizeBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(0, totalSizeBuffer.Length));
+								bodyBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(totalSizeBuffer.Length));
+
+								await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(combined), cts);
+							}
+
 							int bytesRead = 0;
 							while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
 							{

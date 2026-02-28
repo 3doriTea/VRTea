@@ -43,11 +43,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 #pragma region ゲームオブジェクトはここでインスタンス作ってください
 
+	GameObject::Instantiate<NetQueue>();
 	GameObject::Instantiate<Player>();
 	GameObject::Instantiate<PlayerCamera>();
 	GameObject::Instantiate<OtherPlayer>();
 	GameObject::Instantiate<Chat>();
-	GameObject::Instantiate<NetQueue>();
 
 #pragma 
 

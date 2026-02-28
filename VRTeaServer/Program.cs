@@ -60,7 +60,7 @@ namespace VRTeaServer
 					sessionManager,
 					askIPAddress.IPAddress,
 					askWebPortNumber.PortNumber),
-				new Reaper(sessionManager),
+				//new Reaper(sessionManager),
 				new GameLogicService(sessionManager),
 			]);
 

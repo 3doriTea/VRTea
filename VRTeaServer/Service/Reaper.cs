@@ -8,6 +8,9 @@ using VRTeaServer.Utility;
 
 namespace VRTeaServer.Service
 {
+	/// <summary>
+	/// 通信切断をするやつ
+	/// </summary>
 	internal class Reaper : IService
 	{
 		/// <summary>
