@@ -18,6 +18,12 @@ struct OtherPlayerData
 	unsigned int color;
 };
 
+struct OtherPlayerChat
+{
+	float timeLeft;
+	std::string content;
+};
+
 struct OtherPlayer : GameObject
 {
 	OtherPlayer();
