@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <nlohmann/json.hpp>
 #include <iostream>
+#include <fstream>
 
 using nlohmann::json;
 
@@ -374,7 +375,12 @@ void NetQueue::Update()
 
 					std::string_view jsonStr = bodyBuffer.data();
 
-					json bodyJson = json::parse(jsonStr);
+					std::ofstream ofs{ "log.txt" };
+					ofs << std::string{ jsonStr.begin(), jsonStr.end() };
+					ofs.close();
+
+
+					json bodyJson = json::parse(bodyBuffer.begin(), bodyBuffer.end());
 
 					printfDx("TCPŽóM:%s\n", jsonStr.data());
 
