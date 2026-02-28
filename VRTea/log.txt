@@ -2,6 +2,6 @@
   "head": "Event",
   "content": {
     "head": "Chat",
-    "content": "にょながぷいにゃさんが参加しました。"
+    "content": "まるながにょながさんが参加しました。"
   }
 }

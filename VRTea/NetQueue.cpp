@@ -377,17 +377,12 @@ void NetQueue::Update()
 
 					std::string_view jsonStr = bodyBuffer.data();
 
-					std::ofstream ofs{ "log.txt" };
-					ofs << std::string{ jsonStr.begin(), jsonStr.end() };
-					ofs.close();
-
-
 					json bodyJson = json::parse(bodyBuffer.begin(), bodyBuffer.end());
 
 					printfDx("TCPŽóM:%s\n", jsonStr.data());
 
 					std::string head = bodyJson.value("head", "undefined");
-					RecvList.push_back(Recv{ head, bodyJson.at("body") });
+					RecvList.push_back(Recv{ head, bodyJson.at("content") });
 
 					reading = AT_HEAD;
 					break;
@@ -457,7 +452,7 @@ void NetQueue::Update()
 			json bodyJson = json::parse(jsonStr);
 
 			std::string head = bodyJson.value("head", "undefined");
-			RecvList.push_back(Recv{ head, bodyJson.at("body") });
+			RecvList.push_back(Recv{ head, bodyJson.at("content") });
 		}
 	}
 
