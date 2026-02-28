@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -84,7 +84,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -95,7 +95,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -105,7 +105,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -114,7 +114,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -122,7 +122,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,7 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -143,7 +143,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\soras\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Users\kurok\Programing\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
