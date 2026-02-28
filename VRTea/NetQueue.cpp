@@ -269,6 +269,8 @@ void NetQueue::Update()
 	{
 		const std::string& front = sendQueueUDP.front();
 
+		printfDx("UDPSend:%s\n", front.c_str());
+
 		u_long bodySize = front.size() + 1;
 		u_long headSize = sizeof(u_long);
 		u_long totalSize = bodySize + headSize;

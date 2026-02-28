@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Buffers.Binary;
+using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -35,9 +36,12 @@ namespace VRTeaServer
 		{
 			int size = Encoding.UTF8.GetByteCount(str);
 
-			byte[] buffer = new byte[sizeof(int) + size];
 
-			MemoryMarshal.Write(buffer.AsSpan(0), in size);
+			byte[] buffer = new byte[sizeof(int) + size];
+			// ビッグエンディアン(ネットワーク)として書き込み
+			BinaryPrimitives.WriteInt32BigEndian(buffer, size);
+
+			//MemoryMarshal.Write(buffer.AsSpan(0), in size);
 			Encoding.UTF8.GetBytes(str).AsSpan().CopyTo(buffer.AsSpan(sizeof(int)));
 
 			sendData = new SendData(buffer);
@@ -51,6 +55,15 @@ namespace VRTeaServer
 		public SendDataWithIPEP WithIPEP(IPEndPoint toIPEndPoint)
 		{
 			return new SendDataWithIPEP(Buffer, toIPEndPoint);
+		}
+
+		/// <summary>
+		/// 文字列を取得
+		/// </summary>
+		/// <returns>文字列</returns>
+		public readonly string GetString()
+		{
+			return Encoding.UTF8.GetString(Buffer.AsSpan(sizeof(int)));
 		}
 	}
 

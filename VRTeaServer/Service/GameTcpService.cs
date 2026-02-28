@@ -118,12 +118,6 @@ namespace VRTeaServer.Service
 									Console.WriteLine(ex.ToString());
 								}
 							}
-
-							//int bytesRead = 0;
-							//while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
-							//{
-							//	await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
-							//}
 						}, cts.Token),
 						Task.Run(async () =>
 						{
@@ -134,6 +128,7 @@ namespace VRTeaServer.Service
 								try
 								{
 									SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
+									Log.WriteLine($"send TCP at[{sessionId}]:{sendData.GetString()}");
 									await stream.WriteAsync(sendData.Buffer, cts.Token);
 								}
 								catch (IOException)

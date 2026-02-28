@@ -60,6 +60,12 @@ namespace VRTeaServer.Service
 				await _sessionManager.SendEnqueue(id, data, cts);
 			}
 
+			async Task SendToUDP(int id, string content)
+			{
+				SendData.FromString(content, out var data);
+				await _sessionManager.SendEnqueueUDP(id, data, cts);
+			}
+
 			_sessionManager.OnDisconnected += (ipEndPoint, leavedId) =>
 			{
 				string leavedUserName = $"{leavedId}";
@@ -83,7 +89,7 @@ namespace VRTeaServer.Service
 				try
 				{
 					Log.WriteLine($"受信した文字列:{data.GetString()}");
-					Log.WriteLine($"受信したBinary:{BitConverter.ToString(data.Buffer)}");
+					//Log.WriteLine($"受信したBinary:{BitConverter.ToString(data.Buffer)}");
 					json = JObject.Parse(data.GetString());
 				}
 				catch (Exception ex)
@@ -217,7 +223,7 @@ namespace VRTeaServer.Service
 						content = userNameToData,
 					});
 
-					_ = SendTo(sessionId, $"{sendJson}");
+					_ = SendToUDP(sessionId, $"{sendJson}");
 					//foreach (var sendId in _sessionManager.Sessions)
 					//{
 					//	// MEMO: 参加したてのIdさんを含む全員に送信する
@@ -362,7 +368,6 @@ namespace VRTeaServer.Service
 					{
 						if (_sessionManager.TryDequeue(id, out var data))
 						{
-							Console.WriteLine("受けっった");
 							try
 							{
 								RequestProc(id, data);

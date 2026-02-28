@@ -54,12 +54,23 @@ namespace VRTeaServer.Service
 						}, cts.Token),
 						Task.Run(async () =>
 						{
+							Log.WriteLine($"送信UDP待機開始");
 							while (true)
 							{
-								// ひたすら送信しまくる
-								SendDataWithIPEP sendDataWithIPEP = await _sessionManager.SendDequeueUDP(cts);
-								udpClient.Send(sendDataWithIPEP.Buffer, sendDataWithIPEP.To);
+								try
+								{
+									// ひたすら送信しまくる
+									SendDataWithIPEP sendDataWithIPEP = await _sessionManager.SendDequeueUDP(cts);
+									Log.WriteLine($"send UDP at[{sendDataWithIPEP.To}]:{BitConverter.ToString(sendDataWithIPEP.Buffer)}");
+									udpClient.Send(sendDataWithIPEP.Buffer, sendDataWithIPEP.To);
+								}
+								catch (Exception ex)
+								{
+									Log.Error($"常に送信するUDPから例外:{ex}");
+									break;
+								}
 							}
+							Log.WriteLine($"送信UDP待機終了");
 						}, cts.Token));
 
 					// クライアントの受付終わったから切断する
