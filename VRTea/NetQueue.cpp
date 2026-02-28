@@ -364,7 +364,7 @@ void NetQueue::Update()
 				{
 					// 全部読めたのがheadなら サイズ確定とbodyバッファの準備をする
 					u_long totalSize = ntohl(totalSizeNL);
-					bodyBuffer.resize(totalSize - HEAD_SIZE);
+					bodyBuffer.resize(totalSize - HEAD_SIZE, 0x00);
 					// 念の為0埋め
 					std::fill(bodyBuffer.begin(), bodyBuffer.end(), 0x00);
 

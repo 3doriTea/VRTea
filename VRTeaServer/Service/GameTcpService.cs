@@ -129,6 +129,8 @@ namespace VRTeaServer.Service
 								{
 									SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
 									Log.WriteLine($"send TCP at[{sessionId}]:{sendData.GetString()}");
+									Log.WriteLine($"send TCP at[{sessionId}]:{BitConverter.ToString(sendData.Buffer)}");
+
 									await stream.WriteAsync(sendData.Buffer, cts.Token);
 								}
 								catch (IOException)
