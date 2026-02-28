@@ -50,6 +50,7 @@ void PlayerCamera::Update()
 	float mouseSpeedX = 0.001f, mouseSpeedY = 0.001f;
 	GetMousePoint(&mouseX, &mouseY);
 
+	//マウスポインタの中央固定の切り替え
 	if (CheckHitKey(KEY_INPUT_ESCAPE))
 	{
 		if (!(isKey))
@@ -94,13 +95,6 @@ void PlayerCamera::Update()
 
 void PlayerCamera::Draw()
 {
-	//DrawCapsule3D(VGet(0.0f,0.0f,0.0f),VGet(0.0f,10.0f,0.0f),2.0f,20.0f,GetColor(255,0,0),GetColor(255,255,255),TRUE);
-	//DrawCapsule3D(VGet(0.0f, 0.0f, -300.0f), VGet(0.0f, 10.0f, -300.0f), 2.0f, 20.0f, GetColor(255, 0, 0), GetColor(255, 255, 255), TRUE);
-	//DrawLine3D(VGet(-100.0f, 0.0f, 0.0f), VGet(100.0f, 0.0f, 0.0f), GetColor(255, 255, 255));
-	//DrawLine3D(VGet(-100.0f, 100.0f, 0.0f), VGet(100.0f, -100.0f, 0.0f), GetColor(255, 255, 255));
-	//DrawCircle(100, 100, 10.0f, GetColor(0, 255, 0), TRUE);
-
-	//DrawCapsule3D(VGet(0.0f, 0.0f, 0.0f), VGet(0.0f, 10.0f, 0.0f), 40.0f, 8, GetColor(0, 255, 0), GetColor(255, 255, 255), TRUE);
 }
 
 void PlayerCamera::SetPosition(VECTOR pos)

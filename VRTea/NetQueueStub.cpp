@@ -44,6 +44,17 @@ std::string NetQueueStub::Read()
     return Q;
 }
 
+json NetQueueStub::Find(const std::string& tag)
+{
+    if (readQueue.empty())
+        return "";
+
+    std::string Q = readQueue.front();
+    readQueue.pop();
+
+    return Q;
+}
+
 NetQueueStub::NetQueueStub()
 {
     nlohmann::json datas;

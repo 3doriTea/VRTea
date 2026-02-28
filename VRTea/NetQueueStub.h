@@ -14,6 +14,7 @@ struct NetQueueStub : GameObject
 
 	void Send(std::string content);
 	std::string Read();
+	json Find(const std::string& tag);
 
 	std::queue<std::string> sendQueue;
 	std::queue<std::string> readQueue;
