@@ -11,6 +11,9 @@ using nlohmann::json;
 namespace
 {
 	static const size_t BUFFER_SIZE{ 1024 };
+
+	static const char* SERVER_IP_ADDRESS{ "192.168.33.2" };
+	static const USHORT SERVER_PORT_NUMBER{ 3333U };
 }
 
 
@@ -145,11 +148,7 @@ NetQueue::NetQueue()
 		assert(commonPort == port && "ポート番号が不一致");
 	};
 
-	const char* ip = "127.0.0.1";
-	//const char* ip = "192.168.42.5";
-	//uint16_t port = 3000;
-	uint16_t port = 3333;
-	connected = Connect(ip,port);
+	connected = Connect(SERVER_IP_ADDRESS, SERVER_PORT_NUMBER);
 }
 
 // デストラクタ
