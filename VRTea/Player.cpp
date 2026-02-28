@@ -74,6 +74,11 @@ void Player::Update()
 		//playerState.position.x += SPEED;
 	}
 
+	if (CheckHitKey(KEY_INPUT_T))
+	{
+		TextChatImGui();
+	}
+
 	// ワールド上の移動を取得
 	DirectX::XMVECTOR worldMove = DirectX::XMVector3TransformCoord(localMove, rot);
 	// ワールド上の移動を加算
