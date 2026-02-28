@@ -199,6 +199,11 @@ namespace VRTeaServer.Service
 					// 他プレイヤーの情報を返す
 					foreach (var (pSId, pData) in playersData)
 					{
+						if (pSId == sessionId)
+						{
+							continue;  // 自分自身は無視
+						}
+
 						playersStatus.TryGetValue(pSId, out var pStat);
 						if (pStat is null)
 						{
