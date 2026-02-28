@@ -34,7 +34,7 @@ namespace VRTeaServer
 		/// <param name="sendData">送信データの out参照</param>
 		public static void FromString(string str, out SendData sendData)
 		{
-			int size = Encoding.UTF8.GetByteCount(str);
+			int size = Encoding.UTF8.GetByteCount(str) + 1;  // null文字分追加
 
 
 			byte[] buffer = new byte[sizeof(int) + size];
