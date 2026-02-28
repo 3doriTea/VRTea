@@ -33,12 +33,8 @@ struct OtherPlayer : GameObject
 	/// </summary>
 	/// <param name="playerPos">ボックス位置の基準にする他プレイヤー座標</param>
 	void DrawMessageBox(const DxLib::VECTOR& playerPos);
-	struct OtherPlayerData
-	{
-		DxLib::VECTOR position;
-		DxLib::COLOR_U8 color;
-		std::string name;
-	};
+
+private:
 	std::vector<OtherPlayerData> otherPlayersData_;
 	// 他プレイヤーのカプセルの高さ
 	float otherPlayerCapsuleHeight_;
@@ -46,7 +42,4 @@ struct OtherPlayer : GameObject
 	float otherPlayerCapsuleRadius_;
 	// 他プレイヤーのカプセルの分割数
 	int otherPlayerCapsuleDivNum_;
-
-private:
-	std::vector<OtherPlayerData> data_;
 };
