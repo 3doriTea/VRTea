@@ -188,14 +188,10 @@ namespace VRTeaServer.Service
 						return;
 					}
 
-					JObject sendJson = JObject.FromObject(new
-					{
-						head = "Update",
-						content = new { },
-					});
+					Dictionary<string, JObject> userNameToData = [];
 
 					// 他プレイヤーの情報を返す
-					foreach(var (pSId, pData) in playersData)
+					foreach (var (pSId, pData) in playersData)
 					{
 						playersStatus.TryGetValue(pSId, out var pStat);
 						if (pStat is null)
@@ -203,7 +199,7 @@ namespace VRTeaServer.Service
 							continue;
 						}
 
-						sendJson[pData.Name] = JObject.FromObject(new
+						userNameToData.Add(pData.Name, JObject.FromObject(new
 						{
 							color = pData.Color,
 							position = new
@@ -212,8 +208,21 @@ namespace VRTeaServer.Service
 								y = pStat.PositionY,
 								z = pStat.PositionZ,
 							},
-						});
+						}));
 					}
+
+					JObject sendJson = JObject.FromObject(new
+					{
+						head = "Updated",
+						content = userNameToData,
+					});
+
+					_ = SendTo(sessionId, $"{sendJson}");
+					//foreach (var sendId in _sessionManager.Sessions)
+					//{
+					//	// MEMO: 参加したてのIdさんを含む全員に送信する
+					//	_ = SendTo(sendId, $"{sendJson}");
+					//}
 				}
 
 				void EventChangeName(int sessionId, JToken changeContentJson)
@@ -291,7 +300,11 @@ namespace VRTeaServer.Service
 						content = new
 						{
 							head = "Chat",
-							content = $"[SID:{sessionId}]{chatContent}",
+							content = new
+							{
+								sender = playersData[sessionId].Name,
+								message = $"[SID:{sessionId}]{chatContent}",
+							},
 						}
 					});
 

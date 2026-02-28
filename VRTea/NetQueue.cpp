@@ -377,6 +377,8 @@ void NetQueue::Update()
 
 					json bodyJson = json::parse(jsonStr);
 
+					printfDx("TCP受信:%s\n", jsonStr.data());
+
 					std::string head = bodyJson.value("head", "undefined");
 					RecvList.push_back(Recv{ head, bodyJson.at("body") });
 
@@ -442,6 +444,8 @@ void NetQueue::Update()
 			// 受信バッファをjson文字列にして受信リストに追加
 			u_long headSize = sizeof(u_long);
 			std::string_view jsonStr = buffer.data() + headSize;
+
+			printfDx("UDP受信:%s\n", jsonStr.data());
 
 			json bodyJson = json::parse(jsonStr);
 

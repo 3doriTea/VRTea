@@ -88,19 +88,18 @@ void Player::Update()
 		pNetQueue->Send(json
 			{
 				{ "head", "Update" },
-				{
-					"content",
-					json
+				{ "content",
 					{
-						"position",
-						{
-							{ "x", playerState.position.x },
-							{ "y", playerState.position.y },
-							{ "z", playerState.position.z },
-						},
-					},
-				},
-			}.dump(), TCP);
+						{ "position",
+							{
+								{ "x", playerState.position.x },
+								{ "y", playerState.position.y },
+								{ "z", playerState.position.z }
+							}
+						}
+					}
+				}
+			}.dump(), UDP);
 
 		pPlayerCamera->SetPosition(VAdd(playerState.position, VGet(0, PLAYER_EYE_HEIGHT, 0)));
 	}
