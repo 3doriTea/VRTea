@@ -349,7 +349,15 @@ namespace VRTeaServer.Service
 					{
 						if (_sessionManager.TryDequeue(id, out var data))
 						{
-							RequestProc(id, data);
+							Console.WriteLine("受けっった");
+							try
+							{
+								RequestProc(id, data);
+							}
+							catch (Exception ex)
+							{
+								Log.Error($"受信処理で例外:{ex}");
+							}
 						}
 					}
 					await Task.Delay(1 /* TODO: マジックナンバー消す */, cts.Token);
@@ -358,6 +366,10 @@ namespace VRTeaServer.Service
 			catch (OperationCanceledException)
 			{
 				Log.WriteLine($"GameLogicキャンセルを受信した");
+			}
+			catch (Exception ex)
+			{
+				Log.Error($"{ex}");
 			}
 
 			Log.WriteLine($"GameLogic停止した");

@@ -213,21 +213,6 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
 	return  connectUDPResult && connectTCPResult;    // 必要ならUDP失敗でも true に緩めることも可能
 }
 
-// 受信キューから1件取り出す処理
-//std::string NetQueue::Read(std::string& out)
-//{
-//	if (readQueue.empty())
-//	{
-//		out.clear();
-//		return std::string();
-//	}
-//	std::string Q = std::move(readQueue.front()); // データを移動してもらう
-//	readQueue.pop();
-//	out = Q;
-//
-//	return Q;
-//}
-
 // TagNameで検索し、見つかったら bodyを返す
 json NetQueue::Find(std::string TagName)
 {

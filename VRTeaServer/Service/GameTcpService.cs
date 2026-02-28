@@ -79,39 +79,51 @@ namespace VRTeaServer.Service
 						{
 							while (true)
 							{
-								byte[] totalSizeBuffer = new byte[sizeof(int)];
-								if (!await ReadExactlyAsync(stream, totalSizeBuffer, cts))
+								try
 								{
-									break;  // 切断されたら終了
+									byte[] totalSizeBuffer = new byte[sizeof(int)];
+									if (!await ReadExactlyAsync(stream, totalSizeBuffer, cts))
+									{
+										break;  // 切断されたら終了
+									}
+
+									int totalSize = BinaryPrimitives.ReadInt32BigEndian(totalSizeBuffer);
+									int bodySize = totalSize - sizeof(int);
+
+									if (bodySize <= 0)
+									{
+										continue;  // ボディサイズがおかしいなら無視
+									}
+
+									byte[] bodyBuffer = new byte[bodySize];
+									if (!await ReadExactlyAsync(stream, bodyBuffer, cts))
+									{
+										break;  // 切断されたら終了
+									}
+
+									// 2つを合わせたバッファを作成
+									byte[] combined = new byte[totalSize];
+									totalSizeBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(0, totalSizeBuffer.Length));
+									bodyBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(totalSizeBuffer.Length));
+
+
+									await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(combined), cts);
 								}
-
-								int totalSize = BinaryPrimitives.ReadInt32BigEndian(totalSizeBuffer);
-								int bodySize = totalSize - sizeof(int);
-
-								if (bodySize <= 0)
+								catch (IOException)
 								{
-									continue;  // ボディサイズがおかしいなら無視
+									break;
 								}
-
-								byte[] bodyBuffer = new byte[bodySize];
-								if (!await ReadExactlyAsync(stream, bodyBuffer, cts))
+								catch (Exception ex)
 								{
-									break;  // 切断されたら終了
+									Console.WriteLine(ex.ToString());
 								}
-
-								// 2つを合わせたバッファを作成
-								byte[] combined = new byte[totalSize];
-								totalSizeBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(0, totalSizeBuffer.Length));
-								bodyBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(totalSizeBuffer.Length));
-
-								await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(combined), cts);
 							}
 
-							int bytesRead = 0;
-							while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
-							{
-								await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
-							}
+							//int bytesRead = 0;
+							//while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, cts.Token)) > 0)
+							//{
+							//	await _sessionManager.ReceiveEnqueue(sessionId, new ReceiveData(buffer.AsSpan(0..bytesRead).ToArray()), cts);
+							//}
 						}, cts.Token),
 						Task.Run(async () =>
 						{
@@ -124,10 +136,13 @@ namespace VRTeaServer.Service
 									SendData sendData = await _sessionManager.SendDequeue(sessionId, cts);
 									await stream.WriteAsync(sendData.Buffer, cts.Token);
 								}
-								catch(Exception ex)
+								catch (IOException)
+								{
+									break;
+								}
+								catch (Exception ex)
 								{
 									Console.WriteLine(ex.ToString());
-									break;
 								}
 							}
 							//}

@@ -90,6 +90,7 @@ void Player::Update()
 				{ "head", "Update" },
 				{
 					"content",
+					json
 					{
 						"position",
 						{
@@ -99,7 +100,7 @@ void Player::Update()
 						},
 					},
 				},
-			}.dump(), UDP);
+			}.dump(), TCP);
 
 		pPlayerCamera->SetPosition(VAdd(playerState.position, VGet(0, PLAYER_EYE_HEIGHT, 0)));
 	}
