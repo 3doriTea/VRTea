@@ -74,6 +74,9 @@
     <ClCompile Include="OtherPlayer.cpp">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Cppのファイルたち</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -147,6 +150,9 @@
     </ClInclude>
     <ClInclude Include="NetQueue.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Cppのファイルたち</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,7 @@
+{
+  "head": "Event",
+  "content": {
+    "head": "Chat",
+    "content": "にゅさんが参加しました。"
+  }
+}

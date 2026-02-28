@@ -5,6 +5,7 @@
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <fstream>
+#include "Logger.h"
 
 using nlohmann::json;
 
@@ -270,7 +271,8 @@ void NetQueue::Update()
 	{
 		const std::string& front = sendQueueUDP.front();
 
-		printfDx("UDPSend:%s\n", front.c_str());
+		// TODO:
+		//printfDx("UDPSend:%s\n", front.c_str());
 
 		u_long bodySize = front.size() + 1;
 		u_long headSize = sizeof(u_long);
@@ -377,6 +379,8 @@ void NetQueue::Update()
 
 					std::string_view jsonStr = bodyBuffer.data();
 
+					Logger::WriteOut(jsonStr);
+
 					json bodyJson = json::parse(bodyBuffer.begin(), bodyBuffer.end());
 
 					printfDx("TCPéÛêM:%s\n", jsonStr.data());
@@ -447,7 +451,8 @@ void NetQueue::Update()
 			u_long headSize = sizeof(u_long);
 			std::string_view jsonStr = buffer.data() + headSize;
 
-			printfDx("UDPéÛêM:%s\n", jsonStr.data());
+			// TODO:
+			//printfDx("UDPéÛêM:%s\n", jsonStr.data());
 
 			json bodyJson = json::parse(jsonStr);
 

@@ -4,6 +4,9 @@
 #include "../ImGui/imgui.h"
 #include "NetQueue.h"
 #include "NetQueueStub.h"
+#include "Logger.h"
+
+
 Chat::Chat()
 	: showLogWindow{true}
 {
@@ -62,21 +65,27 @@ void Chat::ReadContent()
 {
 	using namespace nlohmann;
 
-	NetQueueStub* netQueue = FindGameObject<NetQueueStub>();
+	NetQueue* netQueue = FindGameObject<NetQueue>();
 	if (netQueue == nullptr)
-		return;
-
-	
-	json chatArrJson = netQueue->Find("Chat");
-	// jsonが配列と決めつけている
-	if (chatArrJson.is_array() == false)
-		return;
-
-	for (auto itr = chatArrJson.begin(); itr != chatArrJson.end(); itr++)
 	{
-		json chatJson = *itr;
+		assert(netQueue && "NetQueueが見つからない！");
+		return;
+	}
 
-		json content = chatJson.at("content");
+	json eventContentJson = netQueue->Find("Event");
+	if (eventContentJson.empty())
+	{
+		return;
+	}
+
+	//Logger::WriteOut(eventContentJson.dump(), "inContent");
+
+	// Event の種類がまたある
+	std::string eventHead = eventContentJson.value("head", "undefined");
+
+	if (eventHead == "Chat")
+	{
+		const json& content = eventContentJson.at("content");
 		std::string message = content.at("message");
 		std::string sender = content.at("sender");
 		ChatContent chatContent
@@ -86,6 +95,11 @@ void Chat::ReadContent()
 		};
 
 		chatLog.push_back(chatContent);
+	}
+	else
+	{
+		assert(false && "未対応のイベントタイプ");
+		return;
 	}
 }
 
