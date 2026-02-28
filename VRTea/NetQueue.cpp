@@ -7,6 +7,13 @@
 
 using nlohmann::json;
 
+
+namespace
+{
+	static const size_t BUFFER_SIZE{ 1024 };
+}
+
+
 static bool ConnectImplTCP(const SOCKADDR_IN& addr, SOCKET s, int timeoutSec = 10)
 {
 	// 非ブロッキング化
@@ -73,7 +80,7 @@ void NetQueue::SetNonBlocking(SOCKET S)
 
 // コンストラクタ(ここは前回のネットワークの物を引用)
 NetQueue::NetQueue() 
-	: sockUDP(INVALID_SOCKET), sockTCP(INVALID_SOCKET) // 初期化の警告が出るので修正
+	: sockUdp(INVALID_SOCKET), sockTcp(INVALID_SOCKET) // 初期化の警告が出るので修正
 {
 	// WinSock2.2 初期化
 	WSADATA wsaData;
@@ -85,11 +92,11 @@ NetQueue::NetQueue()
 	std::cout << "Success : WSAStartup" << std::endl;
 
 	// TCP ソケット作る
-	sockTCP = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	assert(sockTCP != INVALID_SOCKET && "Error : listenSock");
+	sockTcp = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	assert(sockTcp != INVALID_SOCKET && "Error : listenSock");
 	
 	unsigned long arg = 0x01;
-	int result = ioctlsocket(sockTCP, FIONBIO, &arg);
+	int result = ioctlsocket(sockTcp, FIONBIO, &arg);
 	assert(result != SOCKET_ERROR);
 
 	int ret{};
@@ -100,21 +107,21 @@ NetQueue::NetQueue()
 	localTcpAddr.sin_port = htons(0);  // 適切なポート番号を探してくれ―――
 	localTcpAddr.sin_addr.s_addr = INADDR_ANY;  // どこからでもアクセスokだよ
 
-	ret = bind(sockTCP, reinterpret_cast<sockaddr*>(&localTcpAddr), sizeof(localTcpAddr));
+	ret = bind(sockTcp, reinterpret_cast<sockaddr*>(&localTcpAddr), sizeof(localTcpAddr));
 	assert(ret != SOCKET_ERROR);
 	
 	// TCP ソケットのポート番号を取得する
 	sockaddr_in bindedLocalTcpAddr{};
 	int addrLength = sizeof(bindedLocalTcpAddr);
-	ret = getsockname(sockTCP, reinterpret_cast<sockaddr*>(&bindedLocalTcpAddr), &addrLength);
+	ret = getsockname(sockTcp, reinterpret_cast<sockaddr*>(&bindedLocalTcpAddr), &addrLength);
 	assert(ret == 0);
 
 	// TCPとUDP共有のポート番号
 	USHORT commonPort = ntohs(bindedLocalTcpAddr.sin_port);
 
 	// UDP ソケットつくる
-	sockUDP = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	assert(sockUDP != INVALID_SOCKET && "Error : socketUDP");
+	sockUdp = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	assert(sockUdp != INVALID_SOCKET && "Error : socketUDP");
 
 	// UDP ソケットをバインドする
 	sockaddr_in localUDPAddr{};
@@ -122,14 +129,14 @@ NetQueue::NetQueue()
 	localUDPAddr.sin_port = htons(commonPort);
 	localUDPAddr.sin_addr.s_addr = INADDR_ANY;
 
-	result = bind(sockUDP, reinterpret_cast<sockaddr*>(&localUDPAddr), sizeof(localUDPAddr));
+	result = bind(sockUdp, reinterpret_cast<sockaddr*>(&localUDPAddr), sizeof(localUDPAddr));
 	assert(result != SOCKET_ERROR);
 
 	{
 		// UDP ソケットのポート番号を取得する
 		sockaddr_in bindedLocalUdpAddr{};
 		int addrLength = sizeof(bindedLocalUdpAddr);
-		ret = getsockname(sockUDP, reinterpret_cast<sockaddr*>(&bindedLocalUdpAddr), &addrLength);
+		ret = getsockname(sockUdp, reinterpret_cast<sockaddr*>(&bindedLocalUdpAddr), &addrLength);
 		assert(ret == 0);
 
 
@@ -149,13 +156,13 @@ NetQueue::NetQueue()
 NetQueue::~NetQueue()
 {
 	// ソケットを閉じてWSACleanup
-	if (sockTCP != INVALID_SOCKET) {
-		::closesocket(sockTCP);
-		sockTCP = INVALID_SOCKET;
+	if (sockTcp != INVALID_SOCKET) {
+		::closesocket(sockTcp);
+		sockTcp = INVALID_SOCKET;
 	}
-	if (sockUDP != INVALID_SOCKET) {
-		::closesocket(sockUDP);
-		sockUDP = INVALID_SOCKET;
+	if (sockUdp != INVALID_SOCKET) {
+		::closesocket(sockUdp);
+		sockUdp = INVALID_SOCKET;
 	}
 
 	WSACleanup();
@@ -188,8 +195,8 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
 		return false;
 	}
 
-	bool connectUDPResult = (sockUDP != INVALID_SOCKET) ? ConnectImplUDP(server, sockUDP) : false;
-	bool connectTCPResult = (sockTCP != INVALID_SOCKET) ? ConnectImplTCP(server, sockTCP) : false;
+	bool connectUDPResult = (sockUdp != INVALID_SOCKET) ? ConnectImplUDP(server, sockUdp) : false;
+	bool connectTCPResult = (sockTcp != INVALID_SOCKET) ? ConnectImplTCP(server, sockTcp) : false;
 
 	if (!connectTCPResult)
 	{
@@ -207,19 +214,19 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
 }
 
 // 受信キューから1件取り出す処理
-std::string NetQueue::Read(std::string& out)
-{
-	if (readQueue.empty())
-	{
-		out.clear();
-		return std::string();
-	}
-	std::string Q = std::move(readQueue.front()); // データを移動してもらう
-	readQueue.pop();
-	out = Q;
-
-	return Q;
-}
+//std::string NetQueue::Read(std::string& out)
+//{
+//	if (readQueue.empty())
+//	{
+//		out.clear();
+//		return std::string();
+//	}
+//	std::string Q = std::move(readQueue.front()); // データを移動してもらう
+//	readQueue.pop();
+//	out = Q;
+//
+//	return Q;
+//}
 
 // TagNameで検索し、見つかったら bodyを返す
 json NetQueue::Find(std::string TagName)
@@ -244,217 +251,429 @@ json NetQueue::Find(std::string TagName)
 // 更新
 void NetQueue::Update()
 {
-
-
-#if 0
-	if (!connected || sockTCP == INVALID_SOCKET)
+	if (connected == false)
 	{
-		return;
+		return;  // 未接続なら無視
 	}
 
-	// 送信中バッファが空なら、送信キューから次のデータを取る
-	if (sendingBuffer.empty() && !sendQueue.empty())
+	// TCPから送信処理
+	while (sendQueueTCP.empty() == false)
 	{
-		std::string payload = std::move(sendQueue.front());
-		sendQueue.pop();
-	
-		const uint32_t len_host = static_cast<uint32_t>(payload.size() + 1);
-		const uint32_t len_net = htonl(len_host);
-		sendingBuffer.assign(reinterpret_cast<const char*>(&len_net), 4);
-		sendingBuffer += payload;
+		const std::string& front = sendQueueTCP.front();
+
+		u_long bodySize = front.size() + 1;
+		u_long headSize = sizeof(u_long);
+		u_long totalSize = bodySize + headSize;
+		u_long totalSizeNL = htonl(totalSize);
+		if (int ret = send(sockTcp, reinterpret_cast<const char*>(&totalSizeNL), headSize, 0);
+			ret <= 0)
+		{
+			continue;  // 送信失敗ならもう一度
+		}
+
+		if (int ret = send(sockTcp, front.c_str(), bodySize, 0);
+			ret <= 0)
+		{
+			continue;  // 送信失敗ならもう一度
+		}
+
+		sendQueueTCP.pop();
 	}
 
-	while (!sendingBuffer.empty())
+	// UDPから送信処理
+	while (sendQueueUDP.empty() == false)
 	{
-		int sent = ::send(sockTCP, sendingBuffer.data(),
-			static_cast<int>(sendingBuffer.size() + 1), 0);
-		if (sent > 0)
-		{
-			sendingBuffer.erase(0, static_cast<size_t>(sent));
-		}
-		else
-		{
-			int err = WSAGetLastError();
-			if (err == WSAEWOULDBLOCK) break;
-			connected = false; // それ以外は切断扱い
-			return;
-		}
-	}
+		const std::string& front = sendQueueUDP.front();
 
-	// 送信
-	while (sockUDP != INVALID_SOCKET && !sendQueueUDP.empty())
-	{
-		const std::string& pkt = sendQueueUDP.front();
-		int sent = ::send(sockUDP, pkt.data(), static_cast<int>(pkt.size() + 1), 0);
-		if (sent < 0)
+		u_long bodySize = front.size() + 1;
+		u_long headSize = sizeof(u_long);
+		u_long totalSize = bodySize + headSize;
+		u_long totalSizeNL = htonl(totalSize);
+
+		// バッファを作ってそこに書き込む
+		std::vector<char> buffer(totalSize, 0x00);
+		memcpy(buffer.data(), reinterpret_cast<const void*>(&totalSizeNL), headSize);
+		memcpy(buffer.data() + headSize, front.c_str(), bodySize);
+
+		if (int ret = send(sockUdp, buffer.data(), buffer.size(), 0);
+			ret <= 0)
 		{
-			int err = WSAGetLastError();
-			if (err == WSAEWOULDBLOCK) break;   // 送れない時、次フレームに回す
+			continue;  // 送信失敗ならもう一度
 		}
+
 		sendQueueUDP.pop();
 	}
 
-	// 受信処理
-	char temp[4096]{};
-  
-	for (;;) // 条件が満たされない限り、処理が無限に繰り返される
-	{
-		// データを送信
-		int ret = recv(sockTCP,
-			temp,
-			static_cast<int>(sizeof(temp)),  // 送る文字列のサイズ(警告をなくすためintに変換)
-			0);
-		if (ret > 0)
-		{
-			// 受信分を末尾に追加
-			recvBuffer.append(temp, ret);
-			continue;
-
-			//for (;;)
-			//{
-			//    // 4バイトの長さヘッダがあるか
-			//    if (recvBuffer.size() < 4) break;
-			//
-			//    uint32_t len_net = 0;
-			//    std::memcpy(&len_net, recvBuffer.data(), 4);
-			//    const uint32_t len_host = ntohl(len_net);
-			// 
-			//    // 本体が揃っているか？
-			//    if (recvBuffer.size() < 4u + static_cast<size_t>(len_host)) break;
-			//    
-			//    // フレームを取り出す
-			//    std::string payload = recvBuffer.substr(4, len_host);
-			//    recvBuffer.erase(0, 4u + static_cast<size_t>(len_host));
-			//
-			//    // 従来の readQueue にも積む
-			//    readQueue.push(payload);
-			//
-			//    // JSON を head/body に分配して RecvList へ (AIを参照)
-			//    try
-			//    {
-			//        json j = json::parse(payload);
-			//
-			//        std::string head;
-			//        if (j.contains("head") && j["head"].is_string()) {
-			//            head = j["head"].get<std::string>();
-			//        }
-			//        else if (j.contains("tag") && j["tag"].is_string()) {
-			//            head = j["tag"].get<std::string>(); // 別名対応
-			//        }
-			//
-			//        json body;
-			//        if (j.contains("body")) {
-			//            body = j["body"];
-			//        }
-			//        else if (j.contains("data")) {
-			//            body = j["data"];
-			//        }
-			//        else {
-			//            body = j; // そのまま格納（単純メッセージ等）
-			//        }
-			//
-			//        RecvList.push_back(Recv{ head, body });
-			//    }
-			//    catch (const std::exception& e)
-			//    {
-			//        // パース失敗：生データとエラー内容を body に入れて head="" として格納
-			//        json err;
-			//        err["raw"] = payload;
-			//        err["parse_error"] = e.what();
-			//        RecvList.push_back(Recv{ "", err });
-			//    }
-			//}
-		}
-
-		if (ret == 0)
-		{
-			// 相手が切断
-			connected = false;
-			return;
-		}
-
-		int err = WSAGetLastError();
-
-		if (err == WSAEWOULDBLOCK || err == WSAEINTR || err == WSAETIMEDOUT)
-		{
-			// 今は受信データ無し
-			break;
-		}
-
-		// その他のエラー
-		connected = false;
-		return;
-	}
-
-	const size_t MAX_FRAMES_PER_UPDATE  = 1024;
-	const uint32_t MAX_FRAME_SIZE       = 8 * 1024 * 1024;
-
-	size_t framesProcessed = 0;
-
+	// TCPから受信処理
 	while (true)
 	{
-		if (framesProcessed >= MAX_FRAMES_PER_UPDATE) break;
-		if (recvBuffer.size() < 4) break; // ヘッダ不足
+		// TCPの場合は１回のrecvですべてのデータが届くとは限らない
+		// 読んでいるモードを切り替えながら読んでいく
 
-		uint32_t len_net = 0;
-		std::memcpy(&len_net, recvBuffer.data(), 4);
-		const uint32_t len_host = ntohl(len_net);
-
-		// 異常な長さ（0 も含む）→ このフレームは破棄して先へ進む
-		if (len_host == 0 || len_host > MAX_FRAME_SIZE)
+		// 読んでいるモード
+		enum Reading
 		{
-			// 異常ヘッダを捨てる（4バイト分スキップ）
-			recvBuffer.erase(0, 4);
-			framesProcessed++;
-			// ログに残したければここで出力
-			continue;
+			AT_HEAD,
+			AT_BODY,
+		};
+
+		static const u_long HEAD_SIZE = sizeof(u_long);
+
+		static std::vector<char> bodyBuffer;
+		static u_long totalSizeNL = 0;
+		
+		static Reading reading = AT_HEAD;
+		static char* pWriteAt = nullptr;
+		static size_t unreadSize = 0;
+
+		if (unreadSize == 0)  // スイッチした初期化処理
+		{
+			switch (reading)
+			{
+			case AT_HEAD:
+				pWriteAt = reinterpret_cast<char*>(&totalSizeNL);
+				unreadSize = HEAD_SIZE;
+				break;
+			case AT_BODY:
+				pWriteAt = bodyBuffer.data();
+				unreadSize = bodyBuffer.size();
+				break;
+			default:
+				assert(false && "未実装の読み取りモード");
+				break;
+			}
 		}
 
-		if (recvBuffer.size() < 4u + static_cast<size_t>(len_host)) break; // 本体不足
 
-		// フレーム取り出し
-		std::string payload = recvBuffer.substr(4, len_host);
-		recvBuffer.erase(0, 4u + static_cast<size_t>(len_host));
-		framesProcessed++;
-
-		// 互換のため、生文字列も readQueue に積む
-		readQueue.push(payload);
-
-		// JSON 解析（失敗してもこのフレームは既に消費済み！）
-	   /* try
-		{*/
-			json j = json::parse(payload);
-
-			std::string head;
-			if (j.contains("head") && j["head"].is_string())
-				head = j["head"].get<std::string>();
-			else if (j.contains("tag") && j["tag"].is_string())
-				head = j["tag"].get<std::string>();
-
-			json body;
-			if (j.contains("body"))
-				body = j["body"];
-			else if (j.contains("data"))
-				body = j["data"];
+		int ret = recv(sockTcp, pWriteAt, unreadSize, 0);
+		if (ret == 0)  // 正常終了
+		{
+			connected = false;
+			return;  // 切断
+		}
+		else if (ret < 0)  // 異常
+		{
+			int errorCode = WSAGetLastError();
+			if (errorCode == WSAEWOULDBLOCK)  // ノンブロッキング処理で無視
+			{
+				break;  // 現状TCPから受信内容なしのためループ離脱
+			}
 			else
-				body = j; // そのまま格納
+			{
+				connected = false;
+				return;  // 切断
+			}
+		}
+		else  // 受信した
+		{
+			unreadSize -= ret;
+			pWriteAt += ret;
 
-			RecvList.push_back(Recv{ head, body });
-		//}
-		//catch (const std::exception& e)
-		//{
-		//    // 解析失敗は一度だけ記録して終了（同じペイロードはもう再解析されない）
-		//    json err;
-		//    err["raw"] = payload;
-		//    err["parse_error"] = e.what();
-		//    RecvList.push_back(Recv{ "", err });
+			if (unreadSize == 0)  // 全部読み込めた
+			{
+				switch (reading)
+				{
+				case AT_HEAD:
+				{
+					// 全部読めたのがheadなら サイズ確定とbodyバッファの準備をする
+					u_long totalSize = ntohl(totalSizeNL);
+					bodyBuffer.resize(totalSize - HEAD_SIZE);
+					// 念の為0埋め
+					std::fill(bodyBuffer.begin(), bodyBuffer.end(), 0x00);
 
-		//    // ここで continue しても、該当 payload は既にバッファから除去済みなので
-		//    // 無限に同じデータを再解析することはありません。
-		//    continue;
-		//}
+					reading = AT_BODY;
+					break;
+				}
+				case AT_BODY:
+				{
+					// 全部読めたのがbodyなら 受信完了 受信リストに追加処理
+
+					std::string_view jsonStr = bodyBuffer.data();
+
+					json bodyJson = json::parse(jsonStr);
+
+					std::string head = bodyJson.value("head", "undefined");
+					RecvList.push_back(Recv{ head, bodyJson.at("body") });
+
+					reading = AT_HEAD;
+					break;
+				}
+				default:
+					assert(false && "未実装の読み取りモード");
+					break;
+				}
+			}
+			else  // 読み足らず...
+			{
+				continue;
+			}
+		}
 	}
-#endif
+
+	// UDPから受信処理
+	while (true)
+	{
+		// UDPの場合は１回ですべて受け取る必要がある。
+		std::vector<char> buffer(BUFFER_SIZE, 0x00);
+		int ret = recv(sockUdp, buffer.data(), buffer.size(), 0);
+		if (ret == 0)  // 正常終了
+		{
+			connected = false;
+			return;  // 切断
+		}
+		else if (ret < 0)  // 異常
+		{
+			int errorCode = WSAGetLastError();
+			if (errorCode == WSAEWOULDBLOCK)  // ノンブロッキング処理で無視
+			{
+				break;  // UDPから受信内容なしのためループ離脱
+			}
+			else
+			{
+				connected = false;
+				return;  // 切断
+			}
+		}
+		else  //　受信した
+		{
+			if (ret < sizeof(u_long))
+			{
+				assert(ret >= sizeof(u_long)
+					&& "総サイズのヘッドの分がない");
+				continue;  // 受信失敗のため今回は破棄しつつ次を受信
+			}
+
+			u_long totalSizeNL = 0UL;
+			memcpy(&totalSizeNL, buffer.data(), sizeof(totalSizeNL));
+
+			u_long totalSize = ntohl(totalSizeNL);
+			if (totalSize != ret)
+			{
+				assert(totalSize == ret
+					&& "受信したサイズとバッファ内指定の総サイズが不一致");
+				continue;  // 受信失敗のため今回は破棄しつつ次を受信
+			}
+
+			// 受信バッファをjson文字列にして受信リストに追加
+			u_long headSize = sizeof(u_long);
+			std::string_view jsonStr = buffer.data() + headSize;
+
+			json bodyJson = json::parse(jsonStr);
+
+			std::string head = bodyJson.value("head", "undefined");
+			RecvList.push_back(Recv{ head, bodyJson.at("body") });
+		}
+	}
+
+//#if 0
+//	if (!connected || sockTCP == INVALID_SOCKET)
+//	{
+//		return;
+//	}
+//
+//	// 送信中バッファが空なら、送信キューから次のデータを取る
+//	if (sendingBuffer.empty() && !sendQueue.empty())
+//	{
+//		std::string payload = std::move(sendQueue.front());
+//		sendQueue.pop();
+//	
+//		const uint32_t len_host = static_cast<uint32_t>(payload.size() + 1);
+//		const uint32_t len_net = htonl(len_host);
+//		sendingBuffer.assign(reinterpret_cast<const char*>(&len_net), 4);
+//		sendingBuffer += payload;
+//	}
+//
+//	while (!sendingBuffer.empty())
+//	{
+//		int sent = ::send(sockTCP, sendingBuffer.data(),
+//			static_cast<int>(sendingBuffer.size() + 1), 0);
+//		if (sent > 0)
+//		{
+//			sendingBuffer.erase(0, static_cast<size_t>(sent));
+//		}
+//		else
+//		{
+//			int err = WSAGetLastError();
+//			if (err == WSAEWOULDBLOCK) break;
+//			connected = false; // それ以外は切断扱い
+//			return;
+//		}
+//	}
+//
+//	// 送信
+//	while (sockUDP != INVALID_SOCKET && !sendQueueUDP.empty())
+//	{
+//		const std::string& pkt = sendQueueUDP.front();
+//		int sent = ::send(sockUDP, pkt.data(), static_cast<int>(pkt.size() + 1), 0);
+//		if (sent < 0)
+//		{
+//			int err = WSAGetLastError();
+//			if (err == WSAEWOULDBLOCK) break;   // 送れない時、次フレームに回す
+//		}
+//		sendQueueUDP.pop();
+//	}
+//
+//	// 受信処理
+//	char temp[4096]{};
+//  
+//	for (;;) // 条件が満たされない限り、処理が無限に繰り返される
+//	{
+//		// データを送信
+//		int ret = recv(sockTCP,
+//			temp,
+//			static_cast<int>(sizeof(temp)),  // 送る文字列のサイズ(警告をなくすためintに変換)
+//			0);
+//		if (ret > 0)
+//		{
+//			// 受信分を末尾に追加
+//			recvBuffer.append(temp, ret);
+//			continue;
+//
+//			//for (;;)
+//			//{
+//			//    // 4バイトの長さヘッダがあるか
+//			//    if (recvBuffer.size() < 4) break;
+//			//
+//			//    uint32_t len_net = 0;
+//			//    std::memcpy(&len_net, recvBuffer.data(), 4);
+//			//    const uint32_t len_host = ntohl(len_net);
+//			// 
+//			//    // 本体が揃っているか？
+//			//    if (recvBuffer.size() < 4u + static_cast<size_t>(len_host)) break;
+//			//    
+//			//    // フレームを取り出す
+//			//    std::string payload = recvBuffer.substr(4, len_host);
+//			//    recvBuffer.erase(0, 4u + static_cast<size_t>(len_host));
+//			//
+//			//    // 従来の readQueue にも積む
+//			//    readQueue.push(payload);
+//			//
+//			//    // JSON を head/body に分配して RecvList へ (AIを参照)
+//			//    try
+//			//    {
+//			//        json j = json::parse(payload);
+//			//
+//			//        std::string head;
+//			//        if (j.contains("head") && j["head"].is_string()) {
+//			//            head = j["head"].get<std::string>();
+//			//        }
+//			//        else if (j.contains("tag") && j["tag"].is_string()) {
+//			//            head = j["tag"].get<std::string>(); // 別名対応
+//			//        }
+//			//
+//			//        json body;
+//			//        if (j.contains("body")) {
+//			//            body = j["body"];
+//			//        }
+//			//        else if (j.contains("data")) {
+//			//            body = j["data"];
+//			//        }
+//			//        else {
+//			//            body = j; // そのまま格納（単純メッセージ等）
+//			//        }
+//			//
+//			//        RecvList.push_back(Recv{ head, body });
+//			//    }
+//			//    catch (const std::exception& e)
+//			//    {
+//			//        // パース失敗：生データとエラー内容を body に入れて head="" として格納
+//			//        json err;
+//			//        err["raw"] = payload;
+//			//        err["parse_error"] = e.what();
+//			//        RecvList.push_back(Recv{ "", err });
+//			//    }
+//			//}
+//		}
+//
+//		if (ret == 0)
+//		{
+//			// 相手が切断
+//			connected = false;
+//			return;
+//		}
+//
+//		int err = WSAGetLastError();
+//
+//		if (err == WSAEWOULDBLOCK || err == WSAEINTR || err == WSAETIMEDOUT)
+//		{
+//			// 今は受信データ無し
+//			break;
+//		}
+//
+//		// その他のエラー
+//		connected = false;
+//		return;
+//	}
+//
+//	const size_t MAX_FRAMES_PER_UPDATE  = 1024;
+//	const uint32_t MAX_FRAME_SIZE       = 8 * 1024 * 1024;
+//
+//	size_t framesProcessed = 0;
+//
+//	while (true)
+//	{
+//		if (framesProcessed >= MAX_FRAMES_PER_UPDATE) break;
+//		if (recvBuffer.size() < 4) break; // ヘッダ不足
+//
+//		uint32_t len_net = 0;
+//		std::memcpy(&len_net, recvBuffer.data(), 4);
+//		const uint32_t len_host = ntohl(len_net);
+//
+//		// 異常な長さ（0 も含む）→ このフレームは破棄して先へ進む
+//		if (len_host == 0 || len_host > MAX_FRAME_SIZE)
+//		{
+//			// 異常ヘッダを捨てる（4バイト分スキップ）
+//			recvBuffer.erase(0, 4);
+//			framesProcessed++;
+//			// ログに残したければここで出力
+//			continue;
+//		}
+//
+//		if (recvBuffer.size() < 4u + static_cast<size_t>(len_host)) break; // 本体不足
+//
+//		// フレーム取り出し
+//		std::string payload = recvBuffer.substr(4, len_host);
+//		recvBuffer.erase(0, 4u + static_cast<size_t>(len_host));
+//		framesProcessed++;
+//
+//		// 互換のため、生文字列も readQueue に積む
+//		readQueue.push(payload);
+//
+//		// JSON 解析（失敗してもこのフレームは既に消費済み！）
+//	   /* try
+//		{*/
+//			json j = json::parse(payload);
+//
+//			std::string head;
+//			if (j.contains("head") && j["head"].is_string())
+//				head = j["head"].get<std::string>();
+//			else if (j.contains("tag") && j["tag"].is_string())
+//				head = j["tag"].get<std::string>();
+//
+//			json body;
+//			if (j.contains("body"))
+//				body = j["body"];
+//			else if (j.contains("data"))
+//				body = j["data"];
+//			else
+//				body = j; // そのまま格納
+//
+//			RecvList.push_back(Recv{ head, body });
+//		//}
+//		//catch (const std::exception& e)
+//		//{
+//		//    // 解析失敗は一度だけ記録して終了（同じペイロードはもう再解析されない）
+//		//    json err;
+//		//    err["raw"] = payload;
+//		//    err["parse_error"] = e.what();
+//		//    RecvList.push_back(Recv{ "", err });
+//
+//		//    // ここで continue しても、該当 payload は既にバッファから除去済みなので
+//		//    // 無限に同じデータを再解析することはありません。
+//		//    continue;
+//		//}
+//	}
+//#endif
 }
 
 // 描画(もしかして必要ない？) ← 必要ないです

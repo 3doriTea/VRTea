@@ -60,10 +60,10 @@ private:
 	// ソケット作成
 
 	// UDP作成
-	SOCKET sockUDP = INVALID_SOCKET;
+	SOCKET sockUdp = INVALID_SOCKET;
 
 	// TCP作成
-	SOCKET sockTCP = INVALID_SOCKET;
+	SOCKET sockTcp = INVALID_SOCKET;
 
 	// TCP:受信したデータを一度貯める
 	std::string recvBuffer;

@@ -42,7 +42,7 @@ struct NetQueue : GameObject
 	void Send(const std::string& content, TCP_OR_UDP which);
 	
 	// 受信済みデータを取り出す（空ならfalse）
-	std::string Read(std::string& out);
+	//std::string Read(std::string& out);
 	
 	// キューの中から発見
 	json Find(std::string TagName);
@@ -52,17 +52,18 @@ struct NetQueue : GameObject
 	
 	// 接続処理
 	bool Connect(const char* ip, uint16_t port);
-	
-	std::queue<std::string> sendQueue; // 送信待ち
-	std::queue<std::string> readQueue; // 受信済み
+
+private:
+	//std::queue<std::string> sendQueue; // 送信待ち
+	//std::queue<std::string> readQueue; // 受信済み
 	
 	// ソケット作成
 	
 	// UDP作成
-	SOCKET sockUDP = INVALID_SOCKET;
+	SOCKET sockUdp = INVALID_SOCKET;
 	
 	// TCP作成
-	SOCKET sockTCP = INVALID_SOCKET;
+	SOCKET sockTcp = INVALID_SOCKET;
 	
 	// TCP:受信したデータを一度貯める
 	std::string recvBuffer;
