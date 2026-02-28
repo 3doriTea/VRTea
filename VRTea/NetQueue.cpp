@@ -323,7 +323,7 @@ void NetQueue::Update()
 				break;
 			case AT_BODY:
 				pWriteAt = bodyBuffer.data();
-				unreadSize = bodyBuffer.size();
+				unreadSize = bodyBuffer.size() - 1;
 				break;
 			default:
 				assert(false && "–¢À‘•‚Ì“Ç‚İæ‚èƒ‚[ƒh");
