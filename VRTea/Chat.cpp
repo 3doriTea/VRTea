@@ -78,7 +78,7 @@ void Chat::ReadContent()
 		return;
 	}
 
-	//Logger::WriteOut(eventContentJson.dump(), "inContent");
+	Logger::WriteOut(eventContentJson.dump(), "inContent");
 
 	// Event ‚ÌŽí—Þ‚ª‚Ü‚½‚ ‚é
 	std::string eventHead = eventContentJson.value("head", "undefined");
