@@ -214,6 +214,71 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
 	return  connectUDPResult && connectTCPResult;    // 必要ならUDP失敗でも true に緩めることも可能
 }
 
+//std::string NetQueue::ExtractHeadFromJsonString(std::string_view s)
+//{
+//	// "head" キーを探す
+//	constexpr std::string_view key = "\"head\"";
+//	auto keyPos = s.find(key);
+//	if (keyPos == std::string_view::npos) return {};
+//
+//	// ':' を探す（key の直後から）
+//	auto colonPos = s.find(':', keyPos + key.size());
+//	if (colonPos == std::string_view::npos) return {};
+//
+//	// ':' の後の最初のダブルクォートを探す（値の開始）
+//	auto quotePos = s.find('"', colonPos + 1);
+//	if (quotePos == std::string_view::npos) return {};
+//
+//	// 値の開始位置（quotePos + 1）から、終了の非エスケープのダブルクォートを探す
+//	std::string result;
+//	result.reserve(32);
+//
+//	bool escaping = false;
+//	for (size_t i = quotePos + 1; i < s.size(); ++i)
+//	{
+//		char c = s[i];
+//		if (escaping)
+//		{
+//			// 最小限のエスケープ処理
+//			switch (c)
+//			{
+//			case '"':  result.push_back('"'); break;
+//			case '\\': result.push_back('\\'); break;
+//			case '/':  result.push_back('/'); break;
+//			case 'b':  result.push_back('\b'); break;
+//			case 'f':  result.push_back('\f'); break;
+//			case 'n':  result.push_back('\n'); break;
+//			case 'r':  result.push_back('\r'); break;
+//			case 't':  result.push_back('\t'); break;
+//			default:
+//				// \uXXXX 等はここでは扱わない（必要なら拡張）
+//				result.push_back(c);
+//				break;
+//			}
+//			escaping = false;
+//		}
+//		else
+//		{
+//			if (c == '\\')
+//			{
+//				escaping = true;
+//			}
+//			else if (c == '"')
+//			{
+//				// 終端クォートに到達
+//				return result;
+//			}
+//			else
+//			{
+//				result.push_back(c);
+//			}
+//		}
+//	}
+//
+//	// 終端クォートが見つからなければ空文字を返す
+//	return {};
+//}
+
 // TagNameで検索し、見つかったら bodyを返す
 json NetQueue::Find(std::string TagName)
 {
@@ -242,6 +307,9 @@ void NetQueue::Update()
 		return;  // 未接続なら無視
 	}
 
+	// TODO:
+	//printfDx("send reqest TCP:%d", sendQueueTCP.size());
+
 	// TCPから送信処理
 	while (sendQueueTCP.empty() == false)
 	{
@@ -251,20 +319,35 @@ void NetQueue::Update()
 		u_long headSize = sizeof(u_long);
 		u_long totalSize = bodySize + headSize;
 		u_long totalSizeNL = htonl(totalSize);
-		if (int ret = send(sockTcp, reinterpret_cast<const char*>(&totalSizeNL), headSize, 0);
+
+		std::vector<char> buffer(totalSize, 0x00);
+		memcpy(buffer.data(), reinterpret_cast<const void*>(&totalSizeNL), headSize);
+		memcpy(buffer.data() + headSize, front.c_str(), bodySize);
+
+		if (int ret = send(sockTcp, buffer.data(), buffer.size(), 0);
 			ret <= 0)
 		{
-			continue;  // 送信失敗ならもう一度
+			break;  // 送信失敗ならもう一度
 		}
 
-		if (int ret = send(sockTcp, front.c_str(), bodySize, 0);
-			ret <= 0)
-		{
-			continue;  // 送信失敗ならもう一度
-		}
+		//if (int ret = send(sockTcp, reinterpret_cast<const char*>(&totalSizeNL), headSize, 0);
+		//	ret <= 0)
+		//{
+		//	continue;  // 送信失敗ならもう一度
+		//}
+
+		//if (int ret = send(sockTcp, front.c_str(), bodySize, 0);
+		//	ret <= 0)
+		//{
+		//	break;
+		//	//continue;  // 送信失敗ならもう一度
+		//}
 
 		sendQueueTCP.pop();
 	}
+
+	// TODO:
+	// printfDx(" UDP:%d\n", sendQueueUDP.size());
 
 	// UDPから送信処理
 	while (sendQueueUDP.empty() == false)
@@ -379,11 +462,13 @@ void NetQueue::Update()
 
 					std::string_view jsonStr = bodyBuffer.data();
 
-					Logger::WriteOut(jsonStr);
+					// TODO:
+					// Logger::WriteOut(jsonStr);
 
 					json bodyJson = json::parse(bodyBuffer.begin(), bodyBuffer.end());
 
-					printfDx("TCP受信:%s\n", jsonStr.data());
+					// TODO:
+					//printfDx("TCP受信:%s\n", jsonStr.data());
 
 					std::string head = bodyJson.value("head", "undefined");
 					RecvList.push_back(Recv{ head, bodyJson.at("content") });
@@ -407,7 +492,8 @@ void NetQueue::Update()
 	while (true)
 	{
 		// UDPの場合は１回ですべて受け取る必要がある。
-		std::vector<char> buffer(BUFFER_SIZE, 0x00);
+		static std::array<char, BUFFER_SIZE> buffer{};
+		std::fill(buffer.begin(), buffer.end(), 0x00);
 		int ret = recv(sockUdp, buffer.data(), buffer.size(), 0);
 		if (ret == 0)  // 正常終了
 		{

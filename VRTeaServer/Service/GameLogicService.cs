@@ -261,7 +261,8 @@ namespace VRTeaServer.Service
 
 				void EventChangeColor(int sessionId, JToken changeContentJson)
 				{
-					var changedColor = changeContentJson.Value<uint>();
+					Log.WriteLine($"受信した色変更jsonContent:{changeContentJson}");
+					var changedColor = changeContentJson.Value<uint>("content");
 
 					Log.WriteLine($"[SID:{sessionId}] changeColor: {changedColor:X8}");
 

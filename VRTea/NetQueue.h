@@ -53,6 +53,8 @@ struct NetQueue : GameObject
 	// Ú‘±ˆ—
 	bool Connect(const char* ip, uint16_t port);
 
+	//static std::string ExtractHeadFromJsonString(std::string_view s);
+
 private:
 	//std::queue<std::string> sendQueue; // ‘—M‘Ò‚¿
 	//std::queue<std::string> readQueue; // óMÏ‚İ

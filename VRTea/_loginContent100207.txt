@@ -1,0 +1,1 @@
+{"content":{"message":"ながながにゃながまるさんが参加しました。","sender":"*"},"head":"Chat"}

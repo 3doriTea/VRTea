@@ -1,0 +1,10 @@
+{
+  "head": "Event",
+  "content": {
+    "head": "Chat",
+    "content": {
+      "sender": "*",
+      "message": "のさんが参加しました。"
+    }
+  }
+}
