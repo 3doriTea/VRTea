@@ -8,7 +8,9 @@
 
 namespace
 {
+	static const size_t CHAT_SIZE_MAX = 99;
 	static const size_t NAME_SIZE_MAX = 20;
+	static const size_t CHAT_BUFFER_SIZE = CHAT_SIZE_MAX + 1;  // null•¶Žš•ª’Ç‰Á
 	static const size_t NAME_BUFFER_SIZE = NAME_SIZE_MAX + 1;  // null•¶Žš•ª’Ç‰Á
 
 	enum
@@ -48,6 +50,7 @@ struct ChatMode : IPlayModeState
 {
 	void Enter(Player& _p) override;
 	void Update(Player& _p) override;
+	void Exit(Player& _p) override;
 };
 
 struct Player : GameObject
@@ -61,10 +64,7 @@ struct Player : GameObject
 
 	void ChangeName(const std::string _name) { pData.name = _name; };
 	void ChangeColor(const DxLib::COLOR_U8 _color) { pData.color = _color; };
-	void PushPData(const json data);
-	//void ChangeNameImGui();
-	//void ChangeColorImGui();
-	void TextChatImGui();
+	void PushPData(const json& data);
 	void SetMyCamera();
 	
 	PlayerData pData;
@@ -76,6 +76,8 @@ struct Player : GameObject
 
 	char nameBuffer[NAME_BUFFER_SIZE];
 	float colorBuffer[COLOR_AT_A];
+
+	char chatBuffer[CHAT_BUFFER_SIZE];
 
 	IPlayModeState* pPlayModeState_;
 };

@@ -23,7 +23,8 @@ Player::Player() :
 	pPlayModeState_{ &STATE_GAME_MODE },
 	prevMKeyPressed_{ false },
 	nameBuffer{},
-	colorBuffer{}
+	colorBuffer{},
+	chatBuffer{}
 {
 	ImGuiIO& io = ImGui::GetIO();
 
@@ -53,10 +54,11 @@ Player::Player() :
 void Player::Update()
 {
 	bool currMKeyPressed = CheckHitKey(KEY_INPUT_M);
-	bool currTKeyPressed = CheckHitKey(KEY_INPUT_T);
+	bool currEnterKeyPressed = CheckHitKey(KEY_INPUT_RETURN);
 
 	// メニューのステートの切り替え
-	if (prevMKeyPressed_ != currMKeyPressed && currMKeyPressed)
+	if (prevMKeyPressed_ != currMKeyPressed && currMKeyPressed
+		&& pPlayModeState_ != &STATE_CHAT_MODE)  // チャット中は変更できない
 	{
 		pPlayModeState_->Exit(*this);  // 変更だよ
 		if (pPlayModeState_ != &STATE_MENU_MODE)
@@ -69,7 +71,7 @@ void Player::Update()
 		}
 		pPlayModeState_->Enter(*this);
 	}
-	else if (prevTKeyPressed_ != currTKeyPressed && currTKeyPressed)
+	else if (prevTKeyPressed_ != currEnterKeyPressed && currEnterKeyPressed)
 	{
 		pPlayModeState_->Exit(*this);  // 変更だよ
 		if (pPlayModeState_ != &STATE_CHAT_MODE)
@@ -83,7 +85,7 @@ void Player::Update()
 		pPlayModeState_->Enter(*this);
 	}
 	prevMKeyPressed_ = currMKeyPressed;
-	prevTKeyPressed_ = currTKeyPressed;
+	prevTKeyPressed_ = currEnterKeyPressed;
 
 	pPlayModeState_->Update(*this);
 
@@ -245,8 +247,8 @@ void MenuMode::Exit(Player& _p)
 		{ "head", "Event" },
 			{ "content",
 			{
-				"head", "NewName",
-				"content", _p.pData.name
+				{ "head", "NewName" },
+				{ "content", _p.pData.name },
 			}
 		}
 	};
@@ -261,81 +263,10 @@ Player::~Player()
 {
 }
 
-void Player::PushPData(const json data)
+void Player::PushPData(const json& data)
 {
 	NetQueue* queue = FindGameObject<NetQueue>();
 	queue->Send(data.dump(), TCP);
-}
-
-//void Player::ChangeNameImGui()
-//{
-//	//char* newName = nullptr;
-//	char newName[20];
-//	ImGui::Begin("変更したいユーザー名を入力してください。");
-//	ImGui::InputText("new Name : ", newName, 20);
-//	ImGui::End();
-//
-//	std::string name(newName);
-//	json nameJson =
-//	{
-//	  { "head", "Event" },
-//	  { "content",
-//		{
-//		  "head", "Name",
-//		  "content", name
-//		}
-//	  }
-//	};
-//	PushPData(nameJson);
-//	ChangeName(name);
-//}
-
-//void Player::ChangeColorImGui()
-//{
-//	float myColor[3] = {0,0,0};
-//
-//	if (ImGui::ColorPicker3("色変更", myColor, ImGuiColorEditFlags_Uint8))
-//	{
-//		DxLib::COLOR_U8 color;
-//		color.r = myColor[Color::R];
-//		color.g = myColor[Color::G];
-//		color.b = myColor[Color::B];
-//
-//		json colorJson =
-//		{
-//		  { "head", "Event" },
-//		  { "content",
-//			{
-//			  "head", "Color",
-//			  "content", GetColor(color.r,color.g,color.b)
-//			}
-//		  }
-//		};
-//		PushPData(colorJson);
-//		ChangeColor(color);
-//	}
-//}
-
-void Player::TextChatImGui()
-{
-	//char* inputChat = nullptr;
-	char inputChat[60];
-	ImGui::Begin("テキストを入力...");
-	ImGui::InputText("Input", inputChat, 60);
-	ImGui::End();
-
-	std::string chat(inputChat);
-	json chatJson =
-	{
-	  { "head", "Event" },
-	  { "content",
-		{
-		  "head", "Chat",
-		  "content", chat
-		}
-	  }
-	};
-	PushPData(chatJson);
 }
 
 void Player::SetMyCamera()
@@ -348,8 +279,46 @@ void Player::SetMyCamera()
 
 void ChatMode::Enter(Player& _p)
 {
+	memset(_p.chatBuffer, 0x00, CHAT_BUFFER_SIZE);
 }
 
 void ChatMode::Update(Player& _p)
 {
+	ImGuiIO& io = ImGui::GetIO();
+	ImVec2 screen_center = ImVec2(io.DisplaySize.x * 0.5f, io.DisplaySize.y * 0.5f);
+
+	ImGui::SetNextWindowPos(screen_center, ImGuiCond_Always, ImVec2(0.5f, 0.5f));
+	ImGui::SetNextWindowSize(ImVec2(400, 150), ImGuiCond_FirstUseEver);
+
+	ImGui::Begin("##chat-message", 0, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+
+	ImGui::Text("Enter chat message.");
+	ImGui::InputText("##newName", _p.chatBuffer, NAME_SIZE_MAX);
+
+	ImGui::Separator();
+	ImGui::Spacing();
+
+	ImGui::TableNextColumn();
+	ImGui::Text(U8("Enterキーを押すことで送信できます。"));
+
+	ImGui::End();
+}
+
+void ChatMode::Exit(Player& _p)
+{
+	if (_p.chatBuffer[0] != '\0')
+	{
+		std::string chat{ _p.chatBuffer };
+		json chatJson =
+		{
+			{ "head", "Event" },
+			{ "content",
+				{
+					{ "head", "Chat" },
+					{ "content", chat },
+				}
+			}
+		};
+		_p.PushPData(chatJson);
+	}
 }

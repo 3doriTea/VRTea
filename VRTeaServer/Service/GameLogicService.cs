@@ -88,7 +88,7 @@ namespace VRTeaServer.Service
 				JObject? json = null;
 				try
 				{
-					Log.WriteLine($"受信した文字列:{data.GetString()}");
+					//Log.WriteLine($"受信した文字列:{data.GetString()}");
 					//Log.WriteLine($"受信したBinary:{BitConverter.ToString(data.Buffer)}");
 					json = JObject.Parse(data.GetString());
 				}
@@ -279,8 +279,9 @@ namespace VRTeaServer.Service
 
 				void EventChat(int sessionId, JToken chatContentJson)
 				{
+					Log.WriteLine($"チャットのJSON:{chatContentJson}");
 					// クライアントから送信されたチャットコンテンツ
-					var chatContent = json.Value<string>();
+					var chatContent = chatContentJson.Value<string>("content");
 
 					Log.WriteLine($"[SID:{sessionId}]{chatContent ?? "{{null}}"}");
 

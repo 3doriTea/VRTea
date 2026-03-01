@@ -19,6 +19,8 @@ void Chat::Update()
 	{
 		showLogWindow = !showLogWindow;
 	}
+
+	printfDx("%d", chatLog.size());
 }
 
 void Chat::Draw()
@@ -77,6 +79,8 @@ void Chat::ReadContent()
 	{
 		return;
 	}
+
+	printfDx("ChatéÛêM:%s", eventContentJson.dump());
 
 	Logger::WriteOut(eventContentJson.dump(), "inContent");
 

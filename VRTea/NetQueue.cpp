@@ -12,7 +12,7 @@ using nlohmann::json;
 
 namespace
 {
-	static const size_t BUFFER_SIZE{ 1024 };
+	static const size_t BUFFER_SIZE{ 4096 };
 
 	static const char* SERVER_IP_ADDRESS{ "192.168.33.2" };
 	static const USHORT SERVER_PORT_NUMBER{ 3333U };
@@ -320,6 +320,8 @@ void NetQueue::Update()
 		u_long totalSize = bodySize + headSize;
 		u_long totalSizeNL = htonl(totalSize);
 
+		assert(totalSize <= 1000);
+
 		std::vector<char> buffer(totalSize, 0x00);
 		memcpy(buffer.data(), reinterpret_cast<const void*>(&totalSizeNL), headSize);
 		memcpy(buffer.data() + headSize, front.c_str(), bodySize);
@@ -376,6 +378,10 @@ void NetQueue::Update()
 		sendQueueUDP.pop();
 	}
 
+#if 1
+	// TCPから受信処理
+	// TODO: ここの見直しが必要
+#else
 	// TCPから受信処理
 	while (true)
 	{
@@ -391,12 +397,12 @@ void NetQueue::Update()
 
 		static const u_long HEAD_SIZE = sizeof(u_long);
 
-		static std::vector<char> bodyBuffer;
+		static std::vector<char> bodyBuffer{};
 		static u_long totalSizeNL = 0;
 		
 		static Reading reading = AT_HEAD;
 		static char* pWriteAt = nullptr;
-		static size_t unreadSize = 0;
+		static int64_t unreadSize = 0;
 
 		if (unreadSize == 0)  // スイッチした初期化処理
 		{
@@ -414,9 +420,14 @@ void NetQueue::Update()
 				assert(false && "未実装の読み取りモード");
 				break;
 			}
+
+			assert(unreadSize > 0 && "ｙばあい");
+
+			printfDx("unreadSize:%d\n", unreadSize);
 		}
 
-
+		assert(0 < unreadSize && unreadSize < 1000 && "ヤバウマ");
+		printfDx("tcp recv Size:%lld\n", unreadSize);
 		int ret = recv(sockTcp, pWriteAt, unreadSize, 0);
 		if (ret == 0)  // 正常終了
 		{
@@ -473,6 +484,8 @@ void NetQueue::Update()
 					std::string head = bodyJson.value("head", "undefined");
 					RecvList.push_back(Recv{ head, bodyJson.at("content") });
 
+					unreadSize = 0;
+
 					reading = AT_HEAD;
 					break;
 				}
@@ -487,6 +500,7 @@ void NetQueue::Update()
 			}
 		}
 	}
+#endif
 
 	// UDPから受信処理
 	while (true)
