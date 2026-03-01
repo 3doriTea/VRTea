@@ -351,7 +351,11 @@ namespace VRTeaServer.Service
 						content = new
 						{
 							head = "Chat",
-							content = $"{joinedData.Name}さんが参加しました。",
+							content = new
+							{
+								sender = "*",
+								message = $"{joinedData.Name}さんが参加しました。",
+							}
 						},
 					});
 
