@@ -5,6 +5,7 @@
 #include <cassert>
 #include <DirectXMath.h>
 
+#define U8(str) reinterpret_cast<const char*>(u8##str)
 
 namespace
 {
@@ -12,6 +13,7 @@ namespace
 
 	static GameMode STATE_GAME_MODE{};
 	static MenuMode STATE_MENU_MODE{};
+	static ChatMode STATE_CHAT_MODE{};
 }
 
 
@@ -51,23 +53,61 @@ Player::Player() :
 void Player::Update()
 {
 	bool currMKeyPressed = CheckHitKey(KEY_INPUT_M);
+	bool currTKeyPressed = CheckHitKey(KEY_INPUT_T);
 
-	// ステートの切り替え
+	// メニューのステートの切り替え
 	if (prevMKeyPressed_ != currMKeyPressed && currMKeyPressed)
 	{
 		pPlayModeState_->Exit(*this);  // 変更だよ
-		if (pPlayModeState_ != &STATE_GAME_MODE)
-		{
-			pPlayModeState_ = &STATE_GAME_MODE;
-		}
-		else
+		if (pPlayModeState_ != &STATE_MENU_MODE)
 		{
 			pPlayModeState_ = &STATE_MENU_MODE;
 		}
+		else
+		{
+			pPlayModeState_ = &STATE_GAME_MODE;
+		}
+		pPlayModeState_->Enter(*this);
+	}
+	else if (prevTKeyPressed_ != currTKeyPressed && currTKeyPressed)
+	{
+		pPlayModeState_->Exit(*this);  // 変更だよ
+		if (pPlayModeState_ != &STATE_CHAT_MODE)
+		{
+			pPlayModeState_ = &STATE_CHAT_MODE;
+		}
+		else
+		{
+			pPlayModeState_ = &STATE_GAME_MODE;
+		}
+		pPlayModeState_->Enter(*this);
 	}
 	prevMKeyPressed_ = currMKeyPressed;
+	prevTKeyPressed_ = currTKeyPressed;
 
 	pPlayModeState_->Update(*this);
+
+	NetQueue* pNetQueue = FindGameObject<NetQueue>();
+	assert(pNetQueue && "NetQueueが見つからない");
+	if (pNetQueue)
+	{
+		pNetQueue->Send(json
+			{
+				{ "head", "Update" },
+				{ "content",
+					{
+						{ "position",
+							{
+								{ "x", playerState.position.x },
+								{ "y", playerState.position.y },
+								{ "z", playerState.position.z }
+							}
+						}
+					}
+				}
+			}.dump(), UDP);
+
+	}
 }
 
 void GameMode::Update(Player& _p)
@@ -123,28 +163,7 @@ void GameMode::Update(Player& _p)
 	_p.playerState.position.y += worldMove.m128_f32[Y];
 	_p.playerState.position.z += worldMove.m128_f32[Z];
 
-	NetQueue* pNetQueue = _p.FindGameObject<NetQueue>();
-	assert(pNetQueue && "NetQueueが見つからない");
-	if (pNetQueue)
-	{
-		pNetQueue->Send(json
-			{
-				{ "head", "Update" },
-				{ "content",
-					{
-						{ "position",
-							{
-								{ "x", _p.playerState.position.x },
-								{ "y", _p.playerState.position.y },
-								{ "z", _p.playerState.position.z }
-							}
-						}
-					}
-				}
-			}.dump(), UDP);
-
-		pPlayerCamera->SetPosition(VAdd(_p.playerState.position, VGet(0, PLAYER_EYE_HEIGHT, 0)));
-	}
+	pPlayerCamera->SetPosition(VAdd(_p.playerState.position, VGet(0, PLAYER_EYE_HEIGHT, 0)));
 }
 
 void MenuMode::Enter(Player& _p)
@@ -160,58 +179,78 @@ void MenuMode::Enter(Player& _p)
 
 void MenuMode::Update(Player& _p)
 {
-	ImGui::Begin("Enter your new username.");
-	ImGui::InputText("##new Name : ", _p.nameBuffer, NAME_SIZE_MAX);
-	ImGui::End();
+	ImGuiIO& io = ImGui::GetIO();
+	ImVec2 screen_center = ImVec2(io.DisplaySize.x * 0.5f, io.DisplaySize.y * 0.5f);
 
-	if (ImGui::BeginPopup("MyPopup")) 
+	ImGui::SetNextWindowPos(screen_center, ImGuiCond_Always, ImVec2(0.5f, 0.5f));
+
+	ImGui::SetNextWindowSize(ImVec2(400, 500), ImGuiCond_FirstUseEver);
+
+	ImGui::Begin("User Settings", 0, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+
+	//ImGui::Begin("Enter your new username.");
+	ImGui::Text("Enter your new username.");
+	ImGui::InputText("##newName", _p.nameBuffer, NAME_SIZE_MAX);
+	ImGui::TextDisabled(U8("キャラクターの名前を変更します。設定が閉じられるタイミングで更新されるのでご注意ください。"));
+	//ImGui::End();
+
+	ImGui::Separator();
+	ImGui::Spacing();
+
+	if (ImGui::BeginTable("SettingTable", 1))
 	{
-		// 2列のテーブルを作成 (境界線あり: ImGuiTableFlags_BordersInnerV)
-		if (ImGui::BeginTable("split_table", 2, ImGuiTableFlags_BordersInnerV))
+		ImGui::TableNextColumn();
+		ImGui::Text("Pick your body color.");
+		ImGui::TextDisabled(U8("キャラクターの見た目を変更します。リアルタイムで更新されるのでご注意ください。"));
+
+		ImGui::TableNextColumn();
+		if (ImGui::ColorPicker3("##BodyColor", _p.colorBuffer, ImGuiColorEditFlags_Uint8))
 		{
+			COLOR_U8 color{};
+			color.r = static_cast<BYTE>(_p.colorBuffer[Color::R] * 255.0f);
+			color.g = static_cast<BYTE>(_p.colorBuffer[Color::G] * 255.0f);
+			color.b = static_cast<BYTE>(_p.colorBuffer[Color::B] * 255.0f);
 
-			// 左側の列
-			ImGui::TableNextColumn();
-			ImGui::Text("--- 左側 ---");
-			ImGui::Button("設定A");
-			ImGui::Button("設定B");
-
-			// 右側の列
-			ImGui::TableNextColumn();
-			ImGui::Text("--- 右側 ---");
-			static char buf[32] = "";
-			ImGui::InputText("##Name", buf, 32);
-
-			ImGui::EndTable();
-		}
-		ImGui::EndPopup();
-	}
-
-	if (ImGui::ColorPicker3("Pick your body color.", _p.colorBuffer, ImGuiColorEditFlags_Uint8))
-	{
-		COLOR_U8 color{};
-		color.r = static_cast<BYTE>(_p.colorBuffer[Color::R] * 255.0f);
-		color.g = static_cast<BYTE>(_p.colorBuffer[Color::G] * 255.0f);
-		color.b = static_cast<BYTE>(_p.colorBuffer[Color::B] * 255.0f);
-
-		json colorJson =
-		{
-			{ "head", "Event" },
-			{ "content",
-				{
-					{ "head", "NewColor" },
-					{ "content", GetColor(color.r, color.g, color.b) },
+			json colorJson =
+			{
+				{ "head", "Event" },
+				{ "content",
+					{
+						{ "head", "NewColor" },
+						{ "content", GetColor(color.r, color.g, color.b) },
+					}
 				}
-			}
-		};
-		_p.PushPData(colorJson);
-		_p.ChangeColor(color);
+			};
+			_p.PushPData(colorJson);
+			_p.ChangeColor(color);
+		}
+
+		ImGui::EndTable();
 	}
+
+	ImGui::Separator();
+	ImGui::Spacing();
+
+	ImGui::TableNextColumn();
+	ImGui::Text(U8("Mキーを押すことで閉じられます。"));
+
+	ImGui::End();
 }
 
 void MenuMode::Exit(Player& _p)
 {
 	_p.pData.name = _p.nameBuffer;
+	json nameJson =
+	{
+		{ "head", "Event" },
+			{ "content",
+			{
+				"head", "NewName",
+				"content", _p.pData.name
+			}
+		}
+	};
+	_p.PushPData(nameJson);
 }
 
 void Player::Draw()
@@ -228,54 +267,54 @@ void Player::PushPData(const json data)
 	queue->Send(data.dump(), TCP);
 }
 
-void Player::ChangeNameImGui()
-{
-	//char* newName = nullptr;
-	char newName[20];
-	ImGui::Begin("変更したいユーザー名を入力してください。");
-	ImGui::InputText("new Name : ", newName, 20);
-	ImGui::End();
+//void Player::ChangeNameImGui()
+//{
+//	//char* newName = nullptr;
+//	char newName[20];
+//	ImGui::Begin("変更したいユーザー名を入力してください。");
+//	ImGui::InputText("new Name : ", newName, 20);
+//	ImGui::End();
+//
+//	std::string name(newName);
+//	json nameJson =
+//	{
+//	  { "head", "Event" },
+//	  { "content",
+//		{
+//		  "head", "Name",
+//		  "content", name
+//		}
+//	  }
+//	};
+//	PushPData(nameJson);
+//	ChangeName(name);
+//}
 
-	std::string name(newName);
-	json nameJson =
-	{
-	  { "head", "Event" },
-	  { "content",
-		{
-		  "head", "Name",
-		  "content", name
-		}
-	  }
-	};
-	PushPData(nameJson);
-	ChangeName(name);
-}
-
-void Player::ChangeColorImGui()
-{
-	float myColor[3] = {0,0,0};
-
-	if (ImGui::ColorPicker3("色変更", myColor, ImGuiColorEditFlags_Uint8))
-	{
-		DxLib::COLOR_U8 color;
-		color.r = myColor[Color::R];
-		color.g = myColor[Color::G];
-		color.b = myColor[Color::B];
-
-		json colorJson =
-		{
-		  { "head", "Event" },
-		  { "content",
-			{
-			  "head", "Color",
-			  "content", GetColor(color.r,color.g,color.b)
-			}
-		  }
-		};
-		PushPData(colorJson);
-		ChangeColor(color);
-	}
-}
+//void Player::ChangeColorImGui()
+//{
+//	float myColor[3] = {0,0,0};
+//
+//	if (ImGui::ColorPicker3("色変更", myColor, ImGuiColorEditFlags_Uint8))
+//	{
+//		DxLib::COLOR_U8 color;
+//		color.r = myColor[Color::R];
+//		color.g = myColor[Color::G];
+//		color.b = myColor[Color::B];
+//
+//		json colorJson =
+//		{
+//		  { "head", "Event" },
+//		  { "content",
+//			{
+//			  "head", "Color",
+//			  "content", GetColor(color.r,color.g,color.b)
+//			}
+//		  }
+//		};
+//		PushPData(colorJson);
+//		ChangeColor(color);
+//	}
+//}
 
 void Player::TextChatImGui()
 {
@@ -305,4 +344,12 @@ void Player::SetMyCamera()
 	camera->SetPosition(playerState.position);
 	//playerState.rotate = camera->GetRotate();
 	camera = nullptr;
+}
+
+void ChatMode::Enter(Player& _p)
+{
+}
+
+void ChatMode::Update(Player& _p)
+{
 }

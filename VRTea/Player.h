@@ -44,6 +44,12 @@ struct MenuMode : IPlayModeState
 	void Exit(Player& _p) override;
 };
 
+struct ChatMode : IPlayModeState
+{
+	void Enter(Player& _p) override;
+	void Update(Player& _p) override;
+};
+
 struct Player : GameObject
 {
 	Player();
@@ -56,8 +62,8 @@ struct Player : GameObject
 	void ChangeName(const std::string _name) { pData.name = _name; };
 	void ChangeColor(const DxLib::COLOR_U8 _color) { pData.color = _color; };
 	void PushPData(const json data);
-	void ChangeNameImGui();
-	void ChangeColorImGui();
+	//void ChangeNameImGui();
+	//void ChangeColorImGui();
 	void TextChatImGui();
 	void SetMyCamera();
 	
@@ -66,6 +72,7 @@ struct Player : GameObject
 	const int SPEED = 4.0;
 
 	bool prevMKeyPressed_;
+	bool prevTKeyPressed_;
 
 	char nameBuffer[NAME_BUFFER_SIZE];
 	float colorBuffer[COLOR_AT_A];
