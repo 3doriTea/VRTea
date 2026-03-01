@@ -94,14 +94,11 @@ void OtherPlayer::DrawOtherPlayer()
 		const DxLib::VECTOR& position = data.position;
 
 		// カプセル描画
-		DrawCapsule3D(position, VGet(position.x, position.y + otherPlayerCapsuleHeight_, position.z), otherPlayerCapsuleRadius_, otherPlayerCapsuleDivNum_, colorCode, GetColor(255, 255, 255), TRUE);
+		DrawCapsule3D(position, VGet(position.x, position.y + otherPlayerCapsuleHeight_, position.z), otherPlayerCapsuleRadius_, otherPlayerCapsuleDivNum_, colorCode, colorCode, TRUE);
 		
 		// メッセージボックス描画
 		DrawMessageBox(position);
 	}
-
-	// 他プレイヤーの情報を捨てる
-	otherPlayersData_.clear();
 }
 
 void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos)
