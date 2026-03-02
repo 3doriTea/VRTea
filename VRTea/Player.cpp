@@ -53,9 +53,9 @@ Player::Player() :
 
 void Player::Update()
 {
-	bool currMKeyPressed = CheckHitKey(KEY_INPUT_M);
+	bool currMKeyPressed = ImGui::IsKeyPressed(ImGuiKey_M, false) && ImGui::IsKeyDown(ImGuiKey_LeftCtrl);
 	bool currEnterKeyPressed = CheckHitKey(KEY_INPUT_RETURN);
-
+	
 	// メニューのステートの切り替え
 	if (prevMKeyPressed_ != currMKeyPressed && currMKeyPressed
 		&& pPlayModeState_ != &STATE_CHAT_MODE)  // チャット中は変更できない
@@ -234,7 +234,7 @@ void MenuMode::Update(Player& _p)
 	ImGui::Spacing();
 
 	ImGui::TableNextColumn();
-	ImGui::Text(U8("Mキーを押すことで閉じられます。"));
+	ImGui::Text(U8("ctrl + Mキーを押すことで閉じられます。"));
 
 	ImGui::End();
 }
@@ -293,6 +293,7 @@ void ChatMode::Update(Player& _p)
 	ImGui::Begin("##chat-message", 0, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
 
 	ImGui::Text("Enter chat message.");
+	ImGui::SetKeyboardFocusHere();
 	ImGui::InputText("##newName", _p.chatBuffer, NAME_SIZE_MAX);
 
 	ImGui::Separator();
