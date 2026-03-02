@@ -156,6 +156,7 @@
     <ClCompile Include="..\ImGui\imgui_tables.cpp" />
     <ClCompile Include="..\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Chat.cpp" />
+    <ClCompile Include="ChatWorld.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectWorld.cpp" />
     <ClCompile Include="GameTime.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="..\ImGui\imstb_textedit.h" />
     <ClInclude Include="..\ImGui\imstb_truetype.h" />
     <ClInclude Include="Chat.h" />
+    <ClInclude Include="ChatWorld.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectWorld.h" />
     <ClInclude Include="GameTime.h" />
