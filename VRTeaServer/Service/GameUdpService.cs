@@ -41,7 +41,7 @@ namespace VRTeaServer.Service
 								var result = await udpClient.ReceiveAsync(cts.Token);
 								if (result.RemoteEndPoint is IPEndPoint remoteIPEndPoint)
 								{
-									await _sessionManager.ReceiveEnqueue(
+									await _sessionManager.ReceiveEnqueueUDP(
 										remoteIPEndPoint,
 										new ReceiveData(result.Buffer),
 										cts);

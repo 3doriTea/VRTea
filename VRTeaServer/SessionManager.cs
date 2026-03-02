@@ -41,7 +41,7 @@ namespace VRTeaServer
 		/// </summary>
 		private Channel<SendDataWithIPEP> _sendQueueUDP = Channel.CreateUnbounded<SendDataWithIPEP>();
 		private int _sessionIdCounter = 0;
-
+		private ConcurrentDictionary<int, ReceiveData> _receiveDictUDP = [];
 
 		public SessionManager()
 		{
@@ -175,17 +175,24 @@ namespace VRTeaServer
 		/// <param name="data"></param>
 		/// <param name="cts"></param>
 		/// <returns></returns>
-		public async Task ReceiveEnqueue(IPEndPoint remoteIPEndPoint, ReceiveData data, CancellationTokenSource cts)
+		public async Task ReceiveEnqueueUDP(IPEndPoint remoteIPEndPoint, ReceiveData data, CancellationTokenSource cts)
 		{
-			if (_ipepToSessionId.TryGetValue(remoteIPEndPoint, out var sessionId))
+			await Task.Run(() =>
 			{
-				_sessions[sessionId].Timestamp = DateTime.Now;
-				await ReceiveEnqueue(sessionId, data, cts);
-			}
-			else
-			{
-				Log.Error("ReceiveEnqueue from IPEP でIPEPと sessionIdの変換に失敗");
-			}
+				if (_ipepToSessionId.TryGetValue(remoteIPEndPoint, out var sessionId))
+				{
+					_sessions[sessionId].Timestamp = DateTime.Now;
+					// UDPは送信者1人に対して1つの最新情報を持つため、追加/上書きする
+					_receiveDictUDP.AddOrUpdate(
+						sessionId,
+						(currentData) => data,
+						(currentData, oldData) => data);
+				}
+				else
+				{
+					Log.Error("ReceiveEnqueue from IPEP でIPEPと sessionIdの変換に失敗");
+				}
+			});
 		}
 
 		/// <summary>
@@ -208,6 +215,19 @@ namespace VRTeaServer
 		public bool TryDequeue(int sessionId, out ReceiveData data)
 		{
 			return _sessions[sessionId].ReceiveQueue.Reader.TryRead(out data);
+		}
+
+		/// <summary>
+		/// クライアントからのUDP受信キューから試しにDequeueする
+		/// </summary>
+		/// <param name="sessionId"></param>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		public bool TryDequeueUDP(int sessionId, out ReceiveData data)
+		{
+			return _receiveDictUDP.TryGetValue(sessionId, out data);
+
+			//return _sessions[sessionId].ReceiveQueue.Reader.TryRead(out data);
 		}
 
 		/// <summary>

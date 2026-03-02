@@ -402,11 +402,23 @@ namespace VRTeaServer.Service
 							}
 							catch (Exception ex)
 							{
-								Log.Error($"受信処理で例外:{ex}");
+								Log.Error($"TCP受信処理で例外:{ex}");
+							}
+						}
+
+						if (_sessionManager.TryDequeueUDP(id, out var udpData))
+						{
+							try
+							{
+								RequestProc(id, udpData);
+							}
+							catch (Exception ex)
+							{
+								Log.Error($"UDP受信処理で例外:{ex}");
 							}
 						}
 					}
-					await Task.Delay(1 /* TODO: マジックナンバー消す */, cts.Token);
+					//await Task.Delay(1 /* TODO: マジックナンバー消す */, cts.Token);
 				}
 			}
 			catch (OperationCanceledException)
