@@ -1,0 +1,1 @@
+{"content":{"message":"1さんが退出しました。","sender":"*"},"head":"Chat"}

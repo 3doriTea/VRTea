@@ -68,12 +68,28 @@ namespace VRTeaServer.Service
 
 			_sessionManager.OnDisconnected += (ipEndPoint, leavedId) =>
 			{
-				string leavedUserName = $"{leavedId}";
+				playersData.Remove(leavedId, out var data);
+				if (data is null)
+				{
+					return;
+				}
+
+				playersStatus.Remove(leavedId, out var status);
+
+				string leavedUserName = $"{data.Name}";
 
 				JObject sendJson = JObject.FromObject(new
 				{
 					head = "Event",
-					content = $"{leavedUserName}さんが退出しました。",
+					content = new
+					{
+						head = "Chat",
+						content = new
+						{
+							sender = "*",
+							message = $"{leavedUserName}さんが退出しました。",
+						},
+					},
 				});
 
 
@@ -238,7 +254,8 @@ namespace VRTeaServer.Service
 
 				void EventChangeName(int sessionId, JToken changeContentJson)
 				{
-					var changedName = changeContentJson.Value<string>();
+					//Log.WriteLine($"名前変更json:{changeContentJson}");
+					var changedName = changeContentJson.Value<string>("content");
 
 					Log.WriteLine($"[SID:{sessionId}]{changedName ?? "{{null}}"}");
 					
@@ -261,7 +278,7 @@ namespace VRTeaServer.Service
 
 				void EventChangeColor(int sessionId, JToken changeContentJson)
 				{
-					Log.WriteLine($"受信した色変更jsonContent:{changeContentJson}");
+					//Log.WriteLine($"受信した色変更jsonContent:{changeContentJson}");
 					var changedColor = changeContentJson.Value<uint>("content");
 
 					Log.WriteLine($"[SID:{sessionId}] changeColor: {changedColor:X8}");

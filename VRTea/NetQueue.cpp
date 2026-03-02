@@ -14,7 +14,8 @@ namespace
 {
 	static const size_t BUFFER_SIZE{ 4096 };
 
-	static const char* SERVER_IP_ADDRESS{ "192.168.33.2" };
+	//static const char* SERVER_IP_ADDRESS{ "192.168.33.2" };
+	static const char* SERVER_IP_ADDRESS{ "192.168.42.55" };
 	static const USHORT SERVER_PORT_NUMBER{ 3333U };
 }
 
@@ -332,19 +333,6 @@ void NetQueue::Update()
 			break;  // 送信失敗ならもう一度
 		}
 
-		//if (int ret = send(sockTcp, reinterpret_cast<const char*>(&totalSizeNL), headSize, 0);
-		//	ret <= 0)
-		//{
-		//	continue;  // 送信失敗ならもう一度
-		//}
-
-		//if (int ret = send(sockTcp, front.c_str(), bodySize, 0);
-		//	ret <= 0)
-		//{
-		//	break;
-		//	//continue;  // 送信失敗ならもう一度
-		//}
-
 		sendQueueTCP.pop();
 	}
 
@@ -378,63 +366,59 @@ void NetQueue::Update()
 		sendQueueUDP.pop();
 	}
 
-#if 1
-	// TCPから受信処理
-	// TODO: ここの見直しが必要
-#else
 	// TCPから受信処理
 	while (true)
 	{
-		// TCPの場合は１回のrecvですべてのデータが届くとは限らない
-		// 読んでいるモードを切り替えながら読んでいく
-
-		// 読んでいるモード
 		enum Reading
 		{
 			AT_HEAD,
 			AT_BODY,
 		};
 
-		static const u_long HEAD_SIZE = sizeof(u_long);
+		static const size_t HEAD_SIZE = sizeof(u_long);
 
-		static std::vector<char> bodyBuffer{};
-		static u_long totalSizeNL = 0;
-		
+		static std::vector<char> bodyBuffer;
+		static uint32_t headBuffer = 0;
+
 		static Reading reading = AT_HEAD;
 		static char* pWriteAt = nullptr;
 		static int64_t unreadSize = 0;
 
-		if (unreadSize == 0)  // スイッチした初期化処理
+		// 既に読み取り対象を読み終わっている
+		if (unreadSize == 0)
 		{
 			switch (reading)
 			{
 			case AT_HEAD:
-				pWriteAt = reinterpret_cast<char*>(&totalSizeNL);
+				headBuffer = 0;
+				
+				pWriteAt = reinterpret_cast<char*>(&headBuffer);
 				unreadSize = HEAD_SIZE;
 				break;
 			case AT_BODY:
+			{
+				uint32_t bodySize = ntohl(headBuffer) - HEAD_SIZE;
+				bodyBuffer.clear();
+				bodyBuffer.resize(bodySize, '\0');
+				
 				pWriteAt = bodyBuffer.data();
-				unreadSize = bodyBuffer.size() - 1;
-				break;
-			default:
-				assert(false && "未実装の読み取りモード");
+				unreadSize = bodySize;
 				break;
 			}
-
-			assert(unreadSize > 0 && "ｙばあい");
-
-			printfDx("unreadSize:%d\n", unreadSize);
+			default:
+				assert(false && "未対応の読み取り部分");
+				break;
+			}
 		}
 
-		assert(0 < unreadSize && unreadSize < 1000 && "ヤバウマ");
-		printfDx("tcp recv Size:%lld\n", unreadSize);
 		int ret = recv(sockTcp, pWriteAt, unreadSize, 0);
-		if (ret == 0)  // 正常終了
+		if (ret == 0)
 		{
+			printfDx("Tcp正常に切断");
 			connected = false;
-			return;  // 切断
+			return;
 		}
-		else if (ret < 0)  // 異常
+		else if (ret < 0)
 		{
 			int errorCode = WSAGetLastError();
 			if (errorCode == WSAEWOULDBLOCK)  // ノンブロッキング処理で無視
@@ -443,64 +427,56 @@ void NetQueue::Update()
 			}
 			else
 			{
+				printfDx("Tcp異常切断");
 				connected = false;
 				return;  // 切断
 			}
 		}
-		else  // 受信した
+		else  // 正常に受信できた
 		{
 			unreadSize -= ret;
 			pWriteAt += ret;
 
-			if (unreadSize == 0)  // 全部読み込めた
+			if (unreadSize > 0)
+			{
+				break;  // まだ読み足らず… 次の機会に回す
+			}
+			else if (unreadSize == 0)  // ぴったり読み切った
 			{
 				switch (reading)
 				{
 				case AT_HEAD:
 				{
-					// 全部読めたのがheadなら サイズ確定とbodyバッファの準備をする
-					u_long totalSize = ntohl(totalSizeNL);
-					bodyBuffer.resize(totalSize - HEAD_SIZE, 0x00);
-					// 念の為0埋め
-					std::fill(bodyBuffer.begin(), bodyBuffer.end(), 0x00);
-
 					reading = AT_BODY;
+					u_long bodySize = ntohl(headBuffer) - HEAD_SIZE;
+
+					if (bodySize > 2000)
+					{
+						assert(false &&  "でかすぎ！");
+						DxLib::printfDx("受信バッファがでかすぎるため切断 size:%ul", bodySize);
+						connected = false;
+						return;
+					}
+
 					break;
 				}
 				case AT_BODY:
 				{
-					// 全部読めたのがbodyなら 受信完了 受信リストに追加処理
+					reading = AT_HEAD;
 
 					std::string_view jsonStr = bodyBuffer.data();
-
-					// TODO:
-					// Logger::WriteOut(jsonStr);
-
 					json bodyJson = json::parse(bodyBuffer.begin(), bodyBuffer.end());
-
-					// TODO:
-					//printfDx("TCP受信:%s\n", jsonStr.data());
-
 					std::string head = bodyJson.value("head", "undefined");
 					RecvList.push_back(Recv{ head, bodyJson.at("content") });
-
-					unreadSize = 0;
-
-					reading = AT_HEAD;
 					break;
 				}
 				default:
-					assert(false && "未実装の読み取りモード");
+					assert(false && "未対応の読み取り部分");
 					break;
 				}
 			}
-			else  // 読み足らず...
-			{
-				continue;
-			}
 		}
 	}
-#endif
 
 	// UDPから受信処理
 	while (true)
