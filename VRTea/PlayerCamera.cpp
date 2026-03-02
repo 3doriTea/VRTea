@@ -84,11 +84,11 @@ void PlayerCamera::Update()
 		if (angleY < -1.0f)
 			angleY = -1.0f;
 
-		target = VGet(0.0f, 0.0f, 0.0f);
-		target.x = camPos.x + cos(angleY) * sin(angleX);
-		target.y = camPos.y + sin(angleY);
-		target.z = camPos.z + cos(angleY) * cos(angleX);
 	}
+	target = VGet(0.0f, 0.0f, 0.0f);
+	target.x = camPos.x + cos(angleY) * sin(angleX);
+	target.y = camPos.y + sin(angleY);
+	target.z = camPos.z + cos(angleY) * cos(angleX);
 
 	SetCameraPositionAndTarget_UpVecY(camPos, target);
 }
