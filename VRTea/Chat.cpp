@@ -39,7 +39,7 @@ void Chat::DrawChatLog()
 	{
 		std::string_view sender = chatContent.sender;
 		std::string_view message = chatContent.message;
-		std::string text = std::format("Sender : {}\nMessage : {}", sender, message);
+		std::string text = std::format("[{}]{}", sender, message);
 		ImGui::Text("%s", text.c_str());
 		ImGui::Separator();
 	}

@@ -333,7 +333,7 @@ namespace VRTeaServer.Service
 							content = new
 							{
 								sender = playersData[sessionId].Name,
-								message = $"[SID:{sessionId}]{chatContent}",
+								message = $"{chatContent}",
 							},
 						}
 					});
