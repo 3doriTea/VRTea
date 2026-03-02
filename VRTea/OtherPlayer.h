@@ -38,7 +38,7 @@ struct OtherPlayer : GameObject
 	/// 他プレイヤーの上にメッセージボックスを描画する
 	/// </summary>
 	/// <param name="playerPos">ボックス位置の基準にする他プレイヤー座標</param>
-	void DrawMessageBox(const DxLib::VECTOR& playerPos);
+	void DrawMessageBox(const DxLib::VECTOR& playerPos,std::string_view sender);
 
 private:
 	std::vector<OtherPlayerData> otherPlayersData_;

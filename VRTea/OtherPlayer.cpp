@@ -1,7 +1,7 @@
 #include "OtherPlayer.h"
 #include "NetQueue.h"
-
-
+#include "Chat.h"
+#include "Player.h"
 /// <summary>
 /// JSONから色情報を取得
 /// </summary>
@@ -97,11 +97,11 @@ void OtherPlayer::DrawOtherPlayer()
 		DrawCapsule3D(position, VGet(position.x, position.y + otherPlayerCapsuleHeight_, position.z), otherPlayerCapsuleRadius_, otherPlayerCapsuleDivNum_, colorCode, colorCode, TRUE);
 		
 		// メッセージボックス描画
-		DrawMessageBox(position);
+		DrawMessageBox(position,data.name);
 	}
 }
 
-void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos)
+void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos, std::string_view sender)
 {
 	int boxSizeX = 128, boxSizeY = 128;//テキストボックスのサイズ
 	float capsuleHeight = 10.0f;//カプセルの高さ
@@ -112,6 +112,8 @@ void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos)
 	VECTOR trianglePos = VGet(0.0f, 0.0f, 0.0f);
 	textBoxPos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + textBoxHeight, playerPos.z));
 	trianglePos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + triangleHeight, playerPos.z));
+	VECTOR size = ConvWorldPosToScreenPos(VGet(0.0f, 0.0f, 0.0f));
+	
 
 	int triangleSizeX = 10.0f;//幅
 	int triangleSizeY = textBoxPos.y;
@@ -125,4 +127,15 @@ void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos)
 		DrawBox(textBoxPos.x - boxSizeX, textBoxPos.y - boxSizeY, textBoxPos.x + boxSizeX, textBoxPos.y, GetColor(255, 255, 255), TRUE);
 		DrawTriangle(trianglePos.x, trianglePos.y, (trianglePos.x - triangleSizeX), triangleSizeY, (trianglePos.x + triangleSizeX), triangleSizeY, GetColor(255, 255, 255), TRUE);
 	}
+
+	Chat* chat = FindGameObject<Chat>();
+	assert(chat && "Chatクラスが見つからない");
+	// 送信者のメッセージを取得
+	std::string senderMessage = chat->GetSenderMessage(sender);
+	if (senderMessage != "")
+	{
+		int width = DxLib::GetDrawStringWidth(senderMessage.c_str(), senderMessage.size());
+		int height = textBoxPos.y - (textBoxPos.y - boxSizeY) / 2;
+		DxLib::DrawStringF((textBoxPos.x - boxSizeX ) + width , height, senderMessage.c_str(), GetColor(255, 0, 0));
+	}	
 }
