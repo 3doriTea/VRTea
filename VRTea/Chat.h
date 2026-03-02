@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <functional>
+#include "IncludingJson.h"
 struct ChatContent
 {
 	std::string sender;

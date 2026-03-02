@@ -97,9 +97,6 @@
     <ClInclude Include="PlayerState.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
-    <ClInclude Include="Chat.h">
-      <Filter>Cppのファイルたち</Filter>
-    </ClInclude>
     <ClInclude Include="Serializable.h">
       <Filter>Cppのファイルたち</Filter>
     </ClInclude>
@@ -159,6 +156,9 @@
     </ClInclude>
     <ClInclude Include="ChatWorld.h">
       <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="Chat.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

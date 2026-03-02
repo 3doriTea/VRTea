@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
-
+#include <unordered_map>
+#include "Chat.h"
 struct OtherPlayerData
 {
 	inline OtherPlayerData(
@@ -38,14 +39,17 @@ struct OtherPlayer : GameObject
 	/// 他プレイヤーの上にメッセージボックスを描画する
 	/// </summary>
 	/// <param name="playerPos">ボックス位置の基準にする他プレイヤー座標</param>
-	void DrawMessageBox(const DxLib::VECTOR& playerPos,std::string_view sender);
+	void DrawMessageBox(const DxLib::VECTOR& playerPos,const std::string& sender);
 
 private:
+	void ChatEventHandler(const ChatContent& content);
 	std::vector<OtherPlayerData> otherPlayersData_;
+	std::unordered_map<std::string, OtherPlayerChat> otherPlayerChatMap_;
 	// 他プレイヤーのカプセルの高さ
 	float otherPlayerCapsuleHeight_;
 	// 他プレイヤーのカプセルの半径
 	float otherPlayerCapsuleRadius_;
 	// 他プレイヤーのカプセルの分割数
 	int otherPlayerCapsuleDivNum_;
+	float otherPlayerChatDisplayTime_;
 };
