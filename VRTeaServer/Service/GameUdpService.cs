@@ -80,6 +80,10 @@ namespace VRTeaServer.Service
 				{
 					Log.WriteLine($"UDPサーバーキャンセルを受信した");
 				}
+				catch (Exception ex)
+				{
+					Log.Error($"{ex}");
+				}
 			}
 
 			Log.WriteLine($"UDPサーバー停止した");

@@ -19,9 +19,18 @@ namespace VRTeaServer.Utility
 		public static async Task<bool> ReadExactlyAsync(NetworkStream stream, byte[] buffer, CancellationTokenSource cts)
 		{
 			int totalRead = 0;
+
 			while (totalRead < buffer.Length)
 			{
-				int read = await stream.ReadAsync(buffer, totalRead, buffer.Length - totalRead, cts.Token);
+				int read = 0;
+				try
+				{
+					read = await stream.ReadAsync(buffer, totalRead, buffer.Length - totalRead, cts.Token);
+				}
+				catch (OperationCanceledException)
+				{
+					return false;  // キャンセル発動で失敗
+				}
 
 				if (read <= 0)
 				{

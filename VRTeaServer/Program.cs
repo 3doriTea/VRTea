@@ -45,9 +45,9 @@ namespace VRTeaServer
 			[
 				new LoggerService(new DirectoryInfo(LogDirectory)),
 				new TerminateService(cts),
-				//new BotService(
-				//	askIPAddress.IPAddress,
-				//	askGamePortNumber.PortNumber),
+				new BotService(
+					askIPAddress.IPAddress,
+					askGamePortNumber.PortNumber),
 				new GameTcpService(
 					sessionManager,
 					askIPAddress.IPAddress,

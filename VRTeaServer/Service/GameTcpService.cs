@@ -116,13 +116,12 @@ namespace VRTeaServer.Service
 								catch (Exception ex)
 								{
 									Console.WriteLine(ex.ToString());
+									break;
 								}
 							}
 						}, cts.Token),
 						Task.Run(async () =>
 						{
-							//try
-							//{
 							while (true)
 							{
 								try
@@ -140,14 +139,9 @@ namespace VRTeaServer.Service
 								catch (Exception ex)
 								{
 									Console.WriteLine(ex.ToString());
+									break;
 								}
 							}
-							//}
-							//catch (SessionKeyNotFoundException)
-							//{
-							//	cts.Cancel();
-							//	return;
-							//}
 						}, cts.Token));
 
 					// クライアントの受付終わったから切断する
@@ -161,11 +155,13 @@ namespace VRTeaServer.Service
 				catch (IOException ex)
 				{
 					Console.WriteLine($"{ex}");
+					return;
 				}
 			}
 			catch (Exception ex)
 			{
 				Log.Error($"{ex}");
+				return;
 			}
 		}
 	}

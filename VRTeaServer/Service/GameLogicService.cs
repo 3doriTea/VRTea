@@ -15,25 +15,6 @@ namespace VRTeaServer.Service
 	internal class GameLogicService : IService
 	{
 		private readonly SessionManager _sessionManager;
-
-		/// <summary>
-		/// しょっちゅう変わるプレイヤー情報
-		/// </summary>
-		private class PlayerStatus
-		{
-			public float PositionX { get; set; } = 0.0f;
-			public float PositionY { get; set; } = 0.0f;
-			public float PositionZ { get; set; } = 0.0f;
-		}
-
-		/// <summary>
-		/// あまり変わらないプレイヤー情報
-		/// </summary>
-		private class PlayerData
-		{
-			public uint Color { get; set; } = 0xffffffff;
-			public string Name { get; set; } = string.Empty;
-		}
 		
 		/// <summary>
 		/// プレイヤーとかが送信したテキストチャット

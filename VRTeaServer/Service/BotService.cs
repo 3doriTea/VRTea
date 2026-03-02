@@ -26,10 +26,21 @@ namespace VRTeaServer.Service
 
 		public async Task Start(CancellationTokenSource cts) => await Task.Run(async () =>
 		{
-			using var udp = new UdpClient();
-			using var tcp = new TcpClient();
+			var localIPEP = new IPEndPoint(IPAddress.Any, 0);
+			using var tcp = new TcpClient(localIPEP);
+			using var udp = new UdpClient(localIPEP);
 
-			Log.WriteLine($"ボット起動した");
+			Log.WriteLine($"ボット起動した:{localIPEP}");
+
+			try
+			{
+				await Task.Delay(1000, cts.Token);
+			}
+			catch (OperationCanceledException)
+			{
+				return;  // ボット参加待機中にキャンセル
+			}
+			Log.WriteLine($"ボットこれから参加する");
 
 			// MEMO: UdpClient の Connectメソッドは見かけ上の接続で、
 			//     : 送信先をあらかじめ指定しておけるだけ
@@ -38,147 +49,256 @@ namespace VRTeaServer.Service
 			// MEMO: 一方の TcpClientはサーバーと接続するため、 awaitする
 			await tcp.ConnectAsync(_serverIPAddress, _gamePort);
 
+			
+
 			ConcurrentQueue<SendData> tcpSendQueue = [];
 			ConcurrentQueue<ReceiveData> tcpReceiveQueue = [];
 
-			void BotSend(string content)
+			
+
+			async Task RunTcpCycle() => await Task.Run(() =>
 			{
-				SendData.FromString(content, out var data);
-				tcpSendQueue.Enqueue(data);
-			}
-
-			void BotLife()
-			{
-				while (true)
-				{
-					while (tcpReceiveQueue.TryDequeue(out var data))
-					{
-						JObject? json = null;
-						try
-						{
-							json = JObject.Parse(data.GetString());
-						}
-						catch (Exception ex)
-						{
-							Log.WriteLine($"BOT:jsonパースエラー発生:\r\n{ex}");
-							continue;
-						}
-
-						data.GetString();
-						var head = json.GetValue("head")?.ToString() ?? "";
-
-						if (head != "Event")
-						{
-							continue;  // イベント以外は無視
-						}
-
-						// content.head を取得していく
-						var eventContent = json["content"];
-						if (eventContent is null)
-						{
-							Log.WriteLine($"BOT: 受け取ったイベントに contentが含まれていない");
-							continue;
-						}
-						var eventContentHead = eventContent["head"];
-						if (eventContentHead is null)
-						{
-							Log.WriteLine($"BOT: 受け取ったイベントに content.headが含まれていない");
-							continue;
-						}
-
-						string? eventContentHeadStr = eventContentHead.Value<string>();
-						if (eventContentHeadStr is null)
-						{
-							Log.WriteLine($"BOT: 受け取ったイベントの content.headを stringに変換できない");
-							continue;
-						}
-
-						// クライアントから送信され、サーバー経由でゲットしたチャットコンテンツ
-						var chatContent = json.Value<string>();
-
-						Log.WriteLine($"BOT: Chat受け取った「{chatContent ?? "{{null}}"}」");
-
-						if (chatContent is null)
-						{
-							// チャットコンテンツがないよ！
-							Log.WriteLine($"BOT: chatContentが nullだった");
-							continue;
-						}
-
-						// TODO: わかるー　以外も追加する
-						JObject sendJson = JObject.FromObject(new
-						{
-							head = "Event",
-							content = new
-							{
-								head = "Chat",
-								content = $"{chatContent} <- わかるー",
-							},
-						});
-
-						BotSend($"{sendJson}");
-					}
-				}
-			}
-
-			async Task BotSendTask(NetworkStream stream)
-			{
+				Log.WriteLine($"ボットTCP送受信処理開始");
 				while (true)
 				{
 					try
 					{
-						while (tcpSendQueue.TryDequeue(out var data))
-						{
-							await stream.WriteAsync(data.Buffer, cts.Token);
-						}
+
 					}
 					catch (OperationCanceledException)
 					{
+						Log.WriteLine($"ボットTCP送受信処理キャンセル受信");
 						break;
 					}
+					catch (Exception ex)
+					{
+						Log.Error($"ボットTCP送受信処理例外:{ex}");
+					}
 				}
-			}
-
-			async Task BotReceiveTask(NetworkStream stream)
+				Log.WriteLine($"ボットTCP送受信処理停止");
+			});
+			
+			async Task RunUdpCycle() => await Task.Run(async () =>
 			{
+				Log.WriteLine($"ボットUDP送受信処理開始");
 				while (true)
 				{
-					byte[] totalSizeBuffer = new byte[sizeof(int)];
-					if (!await ReadExactlyAsync(stream, totalSizeBuffer, cts))
+					try
 					{
-						return;  // 切断されたら終了
+						var json = JObject.FromObject(new
+						{
+							head = "Update",
+							content = new
+							{
+								position = new
+								{
+									x = 0, y = 0, z = 0,
+								},
+							},
+						});
+
+						SendData.FromString($"{json}", out var sendData);
+						await udp.SendAsync(sendData.Buffer, cts.Token);
+
+						 await udp.ReceiveAsync(cts.Token);
 					}
-
-					int totalSize = BinaryPrimitives.ReadInt32BigEndian(totalSizeBuffer);
-					int bodySize = totalSize - sizeof(int);
-
-					if (bodySize <= 0)
+					catch (OperationCanceledException)
 					{
-						return;  // ボディサイズがおかしいなら無視
+						Log.WriteLine($"ボットUDP送受信処理キャンセル受信");
+						break;
 					}
-
-					byte[] bodyBuffer = new byte[bodySize];
-					if (!await ReadExactlyAsync(stream, bodyBuffer, cts))
+					catch (Exception ex)
 					{
-						return;  // 切断されたら終了
+						Log.Error($"ボットUDP送受信処理例外:{ex}");
 					}
-
-					// 2つを合わせたバッファを作成
-					byte[] combined = new byte[totalSize];
-					totalSizeBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(0, totalSizeBuffer.Length));
-					bodyBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(totalSizeBuffer.Length));
-
-					tcpReceiveQueue.Enqueue(new ReceiveData(combined));
 				}
-			}
+				Log.WriteLine($"ボットUDP送受信処理停止");
+			});
+			
+			async Task RunBotLife() => await Task.Run(() =>
+			{
+				Log.WriteLine($"ボットライフ開始");
+				while (true)
+				{
+					try
+					{
 
+					}
+					catch (OperationCanceledException)
+					{
+						Log.WriteLine($"ボットライフキャンセル受信");
+						break;
+					}
+					catch (Exception ex)
+					{
+						Log.Error($"ボットライフ例外:{ex}");
+					}
+				}
+				Log.WriteLine($"ボットライフ停止");
+			});
+			
 			await Task.WhenAll(
-				BotReceiveTask(tcp.GetStream()),
-				BotSendTask(tcp.GetStream()),
-				Task.Run(BotLife, cts.Token));
-
+				RunTcpCycle(),
+				RunUdpCycle(),
+				RunBotLife());
 
 			Log.WriteLine($"ボット停止した");
+#if false
+			//async Task BotSend(string content)
+			//{
+			//	await Task.Run(() =>
+			//	{
+			//		SendData.FromString(content, out var data);
+			//		tcpSendQueue.Enqueue(data);
+			//	});
+			//}
+
+			//async Task BotLife()
+			//{
+			//	Log.WriteLine($"ボットライフ起動");
+
+			//	JObject firstJoinJson = JObject.FromObject(new
+			//	{
+			//		head = "Join",
+			//	});
+
+			//	await BotSend($"{firstJoinJson}");
+
+			//	while (true)
+			//	{
+			//		while (tcpReceiveQueue.TryDequeue(out var data))
+			//		{
+			//			JObject? json = null;
+			//			try
+			//			{
+			//				json = JObject.Parse(data.GetString());
+			//			}
+			//			catch (Exception ex)
+			//			{
+			//				Log.WriteLine($"BOT:jsonパースエラー発生:\r\n{ex}");
+			//				continue;
+			//			}
+
+			//			data.GetString();
+			//			var head = json.GetValue("head")?.ToString() ?? "";
+
+			//			if (head != "Event")
+			//			{
+			//				continue;  // イベント以外は無視
+			//			}
+
+			//			// content.head を取得していく
+			//			var eventContent = json["content"];
+			//			if (eventContent is null)
+			//			{
+			//				Log.WriteLine($"BOT: 受け取ったイベントに contentが含まれていない");
+			//				continue;
+			//			}
+			//			var eventContentHead = eventContent["head"];
+			//			if (eventContentHead is null)
+			//			{
+			//				Log.WriteLine($"BOT: 受け取ったイベントに content.headが含まれていない");
+			//				continue;
+			//			}
+
+			//			string? eventContentHeadStr = eventContentHead.Value<string>();
+			//			if (eventContentHeadStr is null)
+			//			{
+			//				Log.WriteLine($"BOT: 受け取ったイベントの content.headを stringに変換できない");
+			//				continue;
+			//			}
+
+			//			// クライアントから送信され、サーバー経由でゲットしたチャットコンテンツ
+			//			var chatContent = json.Value<string>();
+
+			//			Log.WriteLine($"BOT: Chat受け取った「{chatContent ?? "{{null}}"}」");
+
+			//			if (chatContent is null)
+			//			{
+			//				// チャットコンテンツがないよ！
+			//				Log.WriteLine($"BOT: chatContentが nullだった");
+			//				continue;
+			//			}
+
+			//			// TODO: わかるー　以外も追加する
+			//			JObject sendJson = JObject.FromObject(new
+			//			{
+			//				head = "Event",
+			//				content = new
+			//				{
+			//					head = "Chat",
+			//					content = $"{chatContent} <- わかるー",
+			//				},
+			//			});
+
+			//			await BotSend($"{sendJson}");
+			//		}
+
+			//	}
+			//}
+
+			//async Task BotSendTask(NetworkStream stream)
+			//{
+			//	while (true)
+			//	{
+			//		try
+			//		{
+			//			while (tcpSendQueue.TryDequeue(out var data))
+			//			{
+			//				await stream.WriteAsync(data.Buffer, cts.Token);
+			//			}
+			//		}
+			//		catch (OperationCanceledException)
+			//		{
+			//			break;
+			//		}
+			//	}
+			//}
+
+			//async Task BotReceiveTask(NetworkStream stream)
+			//{
+			//	while (true)
+			//	{
+			//		byte[] totalSizeBuffer = new byte[sizeof(int)];
+			//		if (!await ReadExactlyAsync(stream, totalSizeBuffer, cts))
+			//		{
+			//			return;  // 切断されたら終了
+			//		}
+
+			//		int totalSize = BinaryPrimitives.ReadInt32BigEndian(totalSizeBuffer);
+			//		int bodySize = totalSize - sizeof(int);
+
+			//		if (bodySize <= 0)
+			//		{
+			//			return;  // ボディサイズがおかしいなら無視
+			//		}
+
+			//		byte[] bodyBuffer = new byte[bodySize];
+			//		if (!await ReadExactlyAsync(stream, bodyBuffer, cts))
+			//		{
+			//			return;  // 切断されたら終了
+			//		}
+
+			//		// 2つを合わせたバッファを作成
+			//		byte[] combined = new byte[totalSize];
+			//		totalSizeBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(0, totalSizeBuffer.Length));
+			//		bodyBuffer.AsSpan().CopyTo(combined.AsSpan().Slice(totalSizeBuffer.Length));
+
+			//		tcpReceiveQueue.Enqueue(new ReceiveData(combined));
+			//	}
+			//}
+
+			//await Task.WhenAll(
+			//	BotReceiveTask(tcp.GetStream()),
+			//	BotSendTask(tcp.GetStream()),
+			//	BotLife(),
+			//	Task.Run(() =>
+			//	{
+
+			//	}, cts.Token));
+
+
+			//Log.WriteLine($"ボット停止した");
 			//await Task.WhenAll(
 			//	Task.Run(async () =>  // tcp送信サイクル
 			//	{
@@ -196,6 +316,7 @@ namespace VRTeaServer.Service
 			//			await stream.WriteAsync(sendData.Buffer, cts.Token);
 			//		}
 			//	}, cts.Token));
+#endif
 		});
 	}
 }
