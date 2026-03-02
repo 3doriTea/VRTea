@@ -5,6 +5,8 @@ PlayerCamera::PlayerCamera()
 	SetUseLighting(FALSE);
 	SetUseZBuffer3D(TRUE);
 	SetWriteZBuffer3D(TRUE);
+	SetMouseDispFlag(TRUE);//マウスカーソルの表示
+	SetCameraNearFar(10.0f,600.0f);
 	angleX = 0.0f;
 	angleY = 0.0f;
 	camPos = VGet(0.0f, 10.0f, -100.0f);
@@ -58,10 +60,12 @@ void PlayerCamera::Update()
 			if (isSetMousePoint)
 			{
 				isSetMousePoint = false;
+				SetMouseDispFlag(true);//マウスカーソルの表示
 			}
 			else
 			{
 				isSetMousePoint = true;
+				SetMouseDispFlag(false);//マウスカーソルの表示
 			}
 		}
 		isKey = true;
@@ -95,6 +99,9 @@ void PlayerCamera::Update()
 
 void PlayerCamera::Draw()
 {
+	int width = 1280, height = 720;
+	int radius = 3;
+	DrawCircle(width / 2.0f, height / 2.0f, radius, GetColor(255, 255, 255), TRUE);//画面中央に配置する円
 }
 
 void PlayerCamera::SetPosition(VECTOR pos)
