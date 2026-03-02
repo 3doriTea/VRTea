@@ -9,12 +9,15 @@ using static VRTeaServer.Utility.NetWorkUtil;
 
 namespace VRTeaServer.Service
 {
+
 	/// <summary>
 	/// ボットのサービス
 	/// TODO: ボットタスクの人が実装してください
 	/// </summary>
 	internal class BotService : IService
 	{
+		const int BufferSize = 1024 * 4;
+		
 		private IPAddress _serverIPAddress;  // サーバーのIPアドレス
 		private ushort _gamePort;            // ゲームサービスを公開するポート番号
 		
@@ -56,28 +59,57 @@ namespace VRTeaServer.Service
 
 			
 
-			async Task RunTcpCycle() => await Task.Run(() =>
+			async Task RunTcpCycleSend() => await Task.Run(async () =>
 			{
-				Log.WriteLine($"ボットTCP送受信処理開始");
+				Log.WriteLine($"ボットTCP送信処理開始");
+				var stream = tcp.GetStream();
 				while (true)
 				{
 					try
 					{
-
+						while (tcpSendQueue.TryDequeue(out var data))
+						{
+							await stream.WriteAsync(data.Buffer, cts.Token);
+						}
 					}
 					catch (OperationCanceledException)
 					{
-						Log.WriteLine($"ボットTCP送受信処理キャンセル受信");
+						Log.WriteLine($"ボットTCP送信処理キャンセル受信");
 						break;
 					}
 					catch (Exception ex)
 					{
-						Log.Error($"ボットTCP送受信処理例外:{ex}");
+						Log.Error($"ボットTCP送信処理例外:{ex}");
 					}
 				}
-				Log.WriteLine($"ボットTCP送受信処理停止");
+				Log.WriteLine($"ボットTCP送信処理停止");
 			});
-			
+
+			async Task RunTcpCycleReceive() => await Task.Run(async () =>
+			{
+				Log.WriteLine($"ボットTCP受信処理開始");
+				var stream = tcp.GetStream();
+				while (true)
+				{
+					try
+					{
+						var buffer = new byte[BufferSize];
+						int read = await stream.ReadAsync(buffer, cts.Token);
+						tcpReceiveQueue.Enqueue(new ReceiveData(buffer[..read]));
+					}
+					catch (OperationCanceledException)
+					{
+						Log.WriteLine($"ボットTCP受信処理キャンセル受信");
+						break;
+					}
+					catch (Exception ex)
+					{
+						Log.Error($"ボットTCP受信処理例外:{ex}");
+					}
+				}
+				Log.WriteLine($"ボットTCP受信処理停止");
+			});
+
 			async Task RunUdpCycle() => await Task.Run(async () =>
 			{
 				Log.WriteLine($"ボットUDP送受信処理開始");
@@ -100,7 +132,7 @@ namespace VRTeaServer.Service
 						SendData.FromString($"{json}", out var sendData);
 						await udp.SendAsync(sendData.Buffer, cts.Token);
 
-						 await udp.ReceiveAsync(cts.Token);
+						_ = await udp.ReceiveAsync(cts.Token);
 					}
 					catch (OperationCanceledException)
 					{
@@ -138,7 +170,8 @@ namespace VRTeaServer.Service
 			});
 			
 			await Task.WhenAll(
-				RunTcpCycle(),
+				RunTcpCycleSend(),
+				RunTcpCycleReceive(),
 				RunUdpCycle(),
 				RunBotLife());
 
