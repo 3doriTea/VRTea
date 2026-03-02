@@ -42,6 +42,7 @@ namespace VRTeaServer
 		private Channel<SendDataWithIPEP> _sendQueueUDP = Channel.CreateUnbounded<SendDataWithIPEP>();
 		private int _sessionIdCounter = 0;
 
+
 		public SessionManager()
 		{
 			Sessions = new SessionsEnum(_sessions);

@@ -334,6 +334,8 @@ void NetQueue::Update()
 		}
 
 		sendQueueTCP.pop();
+
+		printfDx("t");
 	}
 
 	// TODO:

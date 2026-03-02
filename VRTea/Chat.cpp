@@ -80,8 +80,6 @@ void Chat::ReadContent()
 		return;
 	}
 
-	//printfDx("ChatóM:%s", eventContentJson.dump());
-
 	Logger::WriteOut(eventContentJson.dump(), "inContent");
 
 	// Event ‚Ìí—Ş‚ª‚Ü‚½‚ ‚é
