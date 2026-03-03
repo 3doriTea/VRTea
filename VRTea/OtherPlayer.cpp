@@ -74,7 +74,7 @@ void OtherPlayer::Update()
 			}
 
 			otherPlayersData_.clear();
-			for (auto [name, data] : contentJ.items())
+			for (auto [id, data] : contentJ.items())
 			{
 				unsigned int color = data.value("color", 0xffffffffU);
 				const json& positionJ = data.at("position");
@@ -82,9 +82,9 @@ void OtherPlayer::Update()
 				posV.x = positionJ.value("x", 0.0f);
 				posV.y = positionJ.value("y", 0.0f);
 				posV.z = positionJ.value("z", 0.0f);
-				int32_t id = data.value("id", -1);
-
-				otherPlayersData_.push_back({ name, posV, color,id });
+				std::string name = data.value("name", "*");
+				int32_t idInt = std::stoi(id);
+				otherPlayersData_.push_back({ name, posV, color,idInt });
 			}
 		}
 
