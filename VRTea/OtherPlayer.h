@@ -42,6 +42,7 @@ struct OtherPlayer : GameObject
 	void DrawMessageBox(const DxLib::VECTOR& playerPos,const std::string& sender);
 
 private:
+
 	void ChatEventHandler(const ChatContent& content);
 	std::vector<OtherPlayerData> otherPlayersData_;
 	std::unordered_map<std::string, OtherPlayerChat> otherPlayerChatMap_;
@@ -52,4 +53,5 @@ private:
 	// 他プレイヤーのカプセルの分割数
 	int otherPlayerCapsuleDivNum_;
 	float otherPlayerChatDisplayTime_;
+	int hCallback;
 };

@@ -38,11 +38,12 @@ OtherPlayer::OtherPlayer()
 	, otherPlayerCapsuleRadius_{5.0f}
 	, otherPlayerCapsuleDivNum_{5}
 	, otherPlayerChatDisplayTime_{5.0f}
+	, hCallback{-1}
 {
 	Chat* chat = FindGameObject<Chat>();
 	assert(chat && "Chat‚ªŒ©‚Â‚©‚ç‚È‚¢");
 
-	chat->RegisterChatEventHandler(
+	hCallback = chat->RegisterChatEventHandler(
 		[this](const ChatContent& _content)
 		{
 			ChatEventHandler(_content);
@@ -51,6 +52,11 @@ OtherPlayer::OtherPlayer()
 
 OtherPlayer::~OtherPlayer()
 {
+	Chat* pChat = FindGameObject<Chat>();
+	if (pChat != nullptr)
+	{
+		pChat->UnregisterChatEventHandler(hCallback);
+	}
 }
 
 void OtherPlayer::Update()
