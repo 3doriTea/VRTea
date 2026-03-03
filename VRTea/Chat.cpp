@@ -33,7 +33,6 @@ void Chat::Draw()
 
 void Chat::DrawChatLog()
 {
-	RenderVertex();
 
 	ImGuiIO& io = ImGui::GetIO();
 	ImGui::SetNextWindowPos({ 0, 0 }, ImGuiCond_Always, ImVec2(0.0f, 0.0f));
