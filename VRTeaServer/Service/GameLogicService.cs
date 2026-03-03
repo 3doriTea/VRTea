@@ -67,6 +67,7 @@ namespace VRTeaServer.Service
 						head = "Chat",
 						content = new
 						{
+							senderId = -1,
 							sender = "*",
 							message = $"{leavedUserName}さんが退出しました。",
 						},
@@ -209,6 +210,7 @@ namespace VRTeaServer.Service
 
 						userNameToData.Add(pData.Name, JObject.FromObject(new
 						{
+							id = pSId,
 							color = pData.Color,
 							position = new
 							{
@@ -318,6 +320,7 @@ namespace VRTeaServer.Service
 							head = "Chat",
 							content = new
 							{
+								senderId = sessionId,
 								sender = playersData[sessionId].Name,
 								message = $"{chatContent}",
 							},
@@ -358,6 +361,7 @@ namespace VRTeaServer.Service
 							head = "Chat",
 							content = new
 							{
+								senderId = -1,
 								sender = "*",
 								message = $"{joinedData.Name}さんが参加しました。",
 							}
