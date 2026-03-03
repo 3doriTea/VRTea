@@ -1,0 +1,1 @@
+{"content":{"message":"doumo fuuuuuga","sender":"fuga","senderId":1},"head":"Chat"}
