@@ -225,8 +225,7 @@ namespace VRTeaServer
 		/// <returns></returns>
 		public bool TryDequeueUDP(int sessionId, out ReceiveData data)
 		{
-			return _receiveDictUDP.TryGetValue(sessionId, out data);
-
+			return _receiveDictUDP.TryRemove(sessionId, out data);
 			//return _sessions[sessionId].ReceiveQueue.Reader.TryRead(out data);
 		}
 
