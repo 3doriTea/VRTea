@@ -33,6 +33,7 @@ void Chat::Draw()
 
 void Chat::DrawChatLog()
 {
+	RenderVertex();
 	ImGui::Begin("Log", 0, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
 
 	for (const ChatContent& chatContent : chatLog)

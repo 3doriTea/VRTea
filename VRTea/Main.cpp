@@ -47,9 +47,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	GameObject::Instantiate<NetQueue>();
 	GameObject::Instantiate<Player>();
 	GameObject::Instantiate<PlayerCamera>();
-	GameObject::Instantiate<Chat>();
-	GameObject::Instantiate<ChatWorld>();
 	GameObject::Instantiate<OtherPlayer>();
+	GameObject::Instantiate<ChatWorld>();
+	GameObject::Instantiate<Chat>();
+	OtherPlayer* pOtherPlayer = GameObject::FindGameObject<OtherPlayer>();
+	pOtherPlayer->SetChatEventHandler();
+
 
 #pragma 
 
