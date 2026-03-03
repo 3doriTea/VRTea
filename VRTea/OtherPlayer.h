@@ -7,16 +7,19 @@ struct OtherPlayerData
 	inline OtherPlayerData(
 		const std::string& _name,
 		const VECTOR& _position,
-		unsigned int _color) :
+		unsigned int _color,
+		int32_t _id) :
 		name{ _name },
 		position{ _position },
-		color{ _color }
+		color{ _color },
+		id{_id}
 	{
 	}
 
 	std::string name;
 	VECTOR position;
 	unsigned int color;
+	int32_t id;
 };
 
 struct OtherPlayerChat
@@ -45,7 +48,7 @@ private:
 
 	void ChatEventHandler(const ChatContent& content);
 	std::vector<OtherPlayerData> otherPlayersData_;
-	std::unordered_map<std::string, OtherPlayerChat> otherPlayerChatMap_;
+	std::unordered_map<int32_t, OtherPlayerChat> otherPlayerChatMap_;
 	// 他プレイヤーのカプセルの高さ
 	float otherPlayerCapsuleHeight_;
 	// 他プレイヤーのカプセルの半径

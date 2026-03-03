@@ -82,8 +82,9 @@ void OtherPlayer::Update()
 				posV.x = positionJ.value("x", 0.0f);
 				posV.y = positionJ.value("y", 0.0f);
 				posV.z = positionJ.value("z", 0.0f);
+				int32_t id = data.value("id", -1);
 
-				otherPlayersData_.push_back({ name, posV, color });
+				otherPlayersData_.push_back({ name, posV, color,id });
 			}
 		}
 
@@ -122,7 +123,7 @@ void OtherPlayer::DrawOtherPlayer()
 		DrawCapsule3D(position, VGet(position.x, position.y + otherPlayerCapsuleHeight_, position.z), otherPlayerCapsuleRadius_, otherPlayerCapsuleDivNum_, colorCode, colorCode, TRUE);
 		
 		// メッセージボックス描画
-		auto itr = otherPlayerChatMap_.find(data.name);
+		auto itr = otherPlayerChatMap_.find(data.id);
 		if (itr == otherPlayerChatMap_.end())
 			continue;
 		if (itr->second.timeLeft <= 0.0f)
@@ -176,5 +177,5 @@ void OtherPlayer::ChatEventHandler(const ChatContent& content)
 		.timeLeft = otherPlayerChatDisplayTime_,
 		.content = content.message
 	};
-	otherPlayerChatMap_[content.sender] = otherPlayerChat;
+	otherPlayerChatMap_[content.senderId] = otherPlayerChat;
 }

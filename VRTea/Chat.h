@@ -8,6 +8,7 @@ struct ChatContent
 {
 	std::string sender;
 	std::string message;
+	int32_t senderId;
 };
 
 struct Chat : public GameObject

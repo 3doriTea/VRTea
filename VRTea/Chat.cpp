@@ -90,10 +90,12 @@ void Chat::ReadContent()
 		const json& content = eventContentJson.at("content");
 		std::string message = content.at("message");
 		std::string sender = content.at("sender");
+		int32_t senderId = content.value("senderId", -1);
 		ChatContent chatContent
 		{
 			.sender = sender,
-			.message = message
+			.message = message,
+			.senderId = senderId
 		};
 
 		chatLog.push_back(chatContent);

@@ -536,7 +536,7 @@ void NetQueue::Update()
 
 			std::string head = bodyJson.value("head", "undefined");
 			RecvList.push_back(Recv{ head, bodyJson.at("content") });
-			printfDx("RecvList Add %s", head.c_str());
+			//printfDx("RecvList Add %s", head.c_str());
 		}
 	}
 }
