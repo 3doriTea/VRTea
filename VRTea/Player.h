@@ -8,7 +8,7 @@
 
 namespace
 {
-	static const size_t CHAT_SIZE_MAX = 99;
+	static const size_t CHAT_SIZE_MAX = 4096;
 	static const size_t NAME_SIZE_MAX = 20;
 	static const size_t CHAT_BUFFER_SIZE = CHAT_SIZE_MAX + 1;  // null•¶Žš•ª’Ç‰Á
 	static const size_t NAME_BUFFER_SIZE = NAME_SIZE_MAX + 1;  // null•¶Žš•ª’Ç‰Á

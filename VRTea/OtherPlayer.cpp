@@ -3,7 +3,7 @@
 #include "Chat.h"
 #include "Player.h"
 #include "GameTime.h"
-
+#include "MTStringUtility.h"
 /// <summary>
 /// JSONから色情報を取得
 /// </summary>
@@ -169,7 +169,7 @@ void OtherPlayer::DrawNamePlate(const DxLib::VECTOR& playerPos, const std::strin
 		int width = DxLib::GetDrawStringWidth(name.c_str(), name.size());
 		int height = (textBoxPos.y - boxSizeY + textBoxPos.y) / 2;
 
-		DxLib::DrawStringF((textBoxPos.x - boxSizeX) + width, height, name.c_str(), GetColor(0, 0, 0), GetColor(255, 255, 255));
+		DxLib::DrawStringF((textBoxPos.x - boxSizeX) + width, height, mtgb::UTF8ToMulti(name).c_str(), GetColor(0, 0, 0), GetColor(255, 255, 255));
 	}
 }
 
@@ -200,13 +200,14 @@ void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos, const std::stri
 	assert(chat && "Chatクラスが見つからない");
 	// 送信者のメッセージを取得
 	std::string senderMessage = chat->GetSenderMessage(sender);
-	
 	if (senderMessage != "")
 	{
+		senderMessage = mtgb::UTF8ToMulti(senderMessage);
+		//int width = DxLib::GetDrawStringWidth(name.c_str(), name.size());
 		int width = DxLib::GetDrawStringWidth(senderMessage.c_str(), senderMessage.size());
 		int height = (textBoxPos.y - boxSizeY + textBoxPos.y)  / 2;
 
-		DxLib::DrawStringF((textBoxPos.x - boxSizeX) + width, height, senderMessage.c_str(), GetColor(0, 0, 0), GetColor(255, 255, 255));
+		DxLib::DrawStringF((textBoxPos.x - boxSizeX), height, senderMessage.c_str(), GetColor(255, 0, 0), GetColor(255, 255, 255));
 	}	
 
 }

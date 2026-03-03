@@ -80,6 +80,9 @@
     <ClCompile Include="ChatWorld.cpp">
       <Filter>Cppのファイルたち</Filter>
     </ClCompile>
+    <ClCompile Include="MTStringUtility.cpp">
+      <Filter>Cppのファイルたち</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -159,6 +162,9 @@
     </ClInclude>
     <ClInclude Include="Chat.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
+    </ClInclude>
+    <ClInclude Include="MTStringUtility.h">
+      <Filter>Cppのファイルたち</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
