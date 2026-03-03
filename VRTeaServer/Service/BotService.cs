@@ -65,6 +65,10 @@ namespace VRTeaServer.Service
 			ConcurrentQueue<ReceiveData> tcpReceiveQueue = [];
 
 			int botSessionId = -1;
+			uint botSelfColor = 0;
+			float positionX = 0.0f;
+			float positionY = 0.0f;
+			float positionZ = 0.0f;
 
 			async Task RunTcpCycleSend() => await Task.Run(async () =>
 			{
@@ -131,7 +135,9 @@ namespace VRTeaServer.Service
 							{
 								position = new
 								{
-									x = 0, y = 0, z = 0,
+									x = positionX,
+									y = positionY,
+									z = positionZ,
 								},
 							},
 						});
@@ -157,14 +163,31 @@ namespace VRTeaServer.Service
 			async Task<string> BotReadAIOutput(string content) => await Task.Run(async () =>
 			{
 				int embedBegin = content.IndexOf("##");
-				int embedEnd = content.IndexOf("##", embedBegin + 1);
+				if (embedBegin == -1)
+				{
+					return content;
+				}
 
-				if (uint.TryParse(content.Substring(embedBegin, embedEnd), out var color))
+				int embedEnd = content.IndexOf("##", embedBegin + 1);
+				if (embedEnd == -1)
+				{
+					return content.Replace("##", "");
+				}
+
+				ReadOnlySpan<char> colorCodeStr = content.AsSpan(embedBegin + 2, embedEnd - embedBegin - 2);
+
+				Log.WriteLine($"色コードのところ{colorCodeStr}");
+
+				if (uint.TryParse(
+					colorCodeStr,
+					System.Globalization.NumberStyles.HexNumber,
+					null,
+					out var color))
 				{
 					await BotChangeColor(color);
 				}
 
-				return content.Remove(embedBegin, embedEnd + 2);
+				return content.Remove(embedBegin, embedEnd - embedBegin + 2);
 			});
 
 			async Task BotChangeColor(uint color) => await Task.Run(() =>
@@ -213,6 +236,7 @@ namespace VRTeaServer.Service
 								}
 
 								botSessionId = content.Value<int>("id");
+								botSelfColor = content.Value<uint>("color");
 								Log.WriteLine($"ボットライフ:私のIdは{botSessionId}です。");
 							}
 							else if (head == "Event")

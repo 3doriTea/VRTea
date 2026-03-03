@@ -33,11 +33,11 @@ void Chat::Draw()
 
 void Chat::DrawChatLog()
 {
+	RenderVertex();
+
 	ImGuiIO& io = ImGui::GetIO();
 	ImGui::SetNextWindowPos({ 0, 0 }, ImGuiCond_Always, ImVec2(0.0f, 0.0f));
-
-	ImGui::SetNextWindowSize(ImVec2(400, 500), ImGuiCond_FirstUseEver);
-	RenderVertex();
+	ImGui::SetNextWindowSize(ImVec2(500, 200), 0);
 	ImGui::Begin("Log", 0, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
 
 	for (const ChatContent& chatContent : chatLog)
