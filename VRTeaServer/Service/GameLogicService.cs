@@ -27,6 +27,7 @@ namespace VRTeaServer.Service
 
 		private readonly ConcurrentDictionary<int, PlayerStatus> playersStatus = [];
 		private readonly ConcurrentDictionary<int, PlayerData> playersData = [];
+		private Random _random = new();
 
 		public GameLogicService(SessionManager sessionManager)
 		{
@@ -350,12 +351,20 @@ namespace VRTeaServer.Service
 					var joinedData = playersData.AddOrUpdate(sessionId, new PlayerData
 					{
 						Name = NameGenerator.Generate(sessionId),
-						Color = 0x00ff00,
+						Color = 0x000000,
 					},
 					(oldId, data) => 
 					{
 						return data;
 					});
+
+					joinedData.Color |= (uint)_random.Next(255);
+					joinedData.Color <<= 8;
+					joinedData.Color |= (uint)_random.Next(255);
+					joinedData.Color <<= 8;
+					joinedData.Color |= (uint)_random.Next(255);
+					joinedData.Color <<= 8;
+					joinedData.Color |= (uint)_random.Next(255);
 
 					JObject sendJson = JObject.FromObject(new
 					{
