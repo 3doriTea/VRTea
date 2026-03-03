@@ -1,6 +1,8 @@
 #include "OtherPlayer.h"
 #include "NetQueue.h"
-
+#include "Chat.h"
+#include "Player.h"
+#include "GameTime.h"
 
 /// <summary>
 /// JSONから色情報を取得
@@ -35,11 +37,26 @@ OtherPlayer::OtherPlayer()
 	: otherPlayerCapsuleHeight_{10.0f}
 	, otherPlayerCapsuleRadius_{5.0f}
 	, otherPlayerCapsuleDivNum_{5}
+	, otherPlayerChatDisplayTime_{5.0f}
+	, hCallback{-1}
 {
+	Chat* chat = FindGameObject<Chat>();
+	assert(chat && "Chatが見つからない");
+
+	hCallback = chat->RegisterChatEventHandler(
+		[this](const ChatContent& _content)
+		{
+			ChatEventHandler(_content);
+		});
 }
 
 OtherPlayer::~OtherPlayer()
 {
+	Chat* pChat = FindGameObject<Chat>();
+	if (pChat != nullptr)
+	{
+		pChat->UnregisterChatEventHandler(hCallback);
+	}
 }
 
 void OtherPlayer::Update()
@@ -71,6 +88,16 @@ void OtherPlayer::Update()
 		}
 
 	}
+
+	for (auto& [sender, chat] : otherPlayerChatMap_)
+	{
+		if (chat.timeLeft > 0.0f)
+		{
+			chat.timeLeft -= GameTime::DeltaTime();
+		}
+	}
+	OtherPlayerData data{ "bob",VGet(0.0f,0.0f,0.0f),GetColor(255,255,0) };
+	otherPlayersData_.push_back(data);
 }
 
 void OtherPlayer::Draw()
@@ -97,25 +124,28 @@ void OtherPlayer::DrawOtherPlayer()
 		DrawCapsule3D(position, VGet(position.x, position.y + otherPlayerCapsuleHeight_, position.z), otherPlayerCapsuleRadius_, otherPlayerCapsuleDivNum_, colorCode, colorCode, TRUE);
 		
 		// メッセージボックス描画
-		DrawMessageBox(position);
+		auto itr = otherPlayerChatMap_.find(data.name);
+		if (itr == otherPlayerChatMap_.end())
+			continue;
+		if (itr->second.timeLeft <= 0.0f)
+			continue;
+		DrawMessageBox(position,data.name);
 	}
 }
 
-void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos)
+void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos, const std::string& sender)
 {
-	int boxSizeX = 128, boxSizeY = 128;//テキストボックスのサイズ
+	int boxSizeX = 128	, boxSizeY = 128;//テキストボックスのサイズ
 	float capsuleHeight = 10.0f;//カプセルの高さ
 	float capsuleWidth = 2.0f;//カプセルの幅
 	float triangleHeight = capsuleHeight + capsuleWidth;//頂点の位置
 	float textBoxHeight = triangleHeight + 4.0f;//テキストボックスの高さ調整
-	VECTOR textBoxPos = VGet(0.0f, 0.0f, 0.0f);//テキストボックスの位置
-	VECTOR trianglePos = VGet(0.0f, 0.0f, 0.0f);
-	textBoxPos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + textBoxHeight, playerPos.z));
-	trianglePos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + triangleHeight, playerPos.z));
+	VECTOR textBoxPos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + textBoxHeight, playerPos.z));
+	VECTOR trianglePos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + triangleHeight, playerPos.z));	
 
 	int triangleSizeX = 10.0f;//幅
 	int triangleSizeY = textBoxPos.y;
-
+	
 	if (textBoxPos.z <= 1.0f)
 	{
 		//テキストボックスの枠
@@ -125,4 +155,28 @@ void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos)
 		DrawBox(textBoxPos.x - boxSizeX, textBoxPos.y - boxSizeY, textBoxPos.x + boxSizeX, textBoxPos.y, GetColor(255, 255, 255), TRUE);
 		DrawTriangle(trianglePos.x, trianglePos.y, (trianglePos.x - triangleSizeX), triangleSizeY, (trianglePos.x + triangleSizeX), triangleSizeY, GetColor(255, 255, 255), TRUE);
 	}
+
+	Chat* chat = FindGameObject<Chat>();
+	assert(chat && "Chatクラスが見つからない");
+	// 送信者のメッセージを取得
+	std::string senderMessage = chat->GetSenderMessage(sender);
+	
+	if (senderMessage != "")
+	{
+		int width = DxLib::GetDrawStringWidth(senderMessage.c_str(), senderMessage.size());
+		int height = (textBoxPos.y - boxSizeY + textBoxPos.y)  / 2;
+
+		DxLib::DrawStringF((textBoxPos.x - boxSizeX) + width, height, senderMessage.c_str(), GetColor(0, 0, 0), GetColor(255, 255, 255));
+	}	
+
+}
+
+void OtherPlayer::ChatEventHandler(const ChatContent& content)
+{
+	OtherPlayerChat otherPlayerChat =
+	{
+		.timeLeft = otherPlayerChatDisplayTime_,
+		.content = content.message
+	};
+	otherPlayerChatMap_[content.sender] = otherPlayerChat;
 }

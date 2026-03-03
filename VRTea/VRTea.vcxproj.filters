@@ -77,6 +77,9 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Cppのファイルたち</Filter>
     </ClCompile>
+    <ClCompile Include="ChatWorld.cpp">
+      <Filter>Cppのファイルたち</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -93,9 +96,6 @@
     </ClInclude>
     <ClInclude Include="PlayerState.h">
       <Filter>Cppのファイルたち\ゲーム側</Filter>
-    </ClInclude>
-    <ClInclude Include="Chat.h">
-      <Filter>Cppのファイルたち</Filter>
     </ClInclude>
     <ClInclude Include="Serializable.h">
       <Filter>Cppのファイルたち</Filter>
@@ -153,6 +153,12 @@
     </ClInclude>
     <ClInclude Include="Logger.h">
       <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatWorld.h">
+      <Filter>Cppのファイルたち</Filter>
+    </ClInclude>
+    <ClInclude Include="Chat.h">
+      <Filter>Cppのファイルたち\ゲーム側</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

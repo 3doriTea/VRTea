@@ -5,7 +5,7 @@
 #include "NetQueue.h"
 #include "NetQueueStub.h"
 #include "Logger.h"
-
+#include <algorithm>
 
 Chat::Chat()
 	: showLogWindow{true}
@@ -84,7 +84,7 @@ void Chat::ReadContent()
 
 	// Event ‚ÌŽí—Þ‚ª‚Ü‚½‚ ‚é
 	std::string eventHead = eventContentJson.value("head", "undefined");
-
+	
 	if (eventHead == "Chat")
 	{
 		const json& content = eventContentJson.at("content");
@@ -97,6 +97,11 @@ void Chat::ReadContent()
 		};
 
 		chatLog.push_back(chatContent);
+
+		for (auto& handler : chatEventHandlers)
+		{
+			handler(chatContent);
+		}
 	}
 	else
 	{
@@ -114,4 +119,18 @@ std::string Chat::GetSenderMessage(std::string_view sender)
 			return ritr->message;
 	}
 	return "";
+}
+
+int Chat::RegisterChatEventHandler(std::function<void(const ChatContent&)> handler)
+{
+	chatEventHandlers.push_back(handler);
+	return chatEventHandlers.size() - 1;
+}
+
+void Chat::UnregisterChatEventHandler(int handle)
+{
+	if (chatEventHandlers.size() <= handle || handle < 0)
+		return;
+
+	chatEventHandlers.erase(chatEventHandlers.begin() + handle);
 }
