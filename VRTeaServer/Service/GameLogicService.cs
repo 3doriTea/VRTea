@@ -219,6 +219,11 @@ namespace VRTeaServer.Service
 						}));
 					}
 
+					if (userNameToData.Count <= 0)
+					{
+						return;  // 名前とデータのペアがないならリターン
+					}
+
 					JObject sendJson = JObject.FromObject(new
 					{
 						head = "Updated",
