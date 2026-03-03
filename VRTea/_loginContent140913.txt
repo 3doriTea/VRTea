@@ -1,0 +1,1 @@
+{"content":{"message":"にょながぷいにゃさんが退出しました。","sender":"*","senderId":-1},"head":"Chat"}

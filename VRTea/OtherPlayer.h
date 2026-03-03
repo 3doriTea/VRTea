@@ -39,6 +39,10 @@ struct OtherPlayer : GameObject
 	/// </summary>
 	void DrawOtherPlayer();
 	/// <summary>
+	/// 他プレイヤーの上に名前プレートを描画する
+	/// </summary>
+	void DrawNamePlate(const DxLib::VECTOR& playerPos, const std::string& name);
+	/// <summary>
 	/// 他プレイヤーの上にメッセージボックスを描画する
 	/// </summary>
 	/// <param name="playerPos">ボックス位置の基準にする他プレイヤー座標</param>

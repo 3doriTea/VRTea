@@ -4,6 +4,7 @@ using System.Buffers.Binary;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
+using VRTeaServer.AI;
 using VRTeaServer.Logging;
 using static VRTeaServer.Utility.NetWorkUtil;
 
@@ -20,11 +21,17 @@ namespace VRTeaServer.Service
 		
 		private IPAddress _serverIPAddress;  // サーバーのIPアドレス
 		private ushort _gamePort;            // ゲームサービスを公開するポート番号
+		private AIBrain? _ai;                // AIの脳
 		
-		public BotService(IPAddress serverIPAddress, ushort gamePort)
+		public BotService(IPAddress serverIPAddress, ushort gamePort, string aiToken)
 		{
 			_serverIPAddress = serverIPAddress;
 			_gamePort = gamePort;
+
+			if (!string.IsNullOrEmpty(aiToken))
+			{
+				_ai = new AIBrain(aiToken);
+			}
 		}
 
 		public async Task Start(CancellationTokenSource cts) => await Task.Run(async () =>
@@ -57,7 +64,7 @@ namespace VRTeaServer.Service
 			ConcurrentQueue<SendData> tcpSendQueue = [];
 			ConcurrentQueue<ReceiveData> tcpReceiveQueue = [];
 
-			
+			int botSessionId = -1;
 
 			async Task RunTcpCycleSend() => await Task.Run(async () =>
 			{
@@ -146,14 +153,152 @@ namespace VRTeaServer.Service
 				}
 				Log.WriteLine($"ボットUDP送受信処理停止");
 			});
-			
-			async Task RunBotLife() => await Task.Run(() =>
+
+			async Task<string> BotReadAIOutput(string content) => await Task.Run(async () =>
+			{
+				int embedBegin = content.IndexOf("##");
+				int embedEnd = content.IndexOf("##", embedBegin + 1);
+
+				if (uint.TryParse(content.Substring(embedBegin, embedEnd), out var color))
+				{
+					await BotChangeColor(color);
+				}
+
+				return content.Remove(embedBegin, embedEnd + 2);
+			});
+
+			async Task BotChangeColor(uint color) => await Task.Run(() =>
+			{
+				JObject sendJson = JObject.FromObject(new
+				{
+					head = "Event",
+					content = new
+					{
+						head = "NewColor",
+						content = color,
+					},
+				});
+				SendData.FromString($"{sendJson}", out var sendData);
+
+				tcpSendQueue.Enqueue(sendData);
+			});
+
+			async Task RunBotLife() => await Task.Run(async () =>
 			{
 				Log.WriteLine($"ボットライフ開始");
+
+				JObject firstJoinJson = JObject.FromObject(new
+				{
+					head = "Join",
+				});
+				SendData.FromString($"{firstJoinJson}", out var firstJoinData);
+				tcpSendQueue.Enqueue(firstJoinData);
+
 				while (true)
 				{
 					try
 					{
+						if (tcpReceiveQueue.TryDequeue(out var receiveData))
+						{
+							var receiveJson = JObject.Parse(receiveData.GetString());
+
+							var head = receiveJson.Value<string>("head");
+							if (head == "Joined")
+							{
+								var content = receiveJson["content"];
+								if (content is null)
+								{
+									Log.Error($"ボットライフ:{"参加情報なのにコンテンツがない"}");
+									continue;
+								}
+
+								botSessionId = content.Value<int>("id");
+								Log.WriteLine($"ボットライフ:私のIdは{botSessionId}です。");
+							}
+							else if (head == "Event")
+							{
+								var content = receiveJson["content"];
+								if (content is null)
+								{
+									Log.Error($"ボットライフ:{"イベントなのにコンテンツがない"}");
+									continue;
+								}
+
+								if (content.Value<string>("head") != "Chat")
+								{
+									Log.Error($"ボットライフ:{"受信イベントがチャット以外対応していない"}");
+									continue;
+								}
+
+								var chatContent = content["content"];
+								if (chatContent is null)
+								{
+									Log.Error($"ボットライフ:{"チャットイベントなのにコンテンツがない"}");
+									continue;
+								}
+
+								var chatContentMessage = chatContent.Value<string>("message");
+								if (chatContentMessage is null)
+								{
+									Log.Error($"ボットライフ:{"チャットコンテンツのメッセージがない"}");
+									continue;
+								}
+								var chatContentSenderId = chatContent.Value<int>("senderId");
+								if (chatContentSenderId == 0)
+								{
+									Log.Error($"ボットライフ:{"チャットコンテンツの送信者Idがない"}");
+									continue;
+								}
+								var chatContentSenderName = chatContent.Value<string>("sender");
+								if (chatContentSenderName is null)
+								{
+									Log.Error($"ボットライフ:{"チャットコンテンツの送信者名がない"}");
+									continue;
+								}
+
+								if (chatContentSenderId == botSessionId
+									|| chatContentSenderId == -1)
+								{
+									continue;  // 自分自身で送ったチャット/ワールドメッセージなら無視
+								}
+
+								string? replyContent;
+								if (_ai is null)
+								{
+									replyContent = $"{chatContentMessage} <- わかるー";
+								}
+								else
+								{
+									string? output = await _ai.Ask(chatContentMessage);
+
+									if (output is null)
+									{
+										replyContent = $"{chatContentMessage} <- わかるー";									
+									}
+									else
+									{
+										replyContent = await BotReadAIOutput(output);
+									}
+								}
+
+								JObject sendJson = JObject.FromObject(new
+								{
+									head = "Event",
+									content = new
+									{
+										head = "Chat",
+										content = replyContent,
+									},
+								});
+								SendData.FromString($"{sendJson}", out var sendData);
+
+								tcpSendQueue.Enqueue(sendData);
+							}
+							else
+							{
+								Log.Error($"ボットライフ:{$"知らないTCP通信{receiveJson}"}");
+							}
+						}
 
 					}
 					catch (OperationCanceledException)

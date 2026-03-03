@@ -88,6 +88,19 @@ void OtherPlayer::Update()
 			}
 		}
 
+#if _DEBUG && 0
+		{// Debug
+			otherPlayersData_.clear();
+			unsigned int color = 0xffffffffU;
+			VECTOR posV{};
+			posV.x = 0.f;
+			posV.y = 0.f;
+			posV.z = 0.f;
+			std::string name = "へのへのmoへじ";
+			int32_t idInt = 2;
+			otherPlayersData_.push_back({ name, posV, color,idInt });
+		}
+#endif
 	}
 
 	for (auto& [sender, chat] : otherPlayerChatMap_)
@@ -122,19 +135,52 @@ void OtherPlayer::DrawOtherPlayer()
 		// カプセル描画
 		DrawCapsule3D(position, VGet(position.x, position.y + otherPlayerCapsuleHeight_, position.z), otherPlayerCapsuleRadius_, otherPlayerCapsuleDivNum_, colorCode, colorCode, TRUE);
 		
+		// 名前の描画
+		DrawNamePlate(position, data.name);
+		
 		// メッセージボックス描画
 		auto itr = otherPlayerChatMap_.find(data.id);
 		if (itr == otherPlayerChatMap_.end())
 			continue;
 		if (itr->second.timeLeft <= 0.0f)
 			continue;
-		DrawMessageBox(position,data.name);
+		DrawMessageBox(position, data.name);
+	}
+}
+
+void OtherPlayer::DrawNamePlate(const DxLib::VECTOR& playerPos, const std::string& name)
+{
+	int boxSizeX = 128, boxSizeY = 32;//テキストボックスのサイズ
+	float capsuleHeight = 10.0f;//カプセルの高さ
+	float capsuleWidth = 2.0f;//カプセルの幅
+	float triangleHeight = capsuleHeight + capsuleWidth;//頂点の位置
+	float textBoxHeight = triangleHeight + 4.0f;//テキストボックスの高さ調整
+	VECTOR textBoxPos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + textBoxHeight, playerPos.z));
+	VECTOR trianglePos = ConvWorldPosToScreenPos(VGet(playerPos.x, playerPos.y + triangleHeight, playerPos.z));
+
+	int triangleSizeX = 10.0f;//幅
+	int triangleSizeY = textBoxPos.y;
+
+	if (textBoxPos.z <= 1.0f)
+	{
+		//テキストボックスの枠
+		DrawBox((textBoxPos.x - boxSizeX) - 3, (textBoxPos.y - boxSizeY) - 3, (textBoxPos.x + boxSizeX) + 3, textBoxPos.y + 3, GetColor(0, 0, 255), TRUE);
+		//テキストボックス
+		DrawBox(textBoxPos.x - boxSizeX, textBoxPos.y - boxSizeY, textBoxPos.x + boxSizeX, textBoxPos.y, GetColor(255, 255, 255), TRUE);
+	}
+
+	if (name != "")
+	{
+		int width = DxLib::GetDrawStringWidth(name.c_str(), name.size());
+		int height = (textBoxPos.y - boxSizeY + textBoxPos.y) / 2;
+
+		DxLib::DrawStringF((textBoxPos.x - boxSizeX) + width, height, name.c_str(), GetColor(0, 0, 0), GetColor(255, 255, 255));
 	}
 }
 
 void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos, const std::string& sender)
 {
-	int boxSizeX = 128	, boxSizeY = 128;//テキストボックスのサイズ
+	int boxSizeX = 128	, boxSizeY = 128 + 32;//テキストボックスのサイズ
 	float capsuleHeight = 10.0f;//カプセルの高さ
 	float capsuleWidth = 2.0f;//カプセルの幅
 	float triangleHeight = capsuleHeight + capsuleWidth;//頂点の位置

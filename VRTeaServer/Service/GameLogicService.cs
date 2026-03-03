@@ -339,7 +339,7 @@ namespace VRTeaServer.Service
 					}
 				}
 
-				void Join(int sessionId)
+				async Task Join(int sessionId)
 				{
 					playersStatus.TryAdd(sessionId, new PlayerStatus
 					{
@@ -358,33 +358,49 @@ namespace VRTeaServer.Service
 						return data;
 					});
 
-					joinedData.Color |= (uint)_random.Next(255);
+					joinedData.Color |= (uint)_random.Next(byte.MaxValue);
 					joinedData.Color <<= 8;
-					joinedData.Color |= (uint)_random.Next(255);
+					joinedData.Color |= (uint)_random.Next(byte.MaxValue);
 					joinedData.Color <<= 8;
-					joinedData.Color |= (uint)_random.Next(255);
+					joinedData.Color |= (uint)_random.Next(byte.MaxValue);
 					joinedData.Color <<= 8;
-					joinedData.Color |= (uint)_random.Next(255);
+					joinedData.Color |= (uint)_random.Next(byte.MaxValue);
 
-					JObject sendJson = JObject.FromObject(new
-					{
-						head = "Event",
-						content = new
+					{  // 参加したクライアントに自身の情報を送信
+						JObject sendJson = JObject.FromObject(new
 						{
-							head = "Chat",
+							head = "Joined",
 							content = new
 							{
-								senderId = -1,
-								sender = "*",
-								message = $"{joinedData.Name}さんが参加しました。",
-							}
-						},
-					});
+								id = sessionId,
+								name = joinedData.Name,
+								color = joinedData.Color,
+							},
+						});
+						await SendTo(sessionId, $"{sendJson}");
+					}
 
-					foreach (var sendId in _sessionManager.Sessions)
-					{
-						// MEMO: 参加したてのIdさんを含む全員に送信する
-						_ = SendTo(sendId, $"{sendJson}");
+					{  // チャットに参加ログ送る処理
+						JObject sendJson = JObject.FromObject(new
+						{
+							head = "Event",
+							content = new
+							{
+								head = "Chat",
+								content = new
+								{
+									senderId = -1,
+									sender = "*",
+									message = $"{joinedData.Name}さんが参加しました。",
+								}
+							},
+						});
+
+						foreach (var sendId in _sessionManager.Sessions)
+						{
+							// MEMO: 参加したてのIdさんを含む全員に送信する
+							_ = SendTo(sendId, $"{sendJson}");
+						}
 					}
 				}
 			}

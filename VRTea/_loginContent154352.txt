@@ -1,0 +1,1 @@
+{"content":{"message":"了解だ！車輪。","sender":"にょながぷいにゃ","senderId":1},"head":"Chat"}

@@ -16,6 +16,7 @@ namespace VRTeaServer
 			var askIPAddress = new AskIPAddress();
 			var askGamePortNumber = new AskPortNumber();
 			var askWebPortNumber = new AskPortNumber();
+			var askAPIKey = new AskAPIKey();
 			var askReady = new AskReady();
 
 			var askPlayer = new AskPlayer(
@@ -26,6 +27,7 @@ namespace VRTeaServer
 				askGamePortNumber,
 				new AskDescription("Web"),
 				askWebPortNumber,
+				askAPIKey,
 				askReady,
 			]);
 
@@ -45,9 +47,10 @@ namespace VRTeaServer
 			[
 				new LoggerService(new DirectoryInfo(LogDirectory)),
 				new TerminateService(cts),
-				//new BotService(
-				//	askIPAddress.IPAddress,
-				//	askGamePortNumber.PortNumber),
+				new BotService(
+					askIPAddress.IPAddress,
+					askGamePortNumber.PortNumber,
+					askAPIKey.Key),
 				new GameTcpService(
 					sessionManager,
 					askIPAddress.IPAddress,

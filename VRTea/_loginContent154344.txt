@@ -1,0 +1,1 @@
+{"content":{"message":"ima naniiro","sender":"ながにょにゅながぷいん","senderId":2},"head":"Chat"}
