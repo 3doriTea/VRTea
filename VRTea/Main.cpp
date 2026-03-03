@@ -17,15 +17,40 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetGraphMode(1280, 720, 32);
 	ChangeWindowMode(TRUE);
 	SetWindowSizeExtendRate(1.0);
+	SetUseIMEFlag(TRUE);
+	SetUseTSFFlag(FALSE);
 	if (DxLib_Init() == -1)
 	{
 		return -1;
 	}
 	SetHookWinProc([](HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)-> LRESULT /*CALLBACK*/
 		{
-			// DxLibとImGuiのウィンドウプロシージャを両立させる
-			SetUseHookWinProcReturnValue(FALSE);
-			return ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam);
+			if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
+			{
+				// DxLibとImGuiのウィンドウプロシージャを両立させる
+				SetUseHookWinProcReturnValue(TRUE);
+				return true;
+			}
+			switch (msg)
+			{
+			case WM_IME_SETCONTEXT:
+			case WM_IME_STARTCOMPOSITION:
+			case WM_IME_ENDCOMPOSITION:
+			case WM_IME_COMPOSITION:
+			case WM_IME_NOTIFY:
+			case WM_IME_REQUEST:
+				SetUseHookWinProcReturnValue(TRUE);
+				return DefWindowProc(hWnd, msg, wParam, lParam);
+
+			case WM_SYSCOMMAND:
+				if ((wParam & 0xfff0) == SC_KEYMENU) { // Disable ALT application menu
+					SetUseHookWinProcReturnValue(TRUE);
+					return 0;
+				}
+				break;
+
+			}
+			return 0;
 		});
 
 	SetDrawScreen(DX_SCREEN_BACK);
@@ -45,10 +70,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 #pragma region ゲームオブジェクトはここでインスタンス作ってください
 
 	GameObject::Instantiate<NetQueue>();
-	GameObject::Instantiate<Player>();
 	GameObject::Instantiate<PlayerCamera>();
 	GameObject::Instantiate<OtherPlayer>();
 	GameObject::Instantiate<ChatWorld>();
+	GameObject::Instantiate<Player>();
 	GameObject::Instantiate<Chat>();
 	OtherPlayer* pOtherPlayer = GameObject::FindGameObject<OtherPlayer>();
 	pOtherPlayer->SetChatEventHandler();
@@ -60,6 +85,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	while (true)
 	{
+		if (ProcessMessage() == -1)
+		{
+			break;
+		}
+
 		ImGui_ImplDXlib_NewFrame();
 		ImGui::NewFrame();
 
@@ -67,10 +97,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		world.Update();
 		world.Draw();
-		if (ProcessMessage() == -1)
-		{
-			break;
-		}
 		ScreenFlip();
 		ClearDrawScreen();
 
@@ -84,6 +110,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			ImGui::UpdatePlatformWindows();
 			ImGui::RenderPlatformWindowsDefault();
 		}
+	
 	}
 
 	ImGui_ImplDXlib_Shutdown();
