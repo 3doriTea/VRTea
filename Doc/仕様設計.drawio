@@ -404,7 +404,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="SArtig0PYw3qRs9xpTxp" name="サーバ側仕様整理場所">
-    <mxGraphModel dx="868" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel dx="632" dy="341" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -452,6 +452,39 @@
         </mxCell>
         <mxCell id="2ZJMLax_IrWF23l97tEU-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="SessionContext" vertex="1">
           <mxGeometry height="40" width="120" x="600" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" value="クライアント" vertex="1">
+          <mxGeometry height="250" width="140" x="440" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" value="サーバー" vertex="1">
+          <mxGeometry height="250" width="140" x="640" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="UDPポート:3333&lt;div&gt;UDPソケット&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="650" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="TCPポート:8000&lt;div&gt;リスンスケット&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="650" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="TCP: ????" vertex="1">
+          <mxGeometry height="40" width="120" x="450" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Cascadia Code;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DCascadia%2BCode;" value="UDP: ????" vertex="1">
+          <mxGeometry height="40" width="120" x="450" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-9" edge="1" parent="1" source="dUM2CGQESVqTJ1VjOsb8-5" style="edgeStyle=none;shape=link;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="dUM2CGQESVqTJ1VjOsb8-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="430" as="sourcePoint" />
+            <mxPoint x="300" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-10" edge="1" parent="1" source="dUM2CGQESVqTJ1VjOsb8-4" style="edgeStyle=none;shape=link;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="dUM2CGQESVqTJ1VjOsb8-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="560" as="sourcePoint" />
+            <mxPoint x="580" y="568" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dUM2CGQESVqTJ1VjOsb8-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="60" width="40" x="507" y="490" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
