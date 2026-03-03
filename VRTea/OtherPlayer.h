@@ -48,9 +48,9 @@ struct OtherPlayer : GameObject
 	/// <param name="playerPos">ボックス位置の基準にする他プレイヤー座標</param>
 	void DrawMessageBox(const DxLib::VECTOR& playerPos,const std::string& sender);
 
+	void SetChatEventHandler();
 private:
 
-	void ChatEventHandler(const ChatContent& content);
 	std::vector<OtherPlayerData> otherPlayersData_;
 	std::unordered_map<int32_t, OtherPlayerChat> otherPlayerChatMap_;
 	// 他プレイヤーのカプセルの高さ

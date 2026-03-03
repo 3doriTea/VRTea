@@ -40,14 +40,9 @@ OtherPlayer::OtherPlayer()
 	, otherPlayerChatDisplayTime_{5.0f}
 	, hCallback{-1}
 {
-	Chat* chat = FindGameObject<Chat>();
-	assert(chat && "Chat‚ªŒ©‚Â‚©‚ç‚È‚¢");
+	
 
-	hCallback = chat->RegisterChatEventHandler(
-		[this](const ChatContent& _content)
-		{
-			ChatEventHandler(_content);
-		});
+	
 }
 
 OtherPlayer::~OtherPlayer()
@@ -216,12 +211,19 @@ void OtherPlayer::DrawMessageBox(const DxLib::VECTOR& playerPos, const std::stri
 
 }
 
-void OtherPlayer::ChatEventHandler(const ChatContent& content)
+void OtherPlayer::SetChatEventHandler()
 {
-	OtherPlayerChat otherPlayerChat =
-	{
-		.timeLeft = otherPlayerChatDisplayTime_,
-		.content = content.message
-	};
-	otherPlayerChatMap_[content.senderId] = otherPlayerChat;
+	Chat* chat = FindGameObject<Chat>();
+	assert(chat && "Chat‚ªŒ©‚Â‚©‚ç‚È‚¢");
+	hCallback = chat->RegisterChatEventHandler(
+		[this](const ChatContent& _content)
+		{
+			OtherPlayerChat otherPlayerChat =
+			{
+				.timeLeft = otherPlayerChatDisplayTime_,
+				.content = _content.message
+			};
+			otherPlayerChatMap_[_content.senderId] = otherPlayerChat;
+		});
+	
 }

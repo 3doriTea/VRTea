@@ -34,11 +34,10 @@ Player::Player() :
 
 	// 2. 日本語の範囲を指定 (GetGlyphRangesJapanese() を使うのがミソ)
 	const ImWchar* glyph_ranges = io.Fonts->GetGlyphRangesJapanese();
-
+	
 	// 3. フォントファイルをロード (Windows標準フォントの例)
 	// サイズは 18.0f くらいが見やすいです
 	io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\msyh.ttc", 18.0f, &config, glyph_ranges);
-
 	NetQueue* pNetQueue = FindGameObject<NetQueue>();
 	assert(pNetQueue && "NetQueueが見つからない");
 
@@ -54,8 +53,7 @@ Player::Player() :
 void Player::Update()
 {
 	bool currMKeyPressed = ImGui::IsKeyPressed(ImGuiKey_M, false) && ImGui::IsKeyDown(ImGuiKey_LeftCtrl);
-	bool currEnterKeyPressed = CheckHitKey(KEY_INPUT_RETURN);
-	
+	bool currEnterPressed = ImGui::IsKeyPressed(ImGuiKey_Enter);
 	// メニューのステートの切り替え
 	if (prevMKeyPressed_ != currMKeyPressed && currMKeyPressed
 		&& pPlayModeState_ != &STATE_CHAT_MODE)  // チャット中は変更できない
@@ -71,7 +69,7 @@ void Player::Update()
 		}
 		pPlayModeState_->Enter(*this);
 	}
-	else if (prevTKeyPressed_ != currEnterKeyPressed && currEnterKeyPressed)
+	else if (currEnterPressed)
 	{
 		pPlayModeState_->Exit(*this);  // 変更だよ
 		if (pPlayModeState_ != &STATE_CHAT_MODE)
@@ -85,7 +83,6 @@ void Player::Update()
 		pPlayModeState_->Enter(*this);
 	}
 	prevMKeyPressed_ = currMKeyPressed;
-	prevTKeyPressed_ = currEnterKeyPressed;
 
 	pPlayModeState_->Update(*this);
 
