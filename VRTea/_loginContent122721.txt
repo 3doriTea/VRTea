@@ -1,0 +1,1 @@
+{"content":{"message":"ながにょにゅにゃさんが退出しました。","sender":"*"},"head":"Chat"}
