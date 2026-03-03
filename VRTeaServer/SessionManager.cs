@@ -214,7 +214,15 @@ namespace VRTeaServer
 		/// <returns></returns>
 		public bool TryDequeue(int sessionId, out ReceiveData data)
 		{
-			return _sessions[sessionId].ReceiveQueue.Reader.TryRead(out data);
+			try
+			{
+				return _sessions[sessionId].ReceiveQueue.Reader.TryRead(out data);
+			}
+			catch
+			{
+				data = default;
+				return false;
+			}
 		}
 
 		/// <summary>
@@ -225,9 +233,16 @@ namespace VRTeaServer
 		/// <returns></returns>
 		public bool TryDequeueUDP(int sessionId, out ReceiveData data)
 		{
-			return _receiveDictUDP.TryRemove(sessionId, out data);
-			//return _sessions[sessionId].ReceiveQueue.Reader.TryRead(out data);
-		}
+			try
+			{
+				return _receiveDictUDP.TryRemove(sessionId, out data);
+			}
+			catch
+			{
+				data = default;
+				return false;
+			}
+}
 
 		/// <summary>
 		/// セッションを開始する

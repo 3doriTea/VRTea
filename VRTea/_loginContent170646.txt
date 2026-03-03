@@ -1,0 +1,1 @@
+{"content":{"message":"こんちゃ","sender":"ながにょにゅながぷいん","senderId":2},"head":"Chat"}

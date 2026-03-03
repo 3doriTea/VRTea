@@ -295,9 +295,9 @@ namespace VRTeaServer.Service
 								{
 									string? output = await _ai.Ask(chatContentMessage);
 
-									if (output is null)
+									if (string.IsNullOrEmpty(output))
 									{
-										replyContent = $"{chatContentMessage} <- わかるー";									
+										replyContent = $"{chatContentMessage} <- わかるー";
 									}
 									else
 									{

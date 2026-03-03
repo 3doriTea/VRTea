@@ -56,8 +56,6 @@ namespace VRTeaServer.AI
 				var result = await _groqApi.CreateChatCompletionAsync(request);
 				var responseText = result?["choices"]?[0]?["message"]?["content"]?.ToString();
 
-				Console.WriteLine("AI Answer:");
-				Console.WriteLine(responseText);
 				return responseText!;
 			}
 			catch (Exception ex)
