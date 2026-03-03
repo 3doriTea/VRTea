@@ -283,6 +283,7 @@ namespace VRTeaServer.Service
 								if (chatContentSenderId == botSessionId
 									|| chatContentSenderId == -1)
 								{
+									_ai?.AddHistory("assistant", chatContentMessage);
 									continue;  // 自分自身で送ったチャット/ワールドメッセージなら無視
 								}
 

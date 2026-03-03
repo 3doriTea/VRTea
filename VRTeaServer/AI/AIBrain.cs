@@ -24,33 +24,50 @@ namespace VRTeaServer.AI
 			"名前は「足車輪」");
 		public string AiModel { get; set; } = "openai/gpt-oss-20b";//"llama3-8b-8192", // または "llama3-70b-8192"
 
+		private readonly JsonArray _history = [];
+
 		public AIBrain(string apiKey)
 		{
 			_groqApi = new(apiKey);
+
+			_history.Add(new JsonObject
+			{
+				["role"] = "system",
+				["content"] = SystemRole,
+			});
+		}
+
+		public void AddHistory(string role, string content)
+		{
+			lock (_history)
+			{
+				_history.Add(new JsonObject
+				{
+					["role"] = role,
+					["content"] = content
+				});
+			}
 		}
 
 		public async Task<string?> Ask(string content)
 		{
-			var request = new JsonObject
+			JsonObject? request = null;
+			lock (_history)
 			{
-				["model"] = AiModel,
-				["messages"] = new JsonArray
+				_history.Add(new JsonObject
 				{
-					new JsonObject
-					{
-						["role"] = "system",
-						["content"] = SystemRole,
-					},
-					new JsonObject
-					{
-						["role"] = "user",
-						["content"] = $"{content}",
-					}
-				},
-				["temperature"] = 0.5,
-				["max_tokens"] = 1024
-			};
+					["role"] = "user",
+					["content"] = $"{content}",
+				});
 
+				request = new JsonObject
+				{
+					["model"] = AiModel,
+					["messages"] = _history,
+					["temperature"] = 0.5,
+					["max_tokens"] = 1024
+				};
+			}
 			try
 			{
 				var result = await _groqApi.CreateChatCompletionAsync(request);
