@@ -1,0 +1,1 @@
+{"content":{"message":"ns","sender":"fuga","senderId":2},"head":"Chat"}

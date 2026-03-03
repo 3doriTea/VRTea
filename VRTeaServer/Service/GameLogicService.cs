@@ -192,7 +192,7 @@ namespace VRTeaServer.Service
 						return;
 					}
 
-					Dictionary<string, JObject> userNameToData = [];
+					Dictionary<int, JObject> sessionIdToData = [];
 
 					// 他プレイヤーの情報を返す
 					foreach (var (pSId, pData) in playersData)
@@ -208,9 +208,10 @@ namespace VRTeaServer.Service
 							continue;
 						}
 
-						userNameToData.Add(pData.Name, JObject.FromObject(new
+						sessionIdToData.Add(pSId, JObject.FromObject(new
 						{
 							id = pSId,
+							name = pData.Name,
 							color = pData.Color,
 							position = new
 							{
@@ -221,15 +222,15 @@ namespace VRTeaServer.Service
 						}));
 					}
 
-					if (userNameToData.Count <= 0)
+					if (sessionIdToData.Count <= 0)
 					{
-						return;  // 名前とデータのペアがないならリターン
+						return;  // セッションIdとデータのペアがないならリターン
 					}
 
 					JObject sendJson = JObject.FromObject(new
 					{
 						head = "Updated",
-						content = userNameToData,
+						content = sessionIdToData,
 					});
 
 					_ = SendToUDP(sessionId, $"{sendJson}");
@@ -246,7 +247,10 @@ namespace VRTeaServer.Service
 					var changedName = changeContentJson.Value<string>("content");
 
 					Log.WriteLine($"[SID:{sessionId}]{changedName ?? "{{null}}"}");
+
 					
+
+
 					if (changedName is null)
 					{
 						// チャットコンテンツがないよ！
