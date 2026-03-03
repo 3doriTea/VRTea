@@ -96,8 +96,6 @@ void OtherPlayer::Update()
 			chat.timeLeft -= GameTime::DeltaTime();
 		}
 	}
-	OtherPlayerData data{ "bob",VGet(0.0f,0.0f,0.0f),GetColor(255,255,0) };
-	otherPlayersData_.push_back(data);
 }
 
 void OtherPlayer::Draw()
