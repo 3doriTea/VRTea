@@ -210,6 +210,7 @@ namespace VRTeaServer.Service
 
 						userNameToData.Add(pData.Name, JObject.FromObject(new
 						{
+							id = pSId,
 							color = pData.Color,
 							position = new
 							{
