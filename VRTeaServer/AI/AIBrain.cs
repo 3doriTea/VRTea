@@ -12,7 +12,7 @@ namespace VRTeaServer.AI
 	{
 		private readonly GroqApiClient _groqApi;
 		const string ConstantSetting =
-			"自分の色を変更するときはメッセージの途中で##から始まり##で終わるマークの中に16進数カラーコードを入れて感情表現して。例「こんにちは。##33ff33##お元気ですか。」";
+			"文章は20文字目ぐらいで改行を入れて。回答は短くてもOk。自分の色を変更するときはメッセージの途中で##から始まり##で終わるマークの中に16進数カラーコードを入れて感情表現して。例「こんにちは。##33ff33##お元気ですか。」";
 
 		public string SystemRole { get; set; } = string.Join("",
 			ConstantSetting,
