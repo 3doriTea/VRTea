@@ -97,12 +97,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		world.Update();
 		world.Draw();
-		ScreenFlip();
-		ClearDrawScreen();
-
 		ImGui::EndFrame();
 		ImGui::Render();
 		ImGui_ImplDXlib_RenderDrawData();
+
+		ScreenFlip();
+		ClearDrawScreen();
+
 
 		RefreshDxLibDirect3DSetting();
 		//if (ImGui::GetIO().ConfigFlags )
