@@ -291,7 +291,7 @@ void ChatMode::Update(Player& _p)
 
 	ImGui::Text("Enter chat message.");
 	ImGui::SetKeyboardFocusHere();
-	ImGui::InputText("##newName", _p.chatBuffer, NAME_SIZE_MAX);
+	ImGui::InputText("##newName", _p.chatBuffer, CHAT_BUFFER_SIZE);
 
 	ImGui::Separator();
 	ImGui::Spacing();
