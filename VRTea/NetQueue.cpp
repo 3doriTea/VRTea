@@ -15,8 +15,8 @@ namespace
 	static const size_t BUFFER_SIZE{ 4096 };
 
 	//static const char* SERVER_IP_ADDRESS{ "192.168.33.2" };
-	static const char* SERVER_IP_ADDRESS{ "192.168.42.5" };
-	//static const char* SERVER_IP_ADDRESS{ "127.0.0.1" };
+	//static const char* SERVER_IP_ADDRESS{ "192.168.42.5" };
+	static const char* SERVER_IP_ADDRESS{ "127.0.0.1" };
 	static const USHORT SERVER_PORT_NUMBER{ 3000 };
 }
 

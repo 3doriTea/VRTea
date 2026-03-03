@@ -1,0 +1,1 @@
+{"content":{"message":"おい","sender":"ながにょにゅながぷいん","senderId":2},"head":"Chat"}

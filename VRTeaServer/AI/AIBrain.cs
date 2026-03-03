@@ -63,7 +63,7 @@ namespace VRTeaServer.AI
 				request = new JsonObject
 				{
 					["model"] = AiModel,
-					["messages"] = _history,
+					["messages"] = _history.DeepClone(),
 					["temperature"] = 0.5,
 					["max_tokens"] = 1024
 				};

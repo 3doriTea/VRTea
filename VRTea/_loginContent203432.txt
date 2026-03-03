@@ -1,0 +1,1 @@
+{"content":{"message":"こんちゃーwhat your name","sender":"おちゃ","senderId":2},"head":"Chat"}
