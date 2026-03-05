@@ -159,6 +159,9 @@
         <mxCell id="MRMS-ymS2nFZyUM7pvgb-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="UDP通信 部分" vertex="1">
           <mxGeometry height="80" width="360" x="1080" y="720" as="geometry" />
         </mxCell>
+        <mxCell id="ahmlB6mUbn6BShBoJEHm-1" parent="1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.43;dx=42.2;notch=0;" value="直接、データのやりとりは&lt;div&gt;しません&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="1380" y="790" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
