@@ -27,19 +27,19 @@
         <mxCell id="6H8EREtOSuTD-qdah8J5-3" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="UDP の 連想配列" vertex="1">
           <mxGeometry height="500" width="480" x="80" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="6H8EREtOSuTD-qdah8J5-4" parent="6H8EREtOSuTD-qdah8J5-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Client&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1&lt;/span&gt;" vertex="1">
+        <mxCell id="6H8EREtOSuTD-qdah8J5-4" parent="6H8EREtOSuTD-qdah8J5-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session 1" vertex="1">
           <mxGeometry height="120" width="480" y="20" as="geometry" />
         </mxCell>
         <mxCell id="6H8EREtOSuTD-qdah8J5-9" parent="6H8EREtOSuTD-qdah8J5-4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:1.1, y:0.0, z:43.3 }" vertex="1">
           <mxGeometry height="80" width="360" x="120" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="6H8EREtOSuTD-qdah8J5-5" parent="6H8EREtOSuTD-qdah8J5-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Client 2" vertex="1">
+        <mxCell id="6H8EREtOSuTD-qdah8J5-5" parent="6H8EREtOSuTD-qdah8J5-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session&amp;nbsp;2" vertex="1">
           <mxGeometry height="120" width="480" y="140" as="geometry" />
         </mxCell>
         <mxCell id="6H8EREtOSuTD-qdah8J5-10" parent="6H8EREtOSuTD-qdah8J5-5" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:13.0, y:0.0, z:63.34 }" vertex="1">
           <mxGeometry height="80" width="360" x="120" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="6H8EREtOSuTD-qdah8J5-6" parent="6H8EREtOSuTD-qdah8J5-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Client 3" vertex="1">
+        <mxCell id="6H8EREtOSuTD-qdah8J5-6" parent="6H8EREtOSuTD-qdah8J5-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session&amp;nbsp;3" vertex="1">
           <mxGeometry height="120" width="480" y="260" as="geometry" />
         </mxCell>
         <mxCell id="6H8EREtOSuTD-qdah8J5-11" parent="6H8EREtOSuTD-qdah8J5-6" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:46.4, y:0.0, z:23.2 }" vertex="1">
