@@ -383,6 +383,9 @@
         <mxCell id="2RPSC-B_584el7Ynwg9Q-16" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="チャットデータ&lt;div&gt;CA&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="180" x="1130" y="780" as="geometry" />
         </mxCell>
+        <mxCell id="LwCnnouBzmVmezhPE2fW-0" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="&lt;div&gt;TCP : セッションごとにQueue&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="1160" x="220" y="40" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
