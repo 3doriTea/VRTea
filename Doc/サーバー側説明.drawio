@@ -189,7 +189,7 @@
           <mxGeometry height="80" width="360" x="1080" y="800" as="geometry" />
         </mxCell>
         <mxCell id="3E6f5seL-23g3r0x7ZYv-0" parent="TXe6xK_Id0ATFZYkLj_J-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=54.42854527064753;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="セッション&lt;div&gt;データ&lt;/div&gt;&lt;div&gt;まとめておく&lt;/div&gt;&lt;div&gt;センター&lt;/div&gt;" vertex="1">
-          <mxGeometry height="330" width="260" x="670" y="500" as="geometry" />
+          <mxGeometry height="330" width="260" x="660" y="430" as="geometry" />
         </mxCell>
         <mxCell id="3E6f5seL-23g3r0x7ZYv-3" edge="1" parent="TXe6xK_Id0ATFZYkLj_J-1" source="TXe6xK_Id0ATFZYkLj_J-4" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;endWidth=45.714285714285715;endSize=11.754285714285714;width=30.58823529411765;startSize=15.811764705882354;startWidth=65.71428571428572;fillColor=#f8cecc;strokeColor=#b85450;" target="3E6f5seL-23g3r0x7ZYv-0" value="">
           <mxGeometry height="100" relative="1" width="100" as="geometry">
