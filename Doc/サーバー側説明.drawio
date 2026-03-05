@@ -401,12 +401,12 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="gQdyrtcsiP2f5o4-ecee" name="委譲">
-    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+  <diagram id="gQdyrtcsiP2f5o4-ecee" name="以上">
+    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="B3ba1ZrxN0_fqe3vNL2x-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=128;" value="&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;委譲です。&lt;/span&gt;" vertex="1">
+        <mxCell id="B3ba1ZrxN0_fqe3vNL2x-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=128;" value="&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;以上&lt;/span&gt;&lt;span style=&quot;text-wrap-mode: nowrap; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;です。&lt;/span&gt;" vertex="1">
           <mxGeometry height="330" width="920" x="340" y="285" as="geometry" />
         </mxCell>
       </root>
