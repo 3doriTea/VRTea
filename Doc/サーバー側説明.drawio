@@ -163,7 +163,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="処理部分2" id="PsyzRmQh26r5dBkzyoUz">
-    <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="TXe6xK_Id0ATFZYkLj_J-0" />
         <mxCell id="TXe6xK_Id0ATFZYkLj_J-1" parent="TXe6xK_Id0ATFZYkLj_J-0" />
@@ -224,7 +224,7 @@
             <mxPoint x="1070" y="319.57" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sU-nUYyaFlvN5WDxrHc7-0" parent="TXe6xK_Id0ATFZYkLj_J-1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.6;dx=40;notch=0;" value="" vertex="1">
+        <mxCell id="sU-nUYyaFlvN5WDxrHc7-0" parent="TXe6xK_Id0ATFZYkLj_J-1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.43;dx=42.2;notch=0;" value="セッションデータ&lt;div&gt;まとめておくｾﾝﾀｰ&lt;/div&gt;&lt;div&gt;見学&lt;/div&gt;" vertex="1">
           <mxGeometry height="110" width="220" x="1380" y="790" as="geometry" />
         </mxCell>
       </root>
