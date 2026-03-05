@@ -47,6 +47,21 @@
         <mxCell id="3fppM2vZAcJkIrL_cYAh-2" parent="3fppM2vZAcJkIrL_cYAh-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="アプリケーション層：UTF-8文字列&lt;div&gt;&amp;nbsp;バイト配列 で JSON 送受信&lt;/div&gt;" vertex="1">
           <mxGeometry height="200" width="1560" x="20" y="40" as="geometry" />
         </mxCell>
+        <mxCell id="4Yd93Ac8wQRXOur6AuoI-0" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=24;" value="構造体を使うか" vertex="1">
+          <mxGeometry height="170" width="330" x="260" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="4Yd93Ac8wQRXOur6AuoI-1" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=24;" value="でも絶対に届いてほしい&lt;div&gt;データがある&lt;/div&gt;" vertex="1">
+          <mxGeometry height="205" width="420" x="570" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="4Yd93Ac8wQRXOur6AuoI-2" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="TCPも使おう！" vertex="1">
+          <mxGeometry height="280" width="470" x="960" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="4Yd93Ac8wQRXOur6AuoI-3" edge="1" parent="3fppM2vZAcJkIrL_cYAh-1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=86.44628099173553;endSize=33.18181818181818;width=65.45454545454545;fillColor=default;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330" y="550" as="sourcePoint" />
+            <mxPoint x="1030" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
