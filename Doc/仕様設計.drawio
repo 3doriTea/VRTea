@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書">
-    <mxGraphModel dx="1489" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="4168" dy="2248" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2004,10 +2004,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;fontColor=#333333;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;&amp;lt;通信ヘッダ名&amp;gt;&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: &amp;lt;通信内容&amp;gt;&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="80" width="200" x="1520" y="140" as="geometry" />
+          <mxGeometry height="80" width="200" x="1160" y="640" as="geometry" />
         </mxCell>
-        <mxCell id="jBGdmvNMK_G4fBwu1qiN-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="&lt;ul&gt;&lt;li&gt;Join&lt;/li&gt;&lt;li&gt;Joined&lt;/li&gt;&lt;li&gt;Update&lt;/li&gt;&lt;li&gt;Updated&lt;/li&gt;&lt;li&gt;Event&lt;/li&gt;&lt;/ul&gt;" vertex="1">
-          <mxGeometry height="120" width="160" x="1980" y="350" as="geometry" />
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="&lt;h1&gt;通信ヘッダ名の種類&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;Join&lt;/li&gt;&lt;li&gt;Joined&lt;/li&gt;&lt;li&gt;Update&lt;/li&gt;&lt;li&gt;Updated&lt;/li&gt;&lt;li&gt;Event&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="160" width="240" x="1440" y="640" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Join&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: null&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="200" x="120" y="110" as="geometry" />
@@ -2016,25 +2016,19 @@
           <mxGeometry height="130" width="220" x="260" y="200" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Update&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;position&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;x&quot;: &amp;lt;座標x&amp;gt;,&lt;/div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;y&quot;: &amp;lt;座標y&amp;gt;,&lt;/div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;z&quot;: &amp;lt;座標z&amp;gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&amp;nbsp; }&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="160" width="160" x="1490" y="390" as="geometry" />
+          <mxGeometry height="160" width="160" x="1260" y="110" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Updated&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;&amp;lt;セッションId&amp;gt;&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;name&quot;: &amp;lt;プレイヤー名&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;id&quot;: &amp;lt;セッションId&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;position&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;x&quot;: &amp;lt;座標x&amp;gt;,&lt;/div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;y&quot;: &amp;lt;座標y&amp;gt;,&lt;/div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;z&quot;: &amp;lt;座標z&amp;gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; },&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;color&quot;: &amp;lt;16進数カラー&amp;gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;lt;各プレイヤー分繰り返す&amp;gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; }&lt;br&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="240" width="240" x="1660" y="490" as="geometry" />
+          <mxGeometry height="240" width="210" x="1410" y="280" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-7" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;&amp;lt;イベント名&amp;gt;&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;イベント内容&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="1350" y="610" as="geometry" />
+          <mxGeometry height="120" width="200" x="1160" y="800" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;NewName&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;新しい名前&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="1590" y="770" as="geometry" />
+          <mxGeometry height="120" width="200" x="120" y="1510" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;NewColor&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;新しい色&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="1350" y="770" as="geometry" />
-        </mxCell>
-        <mxCell id="jBGdmvNMK_G4fBwu1qiN-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;NewName&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;新しい名前&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="1980" y="450" as="geometry" />
-        </mxCell>
-        <mxCell id="jBGdmvNMK_G4fBwu1qiN-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;NewName&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;新しい名前&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="1980" y="550" as="geometry" />
+          <mxGeometry height="120" width="200" x="120" y="1190" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;message&quot;: &amp;lt;チャットメッセージUTF8&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;senderId&quot;: &amp;lt;送信者のセッションId&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;sender&quot;: &amp;lt;送信者の名前&amp;gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="280" x="200" y="850" as="geometry" />
@@ -2072,7 +2066,7 @@
             <mxPoint x="120" y="450.59" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;クライアントが参加したとき&lt;/h1&gt;" vertex="1">
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;TCP: クライアントが参加したとき&lt;/h1&gt;" vertex="1">
           <mxGeometry height="70" width="840" x="120" y="30" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-36" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
@@ -2082,13 +2076,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;対象&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="520" width="80" x="20" y="640" as="geometry" />
+          <mxGeometry height="400" width="80" x="20" y="640" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-41" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;1つの&lt;/div&gt;Server" vertex="1">
-          <mxGeometry height="520" width="80" x="500" y="640" as="geometry" />
+          <mxGeometry height="400" width="80" x="500" y="640" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;他&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="520" width="80" x="980" y="640" as="geometry" />
+          <mxGeometry height="400" width="80" x="980" y="640" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-44" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -2102,7 +2096,7 @@
             <mxPoint x="120" y="935.3" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jBGdmvNMK_G4fBwu1qiN-47" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;クライアントがチャットしたとき&lt;/h1&gt;" vertex="1">
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-47" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;TCP: クライアントがチャットしたとき&lt;/h1&gt;" vertex="1">
           <mxGeometry height="70" width="840" x="120" y="630" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-48" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;チャットメッセージUTF8&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
@@ -2110,6 +2104,69 @@
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-50" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;message&quot;: &amp;lt;チャットメッセージUTF8&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;senderId&quot;: &amp;lt;送信者のセッションId&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;sender&quot;: &amp;lt;送信者の名前&amp;gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="280" x="600" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-52" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330" y="1250" as="sourcePoint" />
+            <mxPoint x="480" y="1250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;対象&lt;/div&gt;Client" vertex="1">
+          <mxGeometry height="240" width="80" x="20" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-54" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;1つの&lt;/div&gt;Server" vertex="1">
+          <mxGeometry height="240" width="80" x="500" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;他&lt;/div&gt;Client" vertex="1">
+          <mxGeometry height="240" width="80" x="980" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-58" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;TCP: クライアントが色変更したとき&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="70" width="840" x="120" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-62" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330" y="1570" as="sourcePoint" />
+            <mxPoint x="480" y="1570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-63" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;対象&lt;/div&gt;Client" vertex="1">
+          <mxGeometry height="240" width="80" x="20" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;1つの&lt;/div&gt;Server" vertex="1">
+          <mxGeometry height="240" width="80" x="500" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-65" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;他&lt;/div&gt;Client" vertex="1">
+          <mxGeometry height="240" width="80" x="980" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-66" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;クライアントが名前変更したとき&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="70" width="840" x="120" y="1430" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-67" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1430" y="190" as="sourcePoint" />
+            <mxPoint x="1620" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-70" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1400" y="410" as="sourcePoint" />
+            <mxPoint x="1260" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;対象&lt;/div&gt;Client" vertex="1">
+          <mxGeometry height="520" width="80" x="1160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-72" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;1つの&lt;/div&gt;Server" vertex="1">
+          <mxGeometry height="520" width="80" x="1640" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;他&lt;/div&gt;Client" vertex="1">
+          <mxGeometry height="520" width="80" x="2120" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-78" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;UDP: クライアントが更新処理したとき&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="70" width="840" x="1260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-80" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="&lt;h1&gt;イベント名の種類&lt;/h1&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Chat&lt;/li&gt;&lt;li&gt;NewName&lt;/li&gt;&lt;li&gt;NewColor&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="240" x="1440" y="800" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
