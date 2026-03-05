@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="5">
   <diagram name="プロトコル" id="hKdliS8BkwuXTHFhtdM1">
     <mxGraphModel dx="1895" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
@@ -61,6 +61,74 @@
             <mxPoint x="330" y="550" as="sourcePoint" />
             <mxPoint x="1030" y="760" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="ｱﾌﾟﾘｹｰｼｮﾝ UTF8 byte json-2" id="yQa-vbaS0zOL9XHoB6Ds">
+    <mxGraphModel dx="1097" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="03_PZl8Tm2aI4144Iayf-0" />
+        <mxCell id="03_PZl8Tm2aI4144Iayf-1" parent="03_PZl8Tm2aI4144Iayf-0" />
+        <mxCell id="03_PZl8Tm2aI4144Iayf-2" parent="03_PZl8Tm2aI4144Iayf-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="アプリケーション層：UTF-8文字列&lt;div&gt;&amp;nbsp;バイト配列 で JSON 送受信&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="1560" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-0" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="データ" vertex="1">
+          <mxGeometry height="480" width="520" x="20" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-1" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Head" vertex="1">
+          <mxGeometry height="80" width="500" x="30" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-2" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Content" vertex="1">
+          <mxGeometry height="310" width="500" x="30" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-3" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="Event" vertex="1">
+          <mxGeometry height="60" width="370" x="140" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-5" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Content" vertex="1">
+          <mxGeometry height="150" width="480" x="40" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-6" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Head" vertex="1">
+          <mxGeometry height="70" width="480" x="40" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-7" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="Chat" vertex="1">
+          <mxGeometry height="60" width="340" x="150" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="p1507z8hsKtMW9im2J1x-8" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="string : &quot;こんにちは！&quot;" vertex="1">
+          <mxGeometry height="60" width="340" x="150" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-0" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="データ" vertex="1">
+          <mxGeometry height="480" width="430" x="580" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-1" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Head" vertex="1">
+          <mxGeometry height="80" width="410" x="590" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-2" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Content" vertex="1">
+          <mxGeometry height="310" width="410" x="590" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-3" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="Event" vertex="1">
+          <mxGeometry height="60" width="270" x="700" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-4" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Content" vertex="1">
+          <mxGeometry height="150" width="390" x="600" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-5" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Head" vertex="1">
+          <mxGeometry height="70" width="390" x="600" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-6" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="NewColor" vertex="1">
+          <mxGeometry height="60" width="260" x="710" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-7" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="int32 : 0x00ff33" vertex="1">
+          <mxGeometry height="60" width="260" x="710" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-8" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="データ" vertex="1">
+          <mxGeometry height="480" width="520" x="1060" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-9" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Head" vertex="1">
+          <mxGeometry height="80" width="500" x="1070" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="dujapq0eCAuqiovBpDtX-11" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="Join" vertex="1">
+          <mxGeometry height="60" width="370" x="1180" y="360" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
