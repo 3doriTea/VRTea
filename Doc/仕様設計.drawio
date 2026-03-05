@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書-JSON">
-    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2193,7 +2193,7 @@
           <mxGeometry height="770" width="10" x="733.75" y="3357" as="geometry" />
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-6" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" value="" vertex="1">
-          <mxGeometry height="270" width="10" x="973.75" y="3597" as="geometry" />
+          <mxGeometry height="307" width="10" x="973.75" y="3560" as="geometry" />
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-7" edge="1" parent="1" source="UYJ0SjlQs6O3Z5lPEgCQ-4" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="参加リクエスト">
           <mxGeometry relative="1" width="80" as="geometry">
@@ -2235,8 +2235,8 @@
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-13" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bが参加したよ">
           <mxGeometry relative="1" x="0.0006" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="733.75" y="3627" as="sourcePoint" />
-            <mxPoint x="508.75" y="3627" as="targetPoint" />
+            <mxPoint x="733.75" y="3640" as="sourcePoint" />
+            <mxPoint x="508.75" y="3640" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-14" edge="1" parent="1" source="UYJ0SjlQs6O3Z5lPEgCQ-6" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="UYJ0SjlQs6O3Z5lPEgCQ-3" value="">
@@ -2247,14 +2247,14 @@
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="参加リクエスト">
           <mxGeometry relative="1" width="80" as="geometry">
-            <mxPoint x="973.75" y="3607" as="sourcePoint" />
-            <mxPoint x="748.75" y="3607" as="targetPoint" />
+            <mxPoint x="973.75" y="3580" as="sourcePoint" />
+            <mxPoint x="748.75" y="3580" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-16" edge="1" parent="1" source="UYJ0SjlQs6O3Z5lPEgCQ-5" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="あなたの名前は?、Idは?だよ">
+        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="あなたの名前は?、Idは?だよ">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="943.75" y="3667" as="sourcePoint" />
-            <mxPoint x="968.75" y="3627" as="targetPoint" />
+            <mxPoint x="743.75" y="3610" as="sourcePoint" />
+            <mxPoint x="968.75" y="3610" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-17" parent="1" style="shape=requiredInterface;html=1;verticalLabelPosition=bottom;sketch=0;flipH=1;" value="" vertex="1">
@@ -2265,9 +2265,6 @@
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-19" parent="1" style="shape=requiredInterface;html=1;verticalLabelPosition=bottom;sketch=0;flipH=0;flipV=1;" value="" vertex="1">
           <mxGeometry height="50" width="57.5" x="948.75" y="3657" as="geometry" />
-        </mxCell>
-        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;" value="毎フレーム繰り返す" vertex="1">
-          <mxGeometry height="30" width="110" x="828.75" y="3537" as="geometry" />
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-21" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="毎フレーム更新">
           <mxGeometry relative="1" width="80" as="geometry">
@@ -2315,7 +2312,7 @@
             <mxPoint x="728.75" y="3826.7" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-29" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bがチャット送信したよ">
+        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-29" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Aがチャット送信したよ">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="743.75" y="3847" as="sourcePoint" />
             <mxPoint x="968.75" y="3847" as="targetPoint" />
@@ -2341,6 +2338,18 @@
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;全体的な&lt;br&gt;通信フロー&lt;/h1&gt;" vertex="1">
           <mxGeometry height="178" width="280" x="40" y="3359" as="geometry" />
+        </mxCell>
+        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-37" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bが参加したよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="743.75" y="3640" as="sourcePoint" />
+            <mxPoint x="968.75" y="3640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-38" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Aが参加したよ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="733.75" y="3440" as="sourcePoint" />
+            <mxPoint x="508.75" y="3440" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
