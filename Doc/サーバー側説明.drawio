@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="6">
   <diagram name="プロトコル" id="hKdliS8BkwuXTHFhtdM1">
     <mxGraphModel dx="1895" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
@@ -129,6 +129,35 @@
         </mxCell>
         <mxCell id="dujapq0eCAuqiovBpDtX-11" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="Join" vertex="1">
           <mxGeometry height="60" width="370" x="1180" y="360" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="n9a1fHgTZsGeIrOSLvqj" name="処理部分">
+    <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qdrqe29cXcg_MnFnI-Ly-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Bot制御 部分" vertex="1">
+          <mxGeometry height="80" width="240" x="160" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="MRMS-ymS2nFZyUM7pvgb-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="サーバーの中にある、&lt;div&gt;複数の処理部分&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="1560" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MRMS-ymS2nFZyUM7pvgb-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="コマンドライン制御 部分" vertex="1">
+          <mxGeometry height="80" width="440" x="160" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="MRMS-ymS2nFZyUM7pvgb-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="ゲームロジック 部分" vertex="1">
+          <mxGeometry height="80" width="360" x="160" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="MRMS-ymS2nFZyUM7pvgb-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Webサービス 部分" vertex="1">
+          <mxGeometry height="80" width="320" x="1120" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="MRMS-ymS2nFZyUM7pvgb-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="TCP通信 部分" vertex="1">
+          <mxGeometry height="80" width="360" x="1080" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="MRMS-ymS2nFZyUM7pvgb-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="UDP通信 部分" vertex="1">
+          <mxGeometry height="80" width="360" x="1080" y="800" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
