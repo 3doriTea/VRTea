@@ -2076,7 +2076,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;クライアントが参加したとき&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="60" width="840" x="120" y="40" as="geometry" />
+          <mxGeometry height="70" width="840" x="120" y="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
