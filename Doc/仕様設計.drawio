@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書-JSON">
-    <mxGraphModel dx="992" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1226" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2336,7 +2336,7 @@
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-34" parent="1" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" value="" vertex="1">
           <mxGeometry height="30" width="30" x="963.75" y="3857" as="geometry" />
         </mxCell>
-        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;全体的な&lt;br&gt;通信フロー&lt;/h1&gt;" vertex="1">
+        <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;全体的な&lt;br&gt;通信フロー&lt;/h1&gt;&lt;div&gt;TCP/UDP 両方含む&lt;/div&gt;" vertex="1">
           <mxGeometry height="178" width="280" x="40" y="3359" as="geometry" />
         </mxCell>
         <mxCell id="UYJ0SjlQs6O3Z5lPEgCQ-37" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="イベント情報：Bが参加したよ">
