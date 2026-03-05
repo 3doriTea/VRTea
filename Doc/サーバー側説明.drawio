@@ -272,7 +272,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="ｾｯｼｮﾝﾃﾞｰﾀまとめておくｾﾝﾀｰ2" id="yEqubYefMhyQBlOVCBAL">
-    <mxGraphModel dx="1303" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0cDxnVZSxVLuK359QGTG-0" />
         <mxCell id="0cDxnVZSxVLuK359QGTG-1" parent="0cDxnVZSxVLuK359QGTG-0" />
@@ -402,7 +402,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="gQdyrtcsiP2f5o4-ecee" name="以上">
-    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
