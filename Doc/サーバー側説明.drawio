@@ -21,6 +21,21 @@
         <mxCell id="o-LF4eWrhteA56ZXeBha-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="トランスポート層：TCP / UDP 両方" vertex="1">
           <mxGeometry height="200" width="1140" x="230" y="40" as="geometry" />
         </mxCell>
+        <mxCell id="isqRaUTBAPUZR2h6_D-0-1" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=24;" value="ゲームの通信&lt;div&gt;UDP使おう！&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="330" x="220" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="isqRaUTBAPUZR2h6_D-0-2" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=24;" value="でも絶対に届いてほしい&lt;div&gt;データがある&lt;/div&gt;" vertex="1">
+          <mxGeometry height="205" width="420" x="530" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="isqRaUTBAPUZR2h6_D-0-3" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="TCPも使おう！" vertex="1">
+          <mxGeometry height="280" width="470" x="920" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="isqRaUTBAPUZR2h6_D-0-4" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=86.44628099173553;endSize=33.18181818181818;width=65.45454545454545;fillColor=default;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="290" y="520" as="sourcePoint" />
+            <mxPoint x="990" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
