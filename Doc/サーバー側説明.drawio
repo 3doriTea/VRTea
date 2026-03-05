@@ -4,7 +4,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="hVknr6ECRZju7TTwwvh--2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="アプリケーション層プロトコル：&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;トランスポート層：&lt;/div&gt;" vertex="1">
+        <mxCell id="hVknr6ECRZju7TTwwvh--2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="アプリケーション層のプロトコル：&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;トランスポート層&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;のプロトコル&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;：&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="200" width="590" x="140" y="350" as="geometry" />
         </mxCell>
         <mxCell id="hVknr6ECRZju7TTwwvh--3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="UTF-8文字列 バイト配列 で JSON 送受信&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;TCP / UDP 両方&lt;/div&gt;" vertex="1">
