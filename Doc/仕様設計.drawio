@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書-JSON">
-    <mxGraphModel dx="1042" dy="1389" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2605" dy="2232" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2381,11 +2381,11 @@
         <mxCell id="33T8dqSSUeyxdpb5sFJ--10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;チャットメッセージUTF8&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="120" width="320" x="800" y="-400" as="geometry" />
         </mxCell>
-        <mxCell id="33T8dqSSUeyxdpb5sFJ--11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;h1&gt;通信で扱うJSON一覧&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="80" width="250" x="40" y="-800" as="geometry" />
+        <mxCell id="33T8dqSSUeyxdpb5sFJ--11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;" value="&lt;h1&gt;通信で扱うJSON一覧&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="200" width="320" x="40" y="-800" as="geometry" />
         </mxCell>
-        <mxCell id="33T8dqSSUeyxdpb5sFJ--12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;h1&gt;イベント別処理&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="80" width="250" x="40" y="40" as="geometry" />
+        <mxCell id="33T8dqSSUeyxdpb5sFJ--12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;" value="&lt;h1&gt;イベント別処理&lt;/h1&gt;" vertex="1">
+          <mxGeometry height="200" width="250" x="40" y="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
