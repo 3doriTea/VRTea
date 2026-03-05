@@ -276,8 +276,8 @@
       <root>
         <mxCell id="0cDxnVZSxVLuK359QGTG-0" />
         <mxCell id="0cDxnVZSxVLuK359QGTG-1" parent="0cDxnVZSxVLuK359QGTG-0" />
-        <mxCell id="0cDxnVZSxVLuK359QGTG-3" parent="0cDxnVZSxVLuK359QGTG-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="&lt;div&gt;UDP : セッションIdをキーにしたMap&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="650" x="350" y="40" as="geometry" />
+        <mxCell id="0cDxnVZSxVLuK359QGTG-3" parent="0cDxnVZSxVLuK359QGTG-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="&lt;div&gt;UDP : セッションIdをキーにしたMap&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="1160" x="220" y="40" as="geometry" />
         </mxCell>
         <mxCell id="0cDxnVZSxVLuK359QGTG-4" parent="0cDxnVZSxVLuK359QGTG-1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="UDP の 連想配列" vertex="1">
           <mxGeometry height="500" width="480" x="80" y="280" as="geometry" />
