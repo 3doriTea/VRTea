@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="7">
   <diagram name="プロトコル" id="hKdliS8BkwuXTHFhtdM1">
     <mxGraphModel dx="1895" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
@@ -133,7 +133,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="n9a1fHgTZsGeIrOSLvqj" name="処理部分">
+  <diagram id="n9a1fHgTZsGeIrOSLvqj" name="処理部分1">
     <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -158,6 +158,38 @@
         </mxCell>
         <mxCell id="MRMS-ymS2nFZyUM7pvgb-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="UDP通信 部分" vertex="1">
           <mxGeometry height="80" width="360" x="1080" y="800" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="処理部分1のコピー" id="PsyzRmQh26r5dBkzyoUz">
+    <mxGraphModel dx="1489" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-0" />
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-1" parent="TXe6xK_Id0ATFZYkLj_J-0" />
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-2" parent="TXe6xK_Id0ATFZYkLj_J-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Bot制御 部分" vertex="1">
+          <mxGeometry height="80" width="240" x="160" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-3" parent="TXe6xK_Id0ATFZYkLj_J-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="サーバーの中にある、&lt;div&gt;複数の処理部分&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="1560" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-4" parent="TXe6xK_Id0ATFZYkLj_J-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="コマンドライン制御 部分" vertex="1">
+          <mxGeometry height="80" width="440" x="160" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-5" parent="TXe6xK_Id0ATFZYkLj_J-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="ゲームロジック 部分" vertex="1">
+          <mxGeometry height="80" width="360" x="160" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-6" parent="TXe6xK_Id0ATFZYkLj_J-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="Webサービス 部分" vertex="1">
+          <mxGeometry height="80" width="320" x="1120" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-7" parent="TXe6xK_Id0ATFZYkLj_J-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="TCP通信 部分" vertex="1">
+          <mxGeometry height="80" width="360" x="1080" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="TXe6xK_Id0ATFZYkLj_J-8" parent="TXe6xK_Id0ATFZYkLj_J-1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;spacing=10;fontSize=32;" value="UDP通信 部分" vertex="1">
+          <mxGeometry height="80" width="360" x="1080" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="3E6f5seL-23g3r0x7ZYv-0" parent="TXe6xK_Id0ATFZYkLj_J-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=54.42854527064753;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="セッション&lt;div&gt;データ&lt;/div&gt;&lt;div&gt;まとめておく&lt;/div&gt;&lt;div&gt;センター&lt;/div&gt;" vertex="1">
+          <mxGeometry height="330" width="260" x="670" y="500" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
