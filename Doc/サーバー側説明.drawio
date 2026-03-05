@@ -331,48 +331,57 @@
     </mxGraphModel>
   </diagram>
   <diagram name="ｾｯｼｮﾝﾃﾞｰﾀまとめておくｾﾝﾀｰ2のコピー" id="g6WIkgieQpR6HjwPzALN">
-    <mxGraphModel dx="1895" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="bQyKrkNqGJXbeDsVo8mJ-0" />
         <mxCell id="bQyKrkNqGJXbeDsVo8mJ-1" parent="bQyKrkNqGJXbeDsVo8mJ-0" />
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-2" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="&lt;div&gt;UDP : セッションIdをキーにしたMap&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="650" x="350" y="40" as="geometry" />
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-0" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="TCP の キュー" vertex="1">
+          <mxGeometry height="513.9300000000001" width="480" x="80" y="290" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-3" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="UDP の 連想配列" vertex="1">
-          <mxGeometry height="500" width="480" x="80" y="280" as="geometry" />
-        </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-4" parent="bQyKrkNqGJXbeDsVo8mJ-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session 1" vertex="1">
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-1" parent="2RPSC-B_584el7Ynwg9Q-0" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session 1" vertex="1">
           <mxGeometry height="120" width="480" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-5" parent="bQyKrkNqGJXbeDsVo8mJ-4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:1.1, y:0.0, z:43.3 }" vertex="1">
-          <mxGeometry height="80" width="360" x="120" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-6" parent="bQyKrkNqGJXbeDsVo8mJ-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session&amp;nbsp;2" vertex="1">
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-2" parent="2RPSC-B_584el7Ynwg9Q-0" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session&amp;nbsp;2" vertex="1">
           <mxGeometry height="120" width="480" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-7" parent="bQyKrkNqGJXbeDsVo8mJ-6" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:13.0, y:0.0, z:63.34 }" vertex="1">
-          <mxGeometry height="80" width="360" x="120" y="20" as="geometry" />
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-3" parent="2RPSC-B_584el7Ynwg9Q-2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="変更データBA" vertex="1">
+          <mxGeometry height="80" width="160" x="280" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-8" parent="bQyKrkNqGJXbeDsVo8mJ-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session&amp;nbsp;3" vertex="1">
-          <mxGeometry height="120" width="480" y="260" as="geometry" />
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-15" parent="2RPSC-B_584el7Ynwg9Q-2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="変更データBB" vertex="1">
+          <mxGeometry height="80" width="160" x="120" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-9" parent="bQyKrkNqGJXbeDsVo8mJ-8" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:46.4, y:0.0, z:23.2 }" vertex="1">
-          <mxGeometry height="80" width="360" x="120" y="20" as="geometry" />
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-4" parent="2RPSC-B_584el7Ynwg9Q-0" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session&amp;nbsp;3" vertex="1">
+          <mxGeometry height="133.93" width="480" y="260" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-10" parent="bQyKrkNqGJXbeDsVo8mJ-3" style="swimlane;startSize=120;horizontal=0;html=1;" value="..." vertex="1">
-          <mxGeometry height="120" width="480" y="380" as="geometry" />
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-5" parent="2RPSC-B_584el7Ynwg9Q-4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="チャットデータ&lt;div&gt;CA&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="300" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-11" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:2.1, y:0.0, z:57.5 }" vertex="1">
-          <mxGeometry height="80" width="360" x="750" y="290" as="geometry" />
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-7" parent="2RPSC-B_584el7Ynwg9Q-0" style="swimlane;startSize=120;horizontal=0;html=1;" value="..." vertex="1">
+          <mxGeometry height="120" width="480" y="393.93" as="geometry" />
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-12" edge="1" parent="bQyKrkNqGJXbeDsVo8mJ-1" source="bQyKrkNqGJXbeDsVo8mJ-11" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endWidth=57.24137931034483;endSize=17.21379310344828;width=52.41379310344828;fillColor=#f5f5f5;strokeColor=#666666;" target="bQyKrkNqGJXbeDsVo8mJ-7" value="">
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-8" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="変更データA" vertex="1">
+          <mxGeometry height="80" width="360" x="750" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-9" edge="1" parent="bQyKrkNqGJXbeDsVo8mJ-1" source="2RPSC-B_584el7Ynwg9Q-8" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=57.24137931034483;endSize=17.21379310344828;width=52.41379310344828;fillColor=#f5f5f5;strokeColor=#666666;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="780" y="470" as="sourcePoint" />
-            <mxPoint x="830" y="420" as="targetPoint" />
+            <mxPoint x="780" y="480" as="sourcePoint" />
+            <mxPoint x="540" y="490" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bQyKrkNqGJXbeDsVo8mJ-13" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="UDP&lt;div&gt;新着&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;データ&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;上書き！&lt;/span&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="220" width="350" x="610" y="360" as="geometry" />
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-10" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="TCP&lt;div&gt;新着&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;データ&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Enqueue！&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="350" x="610" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-11" edge="1" parent="bQyKrkNqGJXbeDsVo8mJ-1" source="2RPSC-B_584el7Ynwg9Q-5" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=57.24137931034483;endSize=17.21379310344828;width=52.41379310344828;fillColor=#f5f5f5;strokeColor=#666666;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="941" y="690" as="sourcePoint" />
+            <mxPoint x="1120" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-12" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="取り出し時に&lt;div&gt;Dequeue&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="350" x="610" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-16" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="チャットデータ&lt;div&gt;CA&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="1130" y="780" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
