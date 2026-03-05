@@ -392,6 +392,9 @@
         <mxCell id="LwCnnouBzmVmezhPE2fW-0" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="&lt;div&gt;TCP : セッションごとにQueue&lt;/div&gt;" vertex="1">
           <mxGeometry height="160" width="1160" x="220" y="40" as="geometry" />
         </mxCell>
+        <mxCell id="0eZHr1YPBzG4w2kJKjrA-0" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.43;dx=42.2;notch=0;" value="" vertex="1">
+          <mxGeometry height="110" width="220" x="1380" y="790" as="geometry" />
+        </mxCell>
         <mxCell id="EJXvwykgnFoBGTB6L57y-0" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=16;fontStyle=1" value="&lt;div&gt;クライアントに対して&lt;/div&gt;データは複数" vertex="1">
           <mxGeometry height="100" width="310" x="180" y="180" as="geometry" />
         </mxCell>
