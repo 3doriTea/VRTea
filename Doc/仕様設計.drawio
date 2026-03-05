@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書">
-    <mxGraphModel dx="3473" dy="1873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2977" dy="1606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2167,6 +2167,9 @@
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-80" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;" value="&lt;h1&gt;イベント名の種類&lt;/h1&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Chat&lt;/li&gt;&lt;li&gt;NewName&lt;/li&gt;&lt;li&gt;NewColor&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="120" width="240" x="840" y="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-82" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="クライアントが更新処理を送信するとその応答として&lt;div&gt;他の全クライアントの情報をサーバーが送信する&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;↓&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;クライアントが更新情報を送信した分だけ&lt;/div&gt;&lt;div&gt;他クライアントの情報を受信できる&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="480" x="40" y="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
