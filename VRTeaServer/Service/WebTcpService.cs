@@ -93,9 +93,6 @@ namespace VRTeaServer.Service
 
 				Log.WriteLine("クライアントへレスポンス送信\r\n" + response);				
 			}
-			catch (OperationCanceledException)
-			{
-			}
 			catch (IOException ex)
 			{
 				Console.WriteLine($"{client.Client}:{ex}");
