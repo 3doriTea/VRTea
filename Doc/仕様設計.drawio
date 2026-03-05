@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書">
-    <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1489" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2075,7 +2075,7 @@
             <mxPoint x="120" y="450.59" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" value="クライアント参加" vertex="1">
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;クライアントが参加したとき&lt;/h1&gt;" vertex="1">
           <mxGeometry height="40" width="840" x="120" y="40" as="geometry" />
         </mxCell>
       </root>
