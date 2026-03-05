@@ -272,7 +272,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="ｾｯｼｮﾝﾃﾞｰﾀまとめておくｾﾝﾀｰ2" id="yEqubYefMhyQBlOVCBAL">
-    <mxGraphModel dx="1895" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1303" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0cDxnVZSxVLuK359QGTG-0" />
         <mxCell id="0cDxnVZSxVLuK359QGTG-1" parent="0cDxnVZSxVLuK359QGTG-0" />
@@ -315,17 +315,20 @@
         <mxCell id="0cDxnVZSxVLuK359QGTG-14" parent="0cDxnVZSxVLuK359QGTG-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="UDP&lt;div&gt;新着&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;データ&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;上書き！&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="220" width="350" x="610" y="360" as="geometry" />
         </mxCell>
-        <mxCell id="WSzd6TY3_hU6Unvmq37_-1" edge="1" parent="0cDxnVZSxVLuK359QGTG-1" source="0cDxnVZSxVLuK359QGTG-10" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=57.24137931034483;endSize=17.21379310344828;width=52.41379310344828;fillColor=#f5f5f5;strokeColor=#666666;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+        <mxCell id="WSzd6TY3_hU6Unvmq37_-1" edge="1" parent="0cDxnVZSxVLuK359QGTG-1" source="0cDxnVZSxVLuK359QGTG-10" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=57.24137931034483;endSize=17.21379310344828;width=52.41379310344828;fillColor=#f5f5f5;strokeColor=#666666;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="WSzd6TY3_hU6Unvmq37_-4" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="941" y="680" as="sourcePoint" />
             <mxPoint x="1120" y="810" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="WSzd6TY3_hU6Unvmq37_-0" parent="0cDxnVZSxVLuK359QGTG-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="取り出し時に&lt;div&gt;項目削除&lt;/div&gt;" vertex="1">
-          <mxGeometry height="220" width="350" x="610" y="580" as="geometry" />
+          <mxGeometry height="220" width="350" x="620" y="560" as="geometry" />
         </mxCell>
         <mxCell id="WSzd6TY3_hU6Unvmq37_-4" parent="0cDxnVZSxVLuK359QGTG-1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="POS:{ x:46.4, y:0.0, z:23.2 }" vertex="1">
-          <mxGeometry height="80" width="360" x="1130" y="770" as="geometry" />
+          <mxGeometry height="80" width="360" x="1110" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="KfndKsl2YcSI02amfcu5-0" parent="0cDxnVZSxVLuK359QGTG-1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.43;dx=42.2;notch=0;" value="いっぽうの TCP&lt;div&gt;キュー&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="1380" y="790" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
