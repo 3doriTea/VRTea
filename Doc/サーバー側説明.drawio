@@ -39,6 +39,9 @@
             <mxPoint x="990" y="730" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="SXh550_LKGXw3a5ictgt-1" parent="1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.43;dx=42.2;notch=0;" value="アプリケーション層の選択について&lt;div&gt;説明&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="1380" y="790" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
