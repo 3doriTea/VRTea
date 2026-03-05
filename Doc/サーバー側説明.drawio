@@ -75,7 +75,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="ｱﾌﾟﾘｹｰｼｮﾝ UTF8 byte json-2" id="yQa-vbaS0zOL9XHoB6Ds">
-    <mxGraphModel dx="1603" dy="865" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1895" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="03_PZl8Tm2aI4144Iayf-0" />
         <mxCell id="03_PZl8Tm2aI4144Iayf-1" parent="03_PZl8Tm2aI4144Iayf-0" />
@@ -138,6 +138,9 @@
         </mxCell>
         <mxCell id="dujapq0eCAuqiovBpDtX-11" parent="03_PZl8Tm2aI4144Iayf-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fillColor=#fff2cc;strokeColor=#d6b656;" value="Join" vertex="1">
           <mxGeometry height="60" width="370" x="1180" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="whpnow3jwnnwXMUbX_BQ-0" parent="03_PZl8Tm2aI4144Iayf-1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.43;dx=42.2;notch=0;" value="そんなやりとりをしている&lt;div&gt;サーバーの中身は？&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="220" x="1380" y="790" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
