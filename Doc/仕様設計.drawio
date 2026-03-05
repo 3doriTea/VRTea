@@ -2042,9 +2042,6 @@
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;チャットメッセージUTF8&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="120" width="320" x="1740" y="1090" as="geometry" />
         </mxCell>
-        <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" value="クライアント参加" vertex="1">
-          <mxGeometry height="50" width="200" x="220" y="40" as="geometry" />
-        </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-19" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="240" y="264.64" as="sourcePoint" />
@@ -2077,6 +2074,9 @@
             <mxPoint x="190" y="449.99999999999994" as="sourcePoint" />
             <mxPoint x="120" y="450.59" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" value="クライアント参加" vertex="1">
+          <mxGeometry height="50" width="690" x="195" y="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
