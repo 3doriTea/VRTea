@@ -246,7 +246,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="mov78ckQvbDubuxtYsUV" name="ｾｯｼｮﾝﾃﾞｰﾀまとめておくｾﾝﾀｰ1">
-    <mxGraphModel dx="1226" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -269,15 +269,12 @@
     </mxGraphModel>
   </diagram>
   <diagram name="ｾｯｼｮﾝﾃﾞｰﾀまとめておくｾﾝﾀｰ2" id="yEqubYefMhyQBlOVCBAL">
-    <mxGraphModel dx="1042" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0cDxnVZSxVLuK359QGTG-0" />
         <mxCell id="0cDxnVZSxVLuK359QGTG-1" parent="0cDxnVZSxVLuK359QGTG-0" />
-        <mxCell id="0cDxnVZSxVLuK359QGTG-2" parent="0cDxnVZSxVLuK359QGTG-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="TCP：&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;UDP：&lt;/div&gt;" vertex="1">
-          <mxGeometry height="200" width="150" x="200" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="0cDxnVZSxVLuK359QGTG-3" parent="0cDxnVZSxVLuK359QGTG-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="セッションごとにQueue&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;セッションIdをキーにしたMap&lt;/div&gt;" vertex="1">
-          <mxGeometry height="200" width="1140" x="350" y="40" as="geometry" />
+        <mxCell id="0cDxnVZSxVLuK359QGTG-3" parent="0cDxnVZSxVLuK359QGTG-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;" value="&lt;div&gt;UDP : セッションIdをキーにしたMap&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="650" x="350" y="40" as="geometry" />
         </mxCell>
         <mxCell id="0cDxnVZSxVLuK359QGTG-4" parent="0cDxnVZSxVLuK359QGTG-1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="UDP の 連想配列" vertex="1">
           <mxGeometry height="500" width="480" x="80" y="280" as="geometry" />
