@@ -331,7 +331,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="ｾｯｼｮﾝﾃﾞｰﾀまとめておくｾﾝﾀｰ3" id="g6WIkgieQpR6HjwPzALN">
-    <mxGraphModel dx="1737" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1603" dy="865" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="bQyKrkNqGJXbeDsVo8mJ-0" />
         <mxCell id="bQyKrkNqGJXbeDsVo8mJ-1" parent="bQyKrkNqGJXbeDsVo8mJ-0" />
@@ -344,7 +344,7 @@
         <mxCell id="2RPSC-B_584el7Ynwg9Q-2" parent="2RPSC-B_584el7Ynwg9Q-0" style="swimlane;startSize=120;horizontal=0;html=1;" value="Session&amp;nbsp;2" vertex="1">
           <mxGeometry height="120" width="480" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="2RPSC-B_584el7Ynwg9Q-3" parent="2RPSC-B_584el7Ynwg9Q-2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="変更データBA" vertex="1">
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-3" parent="2RPSC-B_584el7Ynwg9Q-2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="チャット&lt;div&gt;データBA&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="160" x="280" y="20" as="geometry" />
         </mxCell>
         <mxCell id="2RPSC-B_584el7Ynwg9Q-15" parent="2RPSC-B_584el7Ynwg9Q-2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="変更データBB" vertex="1">
@@ -359,7 +359,7 @@
         <mxCell id="2RPSC-B_584el7Ynwg9Q-7" parent="2RPSC-B_584el7Ynwg9Q-0" style="swimlane;startSize=120;horizontal=0;html=1;" value="..." vertex="1">
           <mxGeometry height="120" width="480" y="393.93" as="geometry" />
         </mxCell>
-        <mxCell id="2RPSC-B_584el7Ynwg9Q-8" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="変更データA" vertex="1">
+        <mxCell id="2RPSC-B_584el7Ynwg9Q-8" parent="bQyKrkNqGJXbeDsVo8mJ-1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;" value="変更データBC" vertex="1">
           <mxGeometry height="80" width="360" x="750" y="300" as="geometry" />
         </mxCell>
         <mxCell id="2RPSC-B_584el7Ynwg9Q-9" edge="1" parent="bQyKrkNqGJXbeDsVo8mJ-1" source="2RPSC-B_584el7Ynwg9Q-8" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=57.24137931034483;endSize=17.21379310344828;width=52.41379310344828;fillColor=#f5f5f5;strokeColor=#666666;" value="">
