@@ -2065,8 +2065,8 @@
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-32" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="890" y="459.40999999999997" as="sourcePoint" />
-            <mxPoint x="970" y="460" as="targetPoint" />
+            <mxPoint x="890" y="449.99999999999994" as="sourcePoint" />
+            <mxPoint x="970" y="450.59" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;message&quot;: &amp;lt;名前&amp;gt;さんが参加しました,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;senderId&quot;: -1,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;sender&quot;: *&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
@@ -2074,8 +2074,8 @@
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-34" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="190" y="459.40999999999997" as="sourcePoint" />
-            <mxPoint x="120" y="460" as="targetPoint" />
+            <mxPoint x="190" y="449.99999999999994" as="sourcePoint" />
+            <mxPoint x="120" y="450.59" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
