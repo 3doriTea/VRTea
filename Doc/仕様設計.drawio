@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書">
-    <mxGraphModel dx="2977" dy="1606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1895" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2025,10 +2025,10 @@
           <mxGeometry height="120" width="200" x="600" y="1680" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;NewName&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;新しい名前&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="140" y="2950" as="geometry" />
+          <mxGeometry height="120" width="200" x="140" y="3070" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;NewColor&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: &amp;lt;新しい色&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="140" y="2630" as="geometry" />
+          <mxGeometry height="120" width="200" x="140" y="2750" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;message&quot;: &amp;lt;チャットメッセージUTF8&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;senderId&quot;: &amp;lt;送信者のセッションId&amp;gt;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;sender&quot;: &amp;lt;送信者の名前&amp;gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="280" x="220" y="2210" as="geometry" />
@@ -2107,39 +2107,39 @@
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-52" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="350" y="2690" as="sourcePoint" />
-            <mxPoint x="500" y="2690" as="targetPoint" />
+            <mxPoint x="350" y="2810" as="sourcePoint" />
+            <mxPoint x="500" y="2810" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;対象&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="240" width="80" x="40" y="2560" as="geometry" />
+          <mxGeometry height="240" width="80" x="40" y="2680" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-54" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;1つの&lt;/div&gt;Server" vertex="1">
-          <mxGeometry height="240" width="80" x="520" y="2560" as="geometry" />
+          <mxGeometry height="240" width="80" x="520" y="2680" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;他&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="240" width="80" x="1000" y="2560" as="geometry" />
+          <mxGeometry height="240" width="80" x="1000" y="2680" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-58" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;TCP: クライアントが色変更したとき&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="70" width="840" x="140" y="2550" as="geometry" />
+          <mxGeometry height="70" width="840" x="140" y="2670" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-62" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="350" y="3010" as="sourcePoint" />
-            <mxPoint x="500" y="3010" as="targetPoint" />
+            <mxPoint x="350" y="3130" as="sourcePoint" />
+            <mxPoint x="500" y="3130" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-63" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;対象&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="240" width="80" x="40" y="2880" as="geometry" />
+          <mxGeometry height="240" width="80" x="40" y="3000" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;1つの&lt;/div&gt;Server" vertex="1">
-          <mxGeometry height="240" width="80" x="520" y="2880" as="geometry" />
+          <mxGeometry height="240" width="80" x="520" y="3000" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-65" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;他&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="240" width="80" x="1000" y="2880" as="geometry" />
+          <mxGeometry height="240" width="80" x="1000" y="3000" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-66" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;クライアントが名前変更したとき&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="70" width="840" x="140" y="2870" as="geometry" />
+          <mxGeometry height="70" width="840" x="140" y="2990" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-67" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=36.049714003248354;endSize=9.440963855421685;width=19.518072289156624;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -2170,6 +2170,9 @@
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-82" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="クライアントが更新処理を送信するとその応答として&lt;div&gt;他の全クライアントの情報をサーバーが送信する&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;↓&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;クライアントが更新情報を送信した分だけ&lt;/div&gt;&lt;div&gt;他クライアントの情報を受信できる&lt;/div&gt;" vertex="1">
           <mxGeometry height="160" width="480" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="jBGdmvNMK_G4fBwu1qiN-83" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="他クライアントの更新情報に色や名前が含まれるため、&lt;div&gt;このタイミングで他クライアントの情報は不要&lt;/div&gt;" vertex="1">
+          <mxGeometry height="121" width="480" x="560" y="2520" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
