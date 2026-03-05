@@ -2049,13 +2049,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;対象&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="840" width="80" x="20" y="40" as="geometry" />
+          <mxGeometry height="520" width="80" x="20" y="40" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;1つの&lt;/div&gt;Server" vertex="1">
-          <mxGeometry height="840" width="80" x="500" y="40" as="geometry" />
+          <mxGeometry height="520" width="80" x="500" y="40" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;他&lt;/div&gt;Client" vertex="1">
-          <mxGeometry height="840" width="80" x="980" y="40" as="geometry" />
+          <mxGeometry height="520" width="80" x="980" y="40" as="geometry" />
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-31" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;rounded=0;fontFamily=Cascadia Code;" value="{&lt;div&gt;&amp;nbsp; &quot;head&quot;: &quot;Event&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;head&quot;: &quot;Chat&quot;,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &quot;content&quot;: {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;message&quot;: &amp;lt;名前&amp;gt;さんが参加しました,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;senderId&quot;: -1,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &quot;sender&quot;: *&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="280" x="600" y="360" as="geometry" />
@@ -2076,7 +2076,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="jBGdmvNMK_G4fBwu1qiN-14" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;h1&gt;クライアントが参加したとき&lt;/h1&gt;" vertex="1">
-          <mxGeometry height="40" width="840" x="120" y="40" as="geometry" />
+          <mxGeometry height="60" width="840" x="120" y="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
