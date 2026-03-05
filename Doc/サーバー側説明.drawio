@@ -40,7 +40,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="ｱﾌﾟﾘｹｰｼｮﾝ UTF8 byte json" id="hhNAiOPUUUMA3y3KlRDj">
-    <mxGraphModel dx="2084" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1489" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="3fppM2vZAcJkIrL_cYAh-0" />
         <mxCell id="3fppM2vZAcJkIrL_cYAh-1" parent="3fppM2vZAcJkIrL_cYAh-0" />
@@ -50,10 +50,10 @@
         <mxCell id="4Yd93Ac8wQRXOur6AuoI-0" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=24;" value="構造体を使うか" vertex="1">
           <mxGeometry height="170" width="330" x="260" y="260" as="geometry" />
         </mxCell>
-        <mxCell id="4Yd93Ac8wQRXOur6AuoI-1" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=24;" value="でも絶対に届いてほしい&lt;div&gt;データがある&lt;/div&gt;" vertex="1">
+        <mxCell id="4Yd93Ac8wQRXOur6AuoI-1" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=24;" value="でも入れ子構造&lt;div&gt;サイズ可変長&lt;/div&gt;&lt;div&gt;を解決したい&lt;/div&gt;" vertex="1">
           <mxGeometry height="205" width="420" x="570" y="350" as="geometry" />
         </mxCell>
-        <mxCell id="4Yd93Ac8wQRXOur6AuoI-2" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="TCPも使おう！" vertex="1">
+        <mxCell id="4Yd93Ac8wQRXOur6AuoI-2" parent="3fppM2vZAcJkIrL_cYAh-1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="JSONを使おう！" vertex="1">
           <mxGeometry height="280" width="470" x="960" y="480" as="geometry" />
         </mxCell>
         <mxCell id="4Yd93Ac8wQRXOur6AuoI-3" edge="1" parent="3fppM2vZAcJkIrL_cYAh-1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;endWidth=86.44628099173553;endSize=33.18181818181818;width=65.45454545454545;fillColor=default;" value="">
