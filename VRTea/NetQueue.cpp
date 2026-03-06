@@ -41,7 +41,7 @@ static bool ConnectImplTCP(const SOCKADDR_IN& addr, SOCKET s, int timeoutSec = 1
 		}
 	}
 
-	// 接続完了待ち: write-set と except-set を見る
+	// 接続完了待ち: write-setとexcept-setを見る
 	fd_set wfds, efds;
 	FD_ZERO(&wfds); FD_SET(s, &wfds);
 	FD_ZERO(&efds); FD_SET(s, &efds);
@@ -51,9 +51,9 @@ static bool ConnectImplTCP(const SOCKADDR_IN& addr, SOCKET s, int timeoutSec = 1
 	tv.tv_usec = 0;
 
 	int sel = ::select(0, nullptr, &wfds, &efds, &tv);
-	if (sel <= 0) return false; // タイムアウト or エラー
+	if (sel <= 0) return false; // タイムアウトもしくはエラー
 
-	// エラー発生は except-set に乗る。また SO_ERROR で最終確認。
+	// エラー発生はexcept-setに乗る。また、SO_ERRORで最終確認。
 	int soerr = 0;
 	int len = sizeof(soerr);
 	::getsockopt(s, SOL_SOCKET, SO_ERROR, (char*)&soerr, &len);
@@ -67,8 +67,7 @@ static bool ConnectImplTCP(const SOCKADDR_IN& addr, SOCKET s, int timeoutSec = 1
 
 static bool ConnectImplUDP(const SOCKADDR_IN& addr, SOCKET s)
 {
-	// UDP は connect() で既定の宛先を設定するだけ
-	// 非ブロッキングにしておくのは送受信の都合上OK
+	// UDPはconnect()で既定の宛先を設定するだけ
 	u_long mode = 1;
 	ioctlsocket(s, FIONBIO, &mode);
 
