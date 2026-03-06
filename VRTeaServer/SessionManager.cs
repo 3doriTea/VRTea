@@ -196,17 +196,6 @@ namespace VRTeaServer
 		}
 
 		/// <summary>
-		/// クライアントからの受信キューからDequeue
-		/// </summary>
-		/// <param name="sessionId"></param>
-		/// <param name="cts"></param>
-		/// <returns></returns>
-		//public async Task<ReceiveData> ReceiveDequeue(int sessionId, CancellationTokenSource cts)
-		//{
-		//	return await _sessions[sessionId].ReceiveQueue.Reader.ReadAsync(cts.Token);
-		//}
-
-		/// <summary>
 		/// クライアントからの受信キューから試しにDequeueする
 		/// </summary>
 		/// <param name="sessionId"></param>
