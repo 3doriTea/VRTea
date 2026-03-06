@@ -13,6 +13,8 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	SetDoubleStartValidFlag(TRUE);
+
 	SetOutApplicationLogValidFlag(FALSE);
 	SetGraphMode(1280, 720, 32);
 	ChangeWindowMode(TRUE);
