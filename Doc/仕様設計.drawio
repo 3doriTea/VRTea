@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書-JSON">
-    <mxGraphModel dx="3565" dy="2855" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="3057" dy="2093" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2387,10 +2387,10 @@
         <mxCell id="33T8dqSSUeyxdpb5sFJ--12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;" value="&lt;h1&gt;イベント別処理&lt;/h1&gt;" vertex="1">
           <mxGeometry height="200" width="250" x="40" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="ecH1UPpo8YAwvGs6Lsof-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;実際にどう通信するか&lt;/h1&gt;" vertex="1">
+        <mxCell id="ecH1UPpo8YAwvGs6Lsof-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;実際にどう通信するか&lt;/h1&gt;&lt;div&gt;&lt;font style=&quot;font-size: 32px;&quot;&gt;(サーバ)&lt;/font&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="97" width="280" x="48.75" y="4140" as="geometry" />
         </mxCell>
-        <mxCell id="0j_YYlCBh7MKTZgR1cUA-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="&lt;div&gt;UDP : セッションIdをキーにしたMap&lt;/div&gt;" vertex="1">
+        <mxCell id="0j_YYlCBh7MKTZgR1cUA-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=64;" value="&lt;div&gt;UDP : セッションIdをキーにしたMap&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="1070" x="48.75" y="4250" as="geometry" />
         </mxCell>
         <mxCell id="0j_YYlCBh7MKTZgR1cUA-2" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;html=1;" value="UDP の 連想配列" vertex="1">
@@ -2570,8 +2570,29 @@
         <mxCell id="0j_YYlCBh7MKTZgR1cUA-53" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontFamily=DotGothic16;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DDotGothic16;fontSize=32;fontStyle=1" value="独立している" vertex="1">
           <mxGeometry height="150" width="240" x="50" y="6300" as="geometry" />
         </mxCell>
-        <mxCell id="dbrjEeFwdNhxZ5goNIq0-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;サーバー側の部分&lt;/h1&gt;" vertex="1">
+        <mxCell id="dbrjEeFwdNhxZ5goNIq0-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;fontFamily=Cascadia Code;" value="&lt;h1&gt;サーバ側の各処理部分&lt;/h1&gt;" vertex="1">
           <mxGeometry height="97" width="280" x="25" y="5800" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="VRTeaServer/Service/TerminateService.cs" vertex="1">
+          <mxGeometry height="30" width="230" x="250" y="6090" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;" value="VRTeaServer/Service/BotService.cs" vertex="1">
+          <mxGeometry height="30" width="230" x="48.75" y="6290" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;" value="VRTeaServer/Service/GameLogicService.cs" vertex="1">
+          <mxGeometry height="30" width="330" x="70" y="6530" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;" value="VRTeaServer/Service/GameUdpService.cs" vertex="1">
+          <mxGeometry height="30" width="330" x="788.75" y="6530" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;" value="VRTeaServer/Service/GameTcpService.cs" vertex="1">
+          <mxGeometry height="30" width="330" x="790" y="6330" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;" value="VRTeaServer/Service/WebTcpService.cs" vertex="1">
+          <mxGeometry height="30" width="330" x="790" y="6130" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="VRTeaServer/SessionManager.cs" vertex="1">
+          <mxGeometry height="30" width="330" x="348.75" y="6203" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
