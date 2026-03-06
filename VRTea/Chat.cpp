@@ -57,15 +57,6 @@ void Chat::DrawChatLog()
 	ImGui::End();
 }
 
-void Chat::DrawInputField()
-{
-
-}
-
-void Chat::InputText()
-{
-	
-}
 
 void Chat::ReadContent()
 {

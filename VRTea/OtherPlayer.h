@@ -47,7 +47,9 @@ struct OtherPlayer : GameObject
 	/// </summary>
 	/// <param name="playerPos">ボックス位置の基準にする他プレイヤー座標</param>
 	void DrawMessageBox(const DxLib::VECTOR& playerPos,const std::string& sender);
-
+	/// <summary>
+	/// 他プレイヤーのチャットイベントに対する処理をセットする
+	/// </summary>
 	void SetChatEventHandler();
 private:
 

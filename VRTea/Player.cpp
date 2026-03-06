@@ -183,7 +183,7 @@ void MenuMode::Update(Player& _p)
 
 	ImGui::SetNextWindowPos(screen_center, ImGuiCond_Always, ImVec2(0.5f, 0.5f));
 
-	ImGui::SetNextWindowSize(ImVec2(400, 500), ImGuiCond_FirstUseEver);
+	ImGui::SetNextWindowSize(ImVec2(400, 550));
 
 	ImGui::Begin("User Settings", 0, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
 
