@@ -43,7 +43,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				return DefWindowProc(hWnd, msg, wParam, lParam);
 
 			case WM_SYSCOMMAND:
-				if ((wParam & 0xfff0) == SC_KEYMENU) { // Disable ALT application menu
+				if ((wParam & 0xfff0) == SC_KEYMENU) 
+				{ 
 					SetUseHookWinProcReturnValue(TRUE);
 					return 0;
 				}

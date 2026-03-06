@@ -9,7 +9,7 @@
 /// </summary>
 /// <param name="colorJson"></param>
 /// <returns></returns>
-DxLib::COLOR_U8 GetColorFromJson(const json& colorJson)
+static DxLib::COLOR_U8 GetColorFromJson(const json& colorJson)
 {
 	// 色情報を取得
 	unsigned int color = colorJson.get<unsigned int>();
@@ -65,7 +65,7 @@ void OtherPlayer::Update()
 			json contentJ = pNetQueue->Find("Updated");
 			if (contentJ.empty())
 			{
-				break;  // updatedが未受信ならループ終了
+				break;  // Updatedが未受信ならループ終了
 			}
 
 			otherPlayersData_.clear();
@@ -82,20 +82,6 @@ void OtherPlayer::Update()
 				otherPlayersData_.push_back({ name, posV, color,idInt });
 			}
 		}
-
-#if _DEBUG && 0
-		{// Debug
-			otherPlayersData_.clear();
-			unsigned int color = 0xffffffffU;
-			VECTOR posV{};
-			posV.x = 0.f;
-			posV.y = 0.f;
-			posV.z = 0.f;
-			std::string name = "へのへのmoへじ";
-			int32_t idInt = 2;
-			otherPlayersData_.push_back({ name, posV, color,idInt });
-		}
-#endif
 	}
 
 	for (auto& [sender, chat] : otherPlayerChatMap_)

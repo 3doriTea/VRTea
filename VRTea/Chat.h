@@ -20,8 +20,6 @@ struct Chat : public GameObject
 	/// チャットのログを表示する
 	/// </summary>
 	void DrawChatLog();
-	void DrawInputField();
-	void InputText();
 	/// <summary>
 	/// NetQueueからチャット内容を読み取る
 	/// </summary>

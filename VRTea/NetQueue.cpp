@@ -16,10 +16,9 @@ namespace
 
 	//static const char* SERVER_IP_ADDRESS{ "192.168.33.2" };
 	//static const char* SERVER_IP_ADDRESS{ "192.168.42.5" };
-	static const char* SERVER_IP_ADDRESS{ "127.0.0.1" };
+	static const char* SERVER_IP_ADDRESS{ "192.168.3.229" };
 	static const USHORT SERVER_PORT_NUMBER{ 3000 };
 }
-
 
 static bool ConnectImplTCP(const SOCKADDR_IN& addr, SOCKET s, int timeoutSec = 10)
 {
@@ -111,7 +110,7 @@ NetQueue::NetQueue()
 	// TCP ソケットをバインドする
 	sockaddr_in localTcpAddr{};
 	localTcpAddr.sin_family = AF_INET;
-	localTcpAddr.sin_port = htons(0);  // 適切なポート番号を探してくれ―――
+	localTcpAddr.sin_port = htons(0);  // 適切なポート番号を探して
 	localTcpAddr.sin_addr.s_addr = INADDR_ANY;  // どこからでもアクセスokだよ
 
 	ret = bind(sockTcp, reinterpret_cast<sockaddr*>(&localTcpAddr), sizeof(localTcpAddr));
@@ -211,75 +210,8 @@ bool NetQueue::Connect(const char* ip, uint16_t port)
 		int err = WSAGetLastError();
 		std::cout << "UDP connect (peer set) failed. WSA=" << err << std::endl;
 	}
-
-	connected = connectTCPResult;        // ★ 通信の主軸がTCPなら、TCP成功をもって接続状態とする
-	return  connectUDPResult && connectTCPResult;    // 必要ならUDP失敗でも true に緩めることも可能
+	return  connectUDPResult && connectTCPResult;
 }
-
-//std::string NetQueue::ExtractHeadFromJsonString(std::string_view s)
-//{
-//	// "head" キーを探す
-//	constexpr std::string_view key = "\"head\"";
-//	auto keyPos = s.find(key);
-//	if (keyPos == std::string_view::npos) return {};
-//
-//	// ':' を探す（key の直後から）
-//	auto colonPos = s.find(':', keyPos + key.size());
-//	if (colonPos == std::string_view::npos) return {};
-//
-//	// ':' の後の最初のダブルクォートを探す（値の開始）
-//	auto quotePos = s.find('"', colonPos + 1);
-//	if (quotePos == std::string_view::npos) return {};
-//
-//	// 値の開始位置（quotePos + 1）から、終了の非エスケープのダブルクォートを探す
-//	std::string result;
-//	result.reserve(32);
-//
-//	bool escaping = false;
-//	for (size_t i = quotePos + 1; i < s.size(); ++i)
-//	{
-//		char c = s[i];
-//		if (escaping)
-//		{
-//			// 最小限のエスケープ処理
-//			switch (c)
-//			{
-//			case '"':  result.push_back('"'); break;
-//			case '\\': result.push_back('\\'); break;
-//			case '/':  result.push_back('/'); break;
-//			case 'b':  result.push_back('\b'); break;
-//			case 'f':  result.push_back('\f'); break;
-//			case 'n':  result.push_back('\n'); break;
-//			case 'r':  result.push_back('\r'); break;
-//			case 't':  result.push_back('\t'); break;
-//			default:
-//				// \uXXXX 等はここでは扱わない（必要なら拡張）
-//				result.push_back(c);
-//				break;
-//			}
-//			escaping = false;
-//		}
-//		else
-//		{
-//			if (c == '\\')
-//			{
-//				escaping = true;
-//			}
-//			else if (c == '"')
-//			{
-//				// 終端クォートに到達
-//				return result;
-//			}
-//			else
-//			{
-//				result.push_back(c);
-//			}
-//		}
-//	}
-//
-//	// 終端クォートが見つからなければ空文字を返す
-//	return {};
-//}
 
 // TagNameで検索し、見つかったら bodyを返す
 json NetQueue::Find(std::string TagName)
