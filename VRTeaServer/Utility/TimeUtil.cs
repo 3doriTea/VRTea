@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VRTeaServer.Utility
+﻿namespace VRTeaServer.Utility
 {
 	/// <summary>
 	/// 時間操作の便利系詰め合わせ

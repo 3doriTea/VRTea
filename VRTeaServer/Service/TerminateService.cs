@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VRTeaServer.Service
+﻿namespace VRTeaServer.Service
 {
 	/// <summary>
 	/// 終了を検知するサービス

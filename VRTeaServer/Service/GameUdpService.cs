@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using VRTeaServer.Logging;
 
 namespace VRTeaServer.Service
@@ -61,7 +55,6 @@ namespace VRTeaServer.Service
 								{
 									// ひたすら送信しまくる
 									SendDataWithIPEP sendDataWithIPEP = await _sessionManager.SendDequeueUDP(cts);
-									//Log.WriteLine($"send UDP at[{sendDataWithIPEP.To}]:{BitConverter.ToString(sendDataWithIPEP.Buffer)}");
 									udpClient.Send(sendDataWithIPEP.Buffer, sendDataWithIPEP.To);
 								}
 								catch (Exception ex)

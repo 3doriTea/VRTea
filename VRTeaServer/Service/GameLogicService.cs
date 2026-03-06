@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using System.Collections.Concurrent;
 using Newtonsoft.Json.Linq;
 using VRTeaServer.GameLogic;
 using VRTeaServer.Logging;
-using VRTeaServer.Exceptions;
 
 namespace VRTeaServer.Service
 {
@@ -87,8 +80,6 @@ namespace VRTeaServer.Service
 				JObject? json = null;
 				try
 				{
-					//Log.WriteLine($"受信した文字列:{data.GetString()}");
-					//Log.WriteLine($"受信したBinary:{BitConverter.ToString(data.Buffer)}");
 					json = JObject.Parse(data.GetString());
 				}
 				catch (Exception ex)
@@ -235,16 +226,10 @@ namespace VRTeaServer.Service
 					});
 
 					_ = SendToUDP(sessionId, $"{sendJson}");
-					//foreach (var sendId in _sessionManager.Sessions)
-					//{
-					//	// MEMO: 参加したてのIdさんを含む全員に送信する
-					//	_ = SendTo(sendId, $"{sendJson}");
-					//}
 				}
 
 				void EventChangeName(int sessionId, JToken changeContentJson)
 				{
-					//Log.WriteLine($"名前変更json:{changeContentJson}");
 					var changedName = changeContentJson.Value<string>("content");
 
 					Log.WriteLine($"[SID:{sessionId}]{changedName ?? "{{null}}"}");
