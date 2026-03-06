@@ -1993,7 +1993,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="LUr7IqPBXzZYHcFAXdI3" name="仕様書-JSON">
-    <mxGraphModel dx="3057" dy="2093" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1427" dy="1348" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2593,6 +2593,12 @@
         </mxCell>
         <mxCell id="JXQ6iVplGAIdgbEIsvRj-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="VRTeaServer/SessionManager.cs" vertex="1">
           <mxGeometry height="30" width="330" x="348.75" y="6203" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="VRTeaServer/Session.cs: 115~116" vertex="1">
+          <mxGeometry height="30" width="230" x="880" y="5110" as="geometry" />
+        </mxCell>
+        <mxCell id="JXQ6iVplGAIdgbEIsvRj-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="VRTeaServer/SessionManager.cs: 44" vertex="1">
+          <mxGeometry height="30" width="230" x="910" y="4330" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
